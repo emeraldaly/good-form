@@ -1,0 +1,20 @@
+{
+  "name": "good-form",
+  "version": "1.0.0",
+  "description": "an app to help educational organizations stay in good form.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emeraldaly/good-form.git"
+  },
+  "author": "Stephanie Harris, Evan Bates, Elie Wohl, Alyson Wright",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emeraldaly/good-form/issues"
+  },
+  "homepage": "https://github.com/emeraldaly/good-form#readme"
+}
