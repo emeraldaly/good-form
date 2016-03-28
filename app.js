@@ -10,7 +10,7 @@ app.get('*', function(req, res){
   res.sendFile(process.cwd() + '/index.html');
 });
 
-require('./routes')(app);
+// require('./routes')(app);
 
 app.listen(PORT, function(){
   console.log("listening on PORT:" + PORT);
