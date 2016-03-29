@@ -31,6 +31,8 @@ var Class= new Schema({
     github:String,
     admin:Boolean,
     role:String,
+    username:String,
+    password:String,
 	});
 
 
