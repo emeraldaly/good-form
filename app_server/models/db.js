@@ -61,7 +61,24 @@ var Class= new Schema({
     password:String,
     portfolio:String,
     trello:String
+    submission:{
+       type: Schema.Types.ObjectId,
+        ref: 'submission'
+      },
+
 	});
+
+Var Homework = new Schema({
+
+	assignment:String,
+	due:String,
+	//who gets to see that they have the homework
+	class: [{ type: Schema.ObjectId, ref: 'class' }]
+	_submission:{
+       type: Schema.Types.ObjectId,
+        ref: 'submission'
+      },
+})
 
 mongoose.connection.on("error", function() {
 	console.log("mongoose connection err " + err);
