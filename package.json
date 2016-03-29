@@ -2,10 +2,10 @@
   "name": "good-form",
   "version": "1.0.0",
   "description": "an app to help educational organizations stay in good form.",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/emeraldaly/good-form#readme",
   "dependencies": {
+    "body-parser": "^1.15.0",
+    "connect": "^3.4.1",
+    "dotenv": "^2.0.0",
     "express": "^4.13.4",
+    "method-override": "^2.3.5",
     "morgan": "^1.7.0"
   }
 }
