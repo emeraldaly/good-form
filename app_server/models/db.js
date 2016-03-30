@@ -1,4 +1,4 @@
-// require("./articles");
+require("./user");
 require("dotenv").config();
 var mongoose = require("mongoose");
 
@@ -11,6 +11,7 @@ if(process.env.NODE_ENV === 'production') {
 else {
   // LOCAL DB
   var dbURI = 'mongodb://localhost/goodform';
+  console.log(dbURI);
   mongoose.connect(dbURI);
 
 }
