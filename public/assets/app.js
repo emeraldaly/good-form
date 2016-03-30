@@ -4,9 +4,15 @@ angular.module("ClassApp", ['ngRoute'])
       .when('/home', {
         templateUrl:"/views/home.html"
       })
+      .when('/register', {
+        templateUrl:"/views/register.html"
+      })
       .when('/users', {
         templateUrl:"/views/users.html"
-      });
+      })
+      // .when('/adduser', {
+      // 	templateUrl: 
+      // });
 
     $locationProvider.html5Mode({
       enabled: true,

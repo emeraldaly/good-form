@@ -3,19 +3,23 @@
 <html ng-app = "ClassApp">
 
 <head>
-  <title>Edu App</title>
+  <title>Good Form</title>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/mainPage.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 </head>
 
 <body>
   <ul>
+  <li><a href="/register">Register</a></li>
     <li><a href="/home">Home</a></li>
     <li><a href="/users">User Page</a></li>
   </ul>
-  <h1>If you only see me, you're on the index page</h1>
+  <div class="col-md-4 col-md-offset-4 goodtitle">
+<h1 class="goodtitle"> GOOD FORM </h1>
+	</div>
   <div ng-view></div>
   <script src="/assets/app.js"></script>
 </body>
