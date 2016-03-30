@@ -7,12 +7,14 @@
 			type: Schema.Types.ObjectId,
 			ref: 'Class'
 		}],
-		linkedin: String,
+		heroku: String,
 		github: String,
 		admin: Boolean,
 		role: String,
 		username: String,
 		password: String,
+		name: String,
+		description: String
 	});
 
 	var Homework = mongoose.model('Homework', HomeworkSchema);
