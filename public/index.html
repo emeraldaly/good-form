@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 
-<html ng-app = "ClassApp">
+<html ng-app="routerApp">
 
 <head>
   <title>Good Form</title>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular-route.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/mainPage.css">
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 </head>
 
 <body>
+<a ui-sref="register">register</a>
   <ul>
-    <li><a href="/home">Home</a></li>
-    <li><a href="/users">User Page</a></li>
+    <li><a ui-sref="home">Home</a></li>
+    <li><a ui-sref="users">User Page</a></li>
+    <li><a ui-sref="register">register</a> </li>
   </ul>
   <div class="col-md-4 col-md-offset-4 goodtitle">
 <h1 class="goodtitle"> GOOD FORM </h1>
 	</div>
-  <div ng-view></div>
+   <div ui-view autoscroll="false"></div>
   <script src="/assets/app.js"></script>
 </body>
 </html>
