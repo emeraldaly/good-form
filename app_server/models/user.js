@@ -3,17 +3,26 @@
   var Schema = mongoose.Schema;
 
   var UserSchema = new Schema({
-		_class: [{
-       type: Schema.Types.ObjectId,
-        ref: 'Class'
-      }],
+		name: { 
+      type: String,
+      required: true
+    },
+    email: {
+      type: String,
+      unique: true,
+      required: true
+    },
+    hash: String,
+    salt: String,
     linkedin: String,
     github: String,
     admin: Boolean,
     role: String,
-    username: String,
-    password: String,
-	});
+    _class: [{
+       type: Schema.Types.ObjectId,
+        ref: 'Class'
+      }]
+  });
 
 var User = mongoose.model('User', UserSchema);
 
