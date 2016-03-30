@@ -4,6 +4,9 @@ angular.module("ClassApp", ['ngRoute'])
       .when('/home', {
         templateUrl:"/views/home.html"
       })
+      .when('/register', {
+        templateUrl:"/views/register.html"
+      })
       .when('/users', {
         templateUrl:"/views/users.html"
       });
