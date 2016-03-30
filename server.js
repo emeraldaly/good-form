@@ -10,9 +10,9 @@ app.use(bodyParser.urlencoded({
  	extended: false
 }));
 
-app.get('*', function(req, res){
-  res.sendFile(process.cwd() + '/index.html');
-});
+// app.get('*', function(req, res){
+//   res.sendFile(process.cwd() + '/index.html');
+// });
 
 require("dotenv").config();
 require("./app_server/models/db");

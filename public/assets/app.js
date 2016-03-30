@@ -6,7 +6,10 @@ angular.module("ClassApp", ['ngRoute'])
       })
       .when('/users', {
         templateUrl:"/views/users.html"
-      });
+      })
+      // .when('/adduser', {
+      // 	templateUrl: 
+      // });
 
     $locationProvider.html5Mode({
       enabled: true,

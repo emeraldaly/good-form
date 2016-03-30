@@ -4,8 +4,20 @@ var homework = require("../models/homework");
 var classy = require("../models/class");
 
 
-exports.test = function(req, res){
-  console.log("this worked!");
+exports.addUser = function(req, res){
+  	var userx = new user({username: "steph", role: "admin"});
+			userx.save(function (err) {
+				if (err) {
+					var dummyvar;
+				} else {
+					console.log('record saved');
+				}
+			});
+
+
 }
 
+exports.defRoute = function(req, res){
 
+ res.sendFile(process.cwd() + '/public/index.html');
+}
