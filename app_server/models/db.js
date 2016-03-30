@@ -20,65 +20,6 @@ mongoose.connection.on("connected", function() {
 });
 
 
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-
-var Organization = new Schema({
-	name:String,
-	address:String,
-	website:String,
-	class:[{
-       type : Schema.Types.ObjectId,
-        ref : 'class'
-      }]
-});
-var Class= new Schema({
-	name:String
-	_organization: {
-       type: Schema.Types.ObjectId,
-        ref: 'organization'
-      },
-  user:[{
-       type : Schema.Types.ObjectId,
-        ref : 'user'
-      }],
-  location:String,
-  dates:String,
-});
-
-	var User = new Schema({
-		_class: {
-       type: Schema.Types.ObjectId,
-        ref: 'class'
-      },
-    linkedin:String,
-    github:String,
-    admin:Boolean,
-    role:String,
-    first:String,
-    last:
-    username:String,
-    password:String,
-    portfolio:String,
-    trello:String
-    submission:{
-       type: Schema.Types.ObjectId,
-        ref: 'submission'
-      },
-
-	});
-
-Var Homework = new Schema({
-
-	assignment:String,
-	due:String,
-	//who gets to see that they have the homework
-	class: [{ type: Schema.ObjectId, ref: 'class' }]
-	_submission:{
-       type: Schema.Types.ObjectId,
-        ref: 'submission'
-      },
-})
 
 mongoose.connection.on("error", function() {
 	console.log("mongoose connection err " + err);
