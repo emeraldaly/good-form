@@ -28,6 +28,6 @@ exports.userUpdate = function(req, res){
 }
 
 //Delete a user from DB
-exports.userUpdate = function(req, res){
+exports.userDelete = function(req, res){
 
 }

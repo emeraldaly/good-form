@@ -1,7 +1,7 @@
 	var mongoose = require("mongoose");
-	
-	var Schema = mongoose.Schema;
 
+	var Schema = mongoose.Schema;
+  //can we add an input for the week and date/time submitted?
 	var HomeworkSchema = new Schema({
 		_class: [{
 			type: Schema.Types.ObjectId,
