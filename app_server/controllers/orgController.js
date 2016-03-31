@@ -1,9 +1,9 @@
 //ORGANIZATION DB SPECIFIC CONTROLLERS//
-var org = require("../models/organization");
+var Org = require("../models/organization");
 
 //Add an organization
 exports.addOrg = function(req, res){
-  var newOrg = new org (req.body);
+  var newOrg = new Org (req.body);
 
   newOrg.save(function(err, doc){
     if(err){
@@ -14,4 +14,31 @@ exports.addOrg = function(req, res){
   });
 }
 
+//Get all Organizations
+exports.showAllOrgs = function (req, res){
+  Org.find({})
+  .exec(function(err, docs){
+    if(err){
+      console.log(err);
+      res.send(err);
+    } else {
+      res.send(docs);
+    }
+  });
+}
+
 //Get all classes
+exports.getOrgsClasses = function (req, res){
+  Org.findOne({
+    name:req.body.name
+  })
+    .populate('classes');
+    .exec(function(err, docs){
+      if(err){
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(docs);
+      }
+    });
+}

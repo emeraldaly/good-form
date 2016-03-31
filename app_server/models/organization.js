@@ -10,7 +10,7 @@ var OrganizationSchema = new Schema({
   },
 	address: String,
 	website: String,
-	class:[{
+	classes:[{
     type : Schema.Types.ObjectId,
     ref : 'Class'
   }]

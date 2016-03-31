@@ -1,11 +1,9 @@
 //CLASS SPECIFIC CONTROLLERS//
-
-//"class" is a reserved JS keyword
-var classy = require("../models/class");
+var Class = require("../models/class");
 
 //Add a New class
 exports.addClass = function (req, res){
-  var newClass = new classy(req.body);
+  var newClass = new Class(req.body);
   newClass.save(function (err, doc) {
     if (err) {
       console.log(err);

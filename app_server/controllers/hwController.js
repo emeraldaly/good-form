@@ -1,9 +1,9 @@
 //HW SPECIFIC CONTROLLERS//
-var hw = require("../models/homework");
+var Hw = require("../models/homework");
 
 //Post a HW submission
 exports.submitHw = function (req, res){
-  var newHw = new hw(req.body);
+  var newHw = new Hw(req.body);
   newHw.save(function (err, doc) {
     if (err) {
       console.log(err);

@@ -1,9 +1,9 @@
 //USER SPECIFIC CONTROLLERS//
-var user = require("../models/user");
+var User = require("../models/user");
 
 //Add new user to DB
 exports.addUser = function(req, res){
-	var newUser = new user(req.body);
+	var newUser = new User(req.body);
   newUser.save(function (err, doc) {
 		if (err) {
 			console.log(err);
