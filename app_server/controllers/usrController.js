@@ -3,12 +3,12 @@ var user = require("../models/user");
 
 //Add new user to DB
 exports.addUser = function(req, res){
-	var userx = new user({username: "steph", role: "admin"});
-  userx.save(function (err) {
+	var newUser = new user(req.body);
+  newUser.save(function (err, doc) {
 		if (err) {
-			var dummyvar;
+			console.log(err);
 		} else {
-			console.log('record saved');
+			console.log(doc);
 		}
 	});
 }
