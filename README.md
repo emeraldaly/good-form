@@ -15,17 +15,17 @@ This site is an organizational tool for educational organizations. It streamline
 Users must create an account, log in, and be assigned appropriate admin and participant authorization.
 
 ## Technologies Used:
-- MySQL or MongoDB(??)
+- MongoDB
 - Express
 - Angular
 - Node.js
 - HTML 
 - CSS 
 - Javascript
-- JQuery 
-- Bootstrap (??)
+- Bootstrap
 - Passport
 - API
+- ui.route
 
 ## Link to live app on Heroku:
 
@@ -36,8 +36,6 @@ Users must create an account, log in, and be assigned appropriate admin and part
 username: guest@good-form.com
 password: guest
 
-## Project Management Aproach: 
+## Project Management Approach: 
 * Daily checkin on Screenhero, project management on Trello 
-
-
 
