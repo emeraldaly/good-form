@@ -5,13 +5,29 @@ var classy = require("../models/class");
 
 
 exports.addUser = function(req, res){
-  	var userx = new user({username: "steph", role: "admin"});
-			userx.save(function (err) {
+  	var orgx = new organization({name: req.body.organizationName, address:req.body.address, website:req.body.website});
+			orgx.save(function (err, data) {
 				if (err) {
 					var dummyvar;
 				} else {
-					console.log('record saved');
+					debugger
+					console.log(data._doc._id)
+					var userx = new user({firstname: req.body.userFirstName,
+						lastname:req.body.userLastName,
+						email:req.body.userEmail,
+						password:req.body.userPassword,
+						admin:true,
+					 _organization:data._doc._id,
+					});
+			userx.save(function (err, data) {
+				if (err) {
+					console.log(err)
+				} else {
+					console.log("saved")
 				}
+			})
+				}
+
 			});
 
 
