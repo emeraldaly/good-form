@@ -14,3 +14,17 @@ exports.addClass = function (req, res){
 }
 
 //Get all users in class
+exports.getClassUsers = function (req, res){
+  Class.findOne({
+    name:req.body.name
+  })
+    .populate('user');
+    .exec(function(err, docs){
+      if(err){
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(docs);
+      }
+    });
+}

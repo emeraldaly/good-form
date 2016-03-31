@@ -27,7 +27,7 @@ exports.showAllOrgs = function (req, res){
   });
 }
 
-//Get all classes
+//Get all classes for specific org
 exports.getOrgsClasses = function (req, res){
   Org.findOne({
     name:req.body.name

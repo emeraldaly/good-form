@@ -16,6 +16,7 @@ module.exports = function (app) {
   app.post('/submitHw', hwCtrl.submitHw);
 
   //Class Controls
+  app.get('/getClassUsers', classCtrl.getClassUsers)
   app.post('/addClass', classCtrl.addClass);
 
   app.get('*', usrCtrl.defRoute);
