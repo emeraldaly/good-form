@@ -7,12 +7,8 @@
 			type: Schema.Types.ObjectId,
 			ref: 'Class'
 		}],
-		heroku: String,
-		github: String,
-		admin: Boolean,
-		role: String,
-		username: String,
-		password: String,
+		//by user
+		//by week
 		name: String,
 		description: String
 	});

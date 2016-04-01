@@ -7,13 +7,20 @@
        type: Schema.Types.ObjectId,
         ref: 'Class'
       }],
+      _organization: [{
+       type: Schema.Types.ObjectId,
+        ref: 'organization'
+      }],
     linkedin: String,
     github: String,
     admin: Boolean,
     role: String,
-    username: String,
+    firstname:String,
+    lastname:String,
+    email:String,
     password: String,
 	});
+
 
 var User = mongoose.model('User', UserSchema);
 
