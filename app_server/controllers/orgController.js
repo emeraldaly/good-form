@@ -32,7 +32,7 @@ exports.getOrgsClasses = function (req, res){
   Org.findOne({
     name:req.body.name
   })
-    .populate('classes');
+    .populate('classes')
     .exec(function(err, docs){
       if(err){
         console.log(err);

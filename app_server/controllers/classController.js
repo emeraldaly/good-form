@@ -18,7 +18,7 @@ exports.getClassUsers = function (req, res){
   Class.findOne({
     name:req.body.name
   })
-    .populate('user');
+    .populate('user')
     .exec(function(err, docs){
       if(err){
         console.log(err);
