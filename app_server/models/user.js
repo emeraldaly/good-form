@@ -1,5 +1,5 @@
 	var mongoose = require("mongoose");
-  
+
   var Schema = mongoose.Schema;
 
   var UserSchema = new Schema({
@@ -23,7 +23,6 @@
         ref: 'assignment'
       }],
 	});
-
 
 var User = mongoose.model('User', UserSchema);
 
