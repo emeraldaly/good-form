@@ -26,6 +26,3 @@ app.use(passport.initialize());
 app.listen(PORT, function(){
   console.log("listening on PORT:" + PORT);
 });
-
-
-
