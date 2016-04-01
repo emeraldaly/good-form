@@ -4,12 +4,11 @@ var Homework = require("../models/homework");
 var Class = require("../models/class");
 
 exports.newUser = function(req, res) {
-	debugger
 	console.log(req.body.userRole)
 		var userx = new User({
 		firstname: req.body.userFirstName,
 		lastname: req.body.userLastName,
-		email: req.body.userEmail,
+		username: req.body.userEmail,
 		password: req.body.userPassword,
 		admin: req.body.userRole,
 		// currently hardwired in until we can do a req value
