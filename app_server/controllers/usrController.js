@@ -87,3 +87,23 @@ exports.defRoute = function(req, res){
 
  res.sendFile(process.cwd() + '/public/index.html');
 }
+
+//Show all users in the class
+exports.getAllUsers = function(req, res){
+
+}
+
+//Update a user's info
+exports.userUpdate = function(req, res){
+
+}
+
+//Delete a user from DB
+exports.userDelete = function(req, res){
+
+}
+
+exports.defRoute = function(req, res){
+
+ res.sendFile(process.cwd() + '/public/index.html');
+}
