@@ -6,7 +6,7 @@ var Schema = mongoose.Schema;
 var ClassSchema= new Schema({
 	name: String,
 	datetime:String,
-	organization: [{
+	_organization: [{
        type: Schema.Types.ObjectId,
         ref: 'Organization'
       }],
