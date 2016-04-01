@@ -14,11 +14,14 @@
     linkedin: String,
     github: String,
     admin: Boolean,
-    role: String,
     firstname:String,
     lastname:String,
     email:String,
     password: String,
+    _assignment:[{
+       type: Schema.Types.ObjectId,
+        ref: 'assignment'
+      }],
 	});
 
 
