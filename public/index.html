@@ -3,7 +3,6 @@
 <html ng-app="classApp">
 
 <head>
-  <title>Good Form</title>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
@@ -13,16 +12,26 @@
 </head>
 
 <body>
+<!-- <div ng-controller="testCtrl">
+
+
+
+<button ng-click="tester"> make an http call yall</button>
+
+
+
+  </div> -->
+
 <a ui-sref="register">register</a>
   <ul>
+    <li><a ui-sref="class">Classes</a></li>
     <li><a ui-sref="home">Home</a></li>
     <li><a ui-sref="users">User Page</a></li>
     <li><a ui-sref="register">register</a> </li>
+    <li><a ui-sref="newUser">new User</a> </li>
   </ul>
-  <div class="col-md-4 col-md-offset-4 goodtitle">
-<h1 class="goodtitle">GOOD FORM</h1>
-	</div>
    <div ui-view autoscroll="false"></div>
   <script src="/assets/app.js"></script>
+  <!-- <script src="/assets/javascript/controllers/test.controller.js"</script> -->
 </body>
 </html>

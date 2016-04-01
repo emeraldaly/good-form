@@ -5,11 +5,20 @@ var Schema = mongoose.Schema;
 
 var ClassSchema= new Schema({
 	name: String,
-	organization: [{
+	datetime:String,
+	_organization: [{
        type: Schema.Types.ObjectId,
         ref: 'Organization'
       }],
-  user:[{
+  student:[{
+       type : Schema.Types.ObjectId,
+        ref : 'User'
+      }],
+      teacher:[{
+       type : Schema.Types.ObjectId,
+        ref : 'User'
+      }],
+      ta:[{
        type : Schema.Types.ObjectId,
         ref : 'User'
       }]

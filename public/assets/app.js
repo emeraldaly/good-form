@@ -15,4 +15,16 @@ $stateProvider
     url: '/register',
     templateUrl: '/views/register.html'
   })
+     .state('newUser', {
+    url: '/newUser',
+    templateUrl: '/views/newUser.html'
+  })
+       .state('class', {
+    url: '/class',
+    templateUrl: '/views/class.html'
+  })
+         .state('createClass', {
+    url: '/createClass',
+    templateUrl: '/views/createClass.html'
+  })
 });
