@@ -19,7 +19,7 @@ module.exports = function (app) {
 
   //Class Controls
   app.get('/getClassUsers', classCtrl.getClassUsers)
-  app.post('/addClass', classCtrl.addClass);
+  app.post('/createClass', classCtrl.createClass);
 
   app.get('*', usrCtrl.defRoute);
 };
