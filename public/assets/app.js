@@ -1,4 +1,4 @@
-var classApp = angular.module('classApp', ['ui.bootstrap','ui.router']);
+var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io']);
 classApp.config(function($stateProvider, $urlRouterProvider) {
 $urlRouterProvider.otherwise('/home')
 $stateProvider
