@@ -37,6 +37,7 @@ console.log($scope.userFirstName)
         method: 'POST',
         url: '/newUser',
         data: {username:$scope.userEmail, 
+          userRole:$scope.userRole,
           userPassword:$scope.userPassword,
           userFirstName:$scope.userFirstName,
           userLastName:$scope.userLastName,
