@@ -27,6 +27,11 @@ $stateProvider
     url: '/createClass',
     templateUrl: '/views/createClass.html'
   })
+         .state('chat', {
+    url: '/chat',
+    templateUrl: '/views/chat.html',
+    controller: 'chatControl'
+  })
 });
 
 classApp.controller('newUser', function($scope, $http) {
@@ -36,7 +41,7 @@ console.log($scope.userFirstName)
      $http({
         method: 'POST',
         url: '/newUser',
-        data: {username:$scope.userEmail, 
+        data: {username:$scope.userEmail,
           userPassword:$scope.userPassword,
           userFirstName:$scope.userFirstName,
           userLastName:$scope.userLastName,
@@ -44,7 +49,7 @@ console.log($scope.userFirstName)
       }).then(function(result) {
 
         console.log(result)
-         
+
       });
     };
 
