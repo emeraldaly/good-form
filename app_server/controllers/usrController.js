@@ -6,31 +6,33 @@ var Class = require("../models/class");
 var mongoose = require("mongoose");	
 
 exports.login = function(req, res) {
-console.log(req.body);
-  passport.authenticate('local', { successRedirect: '/successRedirect',
-                                   failureRedirect: '/login' });
-console.log(passport.authenticate);
+// console.log(req.body);
+//   passport.authenticate('local', { successRedirect: '/successRedirect',
+//                                    failureRedirect: '/login' });
+// console.log(passport.authenticate);
 } 
 
 
 exports.newUser = function(req, res) {
+	debugger
 	console.log(req.body.userRole)
 	var userx = new User({
 		firstname: req.body.userFirstName,
 		lastname: req.body.userLastName,
-		username: req.body.userEmail,
+		username: req.body.username,
 		password: req.body.userPassword,
 		admin: req.body.userRole,
 		// currently hardwired in until we can do a req value
 		_organization: "56fd84b7b49810d615bb1e21",
 	});
-
 	User.findOne({ username: req.body.userEmail }, function(err, user) {
 		if (user) {
 			res.redirect("/?msg=Your email is already registered, please login.");
 			console.log("found one")} 
 			else { console.log("didn't find one")
 				userx.save(function(err, user) {console.log("saved")});
+			debugger
+			console.log(user)
 			res.redirect("/?msg=Thank you for registering, please login.");
 
 		};
