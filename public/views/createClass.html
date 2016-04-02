@@ -1,11 +1,11 @@
 	<h3>create class:</h3>
-	<form method="POST" action="/createClass">
+	<form ng-controller="class">
 	<div class="panel-body>">
-			<label for="userFirstName">Name</label>
-	    <input type="text" name="name" placeholder="">
+			<label for="className">Name</label>
+	    <input type="text" ng-model="name" placeholder="">
 	    <label for="username">Date and Time</label>
-	    <input type="text" name="datetime" placeholder="">
-	    <button type="submit"> sumbit </button>
+	    <input type="text" ng-model="datetime" placeholder="">
+	    <button type="submit" ng-click="createClass()" class="btn btn-info">Register</a>
 	</form>
 <!-- upon submit, automatically goes to the edit class 
 
