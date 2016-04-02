@@ -1,21 +1,21 @@
-<form method="POST" action="/newUser">
+<form ng-controller="newUser" >
 	<div class="panel-body>">
 			<label for="userFirstName">First Name:</label>
-	    <input type="text" name="userFirstName" placeholder="Evan">
+	    <input type="text" name="userFirstName" ng-model="userFirstName" placeholder="Evan">
 	    <label for="username">Last Name:</label>
-	    <input type="text" name="userLastName" placeholder="Bates">
+	    <input type="text" name="userLastName" ng-model="userLastName" placeholder="Bates">
 	    <label for="username">Email:</label>
-	    <input type="email" name="userEmail" placeholder="Evan@bates.com">
+	    <input type="email" name="userEmail" ng-model="userEmail" placeholder="Evan@bates.com">
 	    <label for="username">Password:</label>
-	    <input type="text" name="userPassword" placeholder="*****">
+	    <input type="password" name="userPassword" ng-model="userPassword"  placeholder="*****">
 	    <p>what type of account? </p>
 	    <div class="radio">
-  <label><input type="radio" name="userRole" value="false">Student</label>
+  <label><input type="radio" name="userRole" ng-model="userRole" value="false">Student</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="userRole" value="true">Admin</label>
+  <label><input type="radio" name="userRole" ng-model="userRole" value="true">Admin</label>
 </div>
-	    <button type="submit" class="btn btn-info">Register</a>
+	    <button type="submit" ng-click="newUser()" class="btn btn-info">Register</a>
 		</div>
 	</div>
 </form>

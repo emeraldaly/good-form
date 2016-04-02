@@ -28,3 +28,24 @@ $stateProvider
     templateUrl: '/views/createClass.html'
   })
 });
+
+classApp.controller('newUser', function($scope, $http) {
+$scope.newUser = function(){
+debugger
+console.log($scope.userFirstName)
+     $http({
+        method: 'POST',
+        url: '/newUser',
+        data: {username:$scope.userEmail, 
+          userPassword:$scope.userPassword,
+          userFirstName:$scope.userFirstName,
+          userLastName:$scope.userLastName,
+        }
+      }).then(function(result) {
+
+        console.log(result)
+         
+      });
+    };
+
+  })
