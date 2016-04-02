@@ -15,9 +15,9 @@ $stateProvider
     url: '/register',
     templateUrl: '/views/register.html'
   })
-     .state('newUser', {
-    url: '/newUser',
-    templateUrl: '/views/newUser.html'
+     .state('addUser', {
+    url: '/addUser',
+    templateUrl: '/views/addUser.html'
   })
        .state('class', {
     url: '/class',
@@ -35,22 +35,40 @@ $stateProvider
 });
 
 classApp.controller('newUser', function($scope, $http) {
-$scope.newUser = function(){
+$scope.addUser = function(){
 debugger
 console.log($scope.userFirstName)
      $http({
         method: 'POST',
-        url: '/newUser',
+        url: '/addUser',
         data: {username:$scope.userEmail,
+          userRole:$scope.userRole,
           userPassword:$scope.userPassword,
           userFirstName:$scope.userFirstName,
           userLastName:$scope.userLastName,
         }
       }).then(function(result) {
-
         console.log(result)
-
       });
     };
+$scope.register = function(){
+  debugger
+  console.log($scope.organizationName)
+     $http({
+        method: 'POST',
+        url: '/newUser',
+        data: {username:$scope.userEmail,
+          organizationName:$scope.organizationName,
+          address:$scope.address,
+          website:$scope.website,
+          userRole:$scope.userRole,
+          userPassword:$scope.userPassword,
+          userFirstName:$scope.userFirstName,
+          userLastName:$scope.userLastName,
+        }
+      }).then(function(result) {
+        console.log(result)
+      });
+  }
+});
 
-  })
