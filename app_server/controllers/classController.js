@@ -14,6 +14,24 @@ exports.createClass = function (req, res){
   });
 }
 
+exports.showClasses = function (req, res){
+  Class.find({
+  _organization:"56fd84b7b49810d615bb1e21"
+  })
+  .populate('user')
+  .exec(function(err, docs){
+      if(err){
+        console.log(err);
+        res.send(err);
+      } else {
+        debugger
+        console.log(docs)
+        res.send(docs);
+      }
+    });
+}
+
+
 //Get all users in class
 exports.getClassUsers = function (req, res){
   Class.findOne({

@@ -150,6 +150,17 @@ exports.defRoute = function(req, res) {
 
 //Show all users in the class
 exports.getAllUsers = function(req, res) {
+  User.find({
+    _organization:"56fd84b7b49810d615bb1e21"
+  })
+    .exec(function(err, docs){
+      if(err){
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(docs);
+      }
+    });
 
 }
 
