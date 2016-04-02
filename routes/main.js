@@ -2,12 +2,13 @@ var usrCtrl = require('../app_server/controllers/usrController');
 var hwCtrl = require("../app_server/controllers/hwController");
 var classCtrl = require("../app_server/controllers/classController");
 var orgCtrl = require("../app_server/controllers/orgController");
-var usrt = require("../app_server/controllers/usertestController");
+
 
 module.exports = function (app) {
   //User Controls
   app.post('/adduser', usrCtrl.addUser);
   app.post('/newUser', usrCtrl.newUser);
+  app.post('/login', usrCtrl.login);
   app.get('*', usrCtrl.defRoute);
 
   //Org Controls
@@ -26,4 +27,15 @@ module.exports = function (app) {
 
 
   app.get('*', usrCtrl.defRoute);
+
+  app.use(require('express-session')({
+    secret: 'keyboardcat',
+    resave: true,
+    saveUninitialized: true,
+    cookie : { secure : false, maxAge : (4 * 60 * 60 * 1000) }, // 4 hours
+  }));
+
+
+
+
 };
