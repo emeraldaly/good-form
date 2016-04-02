@@ -44,6 +44,48 @@ require('./routes')(app);
 //   res.sendFile(process.cwd() + '/index.html');
 // });
 
+//SOCKET IO CONNECTION
+io.on('connection', function(socket){
+  var username = 'St';
+  console.log('a user has connected');
+
+//   socket.on('request-users', function(){
+//     socket.emit('users', {users: users});
+//   });
+
+  socket.on('add-user', function(data){
+//     if(users.indexOf(data.username) == -1){
+//       io.emit('add-user', {
+//         username: data.username
+//       });
+//       username = data.username;
+//       users.push(data.username);
+      users.push(username);
+//       User.save(function(err){
+//         if (err) throw err;
+//         console.log('user saved to db');
+//       });
+//     } else {
+//       socket.emit('prompt-username', {
+//         message : "User already exists"
+//       })
+//     }
+  });
+
+  socket.on('message', function(data){
+    io.emit('message', {
+      username: username,
+      message: data.message
+    });
+  });
+
+  socket.on('disconnect', function(data){
+    console.log(username + ' has disconnected');
+//     users.splice(users.indexOf(username), 1);
+    io.emit('remove-user', {username: username});
+  });
+});
+// END SOCKET
 
 http.listen(PORT, function(){
   console.log("listening on PORT:" + PORT);
