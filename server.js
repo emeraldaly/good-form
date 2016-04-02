@@ -1,5 +1,9 @@
 var express = require("express");
 var app = express();
+//Socket.io requires http to run correctly
+var http = require("http").Server(app);
+var io = require('socket.io')(http);
+
 var bodyParser = require ("body-parser");
 var logger= require('morgan');
 var PORT = process.env.PORT || 8080;
@@ -21,6 +25,6 @@ require('./routes')(app);
 // });
 
 
-app.listen(PORT, function(){
+http.listen(PORT, function(){
   console.log("listening on PORT:" + PORT);
 });
