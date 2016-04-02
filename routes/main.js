@@ -8,7 +8,6 @@ module.exports = function (app) {
   //User Controls
   app.post('/adduser', usrCtrl.addUser);
   app.post('/newUser', usrCtrl.newUser);
-  app.get('*', usrCtrl.defRoute);
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
