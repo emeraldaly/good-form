@@ -46,6 +46,7 @@ require('./routes')(app);
 
 //SOCKET IO CONNECTION
 io.on('connection', function(socket){
+  //change this to logged in user's name
   var username = 'St';
   console.log('a user has connected');
 
