@@ -2,9 +2,10 @@ var User = require("../models/user");
 var Organization = require("../models/organization");
 var Homework = require("../models/homework");
 var Class = require("../models/class");
-
+	
 exports.newUser = function(req, res) {
-	console.log(req.body.userRole)
+	debugger
+	console.log(req.body)
 		var userx = new User({
 		firstname: req.body.userFirstName,
 		lastname: req.body.userLastName,
@@ -18,6 +19,8 @@ exports.newUser = function(req, res) {
 		if (err) {
 			console.log(err)
 		} else {
+			debugger
+			console.log(user)
 			console.log("saved")
 		}
 		// need req.session.organizationId
@@ -55,7 +58,7 @@ exports.addUser = function(req, res) {
 	var userx = new User({
 		firstname: req.body.userFirstName,
 		lastname: req.body.userLastName,
-		email: req.body.userEmail,
+		username: req.body.userEmail,
 		password: req.body.userPassword,
 		admin: true,
 		// currently hardwired in until we can do a req value

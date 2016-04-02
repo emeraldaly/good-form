@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({
  	extended: false
 }));
 
+app.use(bodyParser.json());
+
+
 
 require("./app_server/models/db");
 require('./routes')(app);
