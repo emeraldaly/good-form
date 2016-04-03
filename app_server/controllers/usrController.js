@@ -1,71 +1,14 @@
-var express = require("express");
-var app = express();
-var passport = require("../config/passport");
 var User = require("../models/user");
 var bodyParser = require('body-parser');
-var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
-var session = require('express-session');
 var bcrypt = require("bcryptjs");
 var Organization = require("../models/organization");
 var Homework = require("../models/homework");
 var Class = require("../models/class");
 var mongoose = require("mongoose");
 
-app.use(require('express-session')({
-  secret: "rutgerpridesecrets",
-  resave: true,
-  saveUninitialized: true,
-  cookie: {secure: false, maxAge: (1000 * 60 * 60 * 24 * 30) },
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
-
-passport.serializeUser(function(user, done) {
-  done(null, user.id);
-});
-passport.deserializeUser(function(id, done) {
-  done(null, { id: id, username: id })
-});
-
-passport.use('local', new LocalStrategy({
-  passReqToCallback: true,
-
-},
-function(req, email, password, done) {
-
-  User.findOne({
-    where: {
-      email: email
-    }
-  })
-  .then(function(user){
-    if(user){
-      bcrypt.compare(password, user.dataValues.password, function(err, user) {
-        if (user) {
-
-          //if password is correct authenticate the user with cookie
-          done(null, { id: email, username: email });
-        } else{
-          done(null, null);
-        }
-      });
-    } else {
-      done(null, null);
-    }
-  });
-}));
-
-
-exports.login = function(req, res) {
-  console.log(req.body);
-  passport.authenticate('local', { successRedirect: '/successRedirect',
-                                   failureRedirect: '/login' });
-} 
-
+// app.use(bodyParser.urlencoded({
+//   extended: false
+// }));
 
 exports.newUser = function(req, res) {
 	// console.log(req.body);
@@ -75,7 +18,7 @@ exports.newUser = function(req, res) {
 }
 
 exports.addUser = function(req, res) {
-	console.log(req.body.userRole)
+
 	var userx = new User({
 		firstname: req.body.userFirstName,
 		lastname: req.body.userLastName,
@@ -94,7 +37,6 @@ exports.addUser = function(req, res) {
 			else { console.log("didn't find one")
 				userx.save(function(err, user) {console.log("saved")});
 
-			console.log(user)
 			res.redirect("/?msg=Thank you for registering, please login.");
 
 		};
@@ -102,25 +44,6 @@ exports.addUser = function(req, res) {
 
 
 	})
-
-	// userx.save(function(err, user) {
-	// 	if (err) 
-	// 		console.log(err);
-	// console.log(user);	
-	//    // fetch user and test password verification
-
-	//     // test a matching password
-	//     userx.comparePassword(req.body.userPassword, function(err, isMatch) {
-	//         if (err) throw err;
-	//         console.log('Password123:', isMatch); // -> Password123: true
-	//     });
-
-	//     // test a failing password
-	//     userx.comparePassword(req.body.userPassword, function(err, isMatch) {
-	//         if (err) throw err;
-	//         console.log('123Password:', isMatch); // -> 123Password: false
-	//     });
-	// });
 
 }
 

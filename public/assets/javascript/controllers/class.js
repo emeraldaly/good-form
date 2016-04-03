@@ -19,7 +19,6 @@ $scope.createClass = function(){
         url: '/showClasses'
       }).then(function(result) {
       	$scope.classes = result
-      	debugger
       	console.log($scope.classes)
         
       });
