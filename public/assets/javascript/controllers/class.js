@@ -1,7 +1,7 @@
 angular.module('classApp').controller('class', function($scope, $http, $filter, NgTableParams) {
 
 $scope.createClass = function(){
-	$http({
+  $http({
         method: 'POST',
         url: '/createClass',
         data: {name:$scope.name, 
@@ -11,7 +11,7 @@ $scope.createClass = function(){
         console.log(result)
       });
   
-	}
+  }
 
 
 $scope.classesTable = new NgTableParams({
@@ -40,7 +40,7 @@ $scope.showClasses = function(){
     
 $scope.classesTable.reload();
   
-	}
+  }
 
 
 });

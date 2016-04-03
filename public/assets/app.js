@@ -1,4 +1,6 @@
-var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'ngTable']);
+
+var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io','ngTable']);
+
 classApp.config(function($stateProvider, $urlRouterProvider) {
 $urlRouterProvider.otherwise('/home')
 $stateProvider
@@ -31,9 +33,15 @@ $stateProvider
     url: '/createClass',
     templateUrl: '/views/createClass.html'
   })
+
     .state('info', {
     url: '/info',
     templateUrl: '/views/info.html'
+  })
+    .state('chat', {
+    url: '/chat',
+    templateUrl: '/views/chat.html',
+    controller: 'chatControl'
   })
 });
 
@@ -43,23 +51,22 @@ console.log($scope.userFirstName)
      $http({
         method: 'POST',
         url: '/addUser',
-        data: {username:$scope.userEmail, 
+        data: {username:$scope.userEmail,
           userRole:$scope.userRole,
           userPassword:$scope.userPassword,
           userFirstName:$scope.userFirstName,
           userLastName:$scope.userLastName,
         }
       }).then(function(result) {
-        console.log(result)
+       
       });
     };
 $scope.register = function(){
-  debugger
   console.log($scope.organizationName)
      $http({
         method: 'POST',
         url: '/newUser',
-        data: {username:$scope.userEmail, 
+        data: {username:$scope.userEmail,
           organizationName:$scope.organizationName,
           address:$scope.address,
           website:$scope.website,
@@ -72,5 +79,5 @@ $scope.register = function(){
         console.log(result)
       });
   }
+});
 
-})
