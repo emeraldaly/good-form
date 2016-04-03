@@ -1,3 +1,5 @@
+var UserMock = require('../mocks/user.mock.js');
+
 describe("the application", function(){
   it("should allow a new user to register their name and organization", function(){
     browser.ignoreSynchronization = true;
@@ -8,6 +10,13 @@ describe("the application", function(){
     var usrLNm = element(by.model("userLastName"));
     var email = element(by.model("userEmail"));
     browser.get('/#/register');
+
+    orgNm.sendKeys(Faker.Name.findName());
+    address.sendKeys("30 rock");
+    site.sendKeys("www.test.com");
+    usrFNm.sendKeys("Joe");
+    usrLNm.sendKeys("Schmoe");
+    email.sendKeys("Schmoe@joe.com");
 
     expect(orgNm).getText()).toEqual('');
   });
