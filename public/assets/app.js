@@ -1,4 +1,6 @@
-var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io']);
+
+var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io','ngTable']);
+
 classApp.config(function($stateProvider, $urlRouterProvider) {
 $urlRouterProvider.otherwise('/home')
 $stateProvider
@@ -31,7 +33,12 @@ $stateProvider
     url: '/createClass',
     templateUrl: '/views/createClass.html'
   })
-         .state('chat', {
+
+    .state('info', {
+    url: '/info',
+    templateUrl: '/views/info.html'
+  })
+    .state('chat', {
     url: '/chat',
     templateUrl: '/views/chat.html',
     controller: 'chatControl'

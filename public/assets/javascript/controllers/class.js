@@ -1,7 +1,7 @@
-angular.module('classApp').controller('class', function($scope, $http) {
+angular.module('classApp').controller('class', function($scope, $http, $filter, NgTableParams) {
 
 $scope.createClass = function(){
-	$http({
+  $http({
         method: 'POST',
         url: '/createClass',
         data: {name:$scope.name, 
@@ -11,19 +11,36 @@ $scope.createClass = function(){
         console.log(result)
       });
   
-	}
+  }
 
-	$scope.showClasses = function(){
-	$http({
-        method: 'get',
-        url: '/showClasses'
-      }).then(function(result) {
-      	$scope.classes = result
-      	console.log($scope.classes)
-        
+
+$scope.classesTable = new NgTableParams({
+  }, {
+    getData: function($defer, params) {
+      
+      return $http.get('/showClasses')
+      .then(function(response) {
+        console.log(response)
+         var classes = response.data
+        //  console.log(classes)
+        // var filteredData = $filter('filter')(classes, params.filter())
+        // var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+        // console.log(sortedData)
+        return classes;
       });
+     
+    }
+  });
+
+
+
+
+
+$scope.showClasses = function(){
+    
+$scope.classesTable.reload();
   
-	}
+  }
 
 
 });
