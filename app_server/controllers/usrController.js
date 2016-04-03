@@ -1,20 +1,73 @@
-var passport = require("../config/passport");
+// var passport = require("../config/passport");
+var express = require("express");
+var app = express();
 var User = require("../models/user");
+var bodyParser = require('body-parser');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var session = require('express-session');
+var bcrypt = require("bcryptjs");
 var Organization = require("../models/organization");
 var Homework = require("../models/homework");
 var Class = require("../models/class");
 var mongoose = require("mongoose");	
 
+app.use(require('express-session')({
+  secret: "rutgerpridesecrets",
+  resave: true,
+  saveUninitialized: true,
+  cookie: {secure: false, maxAge: (1000 * 60 * 60 * 24 * 30) },
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+passport.deserializeUser(function(id, done) {
+  done(null, { id: id, username: id })
+});
+
+passport.use('local', new LocalStrategy({
+  passReqToCallback: true,
+
+},
+function(req, email, password, done) {
+
+  User.findOne({
+    where: {
+      email: email
+    }
+  })
+  .then(function(user){
+    if(user){
+      bcrypt.compare(password, user.dataValues.password, function(err, user) {
+        if (user) {
+
+          //if password is correct authenticate the user with cookie
+          done(null, { id: email, username: email });
+        } else{
+          done(null, null);
+        }
+      });
+    } else {
+      done(null, null);
+    }
+  });
+}));
+
+
 exports.login = function(req, res) {
-// console.log(req.body);
-//   passport.authenticate('local', { successRedirect: '/successRedirect',
-//                                    failureRedirect: '/login' });
-// console.log(passport.authenticate);
+  console.log(req.body);
+  passport.authenticate('local', { successRedirect: '/successRedirect',
+                                   failureRedirect: '/login' });
 } 
 
 
 exports.newUser = function(req, res) {
-	debugger
 	console.log(req.body.userRole)
 	var userx = new User({
 		firstname: req.body.userFirstName,
@@ -31,7 +84,6 @@ exports.newUser = function(req, res) {
 			console.log("found one")} 
 			else { console.log("didn't find one")
 				userx.save(function(err, user) {console.log("saved")});
-			debugger
 			console.log(user)
 			res.redirect("/?msg=Thank you for registering, please login.");
 
