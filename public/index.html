@@ -6,7 +6,7 @@
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
   
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.min.js"></script>
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/mainPage.css">
@@ -27,6 +27,7 @@
 
 <a ui-sref="register">register</a>
   <ul>
+    <li><a ui-sref="info">infoboard</a></li>
     <li><a ui-sref="class">Classes</a></li>
     <li><a ui-sref="home">Home</a></li>
     <li><a ui-sref="users">User Page</a></li>
@@ -34,7 +35,7 @@
     <li><a ui-sref="addUser">add User</a> </li>
   </ul>
    <div ui-view autoscroll="false"></div>
-   
+
   <script src="/assets/app.js"></script>
   <script src="/assets/javascript/controllers/class.js"></script>
 

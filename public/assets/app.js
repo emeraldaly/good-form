@@ -1,4 +1,4 @@
-var classApp = angular.module('classApp', ['ui.bootstrap','ui.router']);
+var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'ngTable']);
 classApp.config(function($stateProvider, $urlRouterProvider) {
 $urlRouterProvider.otherwise('/home')
 $stateProvider
@@ -31,11 +31,14 @@ $stateProvider
     url: '/createClass',
     templateUrl: '/views/createClass.html'
   })
+    .state('info', {
+    url: '/info',
+    templateUrl: '/views/info.html'
+  })
 });
 
 classApp.controller('newUser', function($scope, $http) {
 $scope.addUser = function(){
-debugger
 console.log($scope.userFirstName)
      $http({
         method: 'POST',
