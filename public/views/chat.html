@@ -1,0 +1,33 @@
+<h2>Chat</h2>
+<div class="row">
+  <div class="col-xs-12 col-md-4 chat-window">
+    <h3>Messages:</h3>
+    <ul class="msgList">
+      <li ng-repeat="message in messages track by $index">
+        <span class="username">{{message.username}}:</span>
+        <span class="message">{{message.message}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="col-xs-12 col-md-2 user-window">
+    <h3>Available to Chat:</h3>
+    <ul>
+      <li ng-repeat="user in users">{{user}}</li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <div class="col-sm-8">
+          <input type="text" class="form-control" id="chatInput" placeholder="Enter message" ng-model="msg" />
+        </div>
+        <div class="col-sm-3">
+          <button type="submit" class="btn btn-success" ng-click="sendMessage(msg)">Send Message</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

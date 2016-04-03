@@ -1,4 +1,4 @@
-var classApp = angular.module('classApp', ['ui.bootstrap','ui.router']);
+var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io']);
 classApp.config(function($stateProvider, $urlRouterProvider) {
 $urlRouterProvider.otherwise('/home')
 $stateProvider
@@ -31,6 +31,11 @@ $stateProvider
     url: '/createClass',
     templateUrl: '/views/createClass.html'
   })
+         .state('chat', {
+    url: '/chat',
+    templateUrl: '/views/chat.html',
+    controller: 'chatControl'
+  })
 });
 
 classApp.controller('newUser', function($scope, $http) {
@@ -40,7 +45,7 @@ console.log($scope.userFirstName)
      $http({
         method: 'POST',
         url: '/addUser',
-        data: {username:$scope.userEmail, 
+        data: {username:$scope.userEmail,
           userRole:$scope.userRole,
           userPassword:$scope.userPassword,
           userFirstName:$scope.userFirstName,
@@ -56,7 +61,7 @@ $scope.register = function(){
      $http({
         method: 'POST',
         url: '/newUser',
-        data: {username:$scope.userEmail, 
+        data: {username:$scope.userEmail,
           organizationName:$scope.organizationName,
           address:$scope.address,
           website:$scope.website,
@@ -69,5 +74,5 @@ $scope.register = function(){
         console.log(result)
       });
   }
+});
 
-})
