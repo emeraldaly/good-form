@@ -35,7 +35,7 @@ app.use(passport.session());
 require("./app_server/models/db");
 
 require('./routes')(app);
-
+// require('./app_server/config/socketConnection')
 
 // passport config
 
@@ -44,7 +44,7 @@ require('./routes')(app);
 //   res.sendFile(process.cwd() + '/index.html');
 // });
 
-//SOCKET IO CONNECTION
+// //SOCKET IO CONNECTION
 io.on('connection', function(socket){
   //change this to logged in user's name
   var username = 'St';
@@ -73,6 +73,20 @@ io.on('connection', function(socket){
 //     }
   });
 
+  // when the client emits 'typing', we broadcast it to others
+    socket.on('typing', function () {
+      socket.broadcast.emit('typing', {
+        username: socket.username
+      });
+    });
+
+    // when the client emits 'stop typing', we broadcast it to others
+    socket.on('stop typing', function () {
+      socket.broadcast.emit('stop typing', {
+        username: socket.username
+      });
+    });
+
   socket.on('message', function(data){
     io.emit('message', {
       username: username,
@@ -86,7 +100,7 @@ io.on('connection', function(socket){
     io.emit('remove-user', {username: username});
   });
 });
-// END SOCKET
+// // END SOCKET
 
 http.listen(PORT, function(){
   console.log("listening on PORT:" + PORT);
