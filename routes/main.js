@@ -21,7 +21,7 @@ module.exports = function (app) {
   //Class Controls
   app.get('/getClassUsers', classCtrl.getClassUsers)
   app.post('/createClass', classCtrl.createClass);
-
+  app.get('/showClasses', classCtrl.showClasses);
   // app.get('/usertest', usrt.usertest);
 
 
