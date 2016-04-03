@@ -26,7 +26,7 @@ exports.addUser = function(req, res) {
 		password: req.body.userPassword,
 		admin: req.body.userRole,
 		// currently hardwired in until we can do a req value
-		_organization: "56fd84b7b49810d615bb1e21",
+		_organization: req.session.organization,
 	});
 	User.findOne({
 		username: req.body.username
@@ -132,7 +132,7 @@ exports.defRoute = function(req, res) {
 //Show all users in the class
 exports.getAllUsers = function(req, res) {
   User.find({
-    _organization:"56fd84b7b49810d615bb1e21"
+    _organization:req.session.organization
   })
     .exec(function(err, docs){
       if(err){

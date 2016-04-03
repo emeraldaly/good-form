@@ -87,8 +87,11 @@ passport.use('login', new LocalStrategy({
         }
         // User and password both match, return user from 
         // done method which will be treated like success
-      
+        debugger
         req.session.user = user;
+        req.session.organization = user._doc._organization
+        console.log(user)
+        console.log(req.session.user)
         return done(null, user);
       }
     );
