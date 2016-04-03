@@ -1,12 +1,16 @@
-
-var passport = require("../config/passport");
 var User = require("../models/user");
+var bodyParser = require('body-parser');
+var bcrypt = require("bcryptjs");
 var Organization = require("../models/organization");
 var Homework = require("../models/homework");
 var Class = require("../models/class");
 var mongoose = require("mongoose");
 
-exports.login = function(req, res) {
+// app.use(bodyParser.urlencoded({
+//   extended: false
+// }));
+
+exports.newUser = function(req, res) {
 	// console.log(req.body);
 	//   passport.authenticate('local', { successRedirect: '/successRedirect',
 	//                                    failureRedirect: '/login' });
@@ -14,7 +18,7 @@ exports.login = function(req, res) {
 }
 
 exports.addUser = function(req, res) {
-	console.log(req.body.userRole)
+
 	var userx = new User({
 		firstname: req.body.userFirstName,
 		lastname: req.body.userLastName,
@@ -29,14 +33,10 @@ exports.addUser = function(req, res) {
 	}, function(err, user) {
 		if (user) {
 			res.redirect("/?msg=Your email is already registered, please login.");
-			console.log("found one")
-		} else {
-			console.log("didn't find one")
-			userx.save(function(err, user) {
-				console.log("saved")
-			});
+			console.log("found one")} 
+			else { console.log("didn't find one")
+				userx.save(function(err, user) {console.log("saved")});
 
-			console.log(user)
 			res.redirect("/?msg=Thank you for registering, please login.");
 
 		};
@@ -44,25 +44,6 @@ exports.addUser = function(req, res) {
 
 
 	})
-
-	// userx.save(function(err, user) {
-	// 	if (err) 
-	// 		console.log(err);
-	// console.log(user);	
-	//    // fetch user and test password verification
-
-	//     // test a matching password
-	//     userx.comparePassword(req.body.userPassword, function(err, isMatch) {
-	//         if (err) throw err;
-	//         console.log('Password123:', isMatch); // -> Password123: true
-	//     });
-
-	//     // test a failing password
-	//     userx.comparePassword(req.body.userPassword, function(err, isMatch) {
-	//         if (err) throw err;
-	//         console.log('123Password:', isMatch); // -> 123Password: false
-	//     });
-	// });
 
 }
 

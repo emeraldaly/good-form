@@ -40,7 +40,6 @@ $stateProvider
 
 classApp.controller('newUser', function($scope, $http) {
 $scope.addUser = function(){
-debugger
 console.log($scope.userFirstName)
      $http({
         method: 'POST',
@@ -52,11 +51,10 @@ console.log($scope.userFirstName)
           userLastName:$scope.userLastName,
         }
       }).then(function(result) {
-        console.log(result)
+       
       });
     };
 $scope.register = function(){
-  debugger
   console.log($scope.organizationName)
      $http({
         method: 'POST',
