@@ -6,10 +6,22 @@ $scope.createClass = function(){
         url: '/createClass',
         data: {name:$scope.name, 
           datetime:$scope.datetime
-          
         }
       }).then(function(result) {
         console.log(result)
+      });
+  
+	}
+
+	$scope.showClasses = function(){
+	$http({
+        method: 'get',
+        url: '/showClasses'
+      }).then(function(result) {
+      	$scope.classes = result
+      	debugger
+      	console.log($scope.classes)
+        
       });
   
 	}

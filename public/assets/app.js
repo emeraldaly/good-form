@@ -23,6 +23,10 @@ $stateProvider
     url: '/class',
     templateUrl: '/views/class.html'
   })
+    .state('showClasses', {
+    url: '/showClasses',
+    templateUrl: '/views/showClasses.html'
+  })
          .state('createClass', {
     url: '/createClass',
     templateUrl: '/views/createClass.html'
