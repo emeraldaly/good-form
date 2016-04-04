@@ -1,21 +1,25 @@
-<form ng-controller="newUser" >
-	<div class="panel-body>">
+<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+  <div class="form-top">
+  	<h3>User Registration</h3>
+  </div>
+	<form ng-controller="newUser" >
+		<div class="panel-body>">
 			<label for="userFirstName">First Name:</label>
-	    <input type="text" name="userFirstName" ng-model="userFirstName" placeholder="Evan">
+	    <input type="text" class="form-control" name="userFirstName" ng-model="userFirstName" placeholder="Evan">
 	    <label for="username">Last Name:</label>
-	    <input type="text" name="userLastName" ng-model="userLastName" placeholder="Bates">
+	    <input type="text" class="form-control"name="userLastName" ng-model="userLastName" placeholder="Bates">
 	    <label for="username">Email:</label>
-	    <input type="email" name="userEmail" ng-model="userEmail" placeholder="elie@wohl.com">
+	    <input type="email" class="form-control" name="userEmail" ng-model="userEmail" placeholder="elie@wohl.com">
 	    <label for="username">Password:</label>
-	    <input type="password" name="userPassword" ng-model="userPassword"  placeholder="*****">
-	    <p>what type of account? </p>
+	    <input type="password" class="form-control" name="userPassword" ng-model="userPassword"  placeholder="*****">
+	    <p>Type of Account? </p>
 	    <div class="radio">
-  <label><input type="radio" name="userRole" ng-model="userRole" value="false">Student</label>
-</div>
-<div class="radio">
-  <label><input type="radio" name="userRole" ng-model="userRole" value="true">Admin</label>
-</div>
-	    <button type="submit" ng-click="addUser()" class="btn btn-info">Register</a>
+			  <label><input type="radio" name="userRole" ng-model="userRole" value="false">Student</label>
+			</div>
+			<div class="radio">
+			  <label><input type="radio" name="userRole" ng-model="userRole" value="true">Admin</label>
+			</div>
+		  <a type="submit" ng-click="addUser()" class="btn btn-info btn-block">Register</a>
 		</div>
-	</div>
-</form>
+	</form>
+</div>
