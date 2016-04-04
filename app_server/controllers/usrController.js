@@ -139,6 +139,7 @@ exports.getAllUsers = function(req, res) {
         console.log(err);
         res.send(err);
       } else {
+      	debugger
         res.send(docs);
       }
     });

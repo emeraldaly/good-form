@@ -1,0 +1,27 @@
+<div ng-controller="class" data-ng-init="getAllUsers()">
+	<div class="col-md-6">
+		this is where all the users go
+		<table ng-table="zz">
+			<tr ng-repeat="user in $data">
+				<td>
+					<div class="radio">
+						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}</label>
+				</td>
+			</tr>
+		</table>
+	</div>
+		<div class="col-md-6">
+			<p>what type of account? </p>
+			<div class="radio">
+				<label><input type="radio" name="userRole" ng-model="userRole" value="teacher">Teacher</label>
+			</div>
+			<div class="radio">
+				<label><input type="radio" name="userRole" ng-model="userRole" value="ta">ta</label>
+			</div>
+			<div class="radio">
+				<label><input type="radio" name="userRole" ng-model="userRole" value="ta">Student</label>
+			</div>
+			<button type="submit" ng-click="updateClass()" class="btn btn-info">Add To Class</a>
+		</div>
+	</div>
+</div>
