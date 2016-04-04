@@ -1,7 +1,7 @@
 
-<div ng-controller="info">
+<div ng-controller="info"  data-ng-init="viewInfo()">
 
-	<h3> welcome to the jedboard! </h3>
+	<h3> create jedboard</h3>
 	<input ng-model="title" placeholder="title">
 	<textarea ng-model="information" placeholder="information"> </textarea>
 	<table ng-table="classesTable">
@@ -16,9 +16,9 @@
 		</tr>
 	</table>
 	<button ng-click="createInfo()"> Create info </button>
-	<h4>  Create new jedboard posting </h4>
+	<h4>  view created jedboards</h4>
+
 
 
 </div>
 
-</div>
