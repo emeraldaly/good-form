@@ -3,10 +3,14 @@
 	var Schema = mongoose.Schema;
   //can we add an input for the week and date/time submitted?
 	var HomeworkSchema = new Schema({
-		_class: [{
+		_class: {
 			type: Schema.Types.ObjectId,
 			ref: 'Class'
-		}],
+		},
+		poster: {
+			type: Schema.Types.ObjectId,
+			ref: 'User'
+		},
 		//by user
 		//by week
 		name: String,
