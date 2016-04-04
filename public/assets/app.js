@@ -50,6 +50,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   url: '/metrics',
   templateUrl: '/views/highcharts.html'
 })
+.state('createHomework', {
+  url: '/createHomework',
+  templateUrl: '/views/createHomework.html'
+})
 
 });
 

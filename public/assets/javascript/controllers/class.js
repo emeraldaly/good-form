@@ -77,18 +77,20 @@ $scope.updateClass = function(){
 }
 
 $scope.thisClass= function(classId){
-  
-     $state.go('editClass')
+debugger
+
   $http({
         method: 'POST',
         url: '/editClassId',
         data: {classId:classId
         }
       }).then(function(result) {
-        // 
-        $state.go('editClass')
         console.log(result)
       });  
+}
+
+$scope.editThisClass = function(){
+         $state.go('editClass')
 }
 
 });
