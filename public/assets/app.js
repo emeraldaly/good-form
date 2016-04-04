@@ -33,7 +33,10 @@ $stateProvider
     url: '/createClass',
     templateUrl: '/views/createClass.html'
   })
-
+           .state('editClass', {
+    url: '/editClass',
+    templateUrl: '/views/editClass.html'
+  })
     .state('info', {
     url: '/info',
     templateUrl: '/views/info.html'
