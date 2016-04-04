@@ -17,7 +17,10 @@
 	</table>
 	<button ng-click="createInfo()"> Create info </button>
 	<h4>  view created jedboards</h4>
-
+<div class="row" ng-repeat="info in infos">
+	<h4>This is the title{{info.title}} </h4>
+	<p>this is the information:  {{info.information}}
+	</div>
 
 
 </div>

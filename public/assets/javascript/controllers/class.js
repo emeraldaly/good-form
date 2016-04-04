@@ -77,7 +77,7 @@ $scope.updateClass = function(){
 }
 
 $scope.thisClass= function(classId){
-  debugger
+  
      $state.go('editClass')
   $http({
         method: 'POST',
