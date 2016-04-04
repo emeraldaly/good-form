@@ -1,6 +1,7 @@
 //ORGANIZATION DB SPECIFIC CONTROLLERS//
 var Org = require("../models/organization");
 
+
 //Add an organization
 exports.addOrg = function(req, res){
   var newOrg = new Org ({
