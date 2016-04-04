@@ -3,33 +3,37 @@
 <html ng-app="classApp">
 
 <head>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ng-table/0.8.3/ng-table.min.js"></script>
   <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+  <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/mainPage.css">
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 </head>
 
-  <body>
+<body>
 
-    <ul>
+  <ul>
     <li><a ui-sref="info">infoboard</a></li>
-      <li><a ui-sref="class">Classes</a></li>
-      <li><a ui-sref="home">Home</a></li>
-      <li><a ui-sref="users">User Page</a></li>
-      <li><a ui-sref="register">register w/organization</a> </li>
-      <li><a ui-sref="addUser">add User</a> </li>
-      <li><a ui-sref="chat">chat</a> </li>
-    </ul>
-     <div ui-view autoscroll="false"></div>
-     <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
-      <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
-    <script src="/assets/app.js"></script>
-    <script src="/assets/javascript/controllers/class.js"></script>
-    <script type="text/javascript" src="/assets/javascript/controllers/chatController.js"></script>
-  </body>
+    <li><a ui-sref="class">Classes</a></li>
+    <li><a ui-sref="home">Home</a></li>
+    <li><a ui-sref="users">User Page</a></li>
+    <li><a ui-sref="register">register w/organization</a> </li>
+    <li><a ui-sref="addUser">add User</a> </li>
+    <li><a ui-sref="chat">chat</a> </li>
+    <li><a ui-sref="metrics">metrics</a></li>
+  </ul>
+
+  <div ui-view autoscroll="false"></div>
+  
+  <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+  <script src="/assets/app.js"></script>
+  <script src="/assets/javascript/controllers/class.js"></script>
+  <script type="text/javascript" src="/assets/javascript/controllers/chatController.js"></script>
+  <script type="text/javascript" src ="/assets/javascript/controllers/highchartsController.js"</script>
+</body>
 </html>
