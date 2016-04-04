@@ -26,11 +26,12 @@ module.exports = function (app) {
   //User Controls
   app.post('/adduser', usrCtrl.addUser);
   app.post('/newUser', usrCtrl.newUser);
-  app.post('/login',
-    passport.authenticate('login', { successRedirect: '/?msg=loginsuccess',
-     failureRedirect: '/?msg=loginfail'
-   })
-    );
+  app.get('/getAllUsers', usrCtrl.getAllUsers);
+app.post('/login',
+  passport.authenticate('login', { successRedirect: '/?msg=loginsuccess',
+                                   failureRedirect: '/?msg=loginfail'
+                                  })
+);
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
@@ -41,9 +42,12 @@ module.exports = function (app) {
   app.post('/submitHw', hwCtrl.submitHw);
 
   //Class Controls
-  app.get('/getClassUsers', classCtrl.getClassUsers)
+  app.get("/updateThisClass", classCtrl.updateThisClass);
+  app.get('/getClassUsers', classCtrl.getClassUsers);
   app.post('/createClass', classCtrl.createClass);
   app.get('/showClasses', classCtrl.showClasses);
+  app.post('/editClassId', classCtrl.editClassId)
+  app.post('/updateClass', classCtrl.updateClass)
 
 
   app.get('*', usrCtrl.defRoute);
@@ -87,6 +91,7 @@ function(req, username, password, done) {
         }
         // User and password both match, return user from 
         // done method which will be treated like success
+        // debugger
         req.session.user = user;
         req.session.organization = user._doc._organization
         console.log(user)
