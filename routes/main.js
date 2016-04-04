@@ -44,7 +44,7 @@ app.post('/login',
 
 
   //info controls
-
+  app.get('/viewInfo', infoCtrl.viewInfo);
   app.post("/createInfo", infoCtrl.createInfo);
 
   //Class Controls

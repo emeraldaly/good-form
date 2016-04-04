@@ -19,6 +19,17 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 				console.log(result)
 			});
 		}
+		$scope.viewInfo = function(){
+			debugger
+			$http({
+				method:"GET",
+				url:"/viewInfo"
+			}).then(function(result){
+				debugger
+				console.log(result)
+			});
+		console.log("hit it")
+		}
 
 
 		$scope.classesTable = new NgTableParams({}, {

@@ -10,9 +10,7 @@ debugger
   var userId = req.body.userId;
 console.log
   User.findByIdAndUpdate(userId, {
-              $push: {
                 _class: classId
-              }
             }, {
               safe: true,
               upsert: true
