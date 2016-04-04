@@ -1,4 +1,5 @@
 var hwCtrl = require("../app_server/controllers/hwController");
+var infoCtrl = require("../app_server/controllers/infoController");
 var classCtrl = require("../app_server/controllers/classController");
 var orgCtrl = require("../app_server/controllers/orgController");
 var usrCtrl = require("../app_server/controllers/usrController");
@@ -40,6 +41,11 @@ app.post('/login',
 
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
+
+
+  //info controls
+  app.get('/viewInfo', infoCtrl.viewInfo);
+  app.post("/createInfo", infoCtrl.createInfo);
 
   //Class Controls
   app.get("/updateThisClass", classCtrl.updateThisClass);

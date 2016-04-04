@@ -4,16 +4,15 @@ var Schema = mongoose.Schema;
 
 var InfoSchema= new Schema({
 title:String,
-infomation:String,
-
+information:String,
 //which classes get to see it
-class:[{
+class:{
        type: Schema.Types.ObjectId,
-        ref: 'class'
-      }],
+        ref: 'Class'
+      },
       //single poster info
 poster:{type: Schema.Types.ObjectId,
-				ref:User}
+				ref:"User"}
 });
 
 var Info = mongoose.model('Info', InfoSchema);

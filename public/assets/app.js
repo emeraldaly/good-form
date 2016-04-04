@@ -42,6 +42,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   templateUrl: '/views/chat.html',
   controller: 'chatControl'
 })
+.state('editClass', {
+  url: '/editClass',
+  templateUrl: '/views/editClass.html'
+})
 .state('metrics', {
   url: '/metrics',
   templateUrl: '/views/highcharts.html'

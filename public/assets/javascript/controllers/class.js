@@ -63,7 +63,6 @@ $scope.userId = function(id){
   $scope.userUpdate = id;
 }
 $scope.updateClass = function(){
-  
    console.log($scope.userUpdate)
    $http({
         method: 'POST',
@@ -78,6 +77,7 @@ $scope.updateClass = function(){
 }
 
 $scope.thisClass= function(classId){
+  
      $state.go('editClass')
   $http({
         method: 'POST',
