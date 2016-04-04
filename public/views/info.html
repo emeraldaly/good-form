@@ -1,29 +1,24 @@
+
 <div ng-controller="info">
 
-<h3> welcome to the jedboard! </h3>
-
-
-<input ng-model="title" placeholder="title">
+	<h3> welcome to the jedboard! </h3>
+	<input ng-model="title" placeholder="title">
 	<textarea ng-model="information" placeholder="information"> </textarea>
+	<table ng-table="classesTable">
+		<tr ng-repeat="class in $data">
+			<td>
+				<div class="radio">
+					<label><input type="radio" ng-click="classId(class._id)">{{class.name}}</label>
+				</div>
 
 
-
-<table ng-table="classesTable">
-			<tr ng-repeat="class in $data">
-				<td>
-			<div class="radio">
-				<label><input type="radio" ng-click="classId(class._id)">{{class.name}}</label>
-			</div>
-
-
-				</td>
-			</tr>
-		</table>
+			</td>
+		</tr>
+	</table>
 	<button ng-click="createInfo()"> Create info </button>
 	<h4>  Create new jedboard posting </h4>
 
 
-	</div>
-	
-	</div>
+</div>
 
+</div>
