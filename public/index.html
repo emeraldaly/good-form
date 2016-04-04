@@ -16,19 +16,35 @@
 
 <body>
 
-  <ul>
-    <li><a ui-sref="info">infoboard</a></li>
-    <li><a ui-sref="class">Classes</a></li>
-    <li><a ui-sref="home">Home</a></li>
-    <li><a ui-sref="users">User Page</a></li>
-    <li><a ui-sref="register">register w/organization</a> </li>
-    <li><a ui-sref="addUser">add User</a> </li>
-    <li><a ui-sref="chat">chat</a> </li>
-    <li><a ui-sref="metrics">metrics</a></li>
-  </ul>
+  <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+
+      <ul class="nav navbar-nav">
+        <li><a ui-sref="info">infoboard</a></li>
+        <li><a ui-sref="class">Classes</a></li>
+        <li><a ui-sref="home">Home</a></li>
+        <li><a ui-sref="users">User Page</a></li>
+        <li><a ui-sref="register">register w/organization</a> </li>
+        <li><a ui-sref="addUser">add User</a> </li>
+        <li><a ui-sref="chat">chat</a> </li>
+        <li><a ui-sref="metrics">metrics</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </nav>
 
   <div ui-view autoscroll="false"></div>
-  
+
   <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
   <script src="/assets/app.js"></script>
