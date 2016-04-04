@@ -41,7 +41,7 @@ app.post('/login',
 
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
-
+  app.post('/createHomework', hwCtrl.createHw);
 
   //info controls
   app.get('/viewInfo', infoCtrl.viewInfo);
