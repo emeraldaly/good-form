@@ -1,4 +1,7 @@
-var UserMock = require('../mocks/user.mock.js');
+var UserMockAdm = require('../mocks/user.mock.js');
+var UserMockSt = require('../mocks/user.mock.js');
+var Org = require('../mocks/user.mock.js');
+var Classes = require('../mocks/user.mock.js');
 
 describe("the application", function(){
   it("should allow a new user to register their name and organization", function(){
