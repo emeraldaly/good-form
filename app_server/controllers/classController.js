@@ -3,7 +3,8 @@ var Class = require("../models/class");
 
 //Add a New class
 exports.createClass = function (req, res){
-  var newClass = new Class({name:req.body.name, datetime:req.body.datetime, _organization: "56fd84b7b49810d615bb1e21"});
+  debugger
+  var newClass = new Class({name:req.body.name, datetime:req.body.datetime, _organization: req.session.organization});
   newClass.save(function (err, doc) {
     if (err) {
       console.log(err);
@@ -12,6 +13,24 @@ exports.createClass = function (req, res){
     }
   });
 }
+
+exports.showClasses = function (req, res){
+  Class.find({
+  _organization:req.session.organization
+  })
+  .populate('user')
+  .exec(function(err, docs){
+      if(err){
+        console.log(err);
+        res.send(err);
+      } else {
+        debugger
+        console.log(docs)
+        res.send(docs);
+      }
+    });
+}
+
 
 //Get all users in class
 exports.getClassUsers = function (req, res){

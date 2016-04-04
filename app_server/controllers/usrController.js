@@ -1,108 +1,161 @@
 var User = require("../models/user");
+var bodyParser = require('body-parser');
+var bcrypt = require("bcryptjs");
 var Organization = require("../models/organization");
 var Homework = require("../models/homework");
 var Class = require("../models/class");
+var mongoose = require("mongoose");
+
+// app.use(bodyParser.urlencoded({
+//   extended: false
+// }));
 
 exports.newUser = function(req, res) {
-	console.log(req.body.userRole)
-		var userx = new User({
-		firstname: req.body.userFirstName,
-		lastname: req.body.userLastName,
-		username: req.body.userEmail,
-		password: req.body.userPassword,
-		admin: req.body.userRole,
-		// currently hardwired in until we can do a req value
-		_organization: "56fd84b7b49810d615bb1e21",
-	});
-	userx.save(function(err, user) {
-		if (err) {
-			console.log(err)
-		} else {
-			console.log("saved")
-		}
-		// need req.session.organizationId
-		var id = "56fd84b7b49810d615bb1e21";
-		Organization.findByIdAndUpdate(id, {
-			$push: {
-				"user": user
-			}
-		}, {
-			safe: true,
-			upsert: true
-		}, function(err, model) {
-			console.log("it worked?")
-		})
-	})
+	// console.log(req.body);
+	//   passport.authenticate('local', { successRedirect: '/successRedirect',
+	//                                    failureRedirect: '/login' });
+	// console.log(passport.authenticate);
 }
 
-
 exports.addUser = function(req, res) {
-	// make a if statement organization id == undefined then
-	var orgx = new Organization({
-		name: req.body.organizationName,
-		address: req.body.address,
-		website: req.body.website
-	});
-	orgx.save(function(err, data) {
-		if (err) {
-			var dummyvar;
-		} else {
 
-			console.log(data._doc._id)
-		}
-	});
-	//else so we can use one function for creating all users
 	var userx = new User({
 		firstname: req.body.userFirstName,
 		lastname: req.body.userLastName,
-		email: req.body.userEmail,
+		username: req.body.username,
 		password: req.body.userPassword,
-		admin: true,
+		admin: req.body.userRole,
 		// currently hardwired in until we can do a req value
-		_organization: "56fd84b7b49810d615bb1e21",
+		_organization: req.session.organization,
 	});
-	userx.save(function(err, user) {
-		if (err) {
-			console.log(err)
-		} else {
-			console.log("saved")
-		}
-		// need req.session.organizationId
-		var id = "56fd84b7b49810d615bb1e21";
-		Organization.findByIdAndUpdate(id, {
-			$push: {
-				"user": user
-			}
-		}, {
-			safe: true,
-			upsert: true
-		}, function(err, model) {
-			console.log("it worked?")
-		})
+	User.findOne({
+		username: req.body.username
+	}, function(err, user) {
+		if (user) {
+			res.redirect("/?msg=Your email is already registered, please login.");
+			console.log("found one")} 
+			else { console.log("didn't find one")
+				userx.save(function(err, user) {console.log("saved")});
+
+			res.redirect("/?msg=Thank you for registering, please login.");
+
+		};
+
+
+
 	})
+
 }
 
-exports.defRoute = function(req, res){
 
- res.sendFile(process.cwd() + '/public/index.html');
+// 		} else {
+
+// 			console.log("saved")
+// 		}
+// 		// need req.session.organizationId
+// 		var id = "56fd84b7b49810d615bb1e21";
+// 		Organization.findByIdAndUpdate(id, {
+// 			$push: {
+// 				"user": user
+// 			}
+// 		}, {
+// 			safe: true,
+// 			upsert: true
+// 		}, function(err, model) {
+// 			console.log("it worked?")
+// 		})
+// 	})
+// }
+
+
+exports.newUser = function(req, res) {
+	User.findOne({
+		username: req.body.username
+	}, function(err, user) {
+		if (user) {
+			res.redirect("/?msg=Your email is already registered, please login.");
+			console.log("found one")
+		} else {
+
+			// make a if statement organization id == undefined then
+			var orgx = new Organization({
+				name: req.body.organizationName,
+				address: req.body.address,
+				website: req.body.website
+			});
+			orgx.save(function(err, data) {
+				if (err) {
+					var dummyvar;
+				} else {
+					var organization = data._doc._id;
+					console.log(data)
+					var userx = new User({
+						firstname: req.body.userFirstName,
+						lastname: req.body.userLastName,
+						username: req.body.username,
+						password: req.body.userPassword,
+						admin: true,
+						// currently hardwired in until we can do a req value
+						_organization: organization,
+					});
+
+					userx.save(function(err, user) {
+						if (err) {
+							console.log(err)
+						} else {
+							console.log("saved")
+						}
+						// need req.session.organizationId
+						Organization.findByIdAndUpdate(organization, {
+							$push: {
+								"user": user
+							}
+						}, {
+							safe: true,
+							upsert: true
+						}, function(err, model) {
+							console.log("it worked?")
+						})
+					})
+				}
+
+			})
+		}
+	});
+}
+
+exports.defRoute = function(req, res) {
+
+	res.sendFile(process.cwd() + '/public/index.html');
 }
 
 //Show all users in the class
-exports.getAllUsers = function(req, res){
+exports.getAllUsers = function(req, res) {
+  User.find({
+    _organization:req.session.organization
+  })
+    .exec(function(err, docs){
+      if(err){
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(docs);
+      }
+    });
 
 }
 
 //Update a user's info
-exports.userUpdate = function(req, res){
+exports.userUpdate = function(req, res) {
 
 }
 
 //Delete a user from DB
-exports.userDelete = function(req, res){
+exports.userDelete = function(req, res) {
 
 }
 
-exports.defRoute = function(req, res){
+exports.defRoute = function(req, res) {
 
- res.sendFile(process.cwd() + '/public/index.html');
+	res.sendFile(process.cwd() + '/public/index.html');
 }
