@@ -1,15 +1,14 @@
 <!-- <h3>This is the page everyone can see</h3> -->
 
 <!-- Login Form -->
-  
-<div class="col-md-6 col-md-offset-6 login">
-  <!-- <h2>Log In</h2> -->
-  <form method="POST" action="/login">
+
+<div class="col-md-6 col-md-offset-6 login" ng-controller="loginController">
+  <form>
     <label for="username">Username:</label>
-    <input type="text" name="username" placeholder="Enter Username">
+    <input type="text" name="username" ng-model="userEmail" placeholder="Enter Username">
     <label for="password">Password:</label>
-    <input type="password" name="password" placeholder="Enter Password">
-    <button type="submit" class="btn btn-info">Log In</button>
+    <input type="password" name="password" ng-model="userPassword" placeholder="Enter Password">
+    <button type="submit" ng-click="login()" class="btn btn-info">Log In</button>
   </form>
 </div>
 <!-- Registration Form Only Admins will need-->
