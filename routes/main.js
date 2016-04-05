@@ -26,6 +26,7 @@ module.exports = function (app) {
 
   //User Controls
   app.post('/adduser', usrCtrl.addUser);
+  app.post('/updateUser', usrCtrl.updateUser);
   app.post('/newUser', usrCtrl.newUser);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
 app.post('/login',
