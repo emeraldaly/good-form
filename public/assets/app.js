@@ -93,3 +93,17 @@ classApp.controller('newUser', function($scope, $http) {
   }
 });
 
+classApp.controller('loginController', function($scope, $http) {
+  $scope.login = function(){
+    $http({
+      method: 'POST',
+      url: '/login',
+      data: {
+        username:$scope.userEmail,
+        password:$scope.userPassword,
+      }
+    }).then(function(result) {
+      console.log(result.data);
+    });
+  }
+});

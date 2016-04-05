@@ -32,6 +32,7 @@ angular.module('classApp')
 
     Socket.on('message', function(data) {
       $scope.messages.push(data);
+      console.log($scope.messages);
     });
 
     Socket.on('add-user', function(data) {

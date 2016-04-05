@@ -1,6 +1,10 @@
-var UserMock = require('../mocks/user.mock.js');
-
+"use strict";
 describe("the application", function(){
+  var UserMockAdm = require('../mocks/user.mock.js');
+  var UserMockSt = require('../mocks/user.mock.js');
+  var Org = require('../mocks/user.mock.js');
+  var Classes = require('../mocks/user.mock.js');
+
   it("should allow a new user to register their name and organization", function(){
     browser.ignoreSynchronization = true;
     var orgNm = element(by.model("organizationName"));
@@ -11,14 +15,14 @@ describe("the application", function(){
     var email = element(by.model("userEmail"));
     browser.get('/#/register');
 
-    orgNm.sendKeys(Faker.Name.findName());
-    address.sendKeys("30 rock");
-    site.sendKeys("www.test.com");
-    usrFNm.sendKeys("Joe");
-    usrLNm.sendKeys("Schmoe");
-    email.sendKeys("Schmoe@joe.com");
+    orgNm.sendKeys(Org.name);
+    address.sendKeys(Org.address);
+    site.sendKeys(Org.site);
+    usrFNm.sendKeys(UserMockAdm.first_name);
+    usrLNm.sendKeys(UserMockAdm.last_name);
+    email.sendKeys(UserMockAdm.internet);
 
-    expect(orgNm).getText()).toEqual('');
+    expect(orgNm).getText().toEqual('');
   });
 
   // it("should allow a registered user to login", function(){
