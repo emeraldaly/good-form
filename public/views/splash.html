@@ -47,15 +47,14 @@
   <div ui-view autoscroll="false"></div>
 
 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-7 login form-box" ng-controller="loginController">
-  <h3>User Log In</h3>
   <form>
-    <label for="username">Username:</label>
+    <label for="username">Username</label>
     <input type="text" class="form-control" name="username" ng-model="userEmail" placeholder="Enter Username">
     <span class="help-block"></span>
-    <label for="password">Password:</label>
+    <label for="password">Password</label>
     <input type="password" class="form-control" name="password" ng-model="userPassword" placeholder="Enter Password">
     <span class="help-block"></span>
-    <button type="submit" ng-click="login()" class="btn btn-info btn-lg">Log In</button>
+    <button type="submit" ng-click="login()" class="btn btn-info btn-lg pull-right">Log In</button>
   </form>
 </div>
 
