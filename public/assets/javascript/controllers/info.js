@@ -15,10 +15,21 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 			});
 		}
 
+$scope.infos=[];
+$scope.viewInfo = function() {
+			$http({
+				method: 'GET',
+				url: '/viewInfo',
+			}).then(function(result) {
+				    angular.forEach(result.data, function (eachOne){
+          $scope.infos.push(eachOne);
+        })
+			});
+		}
+
 
 		$scope.classesTable = new NgTableParams({}, {
 			getData: function($defer, params) {
-
 				return $http.get('/showClasses')
 					.then(function(response) {
 						console.log(response)
