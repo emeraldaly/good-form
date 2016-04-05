@@ -1,6 +1,5 @@
 body{
-  /*background: url('/assets/img/good_form.jpg') no-repeat 100% 50% fixed;*/
-  background-color: blue;
+  background: url('/assets/img/good_form.jpg') no-repeat 100% 50% fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
