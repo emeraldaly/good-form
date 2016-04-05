@@ -1,9 +1,27 @@
-<h3> welcome to the jedboard! <3>
 
-the jedboard will be rendered here
+<div ng-controller="info"  data-ng-init="viewInfo()">
 
-below only the admin will be able to see the info creation
+	<h3> create jedboard</h3>
+	<input ng-model="title" placeholder="title">
+	<textarea ng-model="information" placeholder="information"> </textarea>
+	<table ng-table="classesTable">
+		<tr ng-repeat="class in $data">
+			<td>
+				<div class="radio">
+					<label><input type="radio" ng-click="classId(class._id)">{{class.name}}</label>
+				</div>
 
 
-	<h4>  Create new jedboard posting </h4>
+			</td>
+		</tr>
+	</table>
+	<button ng-click="createInfo()"> Create info </button>
+	<h4>  view created jedboards</h4>
+<div class="row" ng-repeat="info in infos">
+	<h4>This is the title{{info.title}} </h4>
+	<p>this is the information:  {{info.information}}
+	</div>
+
+
+</div>
 

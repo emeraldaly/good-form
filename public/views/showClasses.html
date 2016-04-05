@@ -2,11 +2,18 @@
 
 	<!-- <div ng-controller="class" data-ng-init="showClasses()"> -->
 	<div ng-controller="class">
-		<button ng-click="showClasses()"> button? </button>
+<!-- 		<button ng-click="showClasses()"> button? </button> -->
 	<table ng-table="classesTable">
       <tr ng-repeat="class in $data">
-        <td>{{ class.name }}</td>
+      	<td>
+      		<div class="radio">
+					<label><input type="radio" ng-click="thisClass(class._id)">{{class.name}}</label>
+				</div>
+      	</td>
+  
       </tr>
     </table>
-
+    <button ng-click="editThisClass()"> Edit this class </button>
 	</div>
+
+
