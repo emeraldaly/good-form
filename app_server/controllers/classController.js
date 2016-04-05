@@ -3,12 +3,10 @@ var Class = require("../models/class");
 var User = require("../models/user");
 
 exports.updateClass = function (req, res){
-
 debugger
   var userRole = req.body.userRole;
   var classId= req.session.editClassId;
   var userId = req.body.userId;
-console.log
   User.findByIdAndUpdate(userId, {
                 _class: classId
             }, {

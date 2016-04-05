@@ -1,12 +1,7 @@
 
 angular.module('classApp').controller('info', function($scope, $state, $http, $filter, NgTableParams) {
 
-		$scope.classId = function(id) {
-			$scope.userUpdate = id;
-		}
-
 		$scope.createInfo = function() {
-			console.log($scope.userUpdate + $scope.title + $scope.information)
 			$http({
 				method: 'POST',
 				url: '/createInfo',
@@ -18,20 +13,6 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 			}).then(function(result) {
 				console.log(result)
 			});
-		}
-		$scope.infos = []
-		$scope.viewInfo = function(){
-
-			$http({
-				method:"GET",
-				url:"/viewInfo"
-			}).then(function(result){
-				 angular.forEach(result.data, function (eachOne){
-          $scope.infos.push(eachOne);
-        })
-				console.log(result)
-			});
-		console.log("hit it")
 		}
 
 
