@@ -1,19 +1,18 @@
+	<h3> for which class </h3>
 
-<div ng-controller="class">
-	<h3> for which class?: </h3>
-	<!-- 		<button ng-click="showClasses()"> button? </button> -->
+<div ng-controller="class" ng-init="getClasses()">
+<!-- 		<button ng-click="showClasses()"> button? </button> -->
 	<table ng-table="classesTable">
-				<div class="radio">
-		<tr ng-repeat="class in $data">
-			<td>
-
+      <tr ng-repeat="class in $data">
+      	<td>
+      		<div class="radio">
 					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
-			
-			</td>
-		</tr>
-			</div>
-	</table>
-</div>
+				</div>
+      	</td>
+  
+      </tr>
+    </table>
+	</div>
 <div ng-controller="homework">
 	<h3>Create Homework </h3>
 
