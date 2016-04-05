@@ -14,6 +14,7 @@
    }],
    linkedin: String,
    github: String,
+   portfolio:String,
    admin: Boolean,
    firstname:String,
    lastname:String,
