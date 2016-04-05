@@ -12,19 +12,7 @@ $scope.createClass = function(){
       });
   
   }
-
   $scope.getAllUsers = function(){
-
-  $http({
-        method: 'GET',
-        url: '/getAllUsers',
-      }).then(function(result) {
-        // 
-          angular.forEach(result.data, function (eachOne){
-          $scope.listOfUsers.push(eachOne);
-        })
-      });
-  }
 $scope.zz = new NgTableParams({
   }, {
     getData: function($defer, params) {
@@ -42,6 +30,11 @@ $scope.zz = new NgTableParams({
      
     }
   });
+  }
+
+
+
+$scope.getClasses = function(){
 $scope.classesTable = new NgTableParams({
   }, {
     getData: function($defer, params) {
@@ -58,12 +51,14 @@ $scope.classesTable = new NgTableParams({
       });
      
     }
-  });
+  })
+}
 $scope.userId = function(id){
   $scope.userUpdate = id;
 }
-$scope.updateClass = function(){
-   console.log($scope.userUpdate)
+$scope.updateClass = function(){ 
+  debugger
+   console.log($scope.userRole + $scope.userUpdate)
    $http({
         method: 'POST',
         url: '/updateClass',
@@ -77,8 +72,6 @@ $scope.updateClass = function(){
 }
 
 $scope.thisClass= function(classId){
-debugger
-
   $http({
         method: 'POST',
         url: '/editClassId',
@@ -92,5 +85,4 @@ debugger
 $scope.editThisClass = function(){
          $state.go('editClass')
 }
-
 });
