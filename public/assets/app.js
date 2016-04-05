@@ -56,7 +56,7 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
 })
 .state('login', {
   url: '/splash',
-  templateUrl: '/views/splash.html'
+  templateUrl: '/splash.html'
 })
 
 });

@@ -6,7 +6,7 @@ body{
   -webkit-background-size: cover;
 }
 
-.navbar-default {
+/*.navbar-default {
   background-color: transparent;
   border-color: transparent;
 }
@@ -22,19 +22,19 @@ body{
 .navbar-collapse {
   padding-left: 0;
   padding-right: 0;
-}
+}*/
 
 /* REGISTRATION */
 .form-box {
-  background-color: rgba(255,255,255,.85);
+  background-color: rgba(255,255,255,.65);
   border-radius: 5px;
   padding-bottom: 10px;
   margin-bottom: 5%;
 }
 
 .login {
-  margin-top: 30%;
+  background-color: transparent;
+  margin-top: 38%;
   margin-right: 5%;
 }
-
 
