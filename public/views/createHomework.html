@@ -3,13 +3,15 @@
 	<h3> for which class?: </h3>
 	<!-- 		<button ng-click="showClasses()"> button? </button> -->
 	<table ng-table="classesTable">
+				<div class="radio">
 		<tr ng-repeat="class in $data">
 			<td>
-				<div class="radio">
-					<label><input type="radio" ng-click="thisClass(class._id)">{{class.name}}</label>
-				</div>
+
+					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
+			
 			</td>
 		</tr>
+			</div>
 	</table>
 </div>
 <div ng-controller="homework">
