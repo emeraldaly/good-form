@@ -58,6 +58,12 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   url: '/updateUser',
   templateUrl: '/views/updateUser.html'
 })
+.state('login', {
+  url: '/splash',
+  templateUrl: '/splash.html'
+})
+
+
 });
 
 classApp.controller('newUser', function($scope, $http) {

@@ -29,7 +29,7 @@ Users must create an account, log in, and be assigned appropriate admin and part
 
 ## Link to live app on Heroku:
 
-- link
+- http://goodform.herokuapp.com/#/home
 
 ## Guest/Reviewer Login:
 

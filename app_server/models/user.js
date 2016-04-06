@@ -24,7 +24,8 @@
    assignment:[{
      type: Schema.Types.ObjectId,
      ref: 'homework',
-     completed:{type:Boolean, default:0}
+   //when completed, it will be removed from the array, and put in the assignment's array of completed"
+
    }],
  });
 
