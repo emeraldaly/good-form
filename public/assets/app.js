@@ -4,64 +4,63 @@ var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.s
 classApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/home')
   $stateProvider
-// HOME STATES AND NESTED VIEWS ========================================
-.state('home', {
-  url: '/home',
-  templateUrl: '/views/home.html'
-})
-.state('users', {
-  url: '/users',
-  templateUrl: '/views/users.html'
-})
-.state('register', {
-  url: '/register',
-  templateUrl: '/views/register.html'
-})
-.state('addUser', {
-  url: '/addUser',
-  templateUrl: '/views/addUser.html'
-})
-.state('class', {
-  url: '/class',
-  templateUrl: '/views/class.html'
-})
-.state('showClasses', {
-  url: '/showClasses',
-  templateUrl: '/views/showClasses.html'
-})
-.state('createClass', {
-  url: '/createClass',
-  templateUrl: '/views/createClass.html'
-})
-.state('info', {
-  url: '/info',
-  templateUrl: '/views/info.html'
-})
-.state('chat', {
-  url: '/chat',
-  templateUrl: '/views/chat.html',
-  controller: 'chatControl'
-})
-.state('editClass', {
-  url: '/editClass',
-  templateUrl: '/views/editClass.html'
-})
-.state('metrics', {
-  url: '/metrics',
-  templateUrl: '/views/highcharts.html'
-})
-.state('createHomework', {
-  url: '/createHomework',
-  templateUrl: '/views/createHomework.html'
-})
-.state('login', {
-  url: '/splash',
-  templateUrl: '/splash.html'
-})
-
+  // HOME STATES AND NESTED VIEWS ========================================
+  .state('home', {
+    url: '/home',
+    templateUrl: '/views/home.html'
+  })
+  .state('users', {
+    url: '/users',
+    templateUrl: '/views/users.html'
+  })
+  .state('register', {
+    url: '/register',
+    templateUrl: '/views/register.html'
+  })
+  .state('addUser', {
+    url: '/addUser',
+    templateUrl: '/views/addUser.html'
+  })
+  .state('class', {
+    url: '/class',
+    templateUrl: '/views/class.html'
+  })
+  .state('showClasses', {
+    url: '/showClasses',
+    templateUrl: '/views/showClasses.html'
+  })
+  .state('createClass', {
+    url: '/createClass',
+    templateUrl: '/views/createClass.html'
+  })
+  .state('info', {
+    url: '/info',
+    templateUrl: '/views/info.html'
+  })
+  .state('chat', {
+    url: '/chat',
+    templateUrl: '/views/chat.html',
+    controller: 'chatControl'
+  })
+  .state('editClass', {
+    url: '/editClass',
+    templateUrl: '/views/editClass.html'
+  })
+  .state('metrics', {
+    url: '/metrics',
+    templateUrl: '/views/highcharts.html'
+  })
+  .state('createHomework', {
+    url: '/createHomework',
+    templateUrl: '/views/createHomework.html'
+  })
+  .state('login', {
+    url: '/splash',
+    templateUrl: '/splash.html'
+  })
 });
 
-classApp.controller('newUser', function($scope, $http) {
+classApp.controller('newUser', function($scope, $http, $location) {
   $scope.addUser = function(){
     console.log($scope.userFirstName)
     $http({
@@ -74,11 +73,10 @@ classApp.controller('newUser', function($scope, $http) {
         userLastName:$scope.userLastName,
       }
     }).then(function(result) {
-
+      $location.path('/#/home');
     });
   };
   $scope.register = function(){
-    console.log($scope.organizationName)
     $http({
       method: 'POST',
       url: '/newUser',
@@ -91,9 +89,14 @@ classApp.controller('newUser', function($scope, $http) {
         userFirstName:$scope.userFirstName,
         userLastName:$scope.userLastName,
       }
-    }).then(function(result) {
-      console.log(result)
-    });
+    }).then(
+      function successCallback(result) {
+        $location.path('/#/home');
+        console.log(result)
+      }, function errorCallback(result){
+        console.log(result)
+      }
+    );
   }
 });
 
