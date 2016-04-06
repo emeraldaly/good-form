@@ -24,32 +24,34 @@ angular.module('classApp')
       $scope.msg = '';
     }
 
-    Socket.emit('request-users', {});
+    // Socket.emit('request-users', {});
 
-    Socket.on('users', function(data){
-      $scope.users = data.users;
-    });
+    // Socket.on('users', function(data){
+    //   $scope.users = data.users;
+    // });
 
     Socket.on('message', function(data) {
+      // console.log(data);
+      // console.log($scope.messages);
       $scope.messages.push(data);
-      console.log($scope.messages);
+      // console.log($scope.messages);
     });
 
-    Socket.on('add-user', function(data) {
-      $scope.users.push(data.username);
-      $scope.messages.push({username: data.username, message: 'has arrived'});
-    });
+    // Socket.on('add-user', function(data) {
+    //   $scope.users.push(data.username);
+    //   $scope.messages.push({username: data.username, message: 'has arrived'});
+    // });
 
-    Socket.on('remove-user', function(data){
-      $scope.users.splice($scope.users.indexOf(data.username),1);
-      $scope.messages.push({username: data.username, message: 'left'});
-    });
+    // Socket.on('remove-user', function(data){
+    //   $scope.users.splice($scope.users.indexOf(data.username),1);
+    //   $scope.messages.push({username: data.username, message: 'left'});
+    // });
 
-    Socket.on('prompt-username', function(data){
-      chatUsername(data.message);
-    });
+    // Socket.on('prompt-username', function(data){
+    //   chatUsername(data.message);
+    // });
 
-    $scope.$on('$locationChangeStart', function(event){
-      Socket.disconnect(true);
-    });
+    // $scope.$on('$locationChangeStart', function(event){
+    //   Socket.disconnect(true);
+    // });
   }]);
