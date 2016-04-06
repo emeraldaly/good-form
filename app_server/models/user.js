@@ -21,9 +21,10 @@
    email:String,
    username: { type: String, required: true, index: { unique: true } },
    password: { type: String, required: true },
-   _assignment:[{
+   assignment:[{
      type: Schema.Types.ObjectId,
-     ref: 'assignment'
+     ref: 'homework',
+     completed:{type:Boolean, default:0}
    }],
  });
 
