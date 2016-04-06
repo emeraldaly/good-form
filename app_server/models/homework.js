@@ -11,6 +11,10 @@
 			type: Schema.Types.ObjectId,
 			ref: 'User'
 		},
+		completed:[{
+			type: Schema.Types.ObjectId,
+			ref: 'User'
+		}],
 		//by user
 		//by week
 		name: String,
