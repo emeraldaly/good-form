@@ -10,12 +10,12 @@ var mongoose = require("mongoose");
 //   extended: false
 // }));
 
-exports.newUser = function(req, res) {
+// exports.newUser = function(req, res) {
 	// console.log(req.body);
 	//   passport.authenticate('local', { successRedirect: '/successRedirect',
 	//                                    failureRedirect: '/login' });
 	// console.log(passport.authenticate);
-}
+// }
 
 exports.addUser = function(req, res) {
 
@@ -33,7 +33,7 @@ exports.addUser = function(req, res) {
 	}, function(err, user) {
 		if (user) {
 			res.redirect("/?msg=Your email is already registered, please login.");
-			console.log("found one")} 
+			console.log("found one")}
 			else { console.log("didn't find one")
 				userx.save(function(err, user) {console.log("saved")});
 
@@ -69,6 +69,7 @@ exports.addUser = function(req, res) {
 
 
 exports.newUser = function(req, res) {
+	console.log("This other one was just hit");
 	User.findOne({
 		username: req.body.username
 	}, function(err, user) {
@@ -147,8 +148,21 @@ exports.getAllUsers = function(req, res) {
 }
 
 //Update a user's info
-exports.userUpdate = function(req, res) {
+exports.updateUser = function(req, res) {
+	
+var user = req.session.user._id
 
+User.findByIdAndUpdate(user, {$set: {
+								github: req.body.github,
+								linkedin:req.body.linkedin,
+								portfolio:req.body.portfolio
+							}
+						}, {
+							safe: true,
+							upsert: true
+						}, function(err, model) {
+							console.log("it worked?")
+						})
 }
 
 //Delete a user from DB

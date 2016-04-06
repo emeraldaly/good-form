@@ -1,13 +1,12 @@
 body{
-  /*background: url('/assets/img/good_form.jpg') no-repeat 100% 50% fixed;*/
-  background-color: #00838f;
+  background: url('/assets/img/good_form.jpg') no-repeat 100% 50% fixed;
   background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
 }
 
-.navbar-default {
+/*.navbar-default {
   background-color: transparent;
   border-color: transparent;
 }
@@ -23,7 +22,7 @@ body{
 .navbar-collapse {
   padding-left: 0;
   padding-right: 0;
-}
+}*/
 
 /* REGISTRATION */
 .form-box {
@@ -38,5 +37,4 @@ body{
   margin-top: 38%;
   margin-right: 5%;
 }
-
 

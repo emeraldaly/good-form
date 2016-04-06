@@ -1,15 +1,16 @@
 //use faker to generate
 var faker = require('faker');
 
-class UserMockAdm() {
-  constructor() {
+// class
+UserMockAdm{
+  // constructor() {
     this.first_name = faker.Name.firstName();
     this.last_name = faker.Name.lastName();
     this.address = faker.Address.streetAddress();
     this.internet = faker.Internet.email();
     this.usrNm = faker.Internet.userName();
     this.userRole = 'admin';
-  }
+  // }
 }
 
 class UserMockSt() {

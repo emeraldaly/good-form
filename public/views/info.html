@@ -12,7 +12,7 @@
     </table>
 	</div>
 
-<div ng-controller="info">
+<div ng-controller="info" ng-init="viewInfo()">
 	<h3> pick a class</h3>
 	<input ng-model="title" placeholder="title">
 	<textarea ng-model="information" placeholder="information"> </textarea>
@@ -22,7 +22,6 @@
 	<h4>This is the title{{info.title}} </h4>
 	<p>this is the information:  {{info.information}}
 	</div>
-getClasses
 </div>
 
 

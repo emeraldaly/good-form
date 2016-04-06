@@ -56,8 +56,7 @@ $scope.classesTable = new NgTableParams({
 $scope.userId = function(id){
   $scope.userUpdate = id;
 }
-$scope.updateClass = function(){ 
-  debugger
+$scope.updateClass = function(){
    console.log($scope.userRole + $scope.userUpdate)
    $http({
         method: 'POST',

@@ -87,7 +87,7 @@ io.on('connection', function(socket){
   socket.on('disconnect', function(data){
     console.log(username + ' has disconnected');
 //     users.splice(users.indexOf(username), 1);
-    io.emit('remove-user', {username: username});
+    // io.emit('remove-user', {username: username});
   });
 });
 // // END SOCKET
