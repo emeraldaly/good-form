@@ -39,4 +39,7 @@ body{
   margin-right: 5%;
 }
 
-
+/*CHAT*/
+ul.msgList.pre-scrollable {
+  max-height: 250px;
+}
