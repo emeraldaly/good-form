@@ -54,6 +54,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   url: '/createHomework',
   templateUrl: '/views/createHomework.html'
 })
+.state('login', {
+  url: '/splash',
+  templateUrl: '/splash.html'
+})
 
 });
 
