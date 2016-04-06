@@ -60,7 +60,7 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   })
 });
 
-classApp.controller('newUser', function($scope, $http, $location) {
+classApp.controller('newUser', function($scope, $http, $state) {
   $scope.addUser = function(){
     console.log($scope.userFirstName)
     $http({
@@ -73,7 +73,7 @@ classApp.controller('newUser', function($scope, $http, $location) {
         userLastName:$scope.userLastName,
       }
     }).then(function(result) {
-      $location.path('/#/home');
+      $state.go('login');
     });
   };
   $scope.register = function(){
@@ -91,16 +91,16 @@ classApp.controller('newUser', function($scope, $http, $location) {
       }
     }).then(
       function successCallback(result) {
-        $location.path('/#/home');
         console.log(result)
+        $state.go('login');
       }, function errorCallback(result){
-        console.log(result)
+        console.log(result);
       }
     );
   }
 });
 
-classApp.controller('loginController', function($scope, $http) {
+classApp.controller('loginController', function($scope, $http, $state) {
   $scope.login = function(){
     $http({
       method: 'POST',
@@ -111,6 +111,7 @@ classApp.controller('loginController', function($scope, $http) {
       }
     }).then(function(result) {
       console.log(result.data);
+      $state.go('home');
     });
   }
 });
