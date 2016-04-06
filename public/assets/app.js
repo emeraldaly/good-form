@@ -2,7 +2,7 @@
 var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io','ngTable']);
 
 classApp.config(function($stateProvider, $urlRouterProvider) {
-  $urlRouterProvider.otherwise('/home')
+  $urlRouterProvider.otherwise('/splash')
   $stateProvider
   // HOME STATES AND NESTED VIEWS ========================================
   .state('home', {
