@@ -148,8 +148,21 @@ exports.getAllUsers = function(req, res) {
 }
 
 //Update a user's info
-exports.userUpdate = function(req, res) {
+exports.updateUser = function(req, res) {
+	
+var user = req.session.user._id
 
+User.findByIdAndUpdate(user, {$set: {
+								github: req.body.github,
+								linkedin:req.body.linkedin,
+								portfolio:req.body.portfolio
+							}
+						}, {
+							safe: true,
+							upsert: true
+						}, function(err, model) {
+							console.log("it worked?")
+						})
 }
 
 //Delete a user from DB

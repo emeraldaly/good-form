@@ -14,15 +14,18 @@
    }],
    linkedin: String,
    github: String,
+   portfolio:String,
    admin: Boolean,
    firstname:String,
    lastname:String,
    email:String,
    username: { type: String, required: true, index: { unique: true } },
    password: { type: String, required: true },
-   _assignment:[{
+   assignment:[{
      type: Schema.Types.ObjectId,
-     ref: 'assignment'
+     ref: 'homework',
+   //when completed, it will be removed from the array, and put in the assignment's array of completed"
+
    }],
  });
 
