@@ -29,11 +29,11 @@ module.exports = function (app) {
   app.post('/updateUser', usrCtrl.updateUser);
   app.post('/newUser', usrCtrl.newUser);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
-app.post('/login',
-  passport.authenticate('login', { successRedirect: '/?msg=loginsuccess',
-                                   failureRedirect: '/?msg=loginfail'
-                                  })
-);
+  app.post('/login',
+  passport.authenticate('login'),
+  function(req, res){
+    res.send("Fine Elie....");
+  });
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
@@ -76,10 +76,10 @@ passport.deserializeUser(function(user, done) {
 passport.use('login', new LocalStrategy({
   passReqToCallback : true
 },
-function(req, username, password, done) { 
+function(req, username, password, done) {
     // check in mongo if a user with username exists or not
     console.log("username");
-    User.findOne({ 'username' :  username }, 
+    User.findOne({ 'username' :  username },
       function(err, user) {
         // In case of any error, return using the done method
         if (err)
@@ -87,16 +87,16 @@ function(req, username, password, done) {
         // Username does not exist, log error & redirect back
         if (!user){
           console.log('User Not Found with username '+username);
-          return done(null, false, 
-            console.log('message', 'User Not found.'));                 
+          return done(null, false,
+            console.log('message', 'User Not found.'));
         }
-        // User exists but wrong password, log the error 
+        // User exists but wrong password, log the error
         if (!isValidPassword(user, password)){
 
-          return done(null, false, 
+          return done(null, false,
             console.log('message', 'Invalid Password'));
         }
-        // User and password both match, return user from 
+        // User and password both match, return user from
         // done method which will be treated like success
         // debugger
         req.session.user = user;

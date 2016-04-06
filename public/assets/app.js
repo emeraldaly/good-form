@@ -115,7 +115,8 @@ classApp.controller('loginController', function($scope, $http, $state) {
         password:$scope.userPassword,
       }
     }).then(function(result) {
-      console.log(result.data);
+      debugger;
+      console.log(result);
       $state.go('home');
     });
   }
