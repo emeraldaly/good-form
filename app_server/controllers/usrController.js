@@ -19,15 +19,15 @@ var mongoose = require("mongoose");
 
 exports.viewAssignments = function(req, res){
 	console.log(req.session.user._id)
-	User.findOne({_id:req.session.user._id}, function(err, user){
-		debugger
-		if (err){
-			console.log(err)
-		}
-		else{
-			res.send(user)
-		}
-	})
+	User.findOne({_id:req.session.user._id}).populate('assignment')
+	 .exec(function (err, user) {
+	 	debugger
+      if (err){ return handleError(err)
+      }
+      else{
+      		res.send(user)
+      }
+    })
 }
 
 exports.addUser = function(req, res) {
