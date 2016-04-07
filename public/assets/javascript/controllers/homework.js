@@ -16,4 +16,17 @@ $scope.createHomework = function(){
       });  
 }
 
+$scope.getAssignments = function(){
+	 $http({
+        method: 'GET',
+        url: '/viewAssignments',
+      }).then(function(result) {
+        debugger
+        console.log(result)
+        console.log(result.data.assignment)
+      });  
+
+
+     }
+
 })//end of controller

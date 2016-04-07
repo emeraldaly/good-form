@@ -6,7 +6,7 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 				method: 'POST',
 				url: '/createInfo',
 				data: {
-					title: $scope.title,
+					title: $scope.title.toUpperCase(),
 					information: $scope.information,
 					class: $scope.userUpdate
 				}
