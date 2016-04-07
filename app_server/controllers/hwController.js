@@ -2,19 +2,59 @@
 var Hw = require("../models/homework");
 var Class = require("../models/class");
 var User = require("../models/user");
-
+var Submission = require("../models/submission");
 //Post a HW submission
-exports.submitHw = function (req, res){
 
-  var newHw = new Hw(req.body);
-  newHw.save(function (err, doc) {
+// exports.thisHomework = function(req,res){
+// req.session.jibba = "jabba"
+// req.session.hw = req.body.homeworkId;
+// console.log(req.session.hw + req.body.homeworkId)
+// }
+
+exports.thisHomework = function (req, res){
+// 
+req.session.thisHomeworkId = req.body.homeworkId;
+res.send("got it");
+      
+}
+
+
+exports.submitHw = function (req, res){
+  debugger
+console.log(req.session.thisHomeworkId)
+ var newSubmission = new Submission({github:req.body.github, heroku:req.body.heroku, _homework:req.session.thisHomeworkId, student: req.session.user._id});
+  newSubmission.save(function (err, doc) {
     if (err) {
       console.log(err);
     } else {
-      console.log(doc);
+      req.session.submissionId = doc._doc._id;
+
+      var thisHomework = req.session.thisHomeworkId;
+      debugger
+
+      console.log(thisHomework)
+
+      Hw.findByIdAndUpdate(thisHomework, {
+              $push: {
+                _submission: req.session.submissionId
+              }
+            }, {
+              safe: true,
+              upsert: true
+            }, function(err, model) {
+
+              debugger
+              console.log("it worked?")
+            })
+
+
+
+
     }
   });
 }
+
+
 
 exports.createHw = function(req, res) {
   Class.find({
@@ -27,8 +67,7 @@ exports.createHw = function(req, res) {
         console.log(err);
         res.send(err);
       } else {
-        // debugger
-        console.log(docs)
+        //         console.log(docs)
         req.session.studentArray = docs[0]._doc.student;
         var newHw = new Hw({
           _class: req.session.editClassId,
@@ -57,7 +96,7 @@ exports.createHw = function(req, res) {
                 // upsert: true
               },
               function(err, model) {
-                debugger;
+                
                 console.log("it worked?")
               });
           }

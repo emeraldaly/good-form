@@ -14,7 +14,7 @@ exports.createInfo = function (req, res){
 	}
 
 exports.viewInfo = function (req, res){
-	debugger
+	
   Info.find({
   class:req.session.user._class
   })
@@ -24,7 +24,7 @@ exports.viewInfo = function (req, res){
         console.log(err);
         res.send(err);
       } else {
-        // debugger
+        // 
         console.log(docs)
         res.send(docs);
       }
