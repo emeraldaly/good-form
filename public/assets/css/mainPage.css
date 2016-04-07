@@ -43,3 +43,8 @@ body{
 ul.msgList.pre-scrollable {
   max-height: 250px;
 }
+
+.classH4 {
+  font-style: italic;
+  color: #777;
+}
