@@ -20,7 +20,6 @@ res.send("got it");
 
 
 exports.submitHw = function (req, res){
-  debugger
 console.log(req.session.thisHomeworkId)
  var newSubmission = new Submission({github:req.body.github, heroku:req.body.heroku, _homework:req.session.thisHomeworkId, student: req.session.user._id});
   newSubmission.save(function (err, doc) {
@@ -30,7 +29,7 @@ console.log(req.session.thisHomeworkId)
       req.session.submissionId = doc._doc._id;
 
       var thisHomework = req.session.thisHomeworkId;
-      debugger
+  
 
       console.log(thisHomework)
 
@@ -42,8 +41,14 @@ console.log(req.session.thisHomeworkId)
               safe: true,
               upsert: true
             }, function(err, model) {
-
-              debugger
+              User.update({_id: req.session.user._id  }, 
+                {$pull: { assignment: req.session.thisHomeworkId }
+              }, 
+                function (err,val) {
+                    debugger
+                    console.log(val)
+                });
+          
               console.log("it worked?")
             })
 
