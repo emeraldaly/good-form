@@ -25,11 +25,14 @@ $scope.thisHomework= function(homeworkId){
 }
 
 $scope.createHomework = function(){
+  debugger
  $http({
         method: 'POST',
         url: '/createHomework',
         data: {description:$scope.description,
-        	name:$scope.name
+        	name:$scope.name,
+          duedate:$scope.duedate,
+          duetime:$scope.duetime
         }
       }).then(function(result) {
         console.log(result)
