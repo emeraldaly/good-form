@@ -17,17 +17,22 @@ var mongoose = require("mongoose");
 	// console.log(passport.authenticate);
 // }
 
+// export.viewHomework = function(req, res){
+
+	
+// }
+
 exports.viewAssignments = function(req, res){
 	console.log(req.session.user._id)
-	User.findOne({_id:req.session.user._id}, function(err, user){
-		debugger
-		if (err){
-			console.log(err)
-		}
-		else{
-			res.send(user)
-		}
-	})
+	User.findOne({_id:req.session.user._id}).populate('assignment')
+	 .exec(function (err, user) {
+	 	
+      if (err){ return handleError(err)
+      }
+      else{
+      		res.send(user)
+      }
+    })
 }
 
 exports.addUser = function(req, res) {
@@ -153,7 +158,7 @@ exports.getAllUsers = function(req, res) {
         console.log(err);
         res.send(err);
       } else {
-      	debugger
+      	
         res.send(docs);
       }
     });

@@ -45,6 +45,7 @@ module.exports = function (app) {
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
   app.post('/createHomework', hwCtrl.createHw);
+  app.post("/thisHomework", hwCtrl.thisHomework);
 
   //info controls
   app.get('/viewInfo', infoCtrl.viewInfo);

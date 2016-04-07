@@ -23,7 +23,7 @@
    password: { type: String, required: true },
    assignment:[{
      type: Schema.Types.ObjectId,
-     ref: 'homework',
+     ref: 'Homework',
    //when completed, it will be removed from the array, and put in the assignment's array of completed"
 
    }],

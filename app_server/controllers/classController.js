@@ -3,7 +3,7 @@ var Class = require("../models/class");
 var User = require("../models/user");
 
 exports.updateClass = function (req, res){
-debugger
+
   var userRole = req.body.userRole;
   var classId= req.session.editClassId;
   var userId = req.body.userId;
@@ -16,7 +16,7 @@ debugger
               console.log("push to user")
             })
 
-  // debugger
+  // 
   if (userRole == "teacher"){
     Class.findByIdAndUpdate(classId, {
               $push: {
@@ -58,7 +58,7 @@ debugger
 
 //Add a New class
 exports.createClass = function (req, res){
-  // debugger
+  // 
   var newClass = new Class({name:req.body.name, datetime:req.body.datetime, _organization: req.session.organization});
   newClass.save(function (err, doc) {
     if (err) {
@@ -79,7 +79,7 @@ exports.showClasses = function (req, res){
         console.log(err);
         res.send(err);
       } else {
-        // debugger
+        // 
         console.log(docs)
         res.send(docs);
       }
@@ -88,7 +88,7 @@ exports.showClasses = function (req, res){
 
 
 exports.updateThisClass=function(req, res){
-  // debugger
+  // 
   console.log(req.session.editClassId)
 Class.findOne({
     _id:req.session.editClassId
@@ -106,7 +106,7 @@ Class.findOne({
 }
 
 exports.editClassId = function (req, res){
-// debugger
+// 
 req.session.editClassId = req.body.classId
 res.send("got it");
       
