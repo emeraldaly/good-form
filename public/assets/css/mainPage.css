@@ -59,3 +59,14 @@ ul.msgList.pre-scrollable {
   font-style: italic;
   color: #777;
 }
+
+.infoBack {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  background-color: white;
+}
+
+.infoTitle {
+  font-weight: bold;
+}
