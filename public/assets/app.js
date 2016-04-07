@@ -54,6 +54,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/createHomework',
     templateUrl: '/views/createHomework.html'
   })
+  .state('viewAssignments', {
+    url: '/viewAssignments',
+    templateUrl: '/views/viewAssignments.html'
+  })
   .state('updateUser', {
     url: '/updateUser',
     templateUrl: '/views/updateUser.html'
@@ -63,6 +67,7 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     templateUrl: '/splash.html'
   })
 });
+
 
 classApp.controller('newUser', function($scope, $http, $state) {
   $scope.addUser = function(){

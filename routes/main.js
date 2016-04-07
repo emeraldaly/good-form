@@ -25,7 +25,9 @@ module.exports = function (app) {
   app.use(passport.session());
 
   //User Controls
+ 
   app.post('/adduser', usrCtrl.addUser);
+  app.get('/viewAssignments', usrCtrl.viewAssignments);
   app.post('/updateUser', usrCtrl.updateUser);
   app.post('/newUser', usrCtrl.newUser);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
