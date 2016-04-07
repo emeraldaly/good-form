@@ -1,11 +1,21 @@
-<h3>Update Profile</h3>
-	<form ng-controller="user">
-	<div class="panel-body>">
-			<label for="className">LinkIn</label>
-	    <input type="text" ng-model="linkedin" placeholder="">
-	    <label for="username">Github</label>
-	    <input type="text" ng-model="github" placeholder="">
-	     <label for="username">portfolio</label>
-	    <input type="text" ng-model="portfolio" placeholder="">
-	    <button type="submit" ng-click="updateUser()" class="btn btn-info">Update User</button>
-	</form>
+<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+  <div class="form-top">
+		<h3>Update Profile</h3>
+  </div>
+	<div>
+		<form ng-controller="user">
+			<div class="panel-body>">
+				<label for="className">LinkedIn</label>
+		    <input type="text" class="form-control" ng-model="linkedin" placeholder="">
+		    <span class="help-block"></span>
+		    <label for="username">Github</label>
+		    <input type="text" class="form-control" ng-model="github" placeholder="">
+		    <span class="help-block"></span>
+		     <label for="username">Portfolio</label>
+		    <input type="text" class="form-control" ng-model="portfolio" placeholder="">
+		    <span class="help-block"></span>
+		    <button type="submit" ng-click="updateUser()" class="btn btn-warning btn-block">Update User</button>
+		  </div>
+		</form>
+  </div>
+</div>

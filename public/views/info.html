@@ -1,7 +1,7 @@
-	<h3> create jedboard</h3>
-	<div ng-controller="class" ng-init="getClasses()">
+ 	<!-- <h3> create jedboard</h3>
+	<div ng-controller="class" ng-init="getClasses()"> -->
 <!-- 		<button ng-click="showClasses()"> button? </button> -->
-	<table ng-table="classesTable">
+	<!-- <table ng-table="classesTable">
       <tr ng-repeat="class in $data">
       	<td>
       		<div class="radio">
@@ -23,6 +23,38 @@
 	<p>this is the information:  {{info.information}}
 	</div>
 </div>
+ -->
+<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+  <h3> Create Jedboard</h3>
+  <h4 class="classH4">Choose a Class</h4>
+  <div ng-controller="class" ng-init="getClasses()">
+    <!-- <button ng-click="showClasses()"> button? </button> -->
+    <table ng-table="classesTable">
+      <tr ng-repeat="class in $data">
+        <td>
+          <div class="radio">
+            <label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 
+  <div ng-controller="info">
+    <input ng-model="title" class="form-control" placeholder="New Board Title">
+    <span class="help-block"></span>
+    <textarea class="form-control" ng-model="information" placeholder="New Board Information"> </textarea>
+    <span class="help-block"></span>
+    <button class="btn btn-warning btn-block pull-right" ng-click="createInfo()">Create Board</button>
+  </div>
+</div>
 
-<!--  -->
+<div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+  <h3>Jedboard</h3>
+  <div class="pre-scrollable">
+    <div class="infoBack" ng-repeat="info in infos | orderBy:'$index':true">
+      <h4 class="infoTitle">{{info.title}}</h4>
+      <p>{{info.information}}</p>
+    </div>
+  </div>
+</div>

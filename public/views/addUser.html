@@ -6,10 +6,13 @@
 		<div class="panel-body>">
 			<label for="userFirstName">First Name</label>
 	    <input type="text" class="form-control" name="userFirstName" ng-model="userFirstName" placeholder="Evan">
+	    <span class="help-block"></span>
 	    <label for="username">Last Name</label>
 	    <input type="text" class="form-control"name="userLastName" ng-model="userLastName" placeholder="Bates">
+	    <span class="help-block"></span>
 	    <label for="username">Email</label>
 	    <input type="email" class="form-control" name="userEmail" ng-model="userEmail" placeholder="elie@wohl.com">
+	    <span class="help-block"></span>
 	    <label for="username">Password</label>
 	    <input type="password" class="form-control" name="userPassword" ng-model="userPassword"  placeholder="*****">
 	    <h4>Type of Account? </h4>
@@ -19,7 +22,7 @@
 			<div class="radio">
 			  <label><input type="radio" name="userRole" ng-model="userRole" value="true">Admin</label>
 			</div>
-		  <a type="submit" ng-click="addUser()" class="btn btn-info btn-block">Register</a>
+		  <a type="submit" ng-click="addUser()" class="btn btn-warning btn-block">Register</a>
 		</div>
 	</form>
 </div>

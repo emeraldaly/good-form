@@ -25,9 +25,20 @@ body{
   padding-right: 0;
 }
 
+/*FORM HEADERS*/
+
+.form-box h3 {
+  padding: 15px;
+  border-radius: 5px;
+  background-color: #505050;
+  font-size: 24px;
+  text-align: center;
+  color: #F0AD4E;
+}
+
 /* REGISTRATION */
 .form-box {
-  background-color: rgba(255,255,255,.65);
+  background-color: #ececec;
   border-radius: 5px;
   padding-bottom: 10px;
   margin-bottom: 5%;
@@ -39,4 +50,23 @@ body{
   margin-right: 5%;
 }
 
+/*CHAT*/
+ul.msgList.pre-scrollable {
+  max-height: 250px;
+}
+/*JEDBOARD*/
+.classH4 {
+  font-style: italic;
+  color: #777;
+}
 
+.infoBack {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 8px;
+  background-color: white;
+}
+
+.infoTitle {
+  font-weight: bold;
+}
