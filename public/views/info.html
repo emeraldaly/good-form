@@ -45,12 +45,12 @@
     <span class="help-block"></span>
     <textarea class="form-control" ng-model="information" placeholder="New Board Information"> </textarea>
     <span class="help-block"></span>
-    <button class="btn btn-default btn-lg pull-right" ng-click="createInfo()">Create Board</button>
+    <button class="btn btn-warning btn-block pull-right" ng-click="createInfo()">Create Board</button>
   </div>
 </div>
 
 <div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-  <h3>All Jedboards</h3>
+  <h3>Jedboard</h3>
   <div class="pre-scrollable">
     <div ng-repeat="info in infos | orderBy:'$index':true">
       <h4>{{info.title}}</h4>
