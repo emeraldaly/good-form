@@ -12,6 +12,14 @@ $scope.submitHw = function(){
       });  
 }
 
+$scope.homeworkByClass = function(){
+  console.log("hit it")
+  $state.go("viewHomeworkByClass")
+}
+
+$scope.submissionsPage = function(){
+    $state.go("homeworkSubmissions")
+}
 $scope.thisHomework= function(homeworkId){
   console.log(homeworkId)
   $http({
@@ -24,8 +32,23 @@ $scope.thisHomework= function(homeworkId){
       });  
 }
 
+$scope.homeworks=[]
+$scope.viewHomeworkByClass= function(){
+
+  
+   $http({
+        method: 'GET',
+        url: '/viewHomeworkByClass',
+      }).then(function(result) {
+        
+        angular.forEach(result.data, function (eachOne){
+          $scope.homeworks.push(eachOne);
+      })
+  });  
+}
+
 $scope.createHomework = function(){
-  debugger
+  
  $http({
         method: 'POST',
         url: '/createHomework',

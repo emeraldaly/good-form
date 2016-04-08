@@ -59,7 +59,21 @@ console.log(req.session.thisHomeworkId)
   });
 }
 
+exports.viewHomeworkByClass = function(req, res){
 
+  Hw.find({_class:req.session.editClassId}).
+  populate("Class")
+  .exec(function(err, docs) {
+      console.log(docs)
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        debugger
+        res.send(docs)
+      }
+    })
+}
 
 exports.createHw = function(req, res) {
   debugger
