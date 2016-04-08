@@ -11,12 +11,14 @@
 			type: Schema.Types.ObjectId,
 			ref: 'User'
 		},
-		completed:[{
+		_submission:[{
 			type: Schema.Types.ObjectId,
-			ref: 'User'
-		}],
+			ref: 'Submission'}
+		],
 		//by user
 		//by week
+		duedate:String,
+		duetime:String,
 		name: String,
 		description: String
 	});
