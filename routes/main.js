@@ -47,7 +47,7 @@ module.exports = function (app) {
   app.post('/createHomework', hwCtrl.createHw);
   app.post("/thisHomework", hwCtrl.thisHomework);
   app.get("/viewHomeworkByClass", hwCtrl.viewHomeworkByClass)
-
+  app.get("/viewSubmissions", hwCtrl.viewSubmissions)
   //info controls
   app.get('/viewInfo', infoCtrl.viewInfo);
   app.post("/createInfo", infoCtrl.createInfo);

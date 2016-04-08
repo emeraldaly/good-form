@@ -17,6 +17,40 @@ $scope.homeworkByClass = function(){
   $state.go("viewHomeworkByClass")
 }
 
+$scope.viewSubmissions = function(){
+$scope.submissions = new NgTableParams({
+  }, {
+    getData: function($defer, params) {
+      return $http.get('/viewSubmissions')
+      .then(function(response) {
+        debugger
+        console.log(response)
+        
+         var classes = response.data
+        //  console.log(classes)
+        // var filteredData = $filter('filter')(classes, params.filter())
+        // var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+        // console.log(sortedData)
+        return classes;
+     });
+     
+    }
+  });
+
+
+
+
+  //  $http({
+  //       method: 'GET',
+  //       url: '/viewSubmissions',
+  //     }).then(function(result) {
+           
+  //       angular.forEach(result.data, function (eachOne){
+  //         $scope.homeworks.push(eachOne);
+  //     })
+  // });  
+}
+
 $scope.submissionsPage = function(){
     $state.go("homeworkSubmissions")
 }
@@ -34,8 +68,6 @@ $scope.thisHomework= function(homeworkId){
 
 $scope.homeworks=[]
 $scope.viewHomeworkByClass= function(){
-
-  
    $http({
         method: 'GET',
         url: '/viewHomeworkByClass',

@@ -18,6 +18,23 @@ res.send("got it");
       
 }
 
+exports.viewSubmissions = function(req, res){
+  req.session.thisHomeworkId
+  Submission.find({_homework:req.session.thisHomeworkId})
+  .populate("student")
+  .exec(function(err, docs) {
+      console.log(docs)
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        debugger
+        res.send(docs)
+      }
+    })
+}
+
+
 
 exports.submitHw = function (req, res){
 console.log(req.session.thisHomeworkId)
@@ -61,8 +78,8 @@ console.log(req.session.thisHomeworkId)
 
 exports.viewHomeworkByClass = function(req, res){
 
-  Hw.find({_class:req.session.editClassId}).
-  populate("Class")
+  Hw.find({_class:req.session.editClassId})
+  .populate("Class")
   .exec(function(err, docs) {
       console.log(docs)
       if (err) {
