@@ -1,0 +1,15 @@
+<div ng-controller="homework" ng-init="viewSubmissions()">
+
+<table ng-table="submissions">
+    <tr ng-repeat="sub in $data">
+    <td>
+    name:  {{sub.student.firstname}} {{sub.student.lastname}}
+    <td>
+      <td>
+      		Github: {{sub.github}}
+      </td>
+    	<td>
+    	Heroku: {{sub.heroku}}
+    </tr>
+ 	</table>
+	</div>

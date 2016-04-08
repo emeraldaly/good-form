@@ -1,0 +1,8 @@
+<div ng-controller="homework" ng-init="viewHomeworkByClass()">
+	<div ng-repeat="homework in homeworks">
+		<div class="radio">
+					<label><input type="radio" name="allClasses" ng-click="thisHomework(homework._id)">Homework Name:{{homework.name}}</label>
+		</div>
+	</div>
+	<button ng-click="submissionsPage()"> View submission for this class </button>
+</div>
