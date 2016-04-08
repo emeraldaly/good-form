@@ -14,9 +14,15 @@
     </table>
 	</div>
 <div ng-controller="homework">
+<h3> view homework </h3>
+<button> View All Homework </button>
+
 	<h3>Create Homework </h3>
 
 	<input ng-model="name" placeholder="name">
+
 	<textarea ng-model="description" placeholder="description"> </textarea>
+		<input ng-model="duedate" placeholder="duedate">
+	<input ng-model="duetime" placeholder="duetime">
 	<button ng-click="createHomework()"> create homework </button>
 </div>

@@ -17,7 +17,7 @@
 		],
 		//by user
 		//by week
-		duedate:Date,
+		duedate:String,
 		duetime:String,
 		name: String,
 		description: String

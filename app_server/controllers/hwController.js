@@ -62,6 +62,7 @@ console.log(req.session.thisHomeworkId)
 
 
 exports.createHw = function(req, res) {
+  debugger
   Class.find({
       _id: req.session.editClassId
     })
@@ -78,7 +79,9 @@ exports.createHw = function(req, res) {
           _class: req.session.editClassId,
           description: req.body.description,
           poster: req.session.user._id,
-          name: req.body.name
+          name: req.body.name,
+          duedate:req.body.duedate,
+          duetime:req.body.duetime
         });
         newHw.save(function(err, doc) {
           if (err) {
