@@ -8,33 +8,6 @@ exports.updateClass = function(req, res) {
   var userRole = req.body.userRole;
   var classId = req.session.editClassId;
   var userId = req.body.userId;
-
-
-  // 
-  if (userRole == "teacher") {
-    Class.findByIdAndUpdate(classId, {
-      $push: {
-        teacher: req.body.userId
-      }
-    }, {
-      safe: true,
-      upsert: true
-    }, function(err, model) {
-      console.log("it worked?")
-    })
-
-  } else if (userRole == "ta") {
-    Class.findByIdAndUpdate(classId, {
-      $push: {
-        ta: req.body.userId
-      }
-    }, {
-      safe: true,
-      upsert: true
-    }, function(err, model) {
-      console.log("it worked?")
-    })
-  } else {
     User.findByIdAndUpdate(userId, {
       $push:{
       _class: classId
@@ -47,7 +20,10 @@ exports.updateClass = function(req, res) {
     })
     Class.findByIdAndUpdate(classId, {
       $push: {
-        student: req.body.userId
+        role: {
+          _user:req.body.userId,
+          roleType:userRole
+        }
       }
     }, {
       safe: true,
@@ -56,7 +32,6 @@ exports.updateClass = function(req, res) {
       console.log("it worked?")
     })
 
-  }
 
 }
 

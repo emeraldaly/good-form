@@ -18,3 +18,4 @@ poster:{type: Schema.Types.ObjectId,
 var Info = mongoose.model('Info', InfoSchema);
 
 module.exports = Info;
+

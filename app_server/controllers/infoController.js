@@ -14,7 +14,6 @@ exports.createInfo = function (req, res){
 	}
 
 exports.viewInfo = function (req, res){
-  debugger
   Info.find({
   class:{ $in:req.session.user._class}
   })

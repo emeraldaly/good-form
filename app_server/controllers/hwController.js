@@ -130,15 +130,25 @@ exports.createHw = function(req, res) {
     Class.find({
         _id: req.session.editClassId
       })
-      .populate('user')
       .exec(function(err, docs) {
         console.log(docs)
         if (err) {
           console.log(err);
           res.send(err);
         } else {
-          //         console.log(docs)
-          req.session.studentArray = docs[0]._doc.student;
+        
+          //        docs[0]._doc.role
+          var studentArray = docs[0]._doc.role
+          console.log(studentArray)
+          req.session.studentArray = []
+
+          for (var i = 0; i < studentArray.length; i++) {
+            
+            console.log(req.session.studentArray)
+            if (studentArray[i]._doc.roleType == "student"){
+              req.session.studentArray.push(studentArray[i]._doc._user)
+            }
+          }
           var newHw = new Hw({
             _class: req.session.editClassId,
             description: req.body.description,
@@ -152,7 +162,7 @@ exports.createHw = function(req, res) {
             if (err) {
               console.log(err);
             } else {
-
+              debugger
               req.session.homeworkId = doc._doc._id;
               console.log(req.session.homeworkId)
               console.log(req.session.studentArray)
@@ -167,10 +177,11 @@ exports.createHw = function(req, res) {
                   }
                 }, {
                   multi: true,
-                  // safe: true,
-                  // upsert: true
+                  safe: true,
+                  upsert: true
                 },
                 function(err, model) {
+                  debugger
 
                   console.log("it worked?")
                 });
