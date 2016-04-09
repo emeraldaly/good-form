@@ -12,6 +12,19 @@ $scope.submitHw = function(){
       });  
 }
 
+$scope.uncompleted = []
+$scope.uncompletedSubmission = function(){
+  $http({
+        method: 'GET',
+        url: '/uncompletedSubmission',
+      }).then(function(result) {
+        
+        angular.forEach(result.data, function (eachOne){
+          $scope.uncompleted.push(eachOne);
+      })
+  });  
+
+}
 $scope.homeworkByClass = function(){
   console.log("hit it")
   $state.go("viewHomeworkByClass")
@@ -23,7 +36,7 @@ $scope.submissions = new NgTableParams({
     getData: function($defer, params) {
       return $http.get('/viewSubmissions')
       .then(function(response) {
-        debugger
+
         console.log(response)
         
          var classes = response.data

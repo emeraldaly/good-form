@@ -20,7 +20,11 @@
 		duedate:String,
 		duetime:String,
 		name: String,
-		description: String
+		description: String,
+		uncompleted:[{
+			type: Schema.Types.ObjectId,
+			ref: 'User'
+		}]
 	});
 
 	var Homework = mongoose.model('Homework', HomeworkSchema);

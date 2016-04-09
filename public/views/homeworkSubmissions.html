@@ -1,15 +1,23 @@
-<div ng-controller="homework" ng-init="viewSubmissions()">
 
-<table ng-table="submissions">
+<div ng-controller="homework" ng-init="viewSubmissions()">
+  <table ng-table="submissions">
     <tr ng-repeat="sub in $data">
-    <td>
-    name:  {{sub.student.firstname}} {{sub.student.lastname}}
-    <td>
       <td>
-      		Github: {{sub.github}}
+        name: {{sub.student.firstname}} {{sub.student.lastname}}
       </td>
-    	<td>
-    	Heroku: {{sub.heroku}}
+      <td>
+        Github: {{sub.github}}
+      </td>
+      <td>
+        Heroku: {{sub.heroku}}
+      </td>
     </tr>
- 	</table>
-	</div>
+  </table>
+  <h3> Didn't complete homework </h3>
+  <div ng-init="uncompletedSubmission()">
+    <div ng-repeat="user in uncompleted">
+      Shame on: {{user.firstname}} {{user.lastname}}
+    </div>
+
+  </div>
+</div>
