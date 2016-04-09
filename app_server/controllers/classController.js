@@ -36,7 +36,9 @@ exports.updateClass = function(req, res) {
     })
   } else {
     User.findByIdAndUpdate(userId, {
+      $push:{
       _class: classId
+    }
     }, {
       safe: true,
       upsert: true
