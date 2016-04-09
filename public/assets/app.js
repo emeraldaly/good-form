@@ -17,6 +17,14 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/users',
     templateUrl: '/views/users.html'
   })
+   .state('homeworkSubmissions', {
+    url: '/homeworkSubmissions',
+    templateUrl: '/views/homeworkSubmissions.html'
+  })
+   .state('viewHomeworkByClass', {
+    url: '/viewHomeworkByClass',
+    templateUrl: '/views/viewHomeworkByClass.html'
+  })
   .state('register', {
     url: '/register',
     templateUrl: '/views/register.html'
