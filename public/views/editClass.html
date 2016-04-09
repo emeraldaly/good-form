@@ -2,10 +2,10 @@
 	<div class="col-md-6">
 		this is where all the users go
 		<table ng-table="zz">
-			<tr ng-repeat="user in $data">
+			<tr ng-repeat="user in $data |filter: { _class: '!' + classEdit }">
 				<td>
 					<div class="radio">
-						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}</label>
+						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  {{user._class}}</label>
 				</td>
 			</tr>
 		</table>

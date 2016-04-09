@@ -4,9 +4,8 @@ var Class = require("../models/class");
 var User = require("../models/user");
 
 exports.updateClass = function(req, res) {
-
   var userRole = req.body.userRole;
-  var classId = req.session.editClassId;
+  var classId = req.body.Id;
   var userId = req.body.userId;
     User.findByIdAndUpdate(userId, {
       $push:{
@@ -84,6 +83,7 @@ exports.updateThisClass = function(req, res) {
       } else {
         console.log(docs)
         res.send(docs);
+        
       }
     });
 }
@@ -105,6 +105,7 @@ exports.getClassUsers = function(req, res) {
         console.log(err);
         res.send(err);
       } else {
+        docs
         res.send(docs);
       }
     });
