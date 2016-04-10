@@ -56,6 +56,8 @@ module.exports = function (app) {
   //attendance controls
 
   app.post('/newAttendance', attendance.newAttendance);
+  app.get("/getAttend", attendance.getAttend);
+  app.post("/updateAttend", attendance.updateAttend);
 
   //Class Controls
   app.get("/updateThisClass", classCtrl.updateThisClass);

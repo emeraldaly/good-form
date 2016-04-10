@@ -7,7 +7,7 @@ var AttendanceSchema= new Schema({
        type: Schema.Types.ObjectId,
         ref: 'Class'
       },
-    students:[{
+    student:[{
         _user:{
         type : Schema.Types.ObjectId,
         ref : 'User'

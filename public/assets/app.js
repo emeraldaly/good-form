@@ -17,6 +17,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/submitHomework',
     templateUrl: '/views/submitHomework.html'
   })
+     .state('editAttendance', {
+    url: '/editAttendance',
+    templateUrl: '/views/editAttendance.html'
+  })
   .state('users', {
     url: '/users',
     templateUrl: '/views/users.html'
