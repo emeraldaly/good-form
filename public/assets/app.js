@@ -9,6 +9,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/home',
     templateUrl: '/views/home.html'
   })
+  .state('attendance', {
+    url: '/attendance',
+    templateUrl: '/views/attendance.html'
+  })
     .state('submitHomework', {
     url: '/submitHomework',
     templateUrl: '/views/submitHomework.html'
