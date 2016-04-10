@@ -3,6 +3,25 @@
 var Class = require("../models/class");
 var User = require("../models/user");
 
+
+exports.viewThisClass = function(req,res){
+  debugger
+  console.log(req.session.editClassId)
+  Class.find({_id:req.session.editClassId})
+  .populate('role._user')
+  .exec(function(err, docs) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        // 
+        debugger
+        console.log(docs)
+        res.send(docs);
+      }
+    });
+
+}
 exports.updateClass = function(req, res) {
   var userRole = req.body.userRole;
   var classId = req.body.Id;

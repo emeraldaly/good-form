@@ -58,6 +58,7 @@ module.exports = function (app) {
   app.get('/getClassUsers', classCtrl.getClassUsers);
   app.post('/createClass', classCtrl.createClass);
   app.get('/showClasses', classCtrl.showClasses);
+  app.get("/viewThisClass", classCtrl.viewThisClass)
   app.post('/editClassId', classCtrl.editClassId)
   app.post('/updateClass', classCtrl.updateClass)
 

@@ -60,7 +60,7 @@ $scope.userId = function(id){
   $scope.userUpdate = id;
 }
 $scope.updateClass = function(){
-  
+
 $state.transitionTo($state.current, angular.copy($stateParams), { reload: true, inherit: true, notify: true });
 console.log($rootScope.classEdit)
    $http({
@@ -80,7 +80,6 @@ console.log($rootScope.classEdit)
 $scope.thisClass= function(classId){
   $rootScope.classEdit = classId;
   console.log("this is rootscope" + $rootScope.classEdit)
-  return $rootScope.classEdit;
 
   $http({
         method: 'POST',
@@ -88,9 +87,31 @@ $scope.thisClass= function(classId){
         data: {classId:classId
         }
       }).then(function(result) {
+        return $rootScope.classEdit;
         console.log(result)
       });  
 }
+
+$scope.classView = [];
+$scope.viewThisClass = function(){
+     $http({
+        method: 'GET',
+        url: '/viewThisClass'
+       
+      }).then(function(result) {
+        
+        console.log(result.data)
+         angular.forEach(result.data[0].role, function (eachOne){
+          $scope.classView.push(eachOne);
+        })
+  //  
+        // 
+        debugger
+        console.log($scope.classView)
+      });
+  
+}
+
 
 $scope.editThisClass = function(){
          $state.go('editClass')
