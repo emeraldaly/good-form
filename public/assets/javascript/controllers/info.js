@@ -2,13 +2,13 @@
 angular.module('classApp').controller('info', function($scope, $state, $http, $filter, NgTableParams) {
 
 		$scope.createInfo = function() {
+			console.log($scope.userUpdate)
 			$http({
 				method: 'POST',
 				url: '/createInfo',
 				data: {
 					title: $scope.title.toUpperCase(),
 					information: $scope.information,
-					class: $scope.userUpdate
 				}
 			}).then(function(result) {
 				console.log(result)

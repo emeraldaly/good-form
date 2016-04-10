@@ -2,10 +2,10 @@
 	<div class="col-md-6">
 		this is where all the users go
 		<table ng-table="zz">
-			<tr ng-repeat="user in $data">
+			<tr ng-repeat="user in $data |filter: { _class: '!' + classEdit	 }">
 				<td>
 					<div class="radio">
-						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}</label>
+						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label>
 				</td>
 			</tr>
 		</table>
@@ -23,5 +23,22 @@
 			</div>
 			<button type="submit" ng-click="updateClass()" class="btn btn-info">Add To Class</a>
 		</div>
+		<div class="col-md-12">
+			<h4> Current class </h4>
+			<div data-ng-init="viewThisClass()">
+			<h3> Teacher </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
+			{{class._user.firstname}} {{class._user.lastname}}
+			</div>
+			<h3> Ta </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
+			{{class._user.firstname}} {{class._user.lastname}}
+			</div>
+			<h3> Student </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'student' }" >
+			{{class._user.firstname}} {{class._user.lastname}}
+		</div>
 	</div>
+	</div>
+
 </div>

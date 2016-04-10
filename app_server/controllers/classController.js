@@ -3,40 +3,33 @@
 var Class = require("../models/class");
 var User = require("../models/user");
 
+
+exports.viewThisClass = function(req,res){
+  debugger
+  console.log(req.session.editClassId)
+  Class.find({_id:req.session.editClassId})
+  .populate('role._user')
+  .exec(function(err, docs) {
+      if (err) {
+        console.log(err);
+        res.send(err);
+      } else {
+        // 
+        debugger
+        console.log(docs)
+        res.send(docs);
+      }
+    });
+
+}
 exports.updateClass = function(req, res) {
-
   var userRole = req.body.userRole;
-  var classId = req.session.editClassId;
+  var classId = req.body.Id;
   var userId = req.body.userId;
-
-
-  // 
-  if (userRole == "teacher") {
-    Class.findByIdAndUpdate(classId, {
-      $push: {
-        teacher: req.body.userId
-      }
-    }, {
-      safe: true,
-      upsert: true
-    }, function(err, model) {
-      console.log("it worked?")
-    })
-
-  } else if (userRole == "ta") {
-    Class.findByIdAndUpdate(classId, {
-      $push: {
-        ta: req.body.userId
-      }
-    }, {
-      safe: true,
-      upsert: true
-    }, function(err, model) {
-      console.log("it worked?")
-    })
-  } else {
     User.findByIdAndUpdate(userId, {
+      $push:{
       _class: classId
+    }
     }, {
       safe: true,
       upsert: true
@@ -45,7 +38,10 @@ exports.updateClass = function(req, res) {
     })
     Class.findByIdAndUpdate(classId, {
       $push: {
-        student: req.body.userId
+        role: {
+          _user:req.body.userId,
+          roleType:userRole
+        }
       }
     }, {
       safe: true,
@@ -54,7 +50,6 @@ exports.updateClass = function(req, res) {
       console.log("it worked?")
     })
 
-  }
 
 }
 
@@ -107,6 +102,7 @@ exports.updateThisClass = function(req, res) {
       } else {
         console.log(docs)
         res.send(docs);
+        
       }
     });
 }
@@ -128,6 +124,7 @@ exports.getClassUsers = function(req, res) {
         console.log(err);
         res.send(err);
       } else {
+        docs
         res.send(docs);
       }
     });

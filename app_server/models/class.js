@@ -10,17 +10,12 @@ var ClassSchema= new Schema({
        type: Schema.Types.ObjectId,
         ref: 'Organization'
       }],
-  student:[{
-       type : Schema.Types.ObjectId,
+      role:[{
+        _user:{
+        type : Schema.Types.ObjectId,
         ref : 'User'
-      }],
-      teacher:[{
-       type : Schema.Types.ObjectId,
-        ref : 'User'
-      }],
-      ta:[{
-       type : Schema.Types.ObjectId,
-        ref : 'User'
+        },
+        roleType:{type:String, default:"Lanna"}
       }]
 });
 
