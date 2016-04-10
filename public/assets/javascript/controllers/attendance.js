@@ -5,19 +5,22 @@ $scope.newAttendance = function(){
         method: 'POST',
         url: '/newAttendance'
       }).then(function(result) {
-        console.log(result)
+        
       });
       $state.go("editAttendance")
 }
 
 $scope.updateAttend= function(id, here){
-	console.log(id + here)
+// $state.transitionTo($state.current, angular.copy($stateParams), { reload: true, inherit: true, notify: true });
+	$state.go("test")
 	$http({
         method: 'POST',
         url: '/updateAttend',
         data:{"id":id, "here":here}
       }).then(function(result) {
-        console.log(result)
+        $state.transitionTo($state.current, $stateParams, { 
+      reload: true, inherit: false, notify: false 
+    });
       })
 }
 
@@ -28,7 +31,7 @@ $scope.getAttend = function(){
         url: '/getAttend'
       }).then(function(result) {
     
-        console.log(result)
+        
         angular.forEach(result.data[0].student, function (eachOne){
           $scope.students.push(eachOne);
         });

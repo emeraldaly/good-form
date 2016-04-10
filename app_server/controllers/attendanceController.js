@@ -14,7 +14,7 @@ exports.updateAttend = function(req, res) {
 		}]
 	}, {
 		$set: {
-			"student.$.here": true
+			"student.$.here": req.body.here
 		}
 	}, {
 		safe: true,
