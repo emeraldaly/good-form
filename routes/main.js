@@ -2,6 +2,7 @@ var hwCtrl = require("../app_server/controllers/hwController");
 var infoCtrl = require("../app_server/controllers/infoController");
 var classCtrl = require("../app_server/controllers/classController");
 var orgCtrl = require("../app_server/controllers/orgController");
+var attendance = require("../app_server/controllers/attendanceController");
 var usrCtrl = require("../app_server/controllers/usrController");
 var passport = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
@@ -52,6 +53,9 @@ module.exports = function (app) {
   //info controls
   app.get('/viewInfo', infoCtrl.viewInfo);
   app.post("/createInfo", infoCtrl.createInfo);
+  //attendance controls
+
+  app.post('/newAttendance', attendance.newAttendance);
 
   //Class Controls
   app.get("/updateThisClass", classCtrl.updateThisClass);
