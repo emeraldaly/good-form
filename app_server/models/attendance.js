@@ -7,21 +7,17 @@ var AttendanceSchema= new Schema({
        type: Schema.Types.ObjectId,
         ref: 'Class'
       },
-      students:[{
+    student:[{
         _user:{
         type : Schema.Types.ObjectId,
         ref : 'User'
         },
         here:{type:Boolean, default:false}
-      }]
+      }],
+    date:{type:Date, default:Date.now}
 });
 
 var Attendance = mongoose.model('Attendance', AttendanceSchema);
 
 module.exports = Attendance;
 
-class
-users:[{
-  userid:
-  present:boolean
-}]

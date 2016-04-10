@@ -5,8 +5,7 @@ var User = require("../models/user");
 
 
 exports.viewThisClass = function(req,res){
-  debugger
-  console.log(req.session.editClassId)
+
   Class.find({_id:req.session.editClassId})
   .populate('role._user')
   .exec(function(err, docs) {
@@ -14,8 +13,7 @@ exports.viewThisClass = function(req,res){
         console.log(err);
         res.send(err);
       } else {
-        // 
-        debugger
+
         console.log(docs)
         res.send(docs);
       }
