@@ -62,6 +62,7 @@ module.exports = function (app) {
   app.post("/deleteAttend", attendance.deleteAttend);
 
   //Class Controls
+  app.get("/myclass", classCtrl.myClass);
   app.get("/updateThisClass", classCtrl.updateThisClass);
   app.get('/getClassUsers', classCtrl.getClassUsers);
   app.post('/createClass', classCtrl.createClass);
