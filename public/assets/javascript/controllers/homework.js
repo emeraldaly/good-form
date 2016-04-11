@@ -18,7 +18,7 @@ $scope.uncompletedSubmission = function(){
         method: 'GET',
         url: '/uncompletedSubmission',
       }).then(function(result) {
-        
+
         angular.forEach(result.data, function (eachOne){
           $scope.uncompleted.push(eachOne);
       })
@@ -92,8 +92,7 @@ $scope.viewHomeworkByClass= function(){
   });  
 }
 
-$scope.createHomework = function(){
-  
+$scope.createHomework = function(){ 
  $http({
         method: 'POST',
         url: '/createHomework',

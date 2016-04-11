@@ -55,7 +55,7 @@ exports.addUser = function(req, res) {
 			else { console.log("didn't find one")
 				userx.save(function(err, user) {console.log("saved")});
 
-			res.redirect("/?msg=Thank you for registering, please login.");
+			// res.redirect("/?msg=Thank you for registering, please login.");
 
 		};
 
