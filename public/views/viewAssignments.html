@@ -1,20 +1,20 @@
 <div ng-controller="homework" ng-init="getAssignments()">
 
-<div ng-repeat="homework in assignments">
-	<div class="panel panel-default">
-		<div class="panel-body">
-		<div class="radio">
-			<label><input type="radio" name="userN" ng-click="thisHomework(homework._id)">{{user.firstname}} {{user.lastname}}</label>
-			Date Due: {{homework.duedate}}
-			Name: {{homework.name}},
-		</div>
+	<div ng-repeat="homework in assignments">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div class="radio">
+					<label><input type="radio" name="userN" ng-click="thisHomework(homework._id)">{{user.firstname}} {{user.lastname}}</label>
+					Date Due: {{homework.duedate}}
+					Name: {{homework.name}},
+				</div>
+			</div>
 		</div>
 	</div>
-
+  <!-- moved inside ng-repeat so each hw has this button -->
+	<li>
+	  <a ui-sref="submitHomework"><button> submitHomework</button></a>
+	</li>
 </div>
-
-	<li><a ui-sref="submitHomework"><button> submitHomework</button></a></li>
-
-	</div>
 
 submitHw
