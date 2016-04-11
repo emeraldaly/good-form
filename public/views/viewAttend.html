@@ -2,17 +2,14 @@
 
 	<h3> Not here </h3>
 	<div ng-repeat="student in students | filter:{here: false}">
-	<button ng-click="updateAttend(student._user._id, 'true')">
+	
 	{{student._user.firstname}} {{student._user.firstname}} 
-	</button>
 	</div>
 
 	<h3>here</h3>
 <div ng-repeat="student in students | filter:{here: true}">
 
 {{student._user.firstname}} {{student._user.firstname}} 
-	<button ng-click="updateAttend(student._user._id, 'false')"> X </button>
 	</div>	 
 
 </div>
-	<a ui-sref="attendance"><button>done</button></a>

@@ -2,7 +2,10 @@ var Class = require("../models/class");
 var User = require("../models/user");
 var Attendance = require("../models/attendance");
 
-
+exports.editAttend = function(req, res){
+	debugger
+	req.session.editAttend = req.body.editAttend
+}
 
 exports.updateAttend = function(req, res) {
 	console.log(req.session.editAttend)
@@ -38,12 +41,9 @@ exports.viewAttendDates = function (req,res){
 			res.send(docs)
 		}
 	})
-	req.session.editClassId
 	}
 
 exports.getAttend = function(req,res){
-	console.log(req.session.editClassId)
-	console.log(req.session.editAttend)
 	Attendance.find({_id:req.session.editAttend})
 	.populate('student._user')
     .exec(function(err, docs) {
@@ -51,7 +51,6 @@ exports.getAttend = function(req,res){
         console.log(err);
         res.send(err);
       } else {
-        
         console.log(docs)
         res.send(docs);
       }

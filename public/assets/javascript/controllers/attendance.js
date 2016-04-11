@@ -1,7 +1,26 @@
 angular.module('classApp').controller('attendance', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
+
 $scope.viewAttend = function(){
+  $state.go("viewAttend")
+}
+
+$scope.viewOlderAttend = function(){
   $state.go("viewAttendDates")
 }
+
+$scope.editAttend =function(editId){
+  debugger
+  console.log(editId)
+   $http({
+        method: 'POST',
+        url: '/editAttend',
+        data:{"editAttend":editId}
+      }).then(function(result) {
+        debugger
+        $state.go("viewAttend")
+      })
+}
+
 
 $scope.attendDates = []
 $scope.viewAttendDates = function(){
