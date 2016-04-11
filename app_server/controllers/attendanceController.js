@@ -57,7 +57,16 @@ Class.find({
 			console.log(err);
 			
 		} else {
-			var studentArray = docs[0]._doc.role
+			var array = docs[0]._doc.role
+			var studentArray = []
+
+			for (var i = 0; i < array.length; i++) {
+				if (array[i]._doc.roleType == "student"){
+					studentArray.push(array[i])
+				}
+			}
+			
+
 			var newAttend = new Attendance({
 				_class: req.session.editClassId,
 			})
@@ -68,6 +77,9 @@ Class.find({
 				if (err) {
 					console.log(err);
 				} else {
+					debugger
+					
+					console.log(studentArray)
 					res.send("starting loop")
 					for (var i = 0; i < studentArray.length; i++) {
 						Attendance.update({
