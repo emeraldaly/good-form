@@ -1,5 +1,17 @@
 angular.module('classApp').controller('class', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
 $scope.listOfUsers= []
+
+$scope.myClass = function(){
+   $http({
+        method: 'GET',
+        url: '/myClass'
+      }).then(function(result) {
+        debugger
+        console.log(result)
+      });
+}
+
+
 $scope.createClass = function(){
   $http({
         method: 'POST',
