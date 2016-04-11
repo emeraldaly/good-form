@@ -54,7 +54,7 @@ module.exports = function (app) {
   app.get('/viewInfo', infoCtrl.viewInfo);
   app.post("/createInfo", infoCtrl.createInfo);
   //attendance controls
-
+  app.get("/viewAttendDates", attendance.viewAttendDates)
   app.post('/newAttendance', attendance.newAttendance);
   app.get("/getAttend", attendance.getAttend);
   app.post("/updateAttend", attendance.updateAttend);
