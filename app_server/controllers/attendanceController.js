@@ -5,6 +5,7 @@ var Attendance = require("../models/attendance");
 exports.editAttend = function(req, res){
 	debugger
 	req.session.editAttend = req.body.editAttend
+	res.send("got id")
 }
 
 exports.updateAttend = function(req, res) {
@@ -112,6 +113,4 @@ Class.find({
 			});
 		}
 	});
-
-
 }
