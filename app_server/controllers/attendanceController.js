@@ -2,6 +2,17 @@ var Class = require("../models/class");
 var User = require("../models/user");
 var Attendance = require("../models/attendance");
 
+exports.deleteAttend = function(req, res){
+	Attendance.remove({_id:req.session.editAttend}, function(err, data){
+		if (err){
+			console.log(err)
+		}
+		else{
+			res.send(data)
+		}
+	})
+}
+
 exports.editAttend = function(req, res){
 	debugger
 	req.session.editAttend = req.body.editAttend
