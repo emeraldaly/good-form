@@ -1,7 +1,13 @@
 angular.module('classApp').controller('attendance', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
 
-$scope.viewAttend = function(){
-  $state.go("viewAttend")
+$scope.deleteAttend = function(){
+   $http({
+        method: 'POST',
+        url: '/deleteAttend'
+      }).then(function(result) {
+        debugger
+        $state.go("viewAttendDates")
+      })
 }
 
 $scope.viewOlderAttend = function(){

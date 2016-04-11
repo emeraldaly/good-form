@@ -58,7 +58,8 @@ module.exports = function (app) {
   app.post('/newAttendance', attendance.newAttendance);
   app.get("/getAttend", attendance.getAttend);
   app.post("/updateAttend", attendance.updateAttend);
-  app.post("/editAttend", attendance.editAttend)
+  app.post("/editAttend", attendance.editAttend);
+  app.post("/deleteAttend", attendance.deleteAttend);
 
   //Class Controls
   app.get("/updateThisClass", classCtrl.updateThisClass);
