@@ -45,7 +45,7 @@ exports.updateClass = function(req, res) {
       safe: true,
       upsert: true
     }, function(err, model) {
-      console.log("it worked?")
+      res.send("res dot cend")
     })
 
 
