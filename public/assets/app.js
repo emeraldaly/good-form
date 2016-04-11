@@ -8,9 +8,17 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/home',
     templateUrl: '/views/home.html'
   })
-  .state('test', {
-    url: '/test',
-    templateUrl: '/views/test.html'
+    .state('editAttend', {
+    url: '/editAttend',
+    templateUrl: '/views/editAttend.html'
+  })
+  .state('viewAttendDates', {
+    url: '/viewAttendDates',
+    templateUrl: '/views/viewAttendDates.html'
+  })
+   .state('viewAttend', {
+    url: '/viewAttend',
+    templateUrl: '/views/viewAttend.html'
   })
   .state('attendance', {
     url: '/attendance',
@@ -72,6 +80,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   .state('createHomework', {
     url: '/createHomework',
     templateUrl: '/views/createHomework.html'
+  })
+  .state('myClass', {
+    url: '/myClass',
+    templateUrl: '/views/myClass.html'
   })
   .state('viewAssignments', {
     url: '/viewAssignments',

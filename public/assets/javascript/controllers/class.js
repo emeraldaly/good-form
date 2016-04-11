@@ -1,5 +1,17 @@
 angular.module('classApp').controller('class', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
 $scope.listOfUsers= []
+
+$scope.myClass = function(){
+   $http({
+        method: 'GET',
+        url: '/myClass'
+      }).then(function(result) {
+        debugger
+        console.log(result)
+      });
+}
+
+
 $scope.createClass = function(){
   $http({
         method: 'POST',
@@ -13,6 +25,7 @@ $scope.createClass = function(){
   
   }
 $scope.getAllUsers = function(){
+
 $scope.zz = new NgTableParams({
   }, {
     getData: function($defer, params) {
@@ -21,7 +34,7 @@ $scope.zz = new NgTableParams({
 // get class
 // get unassigned users
         console.log(response)
-          
+          debugger
          var classes = response.data
 
         //  console.log(classes)

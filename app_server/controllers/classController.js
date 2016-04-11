@@ -3,6 +3,19 @@
 var Class = require("../models/class");
 var User = require("../models/user");
 
+exports.myClass = function(req, res){
+  Class.find({"role._user":req.session.user._id})
+  // Class.find({"_id":{ $in:req.session.user._class}})
+  .exec(function(err, doc){
+    if (err){
+      console.log(error)
+    }
+    else{
+      res.send(doc)
+    }
+  });
+  
+}
 
 exports.viewThisClass = function(req,res){
 
