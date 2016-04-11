@@ -63,6 +63,7 @@ $scope.updateClass = function(){
 // $state.transitionTo($state.current, $stateParams, { 
 //       reload: true, inherit: true, notify: true
 //     });
+ $state.go($state.current, {}, {reload: true})
    $http({
         method: 'POST',
         url: '/updateClass',

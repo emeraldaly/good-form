@@ -20,7 +20,11 @@ exports.updateAttend = function(req, res) {
 		safe: true,
 		upsert: true
 	}, function(err, model) {
-		console.log("it worked?")
+		debugger
+		if (err){
+		console.log(err)
+		}
+		res.send("it worked?")
 	})
 };
 

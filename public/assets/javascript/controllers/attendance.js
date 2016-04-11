@@ -12,16 +12,25 @@ $scope.newAttendance = function(){
 
 $scope.updateAttend= function(id, here){
 // $state.transitionTo($state.current, angular.copy($stateParams), { reload: true, inherit: true, notify: true });
-	$state.go("test")
+	// $state.go("editAten")
+debugger
 	$http({
         method: 'POST',
         url: '/updateAttend',
         data:{"id":id, "here":here}
-      }).then(function(result) {
-        $state.transitionTo($state.current, $stateParams, { 
-      reload: true, inherit: false, notify: false 
-    });
-      })
+      }).then(function successCallback(response) {
+    
+    console.log(response)
+   $state.transitionTo($state.current, angular.copy($stateParams), { reload: true, inherit: true, notify: true });
+  }, function errorCallback(response) {
+   
+   debugger
+   console.log(response)
+  });
+}
+
+$scope.test = function(){
+("workin")
 }
 
 $scope.students = []
