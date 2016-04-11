@@ -154,6 +154,7 @@ exports.getAllUsers = function(req, res) {
     _organization:req.session.organization
   })
     .exec(function(err, docs){
+    	debugger
       if(err){
         console.log(err);
         res.send(err);

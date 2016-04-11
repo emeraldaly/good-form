@@ -13,6 +13,7 @@ $scope.createClass = function(){
   
   }
 $scope.getAllUsers = function(){
+
 $scope.zz = new NgTableParams({
   }, {
     getData: function($defer, params) {
@@ -21,7 +22,7 @@ $scope.zz = new NgTableParams({
 // get class
 // get unassigned users
         console.log(response)
-          
+          debugger
          var classes = response.data
 
         //  console.log(classes)
