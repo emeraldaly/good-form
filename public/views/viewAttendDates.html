@@ -1,0 +1,9 @@
+<div ng-controller="attendance" ng-init="viewAttendDates()"> 
+	<div ng-repeat="attend in attendDates">
+	<div class="radio">
+					<label><input type="radio" name="allDates" ng-click="editAttend(attend._id)">{{attend.date | date:'medium'}}</label>
+				</div>
+	
+	</div>
+<button ng-click="viewAttend()"> view Attend for this day </button>
+</div>

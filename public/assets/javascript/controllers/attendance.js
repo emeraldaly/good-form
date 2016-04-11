@@ -1,5 +1,41 @@
 angular.module('classApp').controller('attendance', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
 
+$scope.viewAttend = function(){
+  $state.go("viewAttend")
+}
+
+$scope.viewOlderAttend = function(){
+  $state.go("viewAttendDates")
+}
+
+$scope.editAttend =function(editId){
+  debugger
+  console.log(editId)
+   $http({
+        method: 'POST',
+        url: '/editAttend',
+        data:{"editAttend":editId}
+      }).then(function(result) {
+        debugger
+        $state.go("viewAttend")
+      })
+}
+
+
+$scope.attendDates = []
+$scope.viewAttendDates = function(){
+     $http({
+        method: 'GET',
+        url: '/viewAttendDates'
+      }).then(function(result) {
+        debugger
+        angular.forEach(result.data, function (eachOne){
+          $scope.attendDates.push(eachOne);
+        });
+      })
+
+}
+
 $scope.newAttendance = function(){
 	 $http({
         method: 'POST',
@@ -13,7 +49,7 @@ $scope.newAttendance = function(){
 $scope.updateAttend= function(id, here){
 // $state.transitionTo($state.current, angular.copy($stateParams), { reload: true, inherit: true, notify: true });
 	// $state.go("editAten")
-debugger
+
 	$http({
         method: 'POST',
         url: '/updateAttend',
@@ -24,7 +60,7 @@ debugger
    $state.transitionTo($state.current, angular.copy($stateParams), { reload: true, inherit: true, notify: true });
   }, function errorCallback(response) {
    
-   debugger
+   
    console.log(response)
   });
 }
