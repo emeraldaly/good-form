@@ -1,5 +1,4 @@
 <div ng-controller="homework" ng-init="getAssignments()">
-
 	<div ng-repeat="homework in assignments">
 		<div class="panel panel-default">
 			<div class="panel-body">
@@ -8,12 +7,11 @@
 					Date Due: {{homework.duedate}}
 					Name: {{homework.name}},
 				</div>
-				<!-- moved inside ng-repeat so each hw has this button -->
+				<!-- move inside ng-repeat so each hw has this button -->
 				<!-- <a ui-sref="submitHomework"><button> submitHomework</button></a> -->
 			</div>
 		</div>
 	</div>
-
-	<!-- moved inside ng-repeat so each hw has this button -->
-				<a ui-sref="submitHomework"><button> submitHomework</button></a>
+	<!-- move inside ng-repeat so each hw has this button -->
+	<a ui-sref="submitHomework"><button class="btn btn-warning"> Submit Homework</button></a>
 </div>
