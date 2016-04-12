@@ -1,13 +1,23 @@
 angular.module('classApp').controller('class', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
 $scope.listOfUsers= []
 
+
+// use the edit class Id on every class
+// then use the bottom of the editclassId Page
+// for the myclass Page
+
+// view all classes
+// click on a user to see thier userinfopage
+
+$scope.myClasses = []
 $scope.myClass = function(){
    $http({
         method: 'GET',
         url: '/myClass'
       }).then(function(result) {
-        debugger
-        console.log(result)
+        angular.forEach(result.data, function (eachOne){
+          $scope.myClasses.push(eachOne);
+        })
       });
 }
 
@@ -106,6 +116,7 @@ $scope.thisClass= function(classId){
 
 $scope.classView = [];
 $scope.viewThisClass = function(){
+  console.log("Hit it")
      $http({
         method: 'GET',
         url: '/viewThisClass'

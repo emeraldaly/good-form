@@ -122,6 +122,7 @@ exports.editClassId = function(req, res) {
     // 
     req.session.editClassId = req.body.classId
     res.send("got it");
+    debugger 
 
   }
   //Get all users in class
