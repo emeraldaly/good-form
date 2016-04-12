@@ -2,47 +2,50 @@
   <div class="form-top">
   	<h2>Edit Class</h2>
   </div>
-	<div ng-controller="class" data-ng-init="getAllUsers()">
-		<div class="col-md-6">
-			<h3>All Users in Class</h3>
-			<table ng-table="zz">
-				<tr ng-repeat="user in $data |filter: { _class: '!' + classEdit	 }">
-					<td>
-						<div class="radio">
-							<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label>
-						</div>
-					</td>
-				</tr>
-			</table>
+<div ng-controller="class" data-ng-init="getAllUsers()">
+	<div class="col-md-6">
+		this is where all the users go
+		<table ng-table="allUsers">
+			<tr ng-repeat="user in $data |filter: { _class: '!' + classEdit	 }">
+				<td>
+					<div class="radio">
+						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label><button ng-click="showDetails = ! showDetails"> More details</button>
+				<div ng-show="showDetails">
+					<p>Email: {{user.username}} </p>
+					<p>Portfolio:  {{user.portfolio}}</p>
+					<p>Github: {{user.github}}</p>
+				</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div class="col-md-6">
+		<p>Account Type</p>
+		<div class="radio">
+			<label><input type="radio" name="userRole" ng-model="userRole" value="teacher">Teacher</label>
 		</div>
-		<div class="col-md-6">
-			<p>Account Type</p>
-			<div class="radio">
-				<label><input type="radio" name="userRole" ng-model="userRole" value="teacher">Teacher</label>
-			</div>
-			<div class="radio">
-				<label><input type="radio" name="userRole" ng-model="userRole" value="ta">TA</label>
-			</div>
-			<div class="radio">
-				<label><input type="radio" name="userRole" ng-model="userRole" value="student">Student</label>
-			</div>
-			<button type="submit" ng-click="updateClass()" class="btn btn-warning btn-block">Add To Class</button>
+		<div class="radio">
+			<label><input type="radio" name="userRole" ng-model="userRole" value="ta">TA</label>
 		</div>
-		<div class="col-md-12">
-			<h3> Current Class </h3>
-			<div data-ng-init="viewThisClass()">
-				<h3> Teacher </h3>
-				<div ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
-				{{class._user.firstname}} {{class._user.lastname}}
-				</div>
-				<h3> Ta </h3>
-				<div ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
-				{{class._user.firstname}} {{class._user.lastname}}
-				</div>
-				<h3> Student </h3>
-				<div ng-repeat = "class in classView | filter:{roleType: 'student' }" >
-				{{class._user.firstname}} {{class._user.lastname}}
-				</div>
+		<div class="radio">
+			<label><input type="radio" name="userRole" ng-model="userRole" value="student">Student</label>
+		</div>
+		<button type="submit" ng-click="updateClass()" class="btn btn-warning btn-block">Add To Class</button>
+	</div>
+	<div class="col-md-12">
+		<h3> Current Class </h3>
+		<div data-ng-init="viewThisClass()">
+			<h3> Teacher </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
+			{{class._user.firstname}} {{class._user.lastname}}
+			</div>
+			<h3> Ta </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
+			{{class._user.firstname}} {{class._user.lastname}}
+			</div>
+			<h3> Student </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'student' }" >
+			{{class._user.firstname}} {{class._user.lastname}}
 			</div>
 		</div>
 	</div>

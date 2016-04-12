@@ -18,7 +18,6 @@ exports.myClass = function(req, res){
 }
 
 exports.viewThisClass = function(req,res){
-
   Class.find({_id:req.session.editClassId})
   .populate('role._user')
   .exec(function(err, docs) {
@@ -122,6 +121,7 @@ exports.editClassId = function(req, res) {
     // 
     req.session.editClassId = req.body.classId
     res.send("got it");
+    debugger 
 
   }
   //Get all users in class
