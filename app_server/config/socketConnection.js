@@ -7,14 +7,6 @@ module.exports = function(io){
     var username = 'St';
     console.log('a user has connected at:' + socket.id);
 
-  //   socket.client.socketEventsAttached = false;
-
-  //   socket.on('connect',function(){
-  //     if (!socket.client.socketEventsAttached){
-  //       attachSocketEvents();
-  //     }
-  //   });
-
   // //   socket.on('request-users', function(){
   // //     socket.emit('users', {users: users});
   //   // });
