@@ -5,22 +5,13 @@ var Class = require("../models/class");
 var User = require("../models/user");
 var Submission = require("../models/submission");
 //Post a HW submission
-
-// exports.thisHomework = function(req,res){
-// req.session.jibba = "jabba"
-// req.session.hw = req.body.homeworkId;
-// console.log(req.session.hw + req.body.homeworkId)
-// }
-
 exports.thisHomework = function(req, res) {
   // 
   req.session.thisHomeworkId = req.body.homeworkId;
   res.send("got it");
-
 }
 
 exports.uncompletedSubmission = function(req, res) {
-
   console.log
   User.find({
       assignment: req.session.thisHomeworkId
@@ -30,16 +21,12 @@ exports.uncompletedSubmission = function(req, res) {
         console.log(err);
         res.send(err);
       } else {
-
-      
         console.log(doc)
-
         res.send(doc)
       }
-    })
+    });
 }
 exports.viewSubmissions = function(req, res) {
-
   Submission.find({
       _homework: req.session.thisHomeworkId
     })
@@ -50,14 +37,10 @@ exports.viewSubmissions = function(req, res) {
         console.log(err);
         res.send(err);
       } else {
-
         res.send(docs)
       }
-    })
+    });
 }
-
-
-
 exports.submitHw = function(req, res) {
   console.log(req.session.thisHomeworkId)
   var newSubmission = new Submission({
@@ -71,12 +54,7 @@ exports.submitHw = function(req, res) {
       console.log(err);
     } else {
       req.session.submissionId = doc._doc._id;
-
       var thisHomework = req.session.thisHomeworkId;
-
-
-      console.log(thisHomework)
-
       Hw.findByIdAndUpdate(thisHomework, {
         $push: {
           _submission: req.session.submissionId
@@ -96,19 +74,18 @@ exports.submitHw = function(req, res) {
             }
           },
           function(err, val) {
-
+            res.send("homework submitted")
             console.log(val)
           });
 
         console.log("it worked?")
-      })
+      });
 
     }
   });
 }
 
 exports.viewHomeworkByClass = function(req, res) {
-
   Hw.find({
       _class: req.session.editClassId
     })
@@ -119,14 +96,11 @@ exports.viewHomeworkByClass = function(req, res) {
         console.log(err);
         res.send(err);
       } else {
-
         res.send(docs)
       }
-    })
+    });
 }
-
 exports.createHw = function(req, res) {
-
     Class.find({
         _id: req.session.editClassId
       })
@@ -136,14 +110,11 @@ exports.createHw = function(req, res) {
           console.log(err);
           res.send(err);
         } else {
-        
-          //        docs[0]._doc.role
           var studentArray = docs[0]._doc.role
           console.log(studentArray)
           req.session.studentArray = []
-
+          //makes sure only students are assigned homework
           for (var i = 0; i < studentArray.length; i++) {
-            
             console.log(req.session.studentArray)
             if (studentArray[i]._doc.roleType == "student"){
               req.session.studentArray.push(studentArray[i]._doc._user)
@@ -162,7 +133,6 @@ exports.createHw = function(req, res) {
             if (err) {
               console.log(err);
             } else {
-              debugger
               req.session.homeworkId = doc._doc._id;
               console.log(req.session.homeworkId)
               console.log(req.session.studentArray)
@@ -180,8 +150,6 @@ exports.createHw = function(req, res) {
                   upsert: true
                 },
                 function(err, model) {
-                  debugger
-
                   console.log("it worked?")
                 });
             }
