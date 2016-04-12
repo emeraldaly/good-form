@@ -166,7 +166,6 @@ exports.createHw = function(req, res) {
               req.session.homeworkId = doc._doc._id;
               console.log(req.session.homeworkId)
               console.log(req.session.studentArray)
-
               User.update({
                   _id: {
                     $in: req.session.studentArray
