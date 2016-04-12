@@ -35,7 +35,6 @@ module.exports = function (app) {
   app.post('/login',
   passport.authenticate('login'),
   function(req, res){
-    debugger;
     res.send(req.user.firstname);
   });
 
