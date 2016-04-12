@@ -18,7 +18,6 @@ exports.myClass = function(req, res){
 }
 
 exports.viewThisClass = function(req,res){
-
   Class.find({_id:req.session.editClassId})
   .populate('role._user')
   .exec(function(err, docs) {
