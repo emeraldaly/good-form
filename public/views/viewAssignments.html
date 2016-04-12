@@ -8,13 +8,9 @@
 					Date Due: {{homework.duedate}}
 					Name: {{homework.name}},
 				</div>
+				<!-- moved inside ng-repeat so each hw has this button -->
+				<a ui-sref="submitHomework"><button> submitHomework</button></a>
 			</div>
 		</div>
 	</div>
-  <!-- moved inside ng-repeat so each hw has this button -->
-	<li>
-	  <a ui-sref="submitHomework"><button> submitHomework</button></a>
-	</li>
 </div>
-
-submitHw
