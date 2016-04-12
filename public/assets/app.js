@@ -8,6 +8,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/home',
     templateUrl: '/views/home.html'
   })
+  .state('allUsers', {
+    url: '/allUsers',
+    templateUrl: '/views/allUsers.html'
+  })
     .state('editAttend', {
     url: '/editAttend',
     templateUrl: '/views/editAttend.html'
