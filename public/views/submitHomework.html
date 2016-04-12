@@ -1,8 +1,16 @@
-<div ng-controller="homework">
-	<h3>Heroku link</h3>
-		<input ng-model="heroku">
-	<h3>GIthub</h3>
-		<input ng-model="github">
-		<button ng-click="submitHw()"> submit </button>
-
+<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+  <div class="form-top">
+    <h2>Submit Homework</h2>
+  </div>
+  <div class="form-bottom">
+    <div ng-controller="homework">
+    	<h4>Heroku Link</h4>
+    	<input class="form-control" ng-model="heroku">
+      <span class="help-block"></span>
+      <h4>Github Repo Link</h4>
+    	<input class="form-control" ng-model="github">
+      <span class="help-block"></span>
+    	<button class="btn btn-warning btn-block" ng-click="submitHw()"> Submit</button>
+    </div>
+  </div>
 </div>
