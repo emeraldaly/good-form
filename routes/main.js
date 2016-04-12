@@ -26,7 +26,7 @@ module.exports = function (app) {
   app.use(passport.session());
 
   //User Controls
- 
+
   app.post('/adduser', usrCtrl.addUser);
   app.get('/viewAssignments', usrCtrl.viewAssignments);
   app.post('/updateUser', usrCtrl.updateUser);
@@ -35,7 +35,8 @@ module.exports = function (app) {
   app.post('/login',
   passport.authenticate('login'),
   function(req, res){
-    res.send("Fine Elie....");
+    debugger;
+    res.send(req.user.firstname);
   });
 
   //Org Controls
@@ -76,7 +77,7 @@ module.exports = function (app) {
 
 //passport
 passport.serializeUser(function(user, done) {
-  console.log('serialize')
+  console.log('serialize', user);
 
   done(null, user);
 });
