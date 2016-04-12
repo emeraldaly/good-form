@@ -5,14 +5,14 @@ angular.module('classApp')
   .controller('chatControl', ['$scope', 'Socket', function($scope, Socket){
     Socket.connect();
 
-    $scope.users = [];
+    // $scope.users = [];
 
     $scope.messages = [];
 
     //get username from persisted user username
-    var chatUsername = function(message) {
+    // var chatUsername = function(message) {
 
-    }
+    // }
 
     $scope.sendMessage = function(msg) {
       if(msg != null && msg != '' && msg.length <= 150) {
@@ -31,10 +31,10 @@ angular.module('classApp')
     // });
 
     Socket.on('message', function(data) {
-      // console.log(data);
-      // console.log($scope.messages);
+      console.log(data);
+      console.log($scope.messages);
       $scope.messages.push(data);
-      // console.log($scope.messages);
+      console.log($scope.messages);
     });
 
     // Socket.on('add-user', function(data) {

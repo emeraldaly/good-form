@@ -1,5 +1,4 @@
-
-var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io','ngTable']);
+var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io', 'ngTable']);
 
 classApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/splash')
@@ -32,10 +31,6 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
      .state('editAttendance', {
     url: '/editAttendance',
     templateUrl: '/views/editAttendance.html'
-  })
-  .state('users', {
-    url: '/users',
-    templateUrl: '/views/users.html'
   })
    .state('homeworkSubmissions', {
     url: '/homeworkSubmissions',
