@@ -1,18 +1,22 @@
-	<h3>create class:</h3>
+<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+	<h2>Create Class</h2>
 	<form ng-controller="class">
-	<div class="panel-body>">
+	  <div class="panel-body>">
 			<label for="className">Name</label>
-	    <input type="text" ng-model="name" placeholder="">
+	    <input class="form-control" type="text" ng-model="name" placeholder="">
+	    <span class="help-block"></span>
 	    <label for="username">Date and Time</label>
-	    <input type="text" ng-model="datetime" placeholder="">
-	    <button type="submit" ng-click="createClass()" class="btn btn-info">Register</a>
+	    <input class="form-control" type="text" ng-model="datetime" placeholder="">
+	    <span class="help-block"></span>
+	    <button type="submit" ng-click="createClass()" class="btn btn-warning btn-block">Register</button>
+	  </div>
 	</form>
-
+</div>
 
 	radio buttons
 teacher ta student
 	list of student below
-<!-- upon submit, automatically goes to the edit class 
+<!-- upon submit, automatically goes to the edit class
 
 
 edit class button goes a page with all the classes for the organization
@@ -37,10 +41,10 @@ edit: class
 
 
 need to get a list of all students
-ng repeat.  
+ng repeat.
 
 
-edit class 
+edit class
 
 select the person
 add to class:
