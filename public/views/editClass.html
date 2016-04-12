@@ -1,11 +1,16 @@
 <div ng-controller="class" data-ng-init="getAllUsers()">
 	<div class="col-md-6">
 		this is where all the users go
-		<table ng-table="zz">
+		<table ng-table="allUsers">
 			<tr ng-repeat="user in $data |filter: { _class: '!' + classEdit	 }">
 				<td>
 					<div class="radio">
-						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label>
+						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label><button ng-click="showDetails = ! showDetails"> More details</button>
+				<div ng-show="showDetails">
+					<p>Email: {{user.username}} </p>
+					<p>Portfolio:  {{user.portfolio}}</p>
+					<p>Github: {{user.github}}</p>
+				</div>
 				</td>
 			</tr>
 		</table>

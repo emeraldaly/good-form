@@ -36,7 +36,7 @@ $scope.createClass = function(){
   }
 $scope.getAllUsers = function(){
 
-$scope.zz = new NgTableParams({
+$scope.allUsers = new NgTableParams({
   }, {
     getData: function($defer, params) {
       return $http.get('/getAllUsers')
@@ -116,7 +116,7 @@ $scope.thisClass= function(classId){
 
 $scope.classView = [];
 $scope.viewThisClass = function(){
-  console.log("Hit it")
+ 
      $http({
         method: 'GET',
         url: '/viewThisClass'
