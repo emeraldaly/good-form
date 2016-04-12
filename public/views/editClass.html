@@ -9,12 +9,14 @@
 			<tr ng-repeat="user in $data |filter: { _class: '!' + classEdit	 }">
 				<td>
 					<div class="radio">
-						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label><button ng-click="showDetails = ! showDetails"> More details</button>
-				<div ng-show="showDetails">
-					<p>Email: {{user.username}} </p>
-					<p>Portfolio:  {{user.portfolio}}</p>
-					<p>Github: {{user.github}}</p>
-				</div>
+						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}<button ng-click="showDetails = ! showDetails"> More details</button>  </label>
+					</div>
+					
+						<div ng-show="showDetails">
+							<p>Email: {{user.username}} </p>
+							<p>Portfolio:  {{user.portfolio}}</p>
+							<p>Github: {{user.github}}</p>
+						</div>
 				</td>
 			</tr>
 		</table>
