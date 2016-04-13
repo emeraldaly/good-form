@@ -12,6 +12,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/allUsers',
     templateUrl: '/views/allUsers.html'
   })
+  .state('myLecture', {
+    url: '/myLecture',
+    templateUrl: '/views/myLecture.html'
+  })
 
   .state('createLecture', {
     url: '/createLecture',

@@ -15,5 +15,5 @@ var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoL
      res.send(doc);
     }
   });
-
 }
+
