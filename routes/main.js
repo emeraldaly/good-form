@@ -42,7 +42,7 @@ module.exports = function (app) {
   app.get('/allOrgs', orgCtrl.showAllOrgs);
   app.get('/orgsClasses', orgCtrl.getOrgsClasses);
   app.post('/register', orgCtrl.addOrg);
-
+  
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
   app.post('/createHomework', hwCtrl.createHw);

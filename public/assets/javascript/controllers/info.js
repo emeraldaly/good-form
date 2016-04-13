@@ -3,6 +3,7 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 
 		$scope.createInfo = function() {
 			console.log($scope.userUpdate)
+			 $state.go($state.current, {}, {reload: true});
 			$http({
 				method: 'POST',
 				url: '/createInfo',
