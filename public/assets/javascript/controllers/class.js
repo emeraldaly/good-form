@@ -48,10 +48,10 @@ $scope.allUsers = new NgTableParams({
          var classes = response.data
 
         //  console.log(classes)
-        // var filteredData = $filter('filter')(classes, params.filter())
-        // var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+        var filteredData = $filter('filter')(classes, params.filter())
+        var sortedData = $filter('orderBy')(filteredData, params.orderBy());
         // console.log(sortedData)
-        return classes;
+        return sortedData;
      });
      
     }
@@ -70,10 +70,10 @@ $scope.classesTable = new NgTableParams({
         console.log(response)
          var classes = response.data
         //  console.log(classes)
-        // var filteredData = $filter('filter')(classes, params.filter())
-        // var sortedData = $filter('orderBy')(filteredData, params.orderBy());
-        // console.log(sortedData)
-        return classes;
+        var filteredData = $filter('filter')(classes, params.filter())
+        var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+        console.log(sortedData)
+        return sortedData;
       });
      
     }
