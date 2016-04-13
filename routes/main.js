@@ -43,10 +43,14 @@ module.exports = function (app) {
   app.get('/allOrgs', orgCtrl.showAllOrgs);
   app.get('/orgsClasses', orgCtrl.getOrgsClasses);
   app.post('/register', orgCtrl.addOrg);
+<<<<<<< HEAD
 
   // lecture Controls
   app.post("/createLecture", lecture.createLecture);
 
+=======
+  
+>>>>>>> a7dec2542f4683c50260790b4d00c682c1ea75ee
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
   app.post('/createHomework', hwCtrl.createHw);
