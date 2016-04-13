@@ -5,8 +5,6 @@ var Organization = require("../models/organization");
 var Homework = require("../models/homework");
 var Class = require("../models/class");
 var mongoose = require("mongoose");
-var Slack = require('slack-node');
-var webhookUri = "https://hooks.slack.com/services/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";
 // app.use(bodyParser.urlencoded({
 //   extended: false
 // }));
@@ -23,23 +21,6 @@ var webhookUri = "https://hooks.slack.com/services/T105SS2U9/B104A42DR/2okDCR8jU
 	
 // }
 
-// exports.testSlack = function(req, res){
-
- 
-// console.log(webhookUri); 
-// slack = new Slack();
-// slack.setWebhook(webhookUri);
- 
-// slack.webhook({
-//   channel: "#general",
-//   username: "goodform",
-//   text: "This is posted to #general and comes from JED"
-// }, function(err, response) {
-//   console.log(response);
-// });
-
-
-// }
 
 exports.viewAssignments = function(req, res){
 	console.log(req.session.user._id)

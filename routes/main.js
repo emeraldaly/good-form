@@ -26,7 +26,7 @@ module.exports = function (app) {
   app.use(passport.session());
 
   //User Controls
-  // app.get('/testslack', usrCtrl.testSlack);
+
   app.post('/adduser', usrCtrl.addUser);
   app.get('/viewAssignments', usrCtrl.viewAssignments);
   app.post('/updateUser', usrCtrl.updateUser);
