@@ -2,7 +2,7 @@ var Lecture = require("../models/lecture");
 
 exports.createLecture = function(req, res){
 debugger
-console.log(req.body.github)
+console.log(req.body.date)
 var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoLink,  
 	"info":req.body.info, 
 	"poster":req.session.user._id,
@@ -15,5 +15,5 @@ var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoL
      res.send(doc);
     }
   });
-
 }
+

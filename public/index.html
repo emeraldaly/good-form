@@ -50,7 +50,22 @@
   </nav>
 
   <div ui-view autoscroll="false"></div>
+<div class="row">
+<div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-10 col-sm-6 col-md-3">
+  <h2>Info</h2>
+  <div class="pre-scrollable">
+    <div class="infoBack" ng-repeat="info in infos | orderBy:'$index':true">
+      <h4 class="infoTitle">{{info.title}}</h4>
+      <p>{{info.information}}</p>
+    </div>
+  </div>
+</div>
+  </div>
 
+<div class="row">
+<div class="col-xs-12 col-sm-8 col-md-4"> 
+<img src="/assets/img/calendarimg.png" width="300px" height="300px">
+  </div>
 
   <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
   <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
