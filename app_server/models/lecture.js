@@ -12,7 +12,8 @@ _class:{
       },
       //single poster Lecture
 poster:{type: Schema.Types.ObjectId,
-				ref:"User"}
+				ref:"User"},
+				date:{type:String, default:Date.now}
 });
 
 var Lecture = mongoose.model('Lecture', LectureSchema);
