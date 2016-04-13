@@ -11,7 +11,7 @@ exports.createInfo = function (req, res){
     if (err) {
       console.log(err);
     } else {
-      slack = new Slack();
+slack = new Slack();
 slack.setWebhook(webhookUri);
       slack.webhook({    
   channel: "#general",
@@ -20,8 +20,8 @@ slack.setWebhook(webhookUri);
 }, function(err, response) {
   console.log(response);
 });
-      // console.log(doc);
-    }
+     res.send(doc);
+}
   });
 
 	}
@@ -31,12 +31,10 @@ exports.viewInfo = function (req, res){
   class:{ $in:req.session.user._class}
   })
   .exec(function(err, docs){
-    debugger
       if(err){
         console.log(err);
         res.send(err);
       } else {
-        // 
         console.log(docs)
         res.send(docs);
       }
