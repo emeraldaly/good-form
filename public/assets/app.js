@@ -106,6 +106,10 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/updateUser',
     templateUrl: '/views/updateUser.html'
   })
+  .state('lectureLinks', {
+    url: '/lectureLinks',
+    templateUrl: '/views/lectureLinks.html'
+  })
   .state('login', {
     url: '/splash',
     templateUrl: '/splash.html'
