@@ -3,13 +3,13 @@
 	<div class="col-md-12">
 		<table ng-table="allUsers" class="table" show-filter="true">
 			<tr ng-repeat="user in $data">
-				<td data-title="firstname"  sortable="'firstname'" filter="{firstname: 'text'}">
+				<td title="'First'"  sortable="'firstname'" filter="{firstname: 'text'}">
 					{{user.firstname}}
 				</td>
-				<td data-title="lastname"  sortable="'lastname'" filter="{lastname: 'text'}">
+				<td title="'Last'"  sortable="'lastname'" filter="{lastname: 'text'}">
 					 {{user.lastname}}
 				</td>
-				<td>
+				<td title="'More User Details'">
 					<button ng-click="showDetails = ! showDetails"> More details</button> 
 					<div ng-show="showDetails">
 						<p>Email: {{user.username}} </p>

@@ -1,5 +1,4 @@
-<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
-  <h2> Show Classes </h2>
+ <h2> Show Classes </h2>
   <div ng-controller="class" ng-init="getClasses()">
   	<table ng-table="classesTable" class="table" show-filter="true"> 
       <tr ng-repeat="class in $data">
@@ -15,6 +14,14 @@
         </td>
       </tr>
    	</table>
-    <button class="btn btn-warning btn-block" ng-click="editThisClass()"> Edit this class </button>
+  </div>
+  <div ng-controller="lecture">
+  	<label for="className">Github</label>
+	    <input class="form-control" type="text" ng-model="github" placeholder="">
+	    <label for="className">Video Link</label>
+	    <input class="form-control" type="text" ng-model="videoLink" placeholder="">
+	    <label for="className">Additional Notes</label>
+	    <input class="form-control" type="text" ng-model="info" placeholder="">
+    <button class="btn btn-warning btn-block" ng-click="createLecture()"> Create lecture </button>
   </div>
 </div>
