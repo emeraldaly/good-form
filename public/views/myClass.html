@@ -1,11 +1,18 @@
 <div ng-controller="class" ng-init="myClass()">
-<h3> show all classes </h3>
-	<table ng-table="classesTable">
+<h3> show all of my classes classes </h3>
+	<table ng-table="classesTable" class="table">
     <tr ng-repeat="class in myClasses">
-      <td>
-      	
-      <a ui-sref="myClassStudents"><button type="" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}  {{class._id}}</button></a>
-      </td>
+      <td title="'Name'"  sortable="'name'" filter="{name: 'text'}"> 
+          <a ui-sref="myClassStudents"><button type="" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</button></a>
+          <!-- </div> -->
+          		
+            	<button class="pull-right" ng-click="showDetails = ! showDetails"> More details
+            	</button> 
+
+            <div ng-show="showDetails">
+              <p>datetime: {{class.datetime}} </p>
+            </div>
+        </td>
     </tr>
  	</table>
 </div>
