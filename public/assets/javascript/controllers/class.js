@@ -99,7 +99,6 @@ $scope.updateClass = function(){
     })
 
 }
-
 $scope.thisClass= function(classId){
   $rootScope.classEdit = classId;
 
@@ -133,7 +132,6 @@ $scope.viewThisClass = function(){
       });
   
 }
-
 
 $scope.editThisClass = function(){
          $state.go('editClass')

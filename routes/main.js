@@ -4,6 +4,7 @@ var classCtrl = require("../app_server/controllers/classController");
 var orgCtrl = require("../app_server/controllers/orgController");
 var attendance = require("../app_server/controllers/attendanceController");
 var usrCtrl = require("../app_server/controllers/usrController");
+var lecture = require("../app_server/controllers/lectureController");
 var passport = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
@@ -42,6 +43,9 @@ module.exports = function (app) {
   app.get('/allOrgs', orgCtrl.showAllOrgs);
   app.get('/orgsClasses', orgCtrl.getOrgsClasses);
   app.post('/register', orgCtrl.addOrg);
+
+  // lecture Controls
+  app.post("/createLecture", lecture.createLecture);
 
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
