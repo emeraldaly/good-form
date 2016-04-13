@@ -1,10 +1,15 @@
 <!-- all users for admin go on this page.  make it a ng table.   -->
 <div ng-controller="class" data-ng-init="getAllUsers()">
-	<div class="col-md-6">
-		<table ng-table="allUsers">
+	<div class="col-md-12">
+		<table ng-table="allUsers" class="table" show-filter="true">
 			<tr ng-repeat="user in $data">
+				<td data-title="firstname"  sortable="'firstname'" filter="{firstname: 'text'}">
+					{{user.firstname}}
+				</td>
+				<td data-title="lastname"  sortable="'lastname'" filter="{lastname: 'text'}">
+					 {{user.lastname}}
+				</td>
 				<td>
-					{{user.firstname}} {{user.lastname}}
 					<button ng-click="showDetails = ! showDetails"> More details</button> 
 					<div ng-show="showDetails">
 						<p>Email: {{user.username}} </p>
