@@ -1,9 +1,9 @@
 <div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
   <h2> Show Classes </h2>
   <div ng-controller="class" ng-init="getClasses()">
-  	<table ng-table="classesTable">
+  	<table ng-table="classesTable" class="table" show-filter="true"> 
       <tr ng-repeat="class in $data">
-        <td>
+        <td data-title="name"  sortable="'name'" filter="{name: 'text'}"> 
         	<div class="radio">
   					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
   				</div>
