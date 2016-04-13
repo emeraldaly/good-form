@@ -26,7 +26,7 @@ module.exports = function (app) {
   app.use(passport.session());
 
   //User Controls
-
+  // app.get('/testslack', usrCtrl.testSlack);
   app.post('/adduser', usrCtrl.addUser);
   app.get('/viewAssignments', usrCtrl.viewAssignments);
   app.post('/updateUser', usrCtrl.updateUser);
@@ -42,7 +42,7 @@ module.exports = function (app) {
   app.get('/allOrgs', orgCtrl.showAllOrgs);
   app.get('/orgsClasses', orgCtrl.getOrgsClasses);
   app.post('/register', orgCtrl.addOrg);
-
+  
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
   app.post('/createHomework', hwCtrl.createHw);
