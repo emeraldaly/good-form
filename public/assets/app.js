@@ -1,5 +1,4 @@
-
-var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io','ngTable']);
+var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io', 'ngTable']);
 
 classApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/splash')
@@ -9,13 +8,33 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/home',
     templateUrl: '/views/home.html'
   })
+  .state('allUsers', {
+    url: '/allUsers',
+    templateUrl: '/views/allUsers.html'
+  })
+    .state('editAttend', {
+    url: '/editAttend',
+    templateUrl: '/views/editAttend.html'
+  })
+  .state('viewAttendDates', {
+    url: '/viewAttendDates',
+    templateUrl: '/views/viewAttendDates.html'
+  })
+   .state('viewAttend', {
+    url: '/viewAttend',
+    templateUrl: '/views/viewAttend.html'
+  })
+  .state('attendance', {
+    url: '/attendance',
+    templateUrl: '/views/attendance.html'
+  })
     .state('submitHomework', {
     url: '/submitHomework',
     templateUrl: '/views/submitHomework.html'
   })
-  .state('users', {
-    url: '/users',
-    templateUrl: '/views/users.html'
+     .state('editAttendance', {
+    url: '/editAttendance',
+    templateUrl: '/views/editAttendance.html'
   })
    .state('homeworkSubmissions', {
     url: '/homeworkSubmissions',
@@ -65,6 +84,14 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   .state('createHomework', {
     url: '/createHomework',
     templateUrl: '/views/createHomework.html'
+  })
+  .state('myClass', {
+    url: '/myClass',
+    templateUrl: '/views/myClass.html'
+  })
+   .state('myClassStudents', {
+    url: '/myClassStudents',
+    templateUrl: '/views/myClassStudents.html'
   })
   .state('viewAssignments', {
     url: '/viewAssignments',

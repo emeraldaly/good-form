@@ -1,28 +1,51 @@
-	<h3> for which class </h3>
-
-<div ng-controller="class" ng-init="getClasses()">
-<!-- 		<button ng-click="showClasses()"> button? </button> -->
-	<table ng-table="classesTable">
+<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+  <div class="form-top">
+    <h2>Homework</h2>
+  </div>
+  <div ng-controller="class" ng-init="getClasses()">
+    <h3 class="classH4">Class</h3>
+    <!-- 		<button ng-click="showClasses()"> button? </button> -->
+  	<table ng-table="classesTable">
       <tr ng-repeat="class in $data">
       	<td>
       		<div class="radio">
-					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
-				</div>
+    				<label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
+    			</div>
       	</td>
-  
       </tr>
     </table>
-	</div>
-<div ng-controller="homework">
-<h3> view homework </h3>
-<button ng-click="homeworkByClass()"> View All Homework by class </button>
+  </div>
 
-	<h3>Create Homework </h3>
+  <div ng-controller="homework">
+    <h3> View Homework </h3>
+    <button ng-click="homeworkByClass()"> View All Homework by Class </button>
+  </div>
+</div>
 
-	<input ng-model="name" placeholder="name">
-
-	<textarea ng-model="description" placeholder="description"> </textarea>
-		<input ng-model="duedate" placeholder="duedate">
-	<input ng-model="duetime" placeholder="duetime">
-	<button ng-click="createHomework()"> create homework </button>
+<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4">
+  <h2>Create Homework </h2>
+  <div ng-controller="class" ng-init="getClasses()">
+    <h3 class="classH4">Class</h3>
+    <!--    <button ng-click="showClasses()"> button? </button> -->
+    <table ng-table="classesTable">
+      <tr ng-repeat="class in $data">
+        <td>
+          <div class="radio">
+            <label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div ng-controller="homework">
+  	<input class="form-control" ng-model="name" placeholder="Homework Name">
+    <span class="help-block"></span>
+  	<textarea class="form-control" ng-model="description" placeholder="Homework Description"> </textarea>
+    <span class="help-block"></span>
+  	<input class="form-control" ng-model="duedate" placeholder="Due Date">
+    <span class="help-block"></span>
+  	<input class="form-control" ng-model="duetime" placeholder="Due Time">
+    <span class="help-block"></span>
+  	<button class="btn btn-warning btn-block" ng-click="createHomework()"> Create Homework </button>
+  </div>
 </div>

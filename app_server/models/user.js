@@ -4,10 +4,10 @@
   var bcrypt = require("bcryptjs");
 
   var UserSchema = new Schema({
-    _class: {
+    _class: [{
      type: Schema.Types.ObjectId,
      ref: 'Class'
-   },
+   }],
    _organization: [{
      type: Schema.Types.ObjectId,
      ref: 'organization'

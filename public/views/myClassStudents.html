@@ -1,0 +1,33 @@
+<div  ng-controller="class">
+	<div class="col-md-12">
+			<h4> Current class </h4>
+			<div data-ng-init="viewThisClass()">
+			<h3> Teacher </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
+			{{class._user.firstname}} {{class._user.lastname}}<button ng-click="showDetails = ! showDetails"> More details</button>
+				<div ng-show="showDetails">
+					<p>Email: {{class._user.username}} </p>
+					<p>Portfolio:  {{class._user.portfolio}}</p>
+					<p>Github: {{class._user.github}}</p>
+				</div>
+			</div>
+			<h3> Ta </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
+			{{class._user.firstname}} {{class._user.lastname}}<button ng-click="showDetails = ! showDetails"> More details</button>
+				<div ng-show="showDetails">
+					<p>Email: {{class._user.username}} </p>
+					<p>Portfolio:  {{class._user.portfolio}}</p>
+					<p>Github: {{class._user.github}}</p>
+				</div>
+			</div>
+			<h3> Student </h3>
+			<div ng-repeat = "class in classView | filter:{roleType: 'student' }" >
+				{{class._user.firstname}} {{class._user.lastname}}<button ng-click="showDetails = ! showDetails"> More details</button>
+				<div ng-show="showDetails">
+					<p>Email: {{class._user.username}} </p>
+					<p>Portfolio:  {{class._user.portfolio}}</p>
+					<p>Github: {{class._user.github}}</p>
+				</div>
+		</div>
+	</div>
+</div>

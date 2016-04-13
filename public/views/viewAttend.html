@@ -1,0 +1,15 @@
+<div ng-controller ="attendance" ng-init="getAttend()">
+
+	<h3> Not here </h3>
+	<div ng-repeat="student in students | filter:{here: false}">
+	
+	{{student._user.firstname}} {{student._user.firstname}} 
+	</div>
+
+	<h3>here</h3>
+<div ng-repeat="student in students | filter:{here: true}">
+
+{{student._user.firstname}} {{student._user.firstname}} 
+	</div>	 
+	<a ui-sref="editAttend"><button>edit</button></a>
+</div>

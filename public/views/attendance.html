@@ -1,0 +1,16 @@
+<h3> Pick a Class </h3>
+<div ng-controller="class" ng-init="getClasses()">
+	<table ng-table="classesTable">
+    <tr ng-repeat="class in $data">
+      <td>
+      	<div class="radio">
+					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
+				</div>
+      </td>
+    </tr>
+ 	</table>
+ </div>
+ <div ng-controller="attendance">
+    <button ng-click="newAttendance()"> New Attendance </button>
+    <button ng-click="viewOlderAttend()"> View Older Attendance </button>
+</div>

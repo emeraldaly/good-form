@@ -1,0 +1,11 @@
+<div ng-controller="class" ng-init="myClass()">
+<h3> show all classes </h3>
+	<table ng-table="classesTable">
+    <tr ng-repeat="class in myClasses">
+      <td>
+      	
+      <a ui-sref="myClassStudents"><button type="" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}  {{class._id}}</button></a>
+      </td>
+    </tr>
+ 	</table>
+</div>

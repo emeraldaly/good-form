@@ -2,6 +2,7 @@ var hwCtrl = require("../app_server/controllers/hwController");
 var infoCtrl = require("../app_server/controllers/infoController");
 var classCtrl = require("../app_server/controllers/classController");
 var orgCtrl = require("../app_server/controllers/orgController");
+var attendance = require("../app_server/controllers/attendanceController");
 var usrCtrl = require("../app_server/controllers/usrController");
 var passport = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
@@ -25,7 +26,7 @@ module.exports = function (app) {
   app.use(passport.session());
 
   //User Controls
- 
+
   app.post('/adduser', usrCtrl.addUser);
   app.get('/viewAssignments', usrCtrl.viewAssignments);
   app.post('/updateUser', usrCtrl.updateUser);
@@ -34,14 +35,14 @@ module.exports = function (app) {
   app.post('/login',
   passport.authenticate('login'),
   function(req, res){
-    res.send("Fine Elie....");
+    res.send(req.user.firstname);
   });
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
   app.get('/orgsClasses', orgCtrl.getOrgsClasses);
   app.post('/register', orgCtrl.addOrg);
-
+  
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
   app.post('/createHomework', hwCtrl.createHw);
@@ -52,12 +53,21 @@ module.exports = function (app) {
   //info controls
   app.get('/viewInfo', infoCtrl.viewInfo);
   app.post("/createInfo", infoCtrl.createInfo);
+  //attendance controls
+  app.get("/viewAttendDates", attendance.viewAttendDates)
+  app.post('/newAttendance', attendance.newAttendance);
+  app.get("/getAttend", attendance.getAttend);
+  app.post("/updateAttend", attendance.updateAttend);
+  app.post("/editAttend", attendance.editAttend);
+  app.post("/deleteAttend", attendance.deleteAttend);
 
   //Class Controls
+  app.get("/myclass", classCtrl.myClass);
   app.get("/updateThisClass", classCtrl.updateThisClass);
   app.get('/getClassUsers', classCtrl.getClassUsers);
   app.post('/createClass', classCtrl.createClass);
   app.get('/showClasses', classCtrl.showClasses);
+  app.get("/viewThisClass", classCtrl.viewThisClass)
   app.post('/editClassId', classCtrl.editClassId)
   app.post('/updateClass', classCtrl.updateClass)
 
@@ -66,7 +76,7 @@ module.exports = function (app) {
 
 //passport
 passport.serializeUser(function(user, done) {
-  console.log('serialize')
+  console.log('serialize', user);
 
   done(null, user);
 });
