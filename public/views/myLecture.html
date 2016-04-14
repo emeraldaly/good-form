@@ -1,5 +1,4 @@
-<div ng-controller="lecture" data-ng-init="myLecture(); getThisLecture()">
-	<div class="col-md-6">
+<div class="col-md-8" ng-controller="lecture" data-ng-init="myLecture(); getThisLecture()">
 		<div ng-show="appState == 'show'" ng-repeat= "user in thisLecture | filter: { _id: lectureFilter}">
 				<h3>Class </h3>
 				<h3>Name: {{user.className}}</h3>
@@ -20,7 +19,4 @@
 				</td>
 			</tr>
 		</table>
-	</div>
 </div>
-
-only make it filter and sort by date.  
