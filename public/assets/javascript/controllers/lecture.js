@@ -12,23 +12,23 @@ $scope.createLecture = function(){
       })
 }
 
-exports.viewLecture = function(req,res){
-	//will be used to view all the lectures
+$scope.myLecture= function(){
+   $scope.myLectureTable = new NgTableParams({
+  }, {
+    getData: function($defer, params) {
+      return $http.get('/myLecture')
+      .then(function(response) {
+        console.log(response)
+        
+         var classes = response.data
+         console.log(classes)
+        var filteredData = $filter('filter')(classes, params.filter())
+        var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+        console.log(sortedData)
+        return sortedData;
+     });
+     
+    }
+  });
 }
-
-exports.myLecture = function (req, res){
-	//used to find lecture by the person logged in
-  Lecture.find({
-  class:{ $in:req.session.user._class}
-  })
-  .exec(function(err, docs){
-      if(err){
-        console.log(err);
-        res.send(err);
-      } else {
-        res.send(docs);
-      }
-    });
-}
-
 }) //end of controller

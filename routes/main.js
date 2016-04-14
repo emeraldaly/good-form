@@ -34,10 +34,13 @@ app.get('/', usrCtrl.firstPage);
   app.post('/newUser', usrCtrl.newUser);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
   app.post('/login',
-    passport.authenticate('login'),
-      function(req, res){
-      res.send(req.user.firstname);
-  });
+    passport.authenticate('login',
+     { successRedirect: '/*',
+      failureRedirect: '/?msg=failure' }));
+      // function(req, res){
+      //   console.log("passp auth hit");
+      // res.send(req.user.firstname);
+  
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
@@ -49,7 +52,7 @@ app.get('/', usrCtrl.firstPage);
   //for getting all the lectures
   // app.get("/viewLecture", lecture.viewLecture)
   //for getting the lectures for the logged in user
-  // app.get("/myLecture", lecture.viewLecture)
+  app.get("/myLecture", lecture.myLecture)
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
   app.post('/createHomework', hwCtrl.createHw);
@@ -79,7 +82,7 @@ app.get('/', usrCtrl.firstPage);
   app.post('/updateClass', classCtrl.updateClass)
 
 
-  // app.get('*', usrCtrl.defRoute);
+  app.get('*', usrCtrl.defRoute);
 
 //passport
 passport.serializeUser(function(user, done) {

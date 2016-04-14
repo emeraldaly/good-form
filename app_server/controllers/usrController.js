@@ -144,13 +144,13 @@ exports.newUser = function(req, res) {
 }
 
 exports.firstPage = function(req, res) {
-  res.sendFile(process.cwd() + '/public/splash.html');
-
+  console.log("firstPage hit");
+ res.sendFile(process.cwd() + '/public/splash.html');
 }
 
 exports.defRoute = function(req, res) {
 
-  res.sendFile(process.cwd() + '/public/index.html');
+  res.sendFile(process.cwd() + '/public/home.html');
 }
 
 //Show all users in the class
@@ -193,7 +193,3 @@ exports.userDelete = function(req, res) {
 
 }
 
-exports.defRoute = function(req, res) {
-
-  res.sendFile(process.cwd() + '/public/index.html');
-}

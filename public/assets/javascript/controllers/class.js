@@ -98,13 +98,15 @@ $scope.updateClass = function(){
     })
 
 }
-$scope.thisClass= function(classId){
+$scope.thisClass= function(classId, className){
+  debugger
   $rootScope.classEdit = classId;
 
   $http({
         method: 'POST',
         url: '/editClassId',
-        data: {classId:classId
+        data: {classId:classId,
+          className:className
         }
       }).then(function(result) {
         return $rootScope.classEdit;
