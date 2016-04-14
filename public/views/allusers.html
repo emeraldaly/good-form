@@ -1,6 +1,7 @@
 <!-- all users for admin go on this page.  make it a ng table.   -->
+<div class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
 <div ng-controller="class" data-ng-init="getAllUsers()">
-	<div class="col-md-12">
+	<!-- <div class="col-md-12"> -->
 		<table ng-table="allUsers" class="table" show-filter="true">
 			<tr ng-repeat="user in $data">
 				<td title="'First'"  sortable="'firstname'" filter="{firstname: 'text'}">
@@ -19,4 +20,5 @@
 				</td>
 			</tr>
 		</table>
+	<!-- </div> -->
 	</div>

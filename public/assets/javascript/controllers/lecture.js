@@ -8,7 +8,6 @@ $scope.createLecture = function(){
         data:{"github":$scope.github, "info":$scope.info, 
         "videoLink":$scope.videoLink,"date":$scope.date,}
       }).then(function(result) {
-        debugger
         // $state.go("viewAttendDates")
       })
 }
