@@ -135,6 +135,7 @@ exports.newUser = function(req, res) {
               upsert: true
             }, function(err, model) {
               console.log("it worked?")
+              res.sendFile(process.cwd() + '/public/splash.html');
             })
           })
         }
