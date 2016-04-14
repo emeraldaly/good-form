@@ -69,19 +69,19 @@
   <div ui-view autoscroll="false"></div>
 
 
-<div class="col-md-2 pull-right">
+<div ng-controller="figController as fig" class="col-md-2 pull-right">
 
-<figure>
+<!-- <figure>
   <a ui-sref="home"><img src="/assets/img/home.png" width="75px" height="75px"></a>
 <br />
 <caption>Home</caption>
 
   </figure>
-
+ -->
 
 <figure>
 
-  <a ui-sref="class"><img src="/assets/img/addClass.png" width="100px" height="100px"></a>
+  <img ng-mouseenter="classer()" src="/assets/img/addClass.png" width="75px" height="75px"></a>
 <br />
  <caption>Add Class</caption> 
   </figure>
@@ -89,14 +89,14 @@
 
 <figure>
  
-  <a ui-sref="addUser"><img src="/assets/img/addUser.png" width="100px" height="100px"> </a>
+  <img ng-mouseenter="addUserer()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
  <br />
  <caption>Add User</caption>
   </figure>
 
 <figure>  
 
-  <a ui-sref="viewAssignments"><img src="/assets/img/assignments.png" width="100px" height="100px"> </a>
+<img ng-mouseenter="viewAssignments()"src="/assets/img/assignments.png" width="75px" height="75px"> </a>
 <br />
   <caption>Assignments</caption>  
 
@@ -104,7 +104,7 @@
 
 <figure>
 
-  <a ui-sref="metrics"><img src="/assets/img/charts.png" width="100px" height="100px"> </a>
+<img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
 <br />
  <caption>Metrics</caption>
   </figure>
@@ -112,7 +112,7 @@
 
 <figure>
  
-  <a ui-sref="chat"><img src="/assets/img/chat.png" width="100px" height="100px"> </a>
+  <img ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
  <br />
   <caption>Chat</caption>
   </figure>
@@ -120,7 +120,7 @@
 
 <figure>
 
-<img src="/assets/img/classes.png" width="75px" height="75px">  
+<img ng-mouseenter="showClasses()" src="/assets/img/classes.png" width="75px" height="75px">  
   <br />
   <caption>Classes</caption>
 
@@ -132,7 +132,7 @@
 
 <figure>
 
-<img src="/assets/img/jedBoard.png" width="75px" height="75px">  
+<img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">  
 <br />
   <caption>Post to Infoboard</caption>
 
@@ -149,7 +149,7 @@
 
 <figure>
 
-<img src="/assets/img/user.png" width="75px" height="75px">  
+<img ng-mousenter="updateUser()" src="/assets/img/user.png" width="75px" height="75px">  
   <br />
   <caption>User</caption>
   </figure>
@@ -170,6 +170,7 @@
       <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
       <script src="/assets/app.js"></script>
       <script src="/assets/javascript/controllers/user.js"></script>
+       <script src="/assets/javascript/controllers/figController.js"></script>
       <script src="/assets/javascript/controllers/class.js"></script>
       <script src="/assets/javascript/controllers/attendance.js"></script>
       <script src="/assets/javascript/controllers/homework.js"></script>
