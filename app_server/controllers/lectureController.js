@@ -13,8 +13,8 @@ var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoL
       console.log(err);
     } else {
      res.send(doc);
-    }
-  });
+   }
+ });
 }
 
 exports.viewLecture = function(req,res){

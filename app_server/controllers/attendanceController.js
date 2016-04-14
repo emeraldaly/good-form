@@ -14,7 +14,6 @@ exports.deleteAttend = function(req, res){
 }
 
 exports.editAttend = function(req, res){
-	debugger
 	req.session.editAttend = req.body.editAttend
 	res.send("got id")
 }
@@ -35,9 +34,8 @@ exports.updateAttend = function(req, res) {
 		safe: true,
 		upsert: true
 	}, function(err, model) {
-		debugger
 		if (err){
-		console.log(err)
+			console.log(err)
 		}
 		res.send("it worked?")
 	})
@@ -53,23 +51,23 @@ exports.viewAttendDates = function (req,res){
 			res.send(docs)
 		}
 	})
-	}
+}
 
 exports.getAttend = function(req,res){
 	Attendance.find({_id:req.session.editAttend})
 	.populate('student._user')
-    .exec(function(err, docs) {
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-        console.log(docs)
-        res.send(docs);
-      }
-    })
+	.exec(function(err, docs) {
+		if (err) {
+			console.log(err);
+			res.send(err);
+		} else {
+			console.log(docs)
+			res.send(docs);
+		}
+	})
 }
 exports.newAttendance = function(req,res){
-Class.find({
+	Class.find({
 		_id: req.session.editClassId
 	})
 	.exec(function(err, docs) {
@@ -94,11 +92,10 @@ Class.find({
 			newAttend.save(function(err, doc) {
 				var editAttend = doc._doc._id
 				req.session.editAttend = editAttend;
-					console.log(req.session.editAttend)
+				console.log(req.session.editAttend)
 				if (err) {
 					console.log(err);
 				} else {
-					debugger
 					
 					console.log(studentArray)
 					res.send("starting loop")
@@ -115,7 +112,7 @@ Class.find({
 							safe: true,
 							upsert: true
 						}, function(err, model) {
-	
+
 							console.log("it worked?")
 						});
 					}

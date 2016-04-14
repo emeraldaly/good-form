@@ -119,7 +119,6 @@ exports.updateThisClass = function(req, res) {
 
 exports.editClassId = function(req, res) {
     // 
-    debugger
     req.session.editClassId = req.body.classId
     console.log(req.body.className)
     req.session.editClassName = req.body.className

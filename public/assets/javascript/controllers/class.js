@@ -44,7 +44,6 @@ $scope.allUsers = new NgTableParams({
 // get class
 // get unassigned users
         console.log(response)
-          debugger
          var classes = response.data
 
         //  console.log(classes)
@@ -129,7 +128,6 @@ $scope.viewThisClass = function(){
         })
   //  
         // 
-        debugger
         console.log($scope.classView)
       });
   
