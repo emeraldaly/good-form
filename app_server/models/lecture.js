@@ -6,6 +6,7 @@ var LectureSchema= new Schema({
 github:String,
 videoLink:String,
 info:String,
+className:String,
 _class:{
        type: Schema.Types.ObjectId,
         ref: 'Class'

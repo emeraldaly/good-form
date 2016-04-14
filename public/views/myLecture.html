@@ -1,0 +1,22 @@
+<div ng-controller="lecture" data-ng-init="myLecture()">
+	<div class="col-md-6">
+		<table ng-table="myLectureTable" class="table" show-filter="true">
+			<tr ng-repeat="user in $data">
+				<td title="'Class name'"  sortable="'className'" filter="{'className': 'text'}">
+					{{user.className}}
+				</td>
+				<td title="'date |'" sortable="'date'">
+					 {{user.date | date:'dd-MM-yyyy'}}
+				</td>
+				<td title="'More User Details'">
+					<button ng-click="showDetails = ! showDetails"> More details</button> 
+					<div ng-show="showDetails">
+						
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+only make it filter and sort by date.  

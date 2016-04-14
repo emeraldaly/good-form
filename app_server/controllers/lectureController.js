@@ -6,7 +6,8 @@ var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoL
 	"info":req.body.info, 
 	"poster":req.session.user._id,
 	"date":req.body.date,
-	"_class":req.session.editClassId});
+	"_class":req.session.editClassId,
+  "className":req.session.editClassName});
   newLec.save(function (err, doc) {
     if (err) {
       console.log(err);
@@ -22,11 +23,14 @@ exports.viewLecture = function(req,res){
 }
 
 exports.myLecture = function (req, res){
-  //used to find lecture by the person logged in
+  debugger
+  console.log(req.session.user._class)
   Lecture.find({
-  class:{ $in:req.session.user._class}
+  _class:{ $in:req.session.user._class}
   })
+  .populate("_class.")
   .exec(function(err, docs){
+    debugger
       if(err){
         console.log(err);
         res.send(err);

@@ -12,5 +12,23 @@ $scope.createLecture = function(){
       })
 }
 
-
+$scope.myLecture= function(){
+   $scope.myLectureTable = new NgTableParams({
+  }, {
+    getData: function($defer, params) {
+      return $http.get('/myLecture')
+      .then(function(response) {
+        console.log(response)
+        
+         var classes = response.data
+         console.log(classes)
+        var filteredData = $filter('filter')(classes, params.filter())
+        var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+        console.log(sortedData)
+        return sortedData;
+     });
+     
+    }
+  });
+}
 }) //end of controller
