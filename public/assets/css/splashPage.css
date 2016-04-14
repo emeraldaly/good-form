@@ -9,11 +9,13 @@ body{
 .navbar-default {
   background-color: transparent;
   border-color: transparent;
-color: ;
+
 }
 
 .navbar-default .navbar-nav > li > a {
-    color: #5bc0de;
+    color: #1f8c8f;
+    background-color: white;
+    border-color: black;
 }
 
 /*.navbar-default .navbar-nav>li>a {
@@ -39,7 +41,10 @@ color: ;
 
 .login {
   background-color: transparent;
-  margin-top: 38%;
+  margin-top: 34%;
   margin-right: 5%;
+}
+button.primary{
+  background-color: 1f8c8f !important;
 }
 

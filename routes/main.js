@@ -45,7 +45,8 @@ app.get('/', usrCtrl.firstPage);
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
   app.get('/orgsClasses', orgCtrl.getOrgsClasses);
-  app.post('/register', orgCtrl.addOrg);
+  app.get('/registration', orgCtrl.showRegistration);
+  app.post('/register', usrCtrl.newUser);
 
   // lecture Controls
   app.post("/createLecture", lecture.createLecture);

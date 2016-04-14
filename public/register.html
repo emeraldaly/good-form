@@ -1,48 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../assets/css/splashPage.css">
+</head>
+
+<body>
+
 <div class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
 	<div class="form-top">
 		<h2>Organization Registration</h2>
-		<h4 class="register-span">Fill in the form to register your Organization</h4>
+		<h4 class="register-span"></h4>
 	</div>
 	<div class="form-bottom">
-    <form ng-controller="newUser">
+    <form method="post" action="/register">
       <div>
     		<label for="organizationName">Name</label>
-        <input type="text" class="form-control" ng-model="organizationName" placeholder="Enter Name of Organization">
+        <input type="text" class="form-control" name="organizationName" placeholder="Enter Name of Organization">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="address">Address</label>
-  	    <input type="text" class="form-control" ng-model="address" placeholder="Street, City, State ">
+  	    <input type="text" class="form-control" name="address" placeholder="Street, City, State ">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="website">Website</label>
-  	    <input type="text" class="form-control" ng-model="website" placeholder="http://www.evanbates.com">
+  	    <input type="text" class="form-control" name="website" placeholder="http://www.evanbates.com">
         <span class="help-block"></span>
       </div>
 
       <div>
         <label for="userFirstName">First Name</label>
-  	    <input type="text" class="form-control" name="userFirstName" ng-model="userFirstName" placeholder="Evan">
+  	    <input type="text" class="form-control" name="userFirstName" placeholder="Evan">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="username">Last Name</label>
-  	    <input type="text" class="form-control" name="userLastName" ng-model="userLastName" placeholder="Bates">
+  	    <input type="text" class="form-control" name="userLastName" placeholder="Bates">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="username">Email</label>
-  	    <input type="email" class="form-control" name="userEmail" ng-model="userEmail" placeholder="Evan@bates.com">
+  	    <input type="email" class="form-control" name="username" placeholder="Evan@bates.com">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="username">Password</label>
-  	    <input type="password" class="form-control" name="userPassword" ng-model="userPassword"  placeholder="*****">
+  	    <input type="password" class="form-control" name="userPassword"placeholder="*****">
         <span class="help-block"></span>
       </div>
       <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
-      <button type="submit" ng-click="register()" class="btn btn-warning btn-block">Register</button>
+      <button type="submit" class="btn btn-warning btn-block">Register</button>
     </form>
   </div>
 </div>
