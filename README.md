@@ -2,7 +2,7 @@
 
 # 
 Team Members:
-* Steph Harris
+* Stephanie Harris
 * Evan Bates
 * Eliezer Wohl
 * Alyson Wright
