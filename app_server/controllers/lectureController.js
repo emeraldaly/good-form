@@ -17,3 +17,27 @@ var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoL
   });
 }
 
+exports.viewLecture = function(req,res){
+  //will be used to view all the lectures
+  console.log('got it')
+}
+
+exports.myLecture = function (req, res){
+  //used to find lecture by the person logged in
+  Lecture.find({
+  class:{ $in:req.session.user._class}
+  })
+  .exec(function(err, docs){
+      if(err){
+        console.log(err);
+        res.send(err);
+      } else {
+        res.send(docs);
+      }
+    });
+}
+
+
+
+
+
