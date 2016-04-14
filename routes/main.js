@@ -49,7 +49,7 @@ module.exports = function (app) {
   //for getting all the lectures
   app.get("/viewLecture", lecture.viewLecture)
   //for getting the lectures for the logged in user
-  app.get("/myLecture", lecture.viewLecture)
+  app.get("/myLecture", lecture.myLecture)
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
   app.post('/createHomework', hwCtrl.createHw);
