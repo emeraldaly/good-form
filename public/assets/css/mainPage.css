@@ -73,3 +73,18 @@ ul.msgList.pre-scrollable {
 .infoTitle {
   font-weight: bold;
 }
+
+figure{
+  text-align: left;
+}
+
+img{
+  margin-right: 15px;
+  padding-top: 15px;
+}
+h1 {
+  font-family: lato;
+text-align: center;
+padding-bottom: 20px;
+padding-left: 70px;
+}
