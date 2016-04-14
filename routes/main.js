@@ -50,7 +50,6 @@ module.exports = function (app) {
   // app.get("/viewLecture", lecture.viewLecture)
   //for getting the lectures for the logged in user
   app.get("/myLecture", lecture.myLecture)
->>>>>>> 6d56998ab8bf64fee5156bd6e1131b846ba76e30
   //HW Controls
   app.post('/submitHw', hwCtrl.submitHw);
   app.post('/createHomework', hwCtrl.createHw);
