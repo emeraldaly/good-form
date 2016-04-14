@@ -24,15 +24,15 @@ var mongoose = require("mongoose");
 
 exports.viewAssignments = function(req, res){
   console.log(req.session.user._id)
-    User.findOne({_id:req.session.user._id}).populate('assignment')
-    .exec(function (err, user) {
+  User.findOne({_id:req.session.user._id}).populate('assignment')
+  .exec(function (err, user) {
 
-      if (err){ return handleError(err)
-      }
-      else{
-        res.send(user)
-      }
-    })
+    if (err){ return handleError(err)
+    }
+    else{
+      res.send(user)
+    }
+  })
 }
 
 exports.addUser = function(req, res) {
@@ -52,8 +52,8 @@ exports.addUser = function(req, res) {
     if (user) {
       res.redirect("/?msg=Your email is already registered, please login.");
       console.log("found one")}
-    else { console.log("didn't find one")
-      userx.save(function(err, user) {console.log("saved")});
+      else { console.log("didn't find one")
+        userx.save(function(err, user) {console.log("saved")});
 
       // res.redirect("/?msg=Thank you for registering, please login.");
 
@@ -108,12 +108,12 @@ exports.newUser = function(req, res) {
         } else {
           var organization = data._doc._id;
           console.log(data)
-            var userx = new User({
-              firstname: req.body.userFirstName,
-              lastname: req.body.userLastName,
-              username: req.body.username,
-              password: req.body.userPassword,
-              admin: true,
+          var userx = new User({
+            firstname: req.body.userFirstName,
+            lastname: req.body.userLastName,
+            username: req.body.username,
+            password: req.body.userPassword,
+            admin: true,
               // currently hardwired in until we can do a req value
               _organization: organization,
             });
@@ -143,6 +143,11 @@ exports.newUser = function(req, res) {
   });
 }
 
+exports.firstPage = function(req, res) {
+  res.sendFile(process.cwd() + '/public/splash.html');
+
+}
+
 exports.defRoute = function(req, res) {
 
   res.sendFile(process.cwd() + '/public/index.html');
@@ -170,17 +175,17 @@ exports.updateUser = function(req, res) {
 
   var user = req.session.user._id
 
-    User.findByIdAndUpdate(user, {$set: {
-      github: req.body.github,
-      linkedin:req.body.linkedin,
-      portfolio:req.body.portfolio
-    }
-    }, {
-      safe: true,
-      upsert: true
-    }, function(err, model) {
-      console.log("it worked?")
-    })
+  User.findByIdAndUpdate(user, {$set: {
+    github: req.body.github,
+    linkedin:req.body.linkedin,
+    portfolio:req.body.portfolio
+  }
+}, {
+  safe: true,
+  upsert: true
+}, function(err, model) {
+  console.log("it worked?")
+})
 }
 
 //Delete a user from DB

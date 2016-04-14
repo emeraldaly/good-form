@@ -11,32 +11,32 @@ exports.createInfo = function (req, res){
     if (err) {
       console.log(err);
     } else {
-slack = new Slack();
-slack.setWebhook(webhookUri);
+      slack = new Slack();
+      slack.setWebhook(webhookUri);
       slack.webhook({    
-  channel: "#general",
-  username: "INFO",
-  text: req.body.information
-}, function(err, response) {
-  console.log(response);
-});
-     res.send(doc);
-}
+        channel: "#general",
+        username: "INFO",
+        text: req.body.information
+      }, function(err, response) {
+        console.log(response);
+      });
+      res.send(doc);
+    }
   });
 
-	}
+}
 
 exports.viewInfo = function (req, res){
   Info.find({
-  class:{ $in:req.session.user._class}
+    class:{ $in:req.session.user._class}
   })
   .exec(function(err, docs){
-      if(err){
-        console.log(err);
-        res.send(err);
-      } else {
-        console.log(docs)
-        res.send(docs);
-      }
-    });
+    if(err){
+      console.log(err);
+      res.send(err);
+    } else {
+      console.log(docs)
+      res.send(docs);
+    }
+  });
 }

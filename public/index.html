@@ -16,38 +16,38 @@
 <body>
   <h1>GOOD FORM</h1>
   <!-- <nav class="navbar navbar-default" role="navigation"> -->
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <!-- <div class="navbar-header"> -->
-      <!-- <button type="button" class="navbar-toggle" ng-init="navCollapsed=true" ng-click="navCollapsed=!navCollapsed"> -->
-        <!-- <span class="sr-only">Toggle navigation</span> -->
-        <!-- <span class="icon-bar"></span> -->
-        <!-- <span class="icon-bar"></span> -->
-        <!-- <span class="icon-bar"></span> -->
-      <!-- </button> -->
-    <!-- </div> -->
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <!-- <div class="navbar-header"> -->
+  <!-- <button type="button" class="navbar-toggle" ng-init="navCollapsed=true" ng-click="navCollapsed=!navCollapsed"> -->
+  <!-- <span class="sr-only">Toggle navigation</span> -->
+  <!-- <span class="icon-bar"></span> -->
+  <!-- <span class="icon-bar"></span> -->
+  <!-- <span class="icon-bar"></span> -->
+  <!-- </button> -->
+  <!-- </div> -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true"> -->
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <!-- <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true"> -->
 
-      <!-- <ul class="nav navbar-nav navbar-right"> -->
-        <!-- <li><a ui-sref="home">Home</a></li> -->
-     <!--    <li><a ui-sref="allUsers">allUsers</a></li> -->
-        <!-- <li><a ui-sref="register">register w/organization</a> </li> -->
-        <!-- <li><a ui-sref="addUser">add User</a> </li> -->
-     <!--    <li><a ui-sref="class">Classes</a></li> -->
-        <!-- <li><a ui-sref="createHomework">create Homework</a></li> -->
-     <!--    <li><a ui-sref="viewAssignments">viewAssignments</a> </li> -->
-        <!-- <li><a ui-sref="info">infoboard</a></li> -->
-      <!--   <li><a ui-sref="chat">chat</a> </li> -->
-     <!--    <li><a ui-sref="metrics">metrics</a></li> -->
-        <!-- <li><a ui-sref="updateUser">Update User</a></li> -->
-        <!-- <li><a ui-sref="myClass">myClass</a> </li> -->
-      <!-- </ul> -->
-    <!-- </div>/.navbar-collapse -->
+  <!-- <ul class="nav navbar-nav navbar-right"> -->
+  <!-- <li><a ui-sref="home">Home</a></li> -->
+  <!--    <li><a ui-sref="allUsers">allUsers</a></li> -->
+  <!-- <li><a ui-sref="register">register w/organization</a> </li> -->
+  <!-- <li><a ui-sref="addUser">add User</a> </li> -->
+  <!--    <li><a ui-sref="class">Classes</a></li> -->
+  <!-- <li><a ui-sref="createHomework">create Homework</a></li> -->
+  <!--    <li><a ui-sref="viewAssignments">viewAssignments</a> </li> -->
+  <!-- <li><a ui-sref="info">infoboard</a></li> -->
+  <!--   <li><a ui-sref="chat">chat</a> </li> -->
+  <!--    <li><a ui-sref="metrics">metrics</a></li> -->
+  <!-- <li><a ui-sref="updateUser">Update User</a></li> -->
+  <!-- <li><a ui-sref="myClass">myClass</a> </li> -->
+  <!-- </ul> -->
+  <!-- </div>/.navbar-collapse -->
   <!-- </nav> -->
 
-   <div class="container-fluid"> 
-    
+  <div class="container-fluid"> 
+
     <div class="row">
       <div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-12 col-sm-6 col-md-3">
        <div class="row">
@@ -59,17 +59,17 @@
           </div>
         </div>
       </div> 
-  <div class="row">
-      <!-- <div class="col-xs-12 col-sm-8 col-md-4">  -->
+      <div class="row">
+        <!-- <div class="col-xs-12 col-sm-8 col-md-4">  -->
         <img src="/assets/img/calendarimg.png" width="300px" height="300px">
       </div>
-  </div>      
+    </div>      
 
 
-  <div ui-view autoscroll="false"></div>
+    <div ui-view autoscroll="false"></div>
 
 
-<div ng-controller="figController as fig" class="col-md-2 pull-right">
+    <div ng-controller="figController" class="col-md-2 pull-right">
 
 <!-- <figure>
   <a ui-sref="home"><img src="/assets/img/home.png" width="75px" height="75px"></a>
@@ -77,107 +77,103 @@
 <caption>Home</caption>
 
   </figure>
- -->
+-->
 
 <figure>
 
   <img ng-mouseenter="classer()" src="/assets/img/addClass.png" width="75px" height="75px"></a>
-<br />
- <caption>Add Class</caption> 
-  </figure>
+  <br />
+  <caption>Add Class</caption> 
+</figure>
 
 
 <figure>
- 
+
   <img ng-mouseenter="addUserer()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
- <br />
- <caption>Add User</caption>
-  </figure>
+  <br />
+  <caption>Add User</caption>
+</figure>
 
 <figure>  
 
-<img ng-mouseenter="viewAssignments()"src="/assets/img/assignments.png" width="75px" height="75px"> </a>
-<br />
+  <img ng-mouseenter="viewAssignments()"src="/assets/img/assignments.png" width="75px" height="75px"> </a>
+  <br />
   <caption>Assignments</caption>  
 
-  </figure>
+</figure>
 
 <figure>
 
-<img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
-<br />
- <caption>Metrics</caption>
-  </figure>
+  <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
+  <br />
+  <caption>Metrics</caption>
+</figure>
 
 
 <figure>
- 
+
   <img ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
- <br />
+  <br />
   <caption>Chat</caption>
-  </figure>
+</figure>
 
 
 <figure>
 
-<img ng-mouseenter="showClasses()" src="/assets/img/classes.png" width="75px" height="75px">  
+  <img ng-mouseenter="showClasses()" src="/assets/img/classes.png" width="75px" height="75px">  
   <br />
   <caption>Classes</caption>
 
-  </figure>
-
-
-
-
+</figure>
 
 <figure>
 
-<img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">  
-<br />
+  <img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">  
+  <br />
   <caption>Post to Infoboard</caption>
 
-  </figure>
+</figure>
 
 
 <figure>
- 
-<img src="/assets/img/lectureLinks.png" width="75px" height="75px">  
+
+  <img src="/assets/img/lectureLinks.png" width="75px" height="75px">  
   <br />
   <caption>Lecture Links</caption>
 
-  </figure>
+</figure>
 
 <figure>
 
-<img ng-mousenter="updateUser()" src="/assets/img/user.png" width="75px" height="75px">  
+  <img ng-mousenter="updateUser()" src="/assets/img/user.png" width="75px" height="75px">  
   <br />
   <caption>User</caption>
-  </figure>
+</figure>
 
 <figure>
 
 
   <a ui-sref="allUser"><img src="/assets/img/users.png" width="75px" height="75px">  </a>
-<br />
-<caption>Users</caption>
-  </figure>
+  <br />
+  <caption>Users</caption>
+</figure>
 
 
 
-   </div>
+</div>
 
-    <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
-      <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-      <script src="/assets/app.js"></script>
-      <script src="/assets/javascript/controllers/user.js"></script>
-       <script src="/assets/javascript/controllers/figController.js"></script>
-      <script src="/assets/javascript/controllers/class.js"></script>
-      <script src="/assets/javascript/controllers/attendance.js"></script>
-      <script src="/assets/javascript/controllers/homework.js"></script>
-      <script src="/assets/javascript/controllers/info.js"></script>
-      <script src="/assets/javascript/controllers/lecture.js"></script>
-      <script type="text/javascript" src="/assets/javascript/controllers/chatController.js"></script>
-      <script type="text/javascript" src ="/assets/javascript/controllers/highchartsController.js"</script>
-      </body>
+<script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+<script src="/assets/app.js"></script>
+<script src="/assets/javascript/controllers/user.js"></script>
+<script src="/assets/javascript/controllers/figController.js"></script>
+<script src="/assets/javascript/controllers/class.js"></script>
+<script src="/assets/javascript/controllers/attendance.js"></script>
+<script src="/assets/javascript/controllers/homework.js"></script>
+<script src="/assets/javascript/controllers/info.js"></script>
+<script src="/assets/javascript/controllers/lecture.js"></script>
+<script type="text/javascript" src="/assets/javascript/controllers/chatController.js"></script>
+<script type="text/javascript" src ="/assets/javascript/controllers/highchartsController.js"</script>
+</body>
 
-      </html>
+</html>

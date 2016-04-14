@@ -27,16 +27,16 @@ module.exports = function (app) {
   app.use(passport.session());
 
   //User Controls
-
+app.get('/', usrCtrl.firstPage);
   app.post('/adduser', usrCtrl.addUser);
   app.get('/viewAssignments', usrCtrl.viewAssignments);
   app.post('/updateUser', usrCtrl.updateUser);
   app.post('/newUser', usrCtrl.newUser);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
   app.post('/login',
-  passport.authenticate('login'),
-  function(req, res){
-    res.send(req.user.firstname);
+    passport.authenticate('login'),
+      function(req, res){
+      res.send(req.user.firstname);
   });
 
   //Org Controls
@@ -79,7 +79,7 @@ module.exports = function (app) {
   app.post('/updateClass', classCtrl.updateClass)
 
 
-  app.get('*', usrCtrl.defRoute);
+  // app.get('*', usrCtrl.defRoute);
 
 //passport
 passport.serializeUser(function(user, done) {
@@ -89,7 +89,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log('deserialize')
+  console.log('deserialize');
 
   done(null, user);
 });
@@ -131,8 +131,6 @@ function(req, username, password, done) {
   }));
 
 var isValidPassword = function(user, password){
-
-
   return bcrypt.compareSync(password, user.password);
 }
 

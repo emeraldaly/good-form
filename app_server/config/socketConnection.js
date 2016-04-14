@@ -1,7 +1,6 @@
 //socket connection
 module.exports = function(io){
   io.on('connection', function(socket){
-    debugger;
 
     //change this to logged in user's name
     var username = 'St';

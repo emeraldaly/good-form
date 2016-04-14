@@ -14,32 +14,32 @@ exports.thisHomework = function(req, res) {
 exports.uncompletedSubmission = function(req, res) {
   console.log
   User.find({
-      assignment: req.session.thisHomeworkId
-    })
-    .exec(function(err, doc) {
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-        console.log(doc)
-        res.send(doc)
-      }
-    });
+    assignment: req.session.thisHomeworkId
+  })
+  .exec(function(err, doc) {
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+      console.log(doc)
+      res.send(doc)
+    }
+  });
 }
 exports.viewSubmissions = function(req, res) {
   Submission.find({
-      _homework: req.session.thisHomeworkId
-    })
-    .populate("student")
-    .exec(function(err, docs) {
-      console.log(docs)
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-        res.send(docs)
-      }
-    });
+    _homework: req.session.thisHomeworkId
+  })
+  .populate("student")
+  .exec(function(err, docs) {
+    console.log(docs)
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+      res.send(docs)
+    }
+  });
 }
 exports.submitHw = function(req, res) {
   console.log(req.session.thisHomeworkId)
@@ -67,16 +67,16 @@ exports.submitHw = function(req, res) {
         upsert: true
       }, function(err, model) {
         User.update({
-            _id: req.session.user._id
-          }, {
-            $pull: {
-              assignment: req.session.thisHomeworkId
-            }
-          },
-          function(err, val) {
-            res.send("homework submitted")
-            console.log(val)
-          });
+          _id: req.session.user._id
+        }, {
+          $pull: {
+            assignment: req.session.thisHomeworkId
+          }
+        },
+        function(err, val) {
+          res.send("homework submitted")
+          console.log(val)
+        });
 
         console.log("it worked?")
       });
@@ -87,32 +87,32 @@ exports.submitHw = function(req, res) {
 
 exports.viewHomeworkByClass = function(req, res) {
   Hw.find({
-      _class: req.session.editClassId
-    })
-    .populate("Class")
-    .exec(function(err, docs) {
-      console.log(docs)
-      if (err) {
-        console.log(err);
-        res.send(err);
-      } else {
-        res.send(docs)
-      }
-    });
+    _class: req.session.editClassId
+  })
+  .populate("Class")
+  .exec(function(err, docs) {
+    console.log(docs)
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+      res.send(docs)
+    }
+  });
 }
 exports.createHw = function(req, res) {
-    Class.find({
-        _id: req.session.editClassId
-      })
-      .exec(function(err, docs) {
-        console.log(docs)
-        if (err) {
-          console.log(err);
-          res.send(err);
-        } else {
-          var studentArray = docs[0]._doc.role
-          console.log(studentArray)
-          req.session.studentArray = []
+  Class.find({
+    _id: req.session.editClassId
+  })
+  .exec(function(err, docs) {
+    console.log(docs)
+    if (err) {
+      console.log(err);
+      res.send(err);
+    } else {
+      var studentArray = docs[0]._doc.role
+      console.log(studentArray)
+      req.session.studentArray = []
           //makes sure only students are assigned homework
           for (var i = 0; i < studentArray.length; i++) {
             console.log(req.session.studentArray)
@@ -137,26 +137,26 @@ exports.createHw = function(req, res) {
               console.log(req.session.homeworkId)
               console.log(req.session.studentArray)
               User.update({
-                  _id: {
-                    $in: req.session.studentArray
-                  }
-                }, {
-                  $push: {
-                    "assignment": req.session.homeworkId
-                  }
-                }, {
-                  multi: true,
-                  safe: true,
-                  upsert: true
-                },
-                function(err, model) {
-                  console.log("it worked?")
-                });
+                _id: {
+                  $in: req.session.studentArray
+                }
+              }, {
+                $push: {
+                  "assignment": req.session.homeworkId
+                }
+              }, {
+                multi: true,
+                safe: true,
+                upsert: true
+              },
+              function(err, model) {
+                console.log("it worked?")
+              });
             }
           });
         }
       });
-  }
+}
   //Get all hw submissions for a specific week
 
 //Get all hw from a specific user
