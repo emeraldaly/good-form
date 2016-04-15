@@ -10,7 +10,10 @@
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/mainPage.css">
   <link rel="stylesheet" href="https://cdn.rawgit.com/esvit/ng-table/v1.0.0/dist/ng-table.min.css">
+  <script src='/views/jquery.min.js'></script>
+<link rel='stylesheet' href='/views/fullcalendar.css' />
 
+  <script src="cal.js"></script>
 </head>
  
 <body>
@@ -61,7 +64,7 @@
       </div> 
       <div class="row">
         <!-- <div class="col-xs-12 col-sm-8 col-md-4">  -->
-        <img src="/assets/img/calendarimg.png" width="300px" height="300px">
+       <div id='calendar'></div>
       </div>
     </div>      
 
@@ -137,7 +140,7 @@
 
 <figure>
 
-  <img src="/assets/img/lectureLinks.png" width="75px" height="75px">  
+  <img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">  
   <br />
   <caption>Lecture Links</caption>
 
@@ -164,6 +167,9 @@
 
 <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+
+<script src='/views/moment.js'></script>
+<script src='/views/fullcalendar.js'></script>
 <script src="/assets/app.js"></script>
 <script src="/assets/javascript/controllers/user.js"></script>
 <script src="/assets/javascript/controllers/figController.js"></script>

@@ -35,7 +35,7 @@ app.get('/', usrCtrl.firstPage);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
   app.post('/login',
     passport.authenticate('login',
-     { successRedirect: '/*',
+     { successRedirect: '/home',
       failureRedirect: '/?msg=failure' }));
       // function(req, res){
       //   console.log("passp auth hit");
@@ -83,7 +83,7 @@ app.get('/', usrCtrl.firstPage);
   app.post('/updateClass', classCtrl.updateClass)
 
 
-  app.get('*', usrCtrl.defRoute);
+  app.get('/home', usrCtrl.defRoute);
 
 //passport
 passport.serializeUser(function(user, done) {
