@@ -1,7 +1,7 @@
 var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io', 'ngTable' ]);
 
 classApp.config(function($stateProvider, $urlRouterProvider) {
-  // $urlRouterProvider.otherwise('/index')
+  $urlRouterProvider.otherwise('/views/info.html')
   $stateProvider
   // HOME STATES AND NESTED VIEWS ========================================
   .state('home', {
@@ -119,7 +119,9 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   //   templateUrl: '/splash.html'
   // })
 });
-
+classApp.run(['$state', function ($state) {
+   $state.transitionTo('info');
+}])
 
 classApp.controller('newUser', function($scope, $http, $state) {
   $scope.addUser = function(){
