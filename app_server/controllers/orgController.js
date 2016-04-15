@@ -2,6 +2,11 @@
 var Org = require("../models/organization");
 
 
+exports.showRegistration = function(req, res){
+console.log("showreg hit");
+ res.sendFile(process.cwd() + '/public/register.html');
+};
+
 //Add an organization
 exports.addOrg = function(req, res){
   var newOrg = new Org ({

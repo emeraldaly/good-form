@@ -88,12 +88,13 @@ exports.addUser = function(req, res) {
 
 exports.newUser = function(req, res) {
   console.log("This other one was just hit");
+  console.log(req.body)
   User.findOne({
     username: req.body.username
   }, function(err, user) {
     if (user) {
       res.redirect("/?msg=Your email is already registered, please login.");
-      console.log("found one")
+      console.log("found one");
     } else {
 
       // make a if statement organization id == undefined then
