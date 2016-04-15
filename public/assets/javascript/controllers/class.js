@@ -162,9 +162,10 @@ $scope.editThisClass = function() {
   if ($rootScope.classEdit == undefined) {
     $scope.allFields = "false"
     return
-  } else
+  } else {
   $rootScope.classFilter = $rootScope.classEdit;
   $rootScope.classEdit = undefined;
   $state.go('editClass')
+  }
 }
 });
