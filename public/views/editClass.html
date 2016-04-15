@@ -6,10 +6,11 @@
 	<div class="col-md-6">
 		this is where all the users go
 		<table ng-table="allUsers">
-			<tr ng-repeat="user in $data |filter: { _class: '!' + classEdit	 }">
+			<tr ng-repeat="user in $data |filter: { _class: '!' + classFilter	 }">
 				<td>
+
 					<div class="radio">
-						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}<button ng-click="showDetails = ! showDetails"> More details</button>  </label>
+						<label><input type="radio" name="userN" ng-model"studentSelect" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}<button ng-click="showDetails = ! showDetails"> More details</button>  </label>
 					</div>
 					
 						<div ng-show="showDetails">
@@ -33,6 +34,7 @@
 			<label><input type="radio" name="userRole" ng-model="userRole" value="student">Student</label>
 		</div>
 		<button type="submit" ng-click="updateClass()" class="btn btn-warning btn-block">Add To Class</button>
+		<p ng-show="allFields == 'false'"> please enter all fields to continue </p>
 	</div>
 	<div class="col-md-12">
 		<h3> Current Class </h3>
