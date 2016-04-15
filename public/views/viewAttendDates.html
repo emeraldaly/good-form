@@ -15,8 +15,14 @@
   			</td>
       </tr>
    	</table>
-   	<button ng-click="editAttend()"> Edit Attend </button>
-   	<button ng-click="deleteAttend()">Delete attend </button>
-
+   	<button class="btn btn-warning btn-block" ng-click="editAttend()"> Edit Attend </button>
+   	<button class="btn btn-warning btn-block" ng-click="more = ! more"> Delete Attend
+   	</button>
+      <div ng-show="more">
+		    <h4> are you sure you want to deletet this class? 
+		    </h4>
+		    <button ng-click="deleteAttend()"> yes </button>
+		    <button ng-click="more = ! more"> no </button>
+      </div>
    	<p ng-show="allFields == 'false'"> please enter all fields to continue </p>
 </div>
