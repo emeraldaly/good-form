@@ -1,8 +1,44 @@
 angular.module('classApp').controller('lecture', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
 
+$scope.newLecture = function(){
+	if ($rootScope.classEdit==undefined){
+	$scope.allFields = "false"
+	}
+	else{
+		$rootScope.classEdit=undefined;
+		$state.go("createLecture")
+	}
+}
+$scope.viewLecture = function(){
+	console.log("asdfds")
+		$scope.viewLectureTable = new NgTableParams({}, {
+		getData: function($defer, params) {
+			return $http.get('/viewLecture')
+				.then(function(response) {
+
+					var classes = response.data
+					var filteredData = $filter('filter')(classes, params.filter())
+					var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+					return sortedData;
+				});
+		}
+	});
+
+}
+
+$scope.showAllLectures = function(){
+	if ($rootScope.classEdit==undefined){
+	$scope.allFields = "false"
+	}
+	else{
+		$rootScope.classEdit=undefined;
+		$state.go("viewLecture")
+	}
+
+}
 
 $scope.createLecture = function() {
-	console.log(+" " + $scope.date)
+	$state.go("lectures")
 	$http({
 		method: 'POST',
 		url: '/createLecture',
@@ -26,7 +62,6 @@ $scope.customFilter = function(id) {
 
 
 $scope.thisLecture = []
-
 $scope.getThisLecture = function() {
 	debugger
 	$http({
@@ -38,6 +73,31 @@ $scope.getThisLecture = function() {
 			$scope.thisLecture.push(eachOne);
 		})
 	});
+}
+
+$scope.thisLectureId=function(id){
+	$rootScope.thisLectureId = id
+}
+
+$scope.deleteLecture = function(){
+	if ($rootScope.thisLectureId == undefined){
+		$scope.allFields ='false';
+		console.log("flase")
+	}
+	else{
+	// $state.go($state.current, {}, {
+ //   	reload: true
+ //  });
+		$http({
+		method: 'POST',
+		url: '/deleteLecture',
+		data: {
+			Id: $rootScope.thisLectureId
+		}
+	}).then(function(result) {
+		// $state.go("viewAttendDates")
+	})
+	}
 }
 
 $scope.myLecture = function() {

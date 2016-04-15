@@ -1,5 +1,5 @@
 var Lecture = require("../models/lecture");
-
+var Organization = require("../models/organization");
 exports.createLecture = function(req, res){
 console.log(req.body.date)
 var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoLink,  
@@ -17,9 +17,48 @@ var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoL
  });
 }
 
+exports.deleteLecture = function(req, res){
+  debugger
+  console.log(req.body.id)
+  Lecture.remove({_id:req.body.Id}, function(err, data){
+    if (err){
+      console.log(err)
+    }
+    else{
+      res.send(data)
+    }
+  })
+}
+
 exports.viewLecture = function(req,res){
-  //will be used to view all the lectures
-  console.log('got it')
+    Lecture.find({"_class":req.session.editClassId})
+    .populate("poster")
+    .exec(function(err, docs){
+      if (err){
+        res.send(err)
+      }
+      else{
+        res.send(docs)
+      }
+    })
+  // Organization.find({"_id":req.session.organization})
+  // .exec(function(err, doc){
+  //   if (err){
+  //     console.log(error)
+  //   }
+  //   else{
+  //     var orgClass = doc[0]._doc.class;
+  //     Lecture.find({"_class":{
+  //       $in:orgClass
+  //     }
+  //   }).exec(function(err,doc){
+  //     debugger
+  //     console.log(doc)
+  //   })
+
+  //   }
+  // });
+
 }
 
 exports.myLecture = function (req, res){
