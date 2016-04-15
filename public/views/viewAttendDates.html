@@ -1,8 +1,22 @@
-<div ng-controller="attendance" ng-init="viewAttendDates()"> 
-	<div ng-repeat="attend in attendDates">
-	<div class="radio">
+<div ng-controller="attendance" class="col-md-7" ng-init="viewAttendDates()"> 
+	<!-- <div class="radio">
 					<label><input type="radio" name="allDates" ng-click="editAttend(attend._id)">{{attend.date | date:'medium'}}</label>
-				</div>
-	
-	</div>
+				</div> -->
+		<table ng-table="attendDates" class="table" show-filter="true"> 
+      <tr ng-repeat="class in $data">
+        <td title="'Date'"  sortable="'date'"> 
+        	<div class="radio">
+  					<label><input ng-click="thisAttend(class._id)" type="radio" name="allClasses" ng-click="">{{class.date | date:'medium'}}</label>
+  				</div>
+  			</td>
+  			<td title="Class" sortable="'class'" filter="{className: 'text'}" >
+  			{{class.className}}
+
+  			</td>
+      </tr>
+   	</table>
+   	<button ng-click="editAttend()"> Edit Attend </button>
+   	<button ng-click="deleteAttend()">Delete attend </button>
+
+   	<p ng-show="allFields == 'false'"> please enter all fields to continue </p>
 </div>
