@@ -1,44 +1,87 @@
 angular.module('classApp').controller('attendance', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
 
-$scope.deleteAttend = function(){
-   $http({
-        method: 'POST',
-        url: '/deleteAttend'
-      }).then(function(result) {
-        $state.go("viewAttendDates")
-      })
-}
+// $scope.deleteAttend = function(){
+//    $http({
+//         method: 'POST',
+//         url: '/deleteAttend'
+//       }).then(function(result) {
+//         $state.go("viewAttendDates")
+//       })
+// }
 
 $scope.viewOlderAttend = function(){
+  if ($rootScope.classEdit == undefined) {
+    $scope.allFields = "false"
+    return
+  } else{
   $state.go("viewAttendDates")
+  }
+}
+
+
+
+
+$scope.viewAttendDates = function(){
+    $scope.attendDates = new NgTableParams({}, {
+    getData: function($defer, params) {
+      return $http.get('/viewAttendDates')
+        .then(function(response) {
+          debugger
+          console.log(response)
+          var classes = response.data
+            //  console.log(classes)
+          var filteredData = $filter('filter')(classes, params.filter())
+          var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+          return sortedData;
+        });
+    }
+  });
+}
+$scope.deleteAttend = function() {
+if ($rootScope.thisAttendId == undefined) {
+    $scope.allFields = "false"
+    return
+  } else{
+    $rootScope.thisAttendId = undefined
+    $state.go($state.current, {}, {
+        reload: true,
+      })
+    $http({
+      method: 'POST',
+      url: '/deleteAttend',
+    }).then(function(result) {
+//         
+      });
+  }
 }
 
 $scope.editAttend =function(editId){
-  console.log(editId)
+  if ($rootScope.thisAttendId == undefined){
+    $scope.allFields = "false";    
+  }
+  else{
+    $rootScope.thisAttendId = undefined
+    $state.go("viewAttend")
+  }
+
+}
+
+$scope.thisAttend = function(id){
+  $rootScope.thisAttendId = id;
    $http({
         method: 'POST',
         url: '/editAttend',
-        data:{"editAttend":editId}
+        data:{"editAttend":id}
       }).then(function(result) {
-        $state.go("viewAttend")
-      })
-}
-
-
-$scope.attendDates = []
-$scope.viewAttendDates = function(){
-     $http({
-        method: 'GET',
-        url: '/viewAttendDates'
-      }).then(function(result) {
-        angular.forEach(result.data, function (eachOne){
-          $scope.attendDates.push(eachOne);
-        });
-      })
-
+    })
 }
 
 $scope.newAttendance = function(){
+    if ($rootScope.classEdit == undefined) {
+    $scope.allFields = "false"
+    return
+  } else{
+  
 	 $http({
         method: 'POST',
         url: '/newAttendance'
@@ -46,6 +89,7 @@ $scope.newAttendance = function(){
         
       });
       $state.go("editAttendance")
+    }
 }
 
 $scope.updateAttend= function(id, here){
@@ -61,7 +105,6 @@ $scope.updateAttend= function(id, here){
     console.log(response)
    $state.transitionTo($state.current, angular.copy($stateParams), { reload: true, inherit: true, notify: true });
   }, function errorCallback(response) {
-   
    
    console.log(response)
   });

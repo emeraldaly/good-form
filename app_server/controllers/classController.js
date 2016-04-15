@@ -2,6 +2,7 @@
 //CLASS SPECIFIC CONTROLLERS//
 var Class = require("../models/class");
 var User = require("../models/user");
+var Organization = require("../models/organization");
 
 exports.myClass = function(req, res){
   Class.find({"role._user":req.session.user._id})
@@ -109,6 +110,7 @@ exports.updateClass = function(req, res) {
 
 //Add a New class
 exports.createClass = function(req, res) {
+
   // 
   var newClass = new Class({
     name: req.body.name,
@@ -116,9 +118,22 @@ exports.createClass = function(req, res) {
     _organization: req.session.organization
   });
   newClass.save(function(err, doc) {
+    debugger
     if (err) {
       console.log(err);
     } else {
+      var orgId = req.session.organization;
+      var classId = doc._doc._id;
+    Organization.findByIdAndUpdate(orgId, {
+      $push:{
+        class:classId
+      }
+    }, {
+      safe: true,
+      upsert: true
+    }, function(err, model) {
+      res.send("res dot cend")
+    })
       console.log(doc);
     }
   });

@@ -1,35 +1,17 @@
 <div class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
-  <h2> Show Classes </h2>
-  <div ng-controller="class" ng-init="getClasses()">
-  	<table ng-table="classesTable" class="table" show-filter="true">
-      <tr ng-repeat="class in $data">
-        <td title="'Name'"  sortable="'name'" filter="{name: 'text'}">
-        	<div class="radio">
-  					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id, class.name)">{{class.name}}</label>
-          <!-- </div> -->
-            <button class="pull-right"ng-click="showDetails = ! showDetails"> More details
-            </button> 
-            <div ng-show="showDetails">
-              <p>Datetime: {{class.datetime}} </p>
-				    </div>
-          </div>
-        </td>
-      </tr>
-   	</table>
-  </div>
-  <div ng-controller="lecture">
+  <form ng-controller="lecture" ng-submit="createLecture()">
   	<label for="className">Date</label>
-	  <input class="form-control" type="date" ng-model="date" placeholder="">
+	  <input required class="form-control" type="date" ng-model="date" placeholder="">
     <span class="help-block"></span>
   	<label for="className">Github</label>
-    <input class="form-control" type="text" ng-model="github" placeholder="">
+    <input required class="form-control" type="text" ng-model="github" placeholder="">
     <span class="help-block"></span>
     <label for="className">Video Link</label>
-    <input class="form-control" type="text" ng-model="videoLink" placeholder="">
+    <input required class="form-control" type="text" ng-model="videoLink" placeholder="">
     <span class="help-block"></span>
     <label for="className">Additional Notes</label>
-    <input class="form-control" type="text" ng-model="info" placeholder="">
+    <input required class="form-control" type="text" ng-model="info" placeholder="">
     <span class="help-block"></span>
-    <button class="btn btn-warning btn-block" ng-click="createLecture()"> Create Lecture </button>
-  </div>
+    <button type="submit" class="btn btn-warning btn-block"> Create Lecture </button>
+  </form>
 </div>

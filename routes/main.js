@@ -50,6 +50,8 @@ app.get('/', usrCtrl.firstPage);
 
   // lecture Controls
   app.post("/createLecture", lecture.createLecture);
+  app.get("/viewLecture", lecture.viewLecture)
+  app.post("/deleteLecture", lecture.deleteLecture)
   //for getting all the lectures
   // app.get("/viewLecture", lecture.viewLecture)
   //for getting the lectures for the logged in user
