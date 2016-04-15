@@ -22,6 +22,19 @@ $scope.myClass = function() {
   });
 }
 
+$scope.removeFromClass = function(id){
+  $state.go($state.current, {}, {
+    reload: true
+  });
+  $http({
+    method: 'POST',
+    url: '/removeFromClass',
+    data: {
+      classId:$rootScope.classFilter,
+      userId:id 
+    }
+  });
+}
 
 $scope.createClass = function() {
   $state.go('class')
@@ -71,29 +84,37 @@ $scope.getClasses = function() {
   });
 }
 $scope.userId = function(id) {
-  $scope.userUpdate = id;
+  $rootScope.userUpdate = id;
 }
-$scope.updateClass = function() {
-  if (($scope.userRole || $scope.studentSelect) === undefined) {
-    $scope.allFields = "false"
-  } else {
+$scope.deleteClass = function() {
 
-    console.log('yep')
+}
+
+$scope.updateClass = function() {
+  if (($scope.userRole == undefined) || ($rootScope.userUpdate === undefined)) {
+    $scope.allFields = "false"
+    console.log($rootScope.userUpdate)
+  } else {
+    debugger
+    console.log($rootScope.userUpdate)
       // $state.transitionTo($state.current, $stateParams, { 
       //       reload: true, inherit: true, notify: true
       //     });
     $state.go($state.current, {}, {
-      reload: true
+      reload: true,
     })
     $http({
       method: 'POST',
       url: '/updateClass',
       data: {
         userRole: $scope.userRole,
-        userId: $scope.userUpdate,
+        userId: $rootScope.userUpdate,
         Id: $rootScope.classFilter
       }
-    }).then(function(result) {});
+    }).then(function(result) {
+      $rootScope.userUpdate = undefined;
+
+    });
   }
 }
 $scope.thisClass = function(classId, className) {
@@ -109,13 +130,14 @@ $scope.thisClass = function(classId, className) {
     console.log(result)
   });
 }
-
+$scope.userUpdate = undefined;
 $scope.classView = [];
 $scope.viewThisClass = function() {
   $http({
     method: 'GET',
     url: '/viewThisClass'
   }).then(function(result) {
+    debugger
     console.log(result.data)
     angular.forEach(result.data[0].role, function(eachOne) {
       $scope.classView.push(eachOne);

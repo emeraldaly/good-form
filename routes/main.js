@@ -73,6 +73,7 @@ app.get('/', usrCtrl.firstPage);
   app.post("/deleteAttend", attendance.deleteAttend);
 
   //Class Controls
+  app.post("/removeFromClass", classCtrl.removeFromClass)
   app.get("/myclass", classCtrl.myClass);
   app.get("/updateThisClass", classCtrl.updateThisClass);
   app.get('/getClassUsers', classCtrl.getClassUsers);
