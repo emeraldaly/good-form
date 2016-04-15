@@ -32,6 +32,50 @@ exports.viewThisClass = function(req,res){
     });
 
 }
+
+exports.removeFromClass = function(req, res){
+  debugger
+  var classId = req.body.classId;
+  var userId = req.body.userId;
+
+  User.findByIdAndUpdate(userId, {
+      $pull:{
+      _class: classId
+    }
+    }, 
+    function(err, model) {
+      debugger
+      console.log("push to user")
+    })
+    Class.findByIdAndUpdate(classId, {
+      $pull: {
+        role: {
+          _user:req.body.userId,
+        }
+      }
+    }, 
+    function(err, model) {
+      debugger
+      res.send("res dot cend")
+    })
+  
+
+}
+
+exports.deleteClass = function(req, res){
+  debugger
+  console.log(req.body.classId)
+  Class.remove({_id:req.body.classId}, function(err, data){
+    if (err){
+      debugger
+      console.log(err)
+    }
+    else{
+      debugger
+      res.send(data)
+    }
+  })
+}
 exports.updateClass = function(req, res) {
   var userRole = req.body.userRole;
   var classId = req.body.Id;

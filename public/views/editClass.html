@@ -41,15 +41,15 @@
 		<div data-ng-init="viewThisClass()">
 			<h3> Teacher </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+			{{class._user.firstname}} {{class._user.lastname}} <button ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 			<h3> Ta </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+			{{class._user.firstname}} {{class._user.lastname}}<button ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 			<h3> Student </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'student' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+			{{class._user.firstname}} {{class._user.lastname}}<button ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 		</div>
 	</div>
