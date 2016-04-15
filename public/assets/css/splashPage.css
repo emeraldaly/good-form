@@ -48,3 +48,15 @@ button.primary{
   background-color: 1f8c8f !important;
 }
 
+.clear{
+  padding-bottom: 25px;
+}
+.icon{
+  padding: 10px;
+}
+.navbar .dropdown-menu.bottom-up::after {
+    border-bottom: 0px solid transparent !important;
+    border-top: 6px solid white;
+    top: auto !important;
+    bottom: -6px;
+}
