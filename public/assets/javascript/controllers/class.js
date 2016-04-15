@@ -87,7 +87,21 @@ $scope.userId = function(id) {
   $rootScope.userUpdate = id;
 }
 $scope.deleteClass = function() {
-
+if ($rootScope.classEdit == undefined) {
+    $scope.allFields = "false"
+    return
+  } else{
+    $state.go($state.current, {}, {
+        reload: true,
+      })
+    $http({
+      method: 'POST',
+      url: '/deleteClass',
+      data: {
+        classId:$rootScope.classEdit
+      }
+    });
+  }
 }
 
 $scope.updateClass = function() {
@@ -113,7 +127,6 @@ $scope.updateClass = function() {
       }
     }).then(function(result) {
       $rootScope.userUpdate = undefined;
-
     });
   }
 }
