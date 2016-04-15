@@ -73,6 +73,7 @@ app.get('/', usrCtrl.firstPage);
   app.post("/deleteAttend", attendance.deleteAttend);
 
   //Class Controls
+  app.post("/removeFromClass", classCtrl.removeFromClass)
   app.get("/myclass", classCtrl.myClass);
   app.get("/updateThisClass", classCtrl.updateThisClass);
   app.get('/getClassUsers', classCtrl.getClassUsers);
@@ -80,7 +81,8 @@ app.get('/', usrCtrl.firstPage);
   app.get('/showClasses', classCtrl.showClasses);
   app.get("/viewThisClass", classCtrl.viewThisClass)
   app.post('/editClassId', classCtrl.editClassId)
-  app.post('/updateClass', classCtrl.updateClass)
+  app.post('/updateClass', classCtrl.updateClass);
+  app.post("/deleteClass", classCtrl.deleteClass);
 
 
   app.get('/home', usrCtrl.defRoute);
