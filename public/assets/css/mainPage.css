@@ -5,6 +5,7 @@ body{
   -moz-background-size: cover;
   -o-background-size: cover;
   -webkit-background-size: cover;
+  padding-bottom: 25px;
 }
 
 .navbar-default {
@@ -79,8 +80,15 @@ ul.msgList.pre-scrollable {
   font-weight: bold;
 }
 
-figure{
-  text-align: left;
+figure {
+    display: inline-block;
+    margin: 5px; /* adjust as needed */
+}
+figure img {
+    vertical-align: top;
+}
+figure caption {
+    text-align: center;
 }
 
 img{
@@ -96,7 +104,10 @@ background-color:#76c2af;
 color: black;
 }
 .navbar-fixed-bottom{
-margin-left: 125px;
+margin-left: 170px;
 margin-bottom: 15px;
 
+}
+.pre-scrollable {
+    max-height: 395px;
 }
