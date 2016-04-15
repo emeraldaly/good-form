@@ -95,6 +95,8 @@ padding-left: 70px;
 background-color:#76c2af;
 color: black;
 }
-.headtitle{
-  background-color: red;
+.navbar-fixed-bottom{
+margin-left: 125px;
+margin-bottom: 15px;
+
 }

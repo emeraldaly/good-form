@@ -3,7 +3,7 @@ $(document).ready(function() {
     // page is now ready, initialize the calendar...
 
     $('#calendar').fullCalendar({
-        height: 250
+        height: 500
     })
 
 });
