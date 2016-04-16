@@ -13,6 +13,68 @@
   <script src="cal.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-default  navbar-fixed-bottom">
+    <div class="container-fluid" ng-controller="figController">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+       <div class="collapse navbar-collapse customDiv" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+        <ul class="nav navbar-nav customUl">
+          <li><img ng-mouseenter="classer()" src="/assets/img/classes.png" width="75px" height="75px"></a>
+            <div class="text-center">
+              <caption>Classes</caption>
+            </div>
+          </li>
+          <li><img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>Infoboard</caption>
+            </div>
+          </li>
+          <li><img class="icon" ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>Chat</caption>
+            </div>
+          </li>
+          <li><img class="icon" src="/assets/img/users.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>User List</caption>
+            </div>
+          </li>
+          <li> <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>Metrics</caption>
+            </div>
+          </li>
+          <li><img ng-mousenter="updateUser()" src="/assets/img/user.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>User</caption>
+            </div>
+          </li>
+          <li> <img ng-mouseenter="addUserer()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>Attendance</caption>
+            </div>
+          </li>
+          <li><img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>Lectures</caption>
+            </div>
+          </li>
+          <li><img ng-mouseenter="viewAssignments()" src="/assets/img/assignments.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>Assignments</caption>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -91,7 +153,7 @@ class="imgbrandimg"></a>
         </div>
       </div> 
 
-    <div class="col-md-5" ui-view autoscroll="false"></div>
+    <div class="col-md-5 scrollIt" ui-view autoscroll="false"></div>
 
    
         <div class="col-xs-12 col-sm-8 col-md-4 pull-right"> 
@@ -99,7 +161,7 @@ class="imgbrandimg"></a>
       </div>
     
 
-
+<!-- 
 <nav class="navbar navbar-fixed-bottom clear">
   <div class="container-fluid" ng-controller="figController">
     <div class="navbar-header">
@@ -110,7 +172,7 @@ class="imgbrandimg"></a>
       <li><figure>
       <img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">  
       <br /><caption>Infoboard</caption>
-      </figure></li>
+      </li>
 <li><figure>
 
   <img class="icon" ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
@@ -129,7 +191,7 @@ class="imgbrandimg"></a>
   <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
   <br />
   <caption>&nbsp&nbsp&nbspMetrics</caption>
-  </figure></li>
+  </figure></li> -->
 <!-- <li><figure>
 
   <img ng-mousenter="updateUser()" src="/assets/img/user.png" width="75px" height="75px">  
@@ -144,7 +206,7 @@ class="imgbrandimg"></a>
   <caption>Class List</caption>
 
   </figure></li> -->
-<li><figure>
+<!-- <li><figure>
 
   <img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">  
   <br />
@@ -184,7 +246,7 @@ class="imgbrandimg"></a>
     </ul>
   </div>
 
-</nav>
+</nav> -->
   </div>
 <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>

@@ -8,6 +8,7 @@ body{
   padding-bottom: 25px;
 }
 
+
 .navbar-default {
   background-color: #76c2af;
   border-color: transparent;
@@ -59,6 +60,10 @@ body{
   margin-right: 5%;
 }
 
+.scrollIt{
+    height: 498px;
+        overflow-y: scroll;
+}
 /*CHAT*/
 ul.msgList.pre-scrollable {
   max-height: 250px;
@@ -80,6 +85,14 @@ ul.msgList.pre-scrollable {
   font-weight: bold;
 }
 
+.centerBottom{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  padding-top: 0;
+  margin: auto;
+}
+
 figure {
     display: inline-block;
     margin: 5px; /* adjust as needed */
@@ -92,8 +105,10 @@ figure caption {
 }
 
 img{
-  margin-right: 15px;
-  padding-top: 15px;
+  margin-left:15px;
+  margin-right:15px; 
+  /*margin-right: 15px;
+  padding-top: 15px;*/
 }
 h1 {
   font-family: lato;
@@ -103,10 +118,12 @@ padding-left: 70px;
 background-color:#76c2af;
 color: black;
 }
-.navbar-fixed-bottom{
-margin-left: 170px;
-margin-bottom: 15px;
-
+.customDiv{
+  text-align: center;
+}
+.customUl{
+      float: none;
+    display:inline-block;
 }
 .pre-scrollable {
     max-height: 395px;
@@ -135,4 +152,8 @@ a.linklogo {
 .imgbrandimg {
   height: 55px;
   padding-bottom: 14px;
+}
+.navbar{
+ 
+  background-color: transparent;
 }
