@@ -33,13 +33,13 @@ body{
 
 /*FORM HEADERS*/
 
-/*.form-box h2 {
+.form-box h2 {
   padding: 15px;
   border-radius: 5px;
   background-color: #505050;
   text-align: center;
   color: #F0AD4E;
-}*/
+}
 
 /* REGISTRATION */
 .form-box {
@@ -110,4 +110,29 @@ margin-bottom: 15px;
 }
 .pre-scrollable {
     max-height: 395px;
+}
+.form-boxinfo{
+   background-color: #85084c;
+  border-radius: 5px;
+  padding-bottom: 10px;
+  margin-bottom: 5%;
+}
+/*.divpadd{
+  padding: 5px;
+  margin: 0px;
+}*/
+a.linklogo {
+  color: white;
+}
+.imgbrand {
+  font-size: 150%;
+  font-color: white;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  padding-right: 190px;
+}
+.imgbrandimg {
+  height: 55px;
+  padding-bottom: 14px;
 }
