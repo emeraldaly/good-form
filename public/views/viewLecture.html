@@ -1,9 +1,9 @@
-<div class="col-md-7" ng-controller="lecture" ng-init="viewLecture()">
+<div  class="col-md-12 form-box" ng-controller="lecture" ng-init="viewLecture()">
 <table ng-table="viewLectureTable" class="table" show-filter="true"> 
       <tr ng-repeat="data in $data">
         <td title="'Date'"  sortable="'date'"> 
         	<div class="radio">
-  					<label><input ng-click="thisLectureId(data._id)" type="radio" name="allClasses" ng-click="">{{data.date | date:'medium'}}</label>
+  					<label><input ng-click="thisLectureId(data._id)" type="radio" name="allClasses" ng-click="">{{data.date |  date:"MM/dd/yyyy" }}</label>
   				</div>
   			</td>
   			<td title="'posted By'" >

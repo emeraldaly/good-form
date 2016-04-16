@@ -5,7 +5,7 @@
   <div ng-controller="class" ng-init="getClasses()">
     <h3 class="classH4">Class</h3>
     <!-- 		<button ng-click="showClasses()"> button? </button> -->
-  	<table ng-table="classesTable">
+  	<table ng-table="classesTable" class="table">
       <tr ng-repeat="class in $data">
       	<td title="'Name'"  sortable="'name'" filter="{name: 'text'}"> 
           <div class="radio">
@@ -31,9 +31,9 @@
         <span class="help-block"></span>
         <textarea class="form-control" ng-model="description" placeholder="Homework Description"> </textarea>
         <span class="help-block"></span>
-        <input required class="form-control" ng-model="duedate" placeholder="Due Date">
+        <input required class="form-control" type="date" ng-model="duedate" placeholder="Due Date">
         <span class="help-block"></span>
-        <input required class="form-control" ng-model="duetime" placeholder="Due Time">
+        <input required class="form-control" type="time"ng-model="duetime" placeholder="Due Time">
         <span class="help-block"></span>
         <button class="btn btn-warning btn-block" type="submit"> Create </button>
       </div>
