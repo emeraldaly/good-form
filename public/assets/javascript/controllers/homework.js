@@ -1,4 +1,4 @@
-angular.module('classApp').controller('homework', function($scope,  $state,$http, $filter, NgTableParams) {
+angular.module('classApp').controller('homework', function($scope, $rootScope, $state,$http, $filter, NgTableParams) {
 
 $scope.submitHw = function(){
   $http({
@@ -26,8 +26,15 @@ $scope.uncompletedSubmission = function(){
 
 }
 $scope.homeworkByClass = function(){
-  console.log("hit it")
+  if ($rootScope.classEdit == undefined) {
+    $scope.allFields = "false";
+
+  }
+  else{
+  $rootScope.classEdit = undefined
   $state.go("viewHomeworkByClass")
+  }
+
 }
 
 $scope.viewSubmissions = function(){
@@ -93,17 +100,27 @@ $scope.viewHomeworkByClass= function(){
 }
 
 $scope.createHomework = function(){ 
- $http({
+   if ($rootScope.classEdit == undefined) {
+    $scope.allFields = "false"
+  }
+  else{
+    $rootScope.classEdit = undefined;
+    $state.go($state.current, {}, {
+    reload: true
+  });
+    $http({
         method: 'POST',
         url: '/createHomework',
         data: {description:$scope.description,
-        	name:$scope.name,
+          name:$scope.name,
           duedate:$scope.duedate,
           duetime:$scope.duetime
         }
       }).then(function(result) {
         console.log(result)
       });  
+  }
+ 
 }
 
 $scope.assignments=[]
