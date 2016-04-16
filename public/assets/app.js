@@ -192,6 +192,7 @@ classApp.controller('loginController', function($scope, $http, $state) {
 });
 
 angular.module('classApp').run(function($rootScope, $cookies){
+  debugger
   if($cookies.get('token') && $cookies.get('currentUser')){
     $rootScope.token = $cookies.get('token');
     $rootScope.currentUser = $cookies.get('currentUser');

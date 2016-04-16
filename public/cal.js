@@ -4,9 +4,9 @@ $(document).ready(function() {
 
     $('#calendar').fullCalendar({
       dayClick: function() {
-              alert('a day has been clicked!');
-          }
-        // height: 500
-    })
+        alert('a day has been clicked!');
+      },
+      height: 500
+    });
 
 });

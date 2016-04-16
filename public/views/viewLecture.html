@@ -1,13 +1,13 @@
-<div class="col-md-7" ng-controller="lecture" ng-init="viewLecture()">
-<table ng-table="viewLectureTable" class="table" show-filter="true"> 
+<div class="col-md-12" ng-controller="lecture" ng-init="viewLecture()">
+<table ng-table="viewLectureTable" class="table" show-filter="true">
       <tr ng-repeat="data in $data">
-        <td title="'Date'"  sortable="'date'"> 
+        <td title="'Date'"  sortable="'date'">
         	<div class="radio">
   					<label><input ng-click="thisLectureId(data._id)" type="radio" name="allClasses" ng-click="">{{data.date | date:'medium'}}</label>
   				</div>
   			</td>
   			<td title="'posted By'" >
-  			{{data.poster.firstname}} {{data.poster.lastname}}   
+  			{{data.poster.firstname}} {{data.poster.lastname}}
   			</td>
       </tr>
    	</table>
@@ -15,7 +15,7 @@
    	<button class="btn btn-warning btn-block" ng-click="more = ! more"> Delete Attend
    	</button>
       <div ng-show="more">
-		    <h4> are you sure you want to deletet this class? 
+		    <h4> are you sure you want to deletet this class?
 		    </h4>
 		    <button ng-click="deleteLecture()"> yes </button>
 		    <button ng-click="more = ! more"> no </button>
