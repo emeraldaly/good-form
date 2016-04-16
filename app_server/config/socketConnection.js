@@ -3,7 +3,7 @@ module.exports = function(io){
   io.on('connection', function(socket){
 
     //change this to logged in user's name
-    var username = 'St';
+    var username = "st";
     console.log('a user has connected at:' + socket.id);
 
   // //   socket.on('request-users', function(){

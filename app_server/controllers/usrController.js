@@ -146,12 +146,15 @@ exports.newUser = function(req, res) {
 }
 
 exports.firstPage = function(req, res) {
+
   console.log("firstPage hit");
  res.sendFile(process.cwd() + '/public/splash.html');
 }
 
 exports.defRoute = function(req, res) {
-
+  debugger
+  console.log("req.session: " + req.session);
+  console.log("req.omgeverything: " + req);
   res.sendFile(process.cwd() + '/public/home.html');
 }
 
