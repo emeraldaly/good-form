@@ -43,6 +43,7 @@ exports.updateAttend = function(req, res) {
 
 exports.viewAttendDates = function (req,res){
 	Attendance.find({_class:req.session.editClassId})
+	.populate("_class")
 	.exec(function(err, docs){
 		if (err){
 			console.log(error)
@@ -71,11 +72,13 @@ exports.newAttendance = function(req,res){
 		_id: req.session.editClassId
 	})
 	.exec(function(err, docs) {
+		var className = docs[0]._doc.name;
 		console.log(docs)
 		if (err) {
 			console.log(err);
 			
 		} else {
+			
 			var array = docs[0]._doc.role
 			var studentArray = []
 
@@ -88,6 +91,7 @@ exports.newAttendance = function(req,res){
 
 			var newAttend = new Attendance({
 				_class: req.session.editClassId,
+				className:className
 			})
 			newAttend.save(function(err, doc) {
 				var editAttend = doc._doc._id

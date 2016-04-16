@@ -35,7 +35,7 @@ app.get('/', usrCtrl.firstPage);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
   app.post('/login',
     passport.authenticate('login',
-     { successRedirect: '/*',
+     { successRedirect: '/home',
       failureRedirect: '/?msg=failure' }));
       // function(req, res){
       //   console.log("passp auth hit");
@@ -49,7 +49,12 @@ app.get('/', usrCtrl.firstPage);
   app.post('/register', usrCtrl.newUser);
 
   // lecture Controls
+  app.post("/updateLecture", lecture.updateLecture);
   app.post("/createLecture", lecture.createLecture);
+  app.get("/viewLecture", lecture.viewLecture)
+  app.post("/deleteLecture", lecture.deleteLecture)
+  app.post("/thisLecture", lecture.thisLecture)
+  app.get("/updateLectureInfo", lecture.updateLectureInfo)
   //for getting all the lectures
   // app.get("/viewLecture", lecture.viewLecture)
   //for getting the lectures for the logged in user
@@ -73,6 +78,7 @@ app.get('/', usrCtrl.firstPage);
   app.post("/deleteAttend", attendance.deleteAttend);
 
   //Class Controls
+  app.post("/removeFromClass", classCtrl.removeFromClass)
   app.get("/myclass", classCtrl.myClass);
   app.get("/updateThisClass", classCtrl.updateThisClass);
   app.get('/getClassUsers', classCtrl.getClassUsers);
@@ -80,10 +86,11 @@ app.get('/', usrCtrl.firstPage);
   app.get('/showClasses', classCtrl.showClasses);
   app.get("/viewThisClass", classCtrl.viewThisClass)
   app.post('/editClassId', classCtrl.editClassId)
-  app.post('/updateClass', classCtrl.updateClass)
+  app.post('/updateClass', classCtrl.updateClass);
+  app.post("/deleteClass", classCtrl.deleteClass);
 
 
-  app.get('*', usrCtrl.defRoute);
+  app.get('/home', usrCtrl.defRoute);
 
 //passport
 passport.serializeUser(function(user, done) {
@@ -141,3 +148,5 @@ var isValidPassword = function(user, password){
 
 
 }
+
+

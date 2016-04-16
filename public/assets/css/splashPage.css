@@ -48,3 +48,9 @@ button.primary{
   background-color: 1f8c8f !important;
 }
 
+.clear{
+  padding-bottom: 25px;
+}
+.icon{
+  padding: 10px;
+}

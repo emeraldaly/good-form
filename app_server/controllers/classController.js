@@ -2,6 +2,7 @@
 //CLASS SPECIFIC CONTROLLERS//
 var Class = require("../models/class");
 var User = require("../models/user");
+var Organization = require("../models/organization");
 
 exports.myClass = function(req, res){
   Class.find({"role._user":req.session.user._id})
@@ -31,6 +32,50 @@ exports.viewThisClass = function(req,res){
       }
     });
 
+}
+
+exports.removeFromClass = function(req, res){
+  debugger
+  var classId = req.body.classId;
+  var userId = req.body.userId;
+
+  User.findByIdAndUpdate(userId, {
+      $pull:{
+      _class: classId
+    }
+    }, 
+    function(err, model) {
+      debugger
+      console.log("push to user")
+    })
+    Class.findByIdAndUpdate(classId, {
+      $pull: {
+        role: {
+          _user:req.body.userId,
+        }
+      }
+    }, 
+    function(err, model) {
+      debugger
+      res.send("res dot cend")
+    })
+  
+
+}
+
+exports.deleteClass = function(req, res){
+  debugger
+  console.log(req.body.classId)
+  Class.remove({_id:req.body.classId}, function(err, data){
+    if (err){
+      debugger
+      console.log(err)
+    }
+    else{
+      debugger
+      res.send(data)
+    }
+  })
 }
 exports.updateClass = function(req, res) {
   var userRole = req.body.userRole;
@@ -65,6 +110,7 @@ exports.updateClass = function(req, res) {
 
 //Add a New class
 exports.createClass = function(req, res) {
+
   // 
   var newClass = new Class({
     name: req.body.name,
@@ -72,9 +118,22 @@ exports.createClass = function(req, res) {
     _organization: req.session.organization
   });
   newClass.save(function(err, doc) {
+    debugger
     if (err) {
       console.log(err);
     } else {
+      var orgId = req.session.organization;
+      var classId = doc._doc._id;
+    Organization.findByIdAndUpdate(orgId, {
+      $push:{
+        class:classId
+      }
+    }, {
+      safe: true,
+      upsert: true
+    }, function(err, model) {
+      res.send("res dot cend")
+    })
       console.log(doc);
     }
   });

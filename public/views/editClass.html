@@ -1,4 +1,4 @@
-<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+<div class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
   <div class="form-top">
   	<h2>Edit Class</h2>
   </div>
@@ -6,10 +6,11 @@
 	<div class="col-md-6">
 		this is where all the users go
 		<table ng-table="allUsers">
-			<tr ng-repeat="user in $data |filter: { _class: '!' + classEdit	 }">
+			<tr ng-repeat="user in $data |filter: { _class: '!' + classFilter	 }">
 				<td>
+
 					<div class="radio">
-						<label><input type="radio" name="userN" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}<button ng-click="showDetails = ! showDetails"> More details</button>  </label>
+						<label><input type="radio" name="userN" ng-model"studentSelect" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}<button ng-click="showDetails = ! showDetails"> More details</button>  </label>
 					</div>
 					
 						<div ng-show="showDetails">
@@ -33,21 +34,22 @@
 			<label><input type="radio" name="userRole" ng-model="userRole" value="student">Student</label>
 		</div>
 		<button type="submit" ng-click="updateClass()" class="btn btn-warning btn-block">Add To Class</button>
+		<p ng-show="allFields == 'false'"> please enter all fields to continue </p>
 	</div>
 	<div class="col-md-12">
 		<h3> Current Class </h3>
 		<div data-ng-init="viewThisClass()">
 			<h3> Teacher </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+			{{class._user.firstname}} {{class._user.lastname}} <button ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 			<h3> Ta </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+			{{class._user.firstname}} {{class._user.lastname}}<button ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 			<h3> Student </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'student' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+			{{class._user.firstname}} {{class._user.lastname}}<button ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 		</div>
 	</div>

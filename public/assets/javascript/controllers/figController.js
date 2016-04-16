@@ -30,4 +30,7 @@ $scope.lectureLinks = function(){
 $scope.updateUser = function(){
 		$state.go('updateUser');
 	};
+$scope.lecture = function(){
+		$state.go('lectures');
+	};	
 })

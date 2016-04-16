@@ -1,21 +1,21 @@
 <div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1">
 	<h2>Create Class</h2>
-	<form ng-controller="class">
+	<form ng-controller="class" ng-submit="createClass()">
 	  <div class="panel-body>">
 			<label for="className">Name</label>
-	    <input class="form-control" type="text" ng-model="name" placeholder="">
+	    <input required class="form-control" type="text" ng-model="name" placeholder="">
 	    <span class="help-block"></span>
 	    <label for="username">Date and Time</label>
-	    <input class="form-control" type="text" ng-model="datetime" placeholder="">
+	    <input required class="form-control" type="text" ng-model="datetime" placeholder="">
 	    <span class="help-block"></span>
-	    <button type="submit" ng-click="createClass()" class="btn btn-warning btn-block">Register</button>
+	    <button type="submit" class="btn btn-warning btn-block">Register</button>
 	  </div>
 	</form>
 </div>
-
+<!-- 
 	radio buttons
 teacher ta student
-	list of student below
+	list of student below -->
 <!-- upon submit, automatically goes to the edit class
 
 

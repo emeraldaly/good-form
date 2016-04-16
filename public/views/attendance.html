@@ -1,5 +1,7 @@
-<h3> Pick a Class </h3>
-<div class="form-box col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-1">
+
+
+<div class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
+<h2> Pick a Class </h2>
 <div ng-controller="class" ng-init="getClasses()">
 
 	<table ng-table="classesTable" class="table" show-filter="true"> 
@@ -20,5 +22,6 @@
  <div ng-controller="attendance">
     <button ng-click="newAttendance()"> New Attendance </button>
     <button ng-click="viewOlderAttend()"> View Older Attendance </button>
+<p ng-show="allFields == 'false'"> please enter all fields to continue </p>
 </div>
   </div>
