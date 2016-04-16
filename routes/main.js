@@ -40,7 +40,7 @@ app.get('/', usrCtrl.firstPage);
       // function(req, res){
       //   console.log("passp auth hit");
       // res.send(req.user.firstname);
-  
+
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
@@ -101,7 +101,7 @@ passport.serializeUser(function(user, done) {
 
 passport.deserializeUser(function(user, done) {
   console.log('deserialize');
-
+  console.log('user: ' + user.username);
   done(null, user);
 });
 
