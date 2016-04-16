@@ -17,10 +17,42 @@ var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoL
  });
 }
 
+exports.updateLecture=function(req, res){
+  debugger
+  var id = req.session.editLecture;
+  Lecture.findByIdAndUpdate(id, {$set: {
+    "github": req.body.github, 
+    "videoLink":req.body.videoLink,  
+    "info":req.body.info, 
+    }
+  }, {
+  safe: true,
+  upsert: true
+  }, function(err, model) {
+  debugger
+  res.send("updated")
+  });
+}
+
+exports.updateLectureInfo = function(req, res){
+  Lecture.find({"_id":req.session.editLecture})
+  .exec(function(err, docs){
+    if (err){
+      console.log(err)
+    }
+    else{
+      res.send(docs)
+    }
+  })
+}
+exports.thisLecture = function(req, res){
+  req.session.editLecture = req.body.id 
+  res.send("gotit")
+}
 exports.deleteLecture = function(req, res){
   debugger
   console.log(req.body.id)
-  Lecture.remove({_id:req.body.Id}, function(err, data){
+  Lecture.remove({_id:req.session.editLecture}, function(err, data){
     if (err){
       console.log(err)
     }

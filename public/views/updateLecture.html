@@ -1,8 +1,6 @@
-<div ng-init="updateLectureInfo()" class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
-  <form ng-controller="lecture" ng-submit="createLecture()">
-  	<label for="className">Date</label>
-	  <input required class="form-control" type="date" ng-model="date" placeholder="">
-    <span class="help-block"></span>
+
+<div ng-controller="lecture" ng-init="updateLectureInfo()" class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
+  <form ng-submit="updateLecture()">
   	<label for="className">Github</label>
     <input required class="form-control" type="text" ng-model="github" placeholder="">
     <span class="help-block"></span>
@@ -12,6 +10,6 @@
     <label for="className">Additional Notes</label>
     <input required class="form-control" type="text" ng-model="info" placeholder="">
     <span class="help-block"></span>
-    <button type="submit" class="btn btn-warning btn-block"> Create Lecture </button>
+    <button type="submit" class="btn btn-warning btn-block"> Update Lecture </button>
   </form>
 </div>

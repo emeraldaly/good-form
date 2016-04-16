@@ -49,9 +49,12 @@ app.get('/', usrCtrl.firstPage);
   app.post('/register', usrCtrl.newUser);
 
   // lecture Controls
+  app.post("/updateLecture", lecture.updateLecture);
   app.post("/createLecture", lecture.createLecture);
   app.get("/viewLecture", lecture.viewLecture)
   app.post("/deleteLecture", lecture.deleteLecture)
+  app.post("/thisLecture", lecture.thisLecture)
+  app.get("/updateLectureInfo", lecture.updateLectureInfo)
   //for getting all the lectures
   // app.get("/viewLecture", lecture.viewLecture)
   //for getting the lectures for the logged in user
