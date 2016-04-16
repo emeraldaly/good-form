@@ -61,7 +61,7 @@ body{
 
 /*CHAT*/
 ul.msgList.pre-scrollable {
-  max-height: 250px;
+  max-height: 175px;
 }
 /*JEDBOARD*/
 .classH4 {

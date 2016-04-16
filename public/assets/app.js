@@ -1,4 +1,4 @@
-var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io', 'ngTable' ]);
+var classApp = angular.module('classApp', ['ui.bootstrap','ui.router', 'btford.socket-io', 'ngTable', 'ngCookies']);
 
 classApp.config(function($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/views/info.html')
@@ -188,5 +188,12 @@ classApp.controller('loginController', function($scope, $http, $state) {
       console.log(result);
       $state.go('home');
     });
+  }
+});
+
+angular.module('classApp').run(function($rootScope, $cookies){
+  if($cookies.get('token') && $cookies.get('currentUser')){
+    $rootScope.token = $cookies.get('token');
+    $rootScope.currentUser = $cookies.get('currentUser');
   }
 });

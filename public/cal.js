@@ -3,7 +3,10 @@ $(document).ready(function() {
     // page is now ready, initialize the calendar...
 
     $('#calendar').fullCalendar({
-        height: 500
+      dayClick: function() {
+              alert('a day has been clicked!');
+          }
+        // height: 500
     })
 
 });

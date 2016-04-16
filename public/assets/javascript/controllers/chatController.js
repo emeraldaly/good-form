@@ -2,7 +2,7 @@ angular.module('classApp')
   .factory('Socket', ['socketFactory', function(socketFactory){
     return socketFactory();
   }])
-  .controller('chatControl', ['$scope', 'Socket', function($scope, Socket){
+  .controller('chatControl', ['$scope','Socket','$cookies','$rootScope', function($scope, Socket, $cookies, $rootScope){
     Socket.connect();
 
     // $scope.users = [];
@@ -13,6 +13,9 @@ angular.module('classApp')
     // var chatUsername = function(message) {
 
     // }
+
+    console.log($rootScope);
+    console.log($cookies);
 
     $scope.sendMessage = function(msg) {
       if(msg != null && msg != '' && msg.length <= 150) {
