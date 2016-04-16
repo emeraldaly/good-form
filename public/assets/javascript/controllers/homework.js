@@ -86,17 +86,22 @@ $scope.thisHomework= function(homeworkId){
       });  
 }
 
-$scope.homeworks=[]
+
 $scope.viewHomeworkByClass= function(){
-   $http({
-        method: 'GET',
-        url: '/viewHomeworkByClass',
-      }).then(function(result) {
-        
-        angular.forEach(result.data, function (eachOne){
-          $scope.homeworks.push(eachOne);
-      })
-  });  
+$scope.homeworks = new NgTableParams({
+  }, {
+    getData: function($defer, params) {
+      return $http.get('/viewHomeworkByClass')
+      .then(function(response) {
+         var classes = response.data
+            var filteredData = $filter('filter')(classes, params.filter())
+        var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+        console.log(sortedData)
+        return classes;
+     });
+     
+    }
+  });
 }
 
 $scope.createHomework = function(){ 
