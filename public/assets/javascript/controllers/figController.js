@@ -11,10 +11,10 @@ $scope.viewAssignments = function(){
 $scope.metrics = function(){
 		$state.go('metrics');
 	};
-	$scope.chatter = function(){
+$scope.chatter = function(){
 		$state.go('chat');
 	};
-	$scope.showClasses = function(){
+$scope.showClasses = function(){
 		$state.go('showClasses');
 	};
 $scope.info = function(){
