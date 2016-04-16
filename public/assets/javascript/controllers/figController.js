@@ -31,6 +31,6 @@ $scope.updateUser = function(){
 		$state.go('updateUser');
 	};
 $scope.lecture = function(){
-		$state.go('lectureLinks');
+		$state.go('lectures');
 	};	
 })
