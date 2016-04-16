@@ -1,4 +1,4 @@
-<div class="form-box col-md-offset-1">
+<div class="form-box col-xs-12">
   <h2> Lectures </h2>
   <div ng-controller="class" ng-init="getClasses()">
   	<table ng-table="classesTable" class="table" show-filter="true">
@@ -8,7 +8,7 @@
   					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id, class.name)">{{class.name}}</label>
           <!-- </div> -->
             <button class="pull-right"ng-click="showDetails = ! showDetails"> More details
-            </button> 
+            </button>
             <div ng-show="showDetails">
               <p>Datetime: {{class.datetime}} </p>
 				    </div>

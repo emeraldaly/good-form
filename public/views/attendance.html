@@ -1,17 +1,17 @@
 
 
-<div class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
+<div class="form-box col-xs-12">
 <h2> Pick a Class </h2>
 <div ng-controller="class" ng-init="getClasses()">
 
-	<table ng-table="classesTable" class="table" show-filter="true"> 
+	<table ng-table="classesTable" class="table" show-filter="true">
     <tr ng-repeat="class in $data">
-      <td title="'Name'"  sortable="'name'" filter="{name: 'text'}"> 
+      <td title="'Name'"  sortable="'name'" filter="{name: 'text'}">
           <div class="radio">
             <label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
           <!-- </div> -->
             <button class="pull-right"ng-click="showDetails = ! showDetails"> More details
-            </button> 
+            </button>
             <div ng-show="showDetails">
               <p>datetime: {{class.datetime}} </p>
             </div>

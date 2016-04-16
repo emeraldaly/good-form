@@ -1,6 +1,7 @@
-<div ng-init="updateLectureInfo()" class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
+<div ng-init="updateLectureInfo()" class="form-box col-xs-12">
+  <h2>Create Lecture</h2>
   <form ng-controller="lecture" ng-submit="createLecture()">
-  	<label for="className">Date</label>
+  	<label for="className">Lecture Date</label>
 	  <input required class="form-control" type="date" ng-model="date" placeholder="">
     <span class="help-block"></span>
   	<label for="className">Github</label>
