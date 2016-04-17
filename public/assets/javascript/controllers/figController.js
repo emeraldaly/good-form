@@ -1,4 +1,4 @@
-angular.module('classApp').controller('figController', function($scope, $state) {
+angular.module('classApp').controller('figController', function($scope, $http, $state) {
 	$scope.classer = function(){
 		$state.go('class');
 	};
@@ -35,4 +35,17 @@ $scope.updateUser = function(){
 $scope.lecture = function(){
 		$state.go('lectures');
 	};	
+
+$scope.checkAdmin = function() {
+    $http({
+    cache: true,
+    method: 'GET',
+    url: '/adminStatus'
+  
+}).then(function(result) {
+  console.log(result);
+
+})
+}
+
 })
