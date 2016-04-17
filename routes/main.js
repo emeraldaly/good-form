@@ -47,7 +47,6 @@ app.get('/', usrCtrl.firstPage);
   app.get('/orgsClasses', orgCtrl.getOrgsClasses);
   app.get('/registration', orgCtrl.showRegistration);
   app.post('/register', usrCtrl.newUser);
-  app.get('/adminStatus', usrCtrl.adminStatus);
 
   // lecture Controls
   app.post("/updateLecture", lecture.updateLecture);
@@ -135,8 +134,8 @@ function(req, username, password, done) {
         // debugger
         req.session.user = user;
         req.session.organization = user._doc._organization
-        // console.log(user)
-        // console.log(req.session.admin)
+        console.log(user)
+        console.log(req.session.user)
         return done(null, user);
       }
       );
