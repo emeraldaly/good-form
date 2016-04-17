@@ -2,8 +2,6 @@
 module.exports = function(io){
   io.on('connection', function(socket){
 
-    //change this to logged in user's name
-    var username = "st";
     console.log('a user has connected at:' + socket.id);
 
   // //   socket.on('request-users', function(){
@@ -30,6 +28,13 @@ module.exports = function(io){
   //   // });
 
     socket.on('message', function(data){
+      //change this to logged in user's name
+      var username = function(req, res){
+        debugger
+        console.log(req.session.user.firstname);
+      };
+      username();
+
       io.emit('message', {
         username: username,
         message: data.message

@@ -1,23 +1,25 @@
-<div class="form-box col-md-12">
+<div class="form-box col-xs-12">
   <div class="form-top">
   	<h2>Edit Class</h2>
   </div>
-<div ng-controller="class" data-ng-init="getAllUsers()">
-	<div class="col-md-9">
-		this is where all the users go
-		<table ng-table="allUsers" class="table">
-			<tr ng-repeat="user in $data |filter: { _class: '!' + classFilter	 }">
-				<td class="col-md-12">
-					<div class="radio">
-						<label><input type="radio" name="userN" ng-model"studentSelect" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label>
-						<button class="btn btn-default btn-sm pull-right"ng-click="showDetails = ! showDetails" class="pull-right"> More details</button>
-					</div>
-						<div ng-show="showDetails">
-							<p>Email: {{user.username}} </p>
+	<div ng-controller="class" data-ng-init="getAllUsers()">
+		<div class="col-md-9">
+			this is where all the users go
+			<table ng-table="allUsers" class="table">
+				<tr ng-repeat="user in $data |filter: { _class: '!' + classFilter	 }">
+					<td class="col-md-12">
+						<div class="radio">
+							<label><input type="radio" name="userN" ng-model"studentSelect" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label>
+							<button class="btn btn-default btn-sm pull-right" ng-click="showDetails = ! showDetails" class="pull-right"> More Details</button>
 						</div>
-				</td>
-			</tr>
-		</table>
+
+							<div ng-show="showDetails">
+								<p>Email: {{user.username}} </p>
+							</div>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 	<div class="col-md-3">
 		<p>Account Type</p>
@@ -31,22 +33,24 @@
 			<label><input type="radio" name="userRole" ng-model="userRole" value="student">Student</label>
 		</div>
 		<button type="submit" ng-click="updateClass()" class="btn btn-warning btn-block">Add </button>
-		<p ng-show="allFields == 'false'"> please enter all fields to continue </p>
+		<p ng-show="allFields == 'false'"> Please Enter All Fields To Continue </p>
 	</div>
 	<div class="col-md-12">
 		<h2> Current Class: </h2>
 		<div data-ng-init="viewThisClass()">
 			<h3> Teacher </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
-			{{class._user.firstname}} {{class._user.lastname}} <button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
+			  {{class._user.firstname}} {{class._user.lastname}}
+			  <button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 			<h3> Ta </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
-			{{class._user.firstname}} {{class._user.lastname}}  <button class="pull-right"ng-click="removeFromClass(class._user._id)"> X </button>
+			  {{class._user.firstname}} {{class._user.lastname}}  <button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 			<h3> Student </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'student' }" >
-			{{class._user.firstname}} {{class._user.lastname}}  <button class="pull-right"ng-click="removeFromClass(class._user._id)"> X </button>
+			  {{class._user.firstname}} {{class._user.lastname}}
+			  <button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 		</div>
 	</div>

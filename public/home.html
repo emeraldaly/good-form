@@ -13,7 +13,7 @@
   <script src="cal.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-default navbarTop">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -22,7 +22,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-   
+
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -30,27 +30,57 @@
       <ul class="nav navbar-nav">
         <!-- <li class="active"><a href="#">Register Your Organization<span class="sr-only">(current)</span></a></li> -->
   <li><a href="#">Good Form<span class="sr-only">(current)</span></a></li>
-  
+
       </ul>
-    <a class="linklogo imgbrand" href="#">A.B.C. Coding Bootcamp<img
-class="imgbrandimg"></a>
+
       <ul class="nav navbar-nav navbar-right">
-     <li> <a ui-sref="updateUser">Account </a></li>
+     <li> <a>Account |</a></li>
         <li>
           <a href="/logout" >Logout</a>
+
         </li>
-        
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
+  <!-- <nav class="navbar navbar-default" role="navigation"> -->
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <!-- <div class="navbar-header"> -->
+  <!-- <button type="button" class="navbar-toggle" ng-init="navCollapsed=true" ng-click="navCollapsed=!navCollapsed"> -->
+  <!-- <span class="sr-only">Toggle navigation</span> -->
+  <!-- <span class="icon-bar"></span> -->
+  <!-- <span class="icon-bar"></span> -->
+  <!-- <span class="icon-bar"></span> -->
+  <!-- </button> -->
+  <!-- </div> -->
 
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <!-- <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true"> -->
 
+  <!-- <ul class="nav navbar-nav navbar-right"> -->
+  <!-- <li><a ui-sref="home">Home</a></li> -->
+  <!--    <li><a ui-sref="allUsers">allUsers</a></li> -->
+  <!-- <li><a ui-sref="register">register w/organization</a> </li> -->
+  <!-- <li><a ui-sref="addUser">add User</a> </li> -->
+  <!--    <li><a ui-sref="class">Classes</a></li> -->
+  <!-- <li><a ui-sref="createHomework">create Homework</a></li> -->
+  <!--    <li><a ui-sref="viewAssignments">viewAssignments</a> </li> -->
+  <!-- <li><a ui-sref="info">infoboard</a></li> -->
+  <!--   <li><a ui-sref="chat">chat</a> </li> -->
+  <!--    <li><a ui-sref="metrics">metrics</a></li> -->
+  <!-- <li><a ui-sref="updateUser">Update User</a></li> -->
+  <!-- <li><a ui-sref="myClass">myClass</a> </li> -->
+  <!-- </ul> -->
+  <!-- </div>/.navbar-collapse -->
+  <!-- </nav> -->
 
-  <div class="container-fluid"> 
+  <div class="container-fluid">
+
     <div class="row">
       <div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-12 col-sm-6 col-md-3">
+
         <h2>Infoboard</h2>
         <div class="pre-scrollable">
           <div class="infoBack" ng-repeat="info in infos | orderBy:'$index':true">
@@ -58,79 +88,106 @@ class="imgbrandimg"></a>
             <p>{{info.information}}</p>
           </div>
         </div>
-      </div> 
-      <div class="col-md-5 scrollIt" ui-view autoscroll="false">
       </div>
-      <div class="col-xs-12 col-sm-8 col-md-4 pull-right"> 
-        <div id='calendar'></div>
+
+    <div class="col-md-5" ui-view autoscroll="false"></div>
+
+
+        <div class="col-xs-12 col-sm-8 col-md-4 pull-right">
+       <div id='calendar'></div>
       </div>
-    <nav class="navbar navbar-default  navbar-fixed-bottom">
-    <div class="container-fluid" ng-controller="figController">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-       <div class="collapse navbar-collapse customDiv" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
-        <ul class="nav navbar-nav customUl">
-          <li><img ng-mouseenter="classer()" src="/assets/img/classes.png" width="75px" height="75px"></a>
-            <div class="text-center">
-              <caption>Classes</caption>
-            </div>
-          </li>
-          <li><img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">
-            <div class="text-center">
-              <caption>Infoboard</caption>
-            </div>
-          </li>
-          <li><img class="icon" ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
-            <div class="text-center">
-              <caption>Chat</caption>
-            </div>
-          </li>
-          <li><img ng-mouseenter="allUser()" class="icon" src="/assets/img/users.png" width="75px" height="75px"> </a>
-            <div class="text-center">
-              <caption>User List</caption>
-            </div>
-          </li>
-          <li> <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
-            <div class="text-center">
-              <caption>Metrics</caption>
-            </div>
-          </li>
-          <li><img ng-mouseenter="addUser()" src="/assets/img/user.png" width="75px" height="75px">
-            <div class="text-center">
-              <caption>User</caption>
-            </div>
-          </li>
-          <li> <img ng-mouseenter="attend()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
-            <div class="text-center">
-              <caption>Attendance</caption>
-            </div>
-          </li>
-          <li><img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">
-            <div class="text-center">
-              <caption>Lectures</caption>
-            </div>
-          </li>
-          <li><img ng-mouseenter="viewAssignments()" src="/assets/img/assignments.png" width="75px" height="75px"> </a>
-            <div class="text-center">
-              <caption>Assignments</caption>
-            </div>
-          </li>
-        </ul>
-      </div>
+
+
+
+<nav class="navbar navbar-fixed-bottom clear">
+  <div class="container-fluid" ng-controller="figController">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"></a>
     </div>
-  </nav>
+    <ul class="nav navbar-nav">
+
+      <li><figure>
+      <img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">
+      <br /><caption>Infoboard</caption>
+      </figure></li>
+<li><figure>
+
+  <img class="icon" ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
+  <br />
+  <caption>&nbsp&nbsp&nbsp&nbsp&nbspChat</caption>
+  </figure></li>
+<li><figure>
 
 
-</div> 
+  <a ui-sref="allUser"><img class="icon" src="/assets/img/users.png" width="75px" height="75px">  </a>
+  <br />
+  <caption>&nbsp&nbspUser List</caption>
+  </figure></li>
+<li><figure>
+
+  <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
+  <br />
+  <caption>&nbsp&nbsp&nbspMetrics</caption>
+  </figure></li>
+<!-- <li><figure>
+
+  <img ng-mousenter="updateUser()" src="/assets/img/user.png" width="75px" height="75px">
+  <br />
+  <caption>User</caption>
+  </figure></li> -->
+
+<!-- <li><figure>
+
+  <img ng-mouseenter="showClasses()" src="/assets/img/classes.png" width="75px" height="75px">
+  <br />
+  <caption>Class List</caption>
+
+  </figure></li> -->
+<li><figure>
+
+  <img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">
+  <br />
+  <caption>&nbsp&nbsp&nbspLectures</caption>
+
+  </figure></li>
+<li><figure>
+
+  <img ng-mouseenter="viewAssignments()"src="/assets/img/assignments.png" width="75px" height="75px"> </a>
+  <br />
+  <caption>Assignments</caption>
+
+  </figure></li>
+
+  <li><figure>
+
+  <img ng-mouseenter="classer()" src="/assets/img/classes.png" width="75px" height="75px"></a>
+  <br />
+  <caption>&nbsp&nbsp&nbspClasses</caption>
+  </figure></li>
+<li><figure>
+
+  <img ng-mouseenter="addUserer()" src="/assets/img/user.png" width="75px" height="75px"> </a>
+  <br />
+  <caption>&nbsp&nbspAdd User</caption>
+  </figure></li>
+
+<li><figure>
+
+  <img ng-mouseenter="addUserer()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
+  <br />
+  <caption>Attendance</caption>
+  </figure></li>
+
+
+
+    </ul>
+  </div>
+
+</nav>
+  </div>
 <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
 <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.5/angular-cookies.js"></script>
 <script src='/views/moment.js'></script>
 <script src='/views/fullcalendar.js'></script>
 <script src="/assets/app.js"></script>
@@ -142,7 +199,7 @@ class="imgbrandimg"></a>
 <script src="/assets/javascript/controllers/info.js"></script>
 <script src="/assets/javascript/controllers/lecture.js"></script>
 <script type="text/javascript" src="/assets/javascript/controllers/chatController.js"></script>
-<script type="text/javascript" src ="/assets/javascript/controllers/highchartsController.js"</script> 
+<script type="text/javascript" src ="/assets/javascript/controllers/highchartsController.js"</script>
 </body>
 
 </html>

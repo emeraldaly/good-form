@@ -1,11 +1,10 @@
-
 html,body
 {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
-    padding: 0px;
-    overflow-x: hidden; 
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
 }
 
 #createClass, #editClass{
@@ -72,7 +71,7 @@ html,body
 }
 /*CHAT*/
 ul.msgList.pre-scrollable {
-  max-height: 250px;
+  max-height: 175px;
 }
 /*JEDBOARD*/
 .classH4 {
@@ -112,7 +111,7 @@ figure caption {
 
 img{
   margin-left:15px;
-  margin-right:15px; 
+  margin-right:15px;
   /*margin-right: 15px;
   padding-top: 15px;*/
 }
@@ -159,6 +158,7 @@ a.linklogo {
   height: 55px;
   padding-bottom: 14px;
 }
+
 .navbar-fixed-bottom{
   background-color: white;
 }
