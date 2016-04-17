@@ -2,9 +2,6 @@ angular.module('classApp').controller('figController', function($scope, $state) 
 	$scope.classer = function(){
 		$state.go('class');
 	};
-$scope.addUserer = function(){
-		$state.go('addUser');
-	};
 $scope.viewAssignments = function(){
 		$state.go('createHomework');
 	};
@@ -17,21 +14,23 @@ $scope.metrics = function(){
 	$scope.showClasses = function(){
 		$state.go('showClasses');
 	};
-	$scope.addUser= function(){
-		$state.go("addUser")
-	};
 $scope.info = function(){
 		$state.go('info');
 	};
 $scope.lectureLinks = function(){
 		$state.go('lectureLinks');
 	};
-
+$scope.attend = function(){
+		$state.go('attendance');
+	};
 $scope.updateUser = function(){
 		$state.go('updateUser');
 	};
 	$scope.allUser = function(){
 		$state.go('allUsers');
+	};
+	$scope.addUser = function(){
+		$state.go('addUser');
 	};
 $scope.lecture = function(){
 		$state.go('lectures');
