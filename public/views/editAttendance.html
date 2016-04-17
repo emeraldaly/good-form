@@ -1,18 +1,19 @@
-<div ng-controller ="attendance" ng-init="getAttend()">
-
-	<h3> Not here </h3>
-	<div ng-repeat="student in students | filter:{here: false}">
-	<button ng-click="updateAttend(student._user._id, 'true')">
-	{{student._user.firstname}} {{student._user.firstname}} 
+<div class="form-box col-md-12" ng-controller ="attendance" ng-init="getAttend()">
+	<h2> attendance for {{date | date:'shortDate'}} </h2>
+	<h3 class="text-center"> Not Here </h3>
+	<div ng-style="repeatStyle" ng-repeat="student in students | filter:{here: false}">
+	{{student._user.firstname}} {{student._user.firstname}}
+	<button class="pull-right btn btn-default btn-sm" ng-click="updateAttend(student._user._id, 'true')">
+	 √
 	</button>
 	</div>
 
-	<h3>here</h3>
-<div ng-repeat="student in students | filter:{here: true}">
+	<h3 class="text-center">Here</h3>
+<div  ng-style="repeatStyle" ng-repeat="student in students | filter:{here: true}">
 
 {{student._user.firstname}} {{student._user.firstname}} 
-	<button ng-click="updateAttend(student._user._id, 'false')"> X </button>
+	<button class="pull-right btn btn-default btn-sm" ng-click="updateAttend(student._user._id, 'false')"> X </button>
 	</div>	 
 
 </div>
-	<a ui-sref="attendance"><button>done</button></a>
+	<a ui-sref="attendance"><button class="btn btn-warning btn-block">done</button></a>
