@@ -114,13 +114,15 @@ $scope.test = function(){
 ("workin")
 }
 
+$scope.classDetails
 $scope.students = []
 $scope.getAttend = function(){
 		 $http({
         method: 'GET',
         url: '/getAttend'
       }).then(function(result) {
-    
+      debugger
+      $scope.classDetails = result.data[0].date;
         
         angular.forEach(result.data[0].student, function (eachOne){
           $scope.students.push(eachOne);
