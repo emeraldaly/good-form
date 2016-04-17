@@ -6,7 +6,7 @@ $scope.addUserer = function(){
 		$state.go('addUser');
 	};
 $scope.viewAssignments = function(){
-		$state.go('viewAssignments');
+		$state.go('createHomework');
 	};
 $scope.metrics = function(){
 		$state.go('metrics');

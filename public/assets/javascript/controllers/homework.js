@@ -1,4 +1,4 @@
-angular.module('classApp').controller('homework', function($scope,  $state,$http, $filter, NgTableParams) {
+angular.module('classApp').controller('homework', function($scope, $rootScope, $state,$http, $filter, NgTableParams) {
 
 $scope.submitHw = function(){
   $http({
@@ -26,8 +26,15 @@ $scope.uncompletedSubmission = function(){
 
 }
 $scope.homeworkByClass = function(){
-  console.log("hit it")
+  if ($rootScope.classEdit == undefined) {
+    $scope.allFields = "false";
+
+  }
+  else{
+  $rootScope.classEdit = undefined
   $state.go("viewHomeworkByClass")
+  }
+
 }
 
 $scope.viewSubmissions = function(){
@@ -79,31 +86,46 @@ $scope.thisHomework= function(homeworkId){
       });  
 }
 
-$scope.homeworks=[]
+
 $scope.viewHomeworkByClass= function(){
-   $http({
-        method: 'GET',
-        url: '/viewHomeworkByClass',
-      }).then(function(result) {
-        
-        angular.forEach(result.data, function (eachOne){
-          $scope.homeworks.push(eachOne);
-      })
-  });  
+$scope.homeworks = new NgTableParams({
+  }, {
+    getData: function($defer, params) {
+      return $http.get('/viewHomeworkByClass')
+      .then(function(response) {
+         var classes = response.data
+            var filteredData = $filter('filter')(classes, params.filter())
+        var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+        console.log(sortedData)
+        return classes;
+     });
+     
+    }
+  });
 }
 
 $scope.createHomework = function(){ 
- $http({
+   if ($rootScope.classEdit == undefined) {
+    $scope.allFields = "false"
+  }
+  else{
+    $rootScope.classEdit = undefined;
+    $state.go($state.current, {}, {
+    reload: true
+  });
+    $http({
         method: 'POST',
         url: '/createHomework',
         data: {description:$scope.description,
-        	name:$scope.name,
+          name:$scope.name,
           duedate:$scope.duedate,
           duetime:$scope.duetime
         }
       }).then(function(result) {
         console.log(result)
       });  
+  }
+ 
 }
 
 $scope.assignments=[]

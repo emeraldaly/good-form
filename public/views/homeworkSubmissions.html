@@ -1,15 +1,15 @@
-
-<div ng-controller="homework" ng-init="viewSubmissions()">
-  <table ng-table="submissions">
+<div class="col-md-12 form-box"  ng-controller="homework" ng-init="viewSubmissions()">
+  <h2> Completed</h2>
+  <table ng-table="submissions" class="table">
     <tr ng-repeat="sub in $data">
-      <td>
+      <td title="'student name'" class="col-md-12">
         name: {{sub.student.firstname}} {{sub.student.lastname}}
-      </td>
-      <td>
-        Github: {{sub.github}}
-      </td>
-      <td>
-        Heroku: {{sub.heroku}}
+          <button class="pull-right" ng-click="showDetails = ! showDetails"> More details
+            </button>
+            <div ng-show="showDetails">
+              <p>heroku: {{sub.heroku}} </p>
+              <p>github: {{sub.github}} </p>
+            </div>
       </td>
     </tr>
   </table>
