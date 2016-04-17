@@ -20,10 +20,16 @@ var mongoose = require("mongoose");
 
 
 // }
-exports.auth = function(req, res, next){
-  console.log("auth hit");
-  if (!req.isAuthenticated())
-    res.send(401); else next(); };
+
+// exports.adminStatus = function(req, res){
+//  console.log("admin status hit" + req.session.user.admin);
+//  // res.send(req.session.user.admin);
+// }
+
+// exports.auth = function(req, res, next){
+//   console.log("auth hit");
+//   if (!req.isAuthenticated())
+//     res.send(401); else next(); };
 
 
 exports.viewAssignments = function(req, res){
