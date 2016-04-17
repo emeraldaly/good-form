@@ -1,17 +1,17 @@
-<div class="form-box col-md-offset-1 col-xs-12 col-sm-8 col-md-4">
+<div class="form-box col-md-12">
   <div class="form-top">
     <h2>Homework</h2>
   </div>
   <div ng-controller="class" ng-init="getClasses()">
     <h3 class="classH4">Class</h3>
     <!-- 		<button ng-click="showClasses()"> button? </button> -->
-  	<table ng-table="classesTable">
+  	<table ng-table="classesTable" class="table">
       <tr ng-repeat="class in $data">
       	<td title="'Name'"  sortable="'name'" filter="{name: 'text'}"> 
           <div class="radio">
             <label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
           <!-- </div> -->
-            <button class="pull-right" ng-click="showDetails = ! showDetails"> More details
+            <button class="pull-right btn-sm btn btn-default" ng-click="showDetails = ! showDetails"> More details
             </button> 
             <div ng-show="showDetails">
               <p>datetime: {{class.datetime}} </p>
@@ -22,18 +22,32 @@
   </div>
 
   <div ng-controller="homework">
-    <h3> View Homework </h3>
-    <button ng-click="homeworkByClass()"> View All Homework by Class </button>
-    <h3> Create Homework </h3>
-    <input class="form-control" ng-model="name" placeholder="Homework Name">
+    <form ng-submit="createHomework()">
+      <button class="btn btn-warning btn-block" ng-click="homeworkByClass()"> View All Homework by Class </button>
+      <h3 class="btn btn-warning btn-block" ng-click="more = ! more"> Create Homework </h3>
+      <p ng-show="allFields == 'false'"> please enter all fields to continue </p>
+      <div ng-show="more">
+        <input required class="form-control" ng-model="name" placeholder="Homework Name">
+        <span class="help-block"></span>
+        <textarea class="form-control" ng-model="description" placeholder="Homework Description"> </textarea>
+        <span class="help-block"></span>
+        <input required class="form-control" type="date" ng-model="duedate" placeholder="Due Date">
+        <span class="help-block"></span>
+        <input required class="form-control" type="time"ng-model="duetime" placeholder="Due Time">
+        <span class="help-block"></span>
+        <button class="btn btn-warning btn-block" type="submit"> Create </button>
+      </div>
+    </form>   
+  </div>
+<!--     <input class="form-control" ng-model="name" placeholder="Homework Name">
     <span class="help-block"></span>
     <textarea class="form-control" ng-model="description" placeholder="Homework Description"> </textarea>
     <span class="help-block"></span>
     <input class="form-control" ng-model="duedate" placeholder="Due Date">
     <span class="help-block"></span>
     <input class="form-control" ng-model="duetime" placeholder="Due Time">
-    <span class="help-block"></span>
-    <button class="btn btn-warning btn-block" ng-click="createHomework()"> Create Homework </button>
+    <span class="help-block"></span> -->
+   <!--  <button class="btn btn-warning btn-block" ng-click="createHomework()"> Create Homework </button> -->
   </div>
 </div>
 
