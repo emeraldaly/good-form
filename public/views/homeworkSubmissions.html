@@ -4,7 +4,7 @@
     <tr ng-repeat="sub in $data">
       <td title="'student name'" class="col-md-12">
         name: {{sub.student.firstname}} {{sub.student.lastname}}
-          <button class="pull-right" ng-click="showDetails = ! showDetails"> More details
+          <button class="pull-right btn btn-sm btn-default" ng-click="showDetails = ! showDetails"> More details
             </button>
             <div ng-show="showDetails">
               <p>heroku: {{sub.heroku}} </p>
