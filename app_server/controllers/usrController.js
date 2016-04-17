@@ -21,15 +21,15 @@ var mongoose = require("mongoose");
 
 // }
 
-exports.adminStatus = function(req, res){
- console.log("admin status hit" + req.session.user.admin);
- // res.send(req.session.user.admin);
-}
+// exports.adminStatus = function(req, res){
+//  console.log("admin status hit" + req.session.user.admin);
+//  // res.send(req.session.user.admin);
+// }
 
-exports.auth = function(req, res, next){ 
-  console.log("auth hit");
-  if (!req.isAuthenticated()) 
-    res.send(401); else next(); };
+// exports.auth = function(req, res, next){
+//   console.log("auth hit");
+//   if (!req.isAuthenticated())
+//     res.send(401); else next(); };
 
 
 exports.viewAssignments = function(req, res){
@@ -163,8 +163,7 @@ exports.firstPage = function(req, res) {
 
 exports.defRoute = function(req, res) {
   debugger
-  console.log("req.session: " + req.session);
-  console.log("req.omgeverything: " + req);
+  console.log("This req.session: " + req.session.user.firstname +' ' +req.session.user.lastname[0] + '.');
   res.sendFile(process.cwd() + '/public/home.html');
 }
 

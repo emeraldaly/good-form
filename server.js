@@ -2,7 +2,7 @@ var express  = require('express');
 var app      = require('express')();
 var PORT     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
-var morgan       = require('morgan');
+var logger       = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 
@@ -12,7 +12,7 @@ var io = require('socket.io')(http);
 
 var method = require("method-override");
 
-// app.use(logger('dev'));
+app.use(logger('dev'));
 app.use(express.static('public'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
