@@ -10,9 +10,8 @@
 				<td class="col-md-12">
 					<div class="radio">
 						<label><input type="radio" name="userN" ng-model"studentSelect" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label>
-						<button ng-click="showDetails = ! showDetails" class="pull-right"> More details</button>
+						<button class="btn btn-default btn-sm pull-right"ng-click="showDetails = ! showDetails" class="pull-right"> More details</button>
 					</div>
-					
 						<div ng-show="showDetails">
 							<p>Email: {{user.username}} </p>
 						</div>
