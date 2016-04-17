@@ -1,4 +1,4 @@
-<div ng-controller="attendance" class="col-md-7" ng-init="viewAttendDates()"> 
+<div ng-controller="attendance" class="col-md-12 form-box" ng-init="viewAttendDates()"> 
 	<!-- <div class="radio">
 					<label><input type="radio" name="allDates" ng-click="editAttend(attend._id)">{{attend.date | date:'medium'}}</label>
 				</div> -->
@@ -9,7 +9,7 @@
   					<label><input ng-click="thisAttend(class._id)" type="radio" name="allClasses" ng-click="">{{class.date | date:'medium'}}</label>
   				</div>
   			</td>
-  			<td title="Class" sortable="'class'" filter="{className: 'text'}" >
+  			<td title="'Class'" sortable="'class'" filter="{className: 'text'}" >
   			{{class.className}}
 
   			</td>
