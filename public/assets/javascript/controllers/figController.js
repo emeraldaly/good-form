@@ -17,8 +17,8 @@ $scope.metrics = function(){
 	$scope.showClasses = function(){
 		$state.go('showClasses');
 	};
-$scope.info = function(){
-		$state.go('info');
+	$scope.addUser= function(){
+		$state.go("addUser")
 	};
 $scope.info = function(){
 		$state.go('info');
@@ -29,6 +29,9 @@ $scope.lectureLinks = function(){
 
 $scope.updateUser = function(){
 		$state.go('updateUser');
+	};
+	$scope.allUser = function(){
+		$state.go('allUsers');
 	};
 $scope.lecture = function(){
 		$state.go('lectures');

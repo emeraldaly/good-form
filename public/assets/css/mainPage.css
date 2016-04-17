@@ -1,14 +1,17 @@
-body{
-  /*background: url('/assets/img/good_form.jpg') no-repeat 100% 50% fixed;*/
-  background-color: #FFFFFF;
-  background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  -webkit-background-size: cover;
-  padding-bottom: 25px;
+
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
 }
 
 
+.navbarTop{
+  margin-bottom: 20px;
+}
 .navbar-default {
   background-color: #76c2af;
   border-color: transparent;
@@ -153,7 +156,6 @@ a.linklogo {
   height: 55px;
   padding-bottom: 14px;
 }
-.navbar{
- 
-  background-color: transparent;
+.navbar-fixed-bottom{
+  background-color: white;
 }
