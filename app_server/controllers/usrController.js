@@ -20,9 +20,9 @@ var mongoose = require("mongoose");
 
 
 // }
-exports.auth = function(req, res, next){ 
+exports.auth = function(req, res, next){
   console.log("auth hit");
-  if (!req.isAuthenticated()) 
+  if (!req.isAuthenticated())
     res.send(401); else next(); };
 
 
@@ -157,8 +157,7 @@ exports.firstPage = function(req, res) {
 
 exports.defRoute = function(req, res) {
   debugger
-  console.log("req.session: " + req.session);
-  console.log("req.omgeverything: " + req);
+  console.log("This req.session: " + req.session.user.firstname +' ' +req.session.user.lastname[0] + '.');
   res.sendFile(process.cwd() + '/public/home.html');
 }
 

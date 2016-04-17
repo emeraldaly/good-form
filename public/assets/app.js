@@ -187,6 +187,7 @@ classApp.controller('loginController', function($scope, $http, $state) {
     }).then(function(result) {
       console.log(result);
       $state.go('home');
+      $rootScope.user = result;
     });
   }
 });
