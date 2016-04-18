@@ -1,10 +1,11 @@
-angular.module('classApp').controller('figController', function($scope, $state) {
+angular.module('classApp').controller('figController', function($scope, $state, $http, $cookies) {
 	$scope.classer = function(){
 		$state.go('class');
 	};
 $scope.viewAssignments = function(){
 		$state.go('createHomework');
 	};
+
 $scope.metrics = function(){
 		$state.go('metrics');
 	};
@@ -35,4 +36,17 @@ $scope.updateUser = function(){
 $scope.lecture = function(){
 		$state.go('lectures');
 	};	
+$scope.setCookie = function(){
+  $http({
+method: 'GET',
+url: '/adminStatus'
+}).then(function(result){
+  console.log(result.data);
+$cookies.remove('34839');
+$cookies.put('34839', result.data);
+$scope.slkjdd = $cookies.get('myFavorite');
+console.log("cooked");
 })
+}	
+})
+

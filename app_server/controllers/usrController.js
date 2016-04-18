@@ -22,8 +22,8 @@ var mongoose = require("mongoose");
 // }
 
 exports.adminStatus = function(req, res){
- console.log("admin status hit" + req.session.user.admin);
- // res.send(req.session.user.admin);
+ res.send(req.session.user.admin) 
+
 }
 
 
