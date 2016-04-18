@@ -2,7 +2,7 @@
 module.exports = function(io){
   io.on('connection', function(socket){
     //change this to logged in user's name
-    var username = "st";
+    var username = " ";
     // function(req, res){
     //   debugger
     //   console.log(req.session.user.firstname);
