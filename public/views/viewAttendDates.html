@@ -5,9 +5,9 @@
 		<table ng-table="attendDates" class="table" show-filter="true"> 
       <tr ng-repeat="class in $data">
         <td title="'Date'"  sortable="'date'"> 
-        	<div class="radio">
-  					<label><input ng-click="thisAttend(class._id)" type="radio" name="allClasses" ng-click="">{{class.date | date:'medium'}}</label>
-  				</div>
+        	<!-- <div class="radio"> -->
+  					<label><input ng-click="thisAttend(class._id, class.date)" type="radio" name="allClasses" ng-click=""> {{class.date | date:"shortDate"}}</label>
+  			<!-- 	</div> -->
   			</td>
   			<td title="'Class'" sortable="'class'" filter="{className: 'text'}" >
   			{{class.className}}
@@ -15,7 +15,7 @@
   			</td>
       </tr>
    	</table>
-   	<button class="btn btn-warning btn-block" ng-click="editAttend()"> Edit Attend </button>
+   	<button class="btn btn-warning btn-block" ng-click="editAttend()"> View Attend </button>
    	<button class="btn btn-warning btn-block" ng-click="more = ! more"> Delete Attend
    	</button>
       <div ng-show="more">
