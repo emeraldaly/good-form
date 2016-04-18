@@ -42,9 +42,6 @@ method: 'GET',
 url: '/adminStatus'
 }).then(function(result){
   console.log("results" + result.data);
-// $cookies.remove('d34839d');
-// $cookies.remove('34839');
-
 $cookies.put('d34839d', result.data);
 $scope.slkjdd = $cookies.get('d34839d');
 console.log($scope.slkjdd);

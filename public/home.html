@@ -73,7 +73,6 @@ class="imgbrandimg"></a>
         <div id='calendar'></div>
       </div>
 
-
     <div ng-controller="figController" ng-init="setCookie()">
     <nav class="navbar navbar-default  navbar-fixed-bottom">
 
@@ -91,12 +90,12 @@ class="imgbrandimg"></a>
         <ul class="nav navbar-nav customUl">
 
 
-       <li ng-show="slkjdd == 'true'"><img ng-mouseenter="classer()" src="/assets/img/classes.png" width="75px" height="75px"></a>
+       <li ng-if="slkjdd == 'true'"><img ng-mouseenter="classer()" src="/assets/img/classes.png" width="75px" height="75px"></a>
             <div class="text-center">
               <caption>Classes</caption>
             </div>
           </li>
-          <li ng-show="slkjdd == 'true'"><img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">
             <div class="text-center">
               <caption>Infoboard</caption>
             </div>
@@ -106,48 +105,48 @@ class="imgbrandimg"></a>
               <caption>Chat</caption>
             </div>
           </li>
-          <li ng-show="slkjdd == 'true'"><img ng-mouseenter="allUser()" class="icon" src="/assets/img/users.png" width="75px" height="75px"> </a>
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="allUser()" class="icon" src="/assets/img/users.png" width="75px" height="75px"> </a>
             <div class="text-center">
               <caption>User List</caption>
             </div>
           </li>
-          <li ng-show="slkjdd == 'true'"> <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
+          <li ng-if="slkjdd == 'true'"> <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
             <div class="text-center">
               <caption>Metrics</caption>
             </div>
           </li>
-          <li ng-show="slkjdd == 'true'"><img ng-mouseenter="addUser()" src="/assets/img/user.png" width="75px" height="75px">
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="addUser()" src="/assets/img/user.png" width="75px" height="75px">
             <div class="text-center">
               <caption>User</caption>
             </div>
           </li>
-          <li ng-show="slkjdd == 'true'"> <img ng-mouseenter="attend()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
+          <li ng-if="slkjdd == 'true'"> <img ng-mouseenter="attend()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
             <div class="text-center">
               <caption>Attendance</caption>
             </div>
           </li>
-          <li ng-show="slkjdd == 'true'"><img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">
             <div class="text-center">
               <caption>Lectures</caption>
             </div>
           </li>
-          <li ng-show="slkjdd == 'true'"><img ng-mouseenter="viewAssignments()" src="/assets/img/assignments.png" width="75px" height="75px"> </a>
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="viewAssignments()" src="/assets/img/assignments.png" width="75px" height="75px"> </a>
             <div class="text-center">
               <caption>Assignments</caption>
             </div>
           </li>
-<li ng-show="slkjdd == 'false'"><img ng-mouseenter="myClass()" src="/assets/img/classes.png" width="75px" height="75px"></a>
+<li ng-if="slkjdd == 'false'"><img ng-mouseenter="myClass()" src="/assets/img/classes.png" width="75px" height="75px"></a>
             <div class="text-center">
               <caption>My Class</caption>
             </div>
           </li>
-          <li ng-show="slkjdd == 'false'"><img ng-mouseenter="myHomework()" src="/assets/img/jedBoard.png" width="75px" height="75px">
+          <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myHomework()" src="/assets/img/jedBoard.png" width="75px" height="75px">
             <div class="text-center">
               <caption>My Homework</caption>
             </div>
           </li>
           
-          <li ng-show="slkjdd == 'false'"><img ng-mouseenter="myLecture()" class="icon" src="/assets/img/lectureLinks.png" width="75px" height="75px"> </a>
+          <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myLecture()" class="icon" src="/assets/img/lectureLinks.png" width="75px" height="75px"> </a>
             <div class="text-center">
               <caption>My Lectures</caption>
             </div>
