@@ -147,6 +147,14 @@ color: black;
 a.linklogo {
   color: white;
 }
+
+#className{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+.moreInfo{
+  margin-top: 50px
+}
 .imgbrand {
   font-size: 150%;
   font-color: white;

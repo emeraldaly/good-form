@@ -1,21 +1,21 @@
-<div class="col-md-8" ng-controller="lecture" data-ng-init="myLecture(); getThisLecture()">
-		<div ng-show="appState == 'show'" ng-repeat= "user in thisLecture | filter: { _id: lectureFilter}">
-				<h3>Class </h3>
-				<h3>Name: {{user.className}}</h3>
-				<h4>Video Link: {{user.videoLink}} </h4>
-				<h4>Github Link: {{user.github}}  </h4>
-				<h4>Moar Info:  {{user.info}}   </h4>
+<div class="col-md-12 form-box" ng-controller="lecture" data-ng-init="myLecture(); getThisLecture()">
+	<h2>My Lectures </h2>
+		<div ng-show="appState == 'show'" ng-repeat= "data in thisLecture | filter: { _id: lectureFilter}">
+				<h3 id="className">Class Name: {{data.className}}</h3>
+				<a target="_blank" href="//{{data.videoLink}}"><btn class="btn col-md-6 btn-md btn-default"> Video Link </btn> </a>
+				<a target="_blank" href="//{{data.github}}"><btn class="btn col-md-6 btn-md btn-default"> Github </btn> </a>
+					<h4 class="moreInfo">More Info:  {{data.info}}   </h4>
 			</div>
 		<table ng-table="myLectureTable" class="table" show-filter="true">
 			<tr ng-repeat="user in $data">
 				<td title="'Class name'"  sortable="'className'" filter="{'className': 'text'}">
 					{{user.className}}
 				</td>
-				<td title="'date |'" sortable="'date'">
-					 {{user.date | date:'dd-MM-yyyy'}}
+				<td title="'date '" sortable="'date'">
+					 {{user.date | date:'shortDate'}}
 				</td>
 				<td title="'More User Details'">
-					<button ng-click="customFilter(user._id)" name="name"> show </button> 
+					<button class="btn btn-sm btn-block btn-default" ng-click="customFilter(user._id)" name="name"> show </button> 
 				</td>
 			</tr>
 		</table>
