@@ -1,6 +1,7 @@
 angular.module('classApp').controller('homework', function($scope, $rootScope, $state,$http, $filter, NgTableParams) {
 
 $scope.submitHw = function(){
+  $state.go("myHomework")
   $http({
         method: 'POST',
         url: '/submitHw',
@@ -75,7 +76,7 @@ $scope.submissionsPage = function(){
     $state.go("homeworkSubmissions")
 }
 $scope.thisHomework= function(homeworkId){
-  console.log(homeworkId)
+  $scope.homeworkId = homeworkId;
   $http({
         method: 'POST',
         url: '/thisHomework',
@@ -86,6 +87,14 @@ $scope.thisHomework= function(homeworkId){
       });  
 }
 
+$scope.goToSubmit=function(){
+  if ($scope.homeworkId == undefined){
+    $scope.message = "please selct an assignment"
+  }
+  else{
+    $state.go("submitHomework")
+  }
+}
 
 $scope.viewHomeworkByClass= function(){
 $scope.homeworks = new NgTableParams({
