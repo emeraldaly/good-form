@@ -20,6 +20,13 @@ var mongoose = require("mongoose");
 
 
 // }
+
+exports.adminStatus = function(req, res){
+ res.send(req.session.user.admin) 
+
+}
+
+
 exports.auth = function(req, res, next){
   console.log("auth hit");
   if (!req.isAuthenticated())
@@ -39,6 +46,13 @@ exports.viewAssignments = function(req, res){
   })
 }
 
+exports.currentUser = function(req, res){
+  User.find({"_id":req.session.user._id})
+  .exec(function (err, user){
+    res.send(user)
+  })
+  
+}
 exports.addUser = function(req, res) {
 
   var userx = new User({
@@ -54,14 +68,16 @@ exports.addUser = function(req, res) {
     username: req.body.username
   }, function(err, user) {
     if (user) {
-      res.redirect("/?msg=Your email is already registered, please login.");
-      console.log("found one")}
-      else { console.log("didn't find one")
-        userx.save(function(err, user) {console.log("saved")});
-
-      // res.redirect("/?msg=Thank you for registering, please login.");
-
-    };
+      res.send("taken");
+      console.log("found one")
+      }
+      else { 
+        console.log("didn't find one")
+        userx.save(function(err, user) { 
+          console.log("saved")
+          res.send("saved")
+        });
+      };
 
 
 
@@ -156,9 +172,25 @@ exports.firstPage = function(req, res) {
 }
 
 exports.defRoute = function(req, res) {
-  debugger
   console.log("This req.session: " + req.session.user.firstname +' ' +req.session.user.lastname[0] + '.');
   res.sendFile(process.cwd() + '/public/home.html');
+}
+
+//Show this specific user
+exports.getUser = function(req, res) {
+  User.findOne({
+    username: req.session.user.username
+  })
+  .exec(function(err, docs){
+    if(err){
+      console.log(err);
+      res.send(err);
+    } else {
+      debugger
+      console.log(docs);
+      res.send(docs);
+    }
+  });
 }
 
 //Show all users in the class

@@ -1,6 +1,5 @@
 
-angular.module('classApp').controller('info', function($scope, $state, $http, $filter, NgTableParams) {
-
+angular.module('classApp').controller('info', function($scope, $state, $http, $filter, $rootScope, NgTableParams) {
 		$scope.createInfo = function() {
 			console.log($scope.userUpdate)
 			 $state.go($state.current, {}, {reload: true});
@@ -12,23 +11,22 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 					information: $scope.information,
 				}
 			}).then(function(result) {
-				console.log(result)
+				$scope.viewInfo()
 			});
 		}
 
-$scope.infos=[];
+
+$rootScope.infos=[];
 $scope.viewInfo = function() {
 			$http({
 				method: 'GET',
 				url: '/viewInfo',
 			}).then(function(result) {
 				    angular.forEach(result.data, function (eachOne){
-          $scope.infos.push(eachOne);
+          $rootScope.infos.push(eachOne);
         })
 			});
 		}
-
-
 		$scope.classesTable = new NgTableParams({}, {
 			getData: function($defer, params) {
 				return $http.get('/showClasses')
@@ -41,8 +39,7 @@ $scope.viewInfo = function() {
 							// console.log(sortedData)
 						return classes;
 					});
-
 			}
 		});
 
-	}) //end of module
+	}); //end of module

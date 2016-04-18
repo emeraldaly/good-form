@@ -1,4 +1,4 @@
-<div class="form-box col-md-12">
+<div class="form-box col-md-12" ng-controller="user" ng-init="currentUser()">
   <div class="form-top">
 		<h2>Update Profile</h2>
   </div>
@@ -6,13 +6,13 @@
 		<form ng-controller="user">
 			<div class="panel-body>">
 				<label for="className">LinkedIn</label>
-		    <input type="text" class="form-control" ng-model="linkedin" placeholder="">
+		    <input required type="text" class="form-control" ng-model="linkedin" placeholder="">
 		    <span class="help-block"></span>
 		    <label for="username">Github</label>
-		    <input type="text" class="form-control" ng-model="github" placeholder="">
+		    <input required type="text" class="form-control" ng-model="github" placeholder="">
 		    <span class="help-block"></span>
 		     <label for="username">Portfolio</label>
-		    <input type="text" class="form-control" ng-model="portfolio" placeholder="">
+		    <input required type="text" class="form-control" ng-model="portfolio" placeholder="">
 		    <span class="help-block"></span>
 		    <button type="submit" ng-click="updateUser()" class="btn btn-warning btn-block">Update User</button>
 		  </div>

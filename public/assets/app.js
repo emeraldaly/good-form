@@ -134,7 +134,7 @@ classApp.run(['$state', function ($state) {
    $state.transitionTo('info');
 }])
 
-classApp.controller('newUser', function($scope, $http, $state) {
+classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
   $scope.addUser = function(){
     console.log($scope.userFirstName)
     $http({
@@ -147,6 +147,14 @@ classApp.controller('newUser', function($scope, $http, $state) {
         userLastName:$scope.userLastName,
       }
     }).then(function(result) {
+      if (result.data == "taken"){
+       $scope.userTaken="This Email was already used, please try another";
+      }
+      else{
+        $state.go($state.current, {}, {reload: true});
+        $rootScope.message = "New User Created!";
+        
+      }
       $state.go('login');
     });
   };
@@ -175,7 +183,8 @@ classApp.controller('newUser', function($scope, $http, $state) {
   }
 });
 
-classApp.controller('loginController', function($scope, $http, $state) {
+classApp.controller('loginController',['$scope', '$http', '$state','$rootScope', '$cookies',  function($scope, $http, $state, $rootScope, $cookies) {
+
   $scope.login = function(){
     $http({
       method: 'POST',
@@ -184,18 +193,43 @@ classApp.controller('loginController', function($scope, $http, $state) {
         username:$scope.userEmail,
         password:$scope.userPassword,
       }
-    }).then(function(result) {
-      console.log(result);
+    }).then(function(res) {
+      console.log("Login response is", res);
+      $cookies.put('token', res.data.token);
+      $cookies.put('currentUser', res.firstname);
+      console.log(res.data);
+      $rootScope.currentUser = res.firstname;
+
       $state.go('home');
-      $rootScope.user = result;
+    }, function(err){
+      console.log("Login error ", err);
     });
   }
-});
+}]);
 
-angular.module('classApp').run(function($rootScope, $cookies){
-  debugger
-  if($cookies.get('token') && $cookies.get('currentUser')){
-    $rootScope.token = $cookies.get('token');
-    $rootScope.currentUser = $cookies.get('currentUser');
-  }
-});
+// classApp.controller('cookieController', function($scope, $cookies, $http) {
+// $scope.setCookie = function(){
+//   $http({
+// method: 'GET',
+// url: '/adminStatus'
+// }).then(function(result){
+//   console.log(result);
+// $cookies.remove('34839');
+//    $cookies.put('34839', result.data);
+// console.log("cooked");
+// })
+// }
+// })
+
+
+    
+ 
+
+
+
+// angular.module('classApp').run(function($rootScope, $cookies){
+//   if($cookies.get('token') && $cookies.get('currentUser')){
+//     $rootScope.token = $cookies.get('token');
+//     $rootScope.currentUser = $cookies.get('currentUser');
+//   }
+// });

@@ -7,6 +7,7 @@ html,body
   overflow-x: hidden;
 }
 
+
 #createClass, #editClass{
   margin-top: 20px;
   margin-bottom:20px;
@@ -161,4 +162,7 @@ a.linklogo {
 
 .navbar-fixed-bottom{
   background-color: white;
+}
+.warning {
+  color:red;
 }

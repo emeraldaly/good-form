@@ -11,6 +11,7 @@ var bcrypt = require('bcryptjs');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var User = require('../app_server/models/user');
+var usernameExport;
 
 module.exports = function (app) {
 
@@ -27,11 +28,13 @@ module.exports = function (app) {
   app.use(passport.session());
 
   //User Controls
-app.get('/', usrCtrl.firstPage);
+  app.get('/', usrCtrl.firstPage);
+  app.get("/currentUser", usrCtrl.currentUser);
   app.post('/adduser', usrCtrl.addUser);
   app.get('/viewAssignments', usrCtrl.viewAssignments);
   app.post('/updateUser', usrCtrl.updateUser);
   app.post('/newUser', usrCtrl.newUser);
+  app.get('/getUser', usrCtrl.getUser);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
   app.post('/login',
     passport.authenticate('login',
@@ -40,7 +43,7 @@ app.get('/', usrCtrl.firstPage);
       // function(req, res){
       //   console.log("passp auth hit");
       // res.send(req.user.firstname);
-
+ app.get('/adminStatus', usrCtrl.adminStatus);
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
@@ -100,8 +103,8 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log('deserialize');
-  console.log('user: ' + user.username);
+  // console.log('deserialize');
+  // console.log('user: ' + user.username);
   done(null, user);
 });
 
@@ -133,13 +136,15 @@ function(req, username, password, done) {
         // done method which will be treated like success
         // debugger
         req.session.user = user;
+       usernameExport = user;
         req.session.organization = user._doc._organization
-        console.log(user)
+        console.log("This is returned to login", user);
         console.log(req.session.user)
         return done(null, user);
       }
       );
   }));
+
 
 var isValidPassword = function(user, password){
   return bcrypt.compareSync(password, user.password);

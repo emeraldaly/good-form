@@ -9,6 +9,9 @@ $scope.listOfUsers= []
 // view all classes
 // click on a user to see thier userinfopage
 
+$scope.repeatStyle ={'height': '35px',
+                      'border-bottom': "1px lightGray solid",
+                      'margin-top': '10px'};
 
 $scope.myClasses = []
 $scope.myClass = function() {
@@ -105,11 +108,11 @@ if ($rootScope.classEdit == undefined) {
 }
 
 $scope.updateClass = function() {
+  debugger
   if (($scope.userRole == undefined) || ($rootScope.userUpdate === undefined)) {
     $scope.allFields = "false"
     console.log($rootScope.userUpdate)
   } else {
-    debugger
     console.log($rootScope.userUpdate)
       // $state.transitionTo($state.current, $stateParams, { 
       //       reload: true, inherit: true, notify: true
@@ -150,7 +153,6 @@ $scope.viewThisClass = function() {
     method: 'GET',
     url: '/viewThisClass'
   }).then(function(result) {
-    debugger
     console.log(result.data)
     angular.forEach(result.data[0].role, function(eachOne) {
       $scope.classView.push(eachOne);
