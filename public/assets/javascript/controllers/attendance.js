@@ -68,7 +68,8 @@ $scope.editAttend =function(editId){
 
 }
 
-$scope.thisAttend = function(id){
+$scope.thisAttend = function(id, date){
+  $rootScope.dateAttend = date;
   $rootScope.thisAttendId = id;
    $http({
         method: 'POST',
