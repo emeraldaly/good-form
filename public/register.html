@@ -18,38 +18,38 @@
     <form method="post" action="/register">
       <div>
     		<label for="organizationName">Name</label>
-        <input type="text" class="form-control" name="organizationName" placeholder="Enter Name of Organization">
+        <input required type="text" class="form-control" name="organizationName" placeholder="Enter Name of Organization">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="address">Address</label>
-  	    <input type="text" class="form-control" name="address" placeholder="Street, City, State ">
+  	    <input required type="text" class="form-control" name="address" placeholder="Street, City, State ">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="website">Website</label>
-  	    <input type="text" class="form-control" name="website" placeholder="http://www.evanbates.com">
+  	    <input required type="text" class="form-control" name="website" placeholder="http://www.evanbates.com">
         <span class="help-block"></span>
       </div>
 
       <div>
         <label for="userFirstName">First Name</label>
-  	    <input type="text" class="form-control" name="userFirstName" placeholder="Evan">
+  	    <input required type="text" class="form-control" name="userFirstName" placeholder="Evan">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="username">Last Name</label>
-  	    <input type="text" class="form-control" name="userLastName" placeholder="Bates">
+  	    <input required type="text" class="form-control" name="userLastName" placeholder="Bates">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="username">Email</label>
-  	    <input type="email" class="form-control" name="username" placeholder="Evan@bates.com">
+  	    <input required type="email" class="form-control" name="username" placeholder="Evan@bates.com">
         <span class="help-block"></span>
       </div>
       <div>
         <label for="username">Password</label>
-  	    <input type="password" class="form-control" name="userPassword"placeholder="*****">
+  	    <input required type="password" class="form-control" name="userPassword"placeholder="*****">
         <span class="help-block"></span>
       </div>
       <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
