@@ -175,8 +175,10 @@ classApp.controller('newUser', function($scope, $http, $state) {
   }
 });
 
-classApp.controller('loginController', function($scope, $http, $state) {
+classApp.controller('loginController',['$scope', '$http', '$state','$rootScope', '$cookies',  function($scope, $http, $state, $rootScope, $cookies) {
+
   $scope.login = function(){
+    debugger
     $http({
       method: 'POST',
       url: '/login',
@@ -184,13 +186,19 @@ classApp.controller('loginController', function($scope, $http, $state) {
         username:$scope.userEmail,
         password:$scope.userPassword,
       }
-    }).then(function(result) {
-      console.log(result);
+    }).then(function(res) {
+      console.log("Login response is", res);
+      $cookies.put('token', res.data.token);
+      $cookies.put('currentUser', res.firstname);
+      console.log(res.data);
+      $rootScope.currentUser = res.firstname;
+
       $state.go('home');
-      $rootScope.user = result;
+    }, function(err){
+      console.log("Login error ", err);
     });
   }
-});
+}]);
 
 angular.module('classApp').run(function($rootScope, $cookies){
   debugger

@@ -1,7 +1,14 @@
 //socket connection
 module.exports = function(io){
   io.on('connection', function(socket){
+    //change this to logged in user's name
+    var username = "st";
+    // function(req, res){
+    //   debugger
+    //   console.log(req.session.user.firstname);
+    // };
 
+    // username();
     console.log('a user has connected at:' + socket.id);
 
   // //   socket.on('request-users', function(){
@@ -28,32 +35,11 @@ module.exports = function(io){
   //   // });
 
     socket.on('message', function(data){
-      //change this to logged in user's name
-      var username = function(req, res){
-        debugger
-        console.log(req.session.user.firstname);
-      };
-      username();
-
       io.emit('message', {
         username: username,
         message: data.message
       });
     });
-
-  //   // when the client emits 'typing', we broadcast it to others
-  //     // socket.on('typing', function () {
-  //     //   socket.broadcast.emit('typing', {
-  //     //     username: socket.username
-  //     //   });
-  //     // });
-
-  //     // when the client emits 'stop typing', we broadcast it to others
-  //     // socket.on('stop typing', function () {
-  //     //   socket.broadcast.emit('stop typing', {
-  //     //     username: socket.username
-  //     //   });
-  //     // });
 
     socket.on('disconnect', function(data){
   //     // console.log(username + ' has disconnected');
@@ -63,3 +49,6 @@ module.exports = function(io){
     });
   });
 }
+
+// var username = req.session.user.username;
+// console.log(username);

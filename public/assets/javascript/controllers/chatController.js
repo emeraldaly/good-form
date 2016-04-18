@@ -2,10 +2,10 @@ angular.module('classApp')
   .factory('Socket', ['socketFactory', function(socketFactory){
     return socketFactory();
   }])
-  .controller('chatControl', ['$scope','Socket','$cookies','$rootScope', function($scope, Socket, $cookies, $rootScope){
+  .controller('chatControl', ['$scope','Socket','$cookies','$rootScope', '$http', function($scope, Socket, $cookies, $rootScope, $http){
     Socket.connect();
 
-    // $scope.users = [];
+    $scope.users = [];
 
     $scope.messages = [];
 
@@ -14,8 +14,13 @@ angular.module('classApp')
 
     // }
 
-    console.log($rootScope);
-    console.log($cookies);
+    $scope.getUser = function(){
+      $http.get('/getUser')
+      .then(function(res){
+        console.log("Get user response:", res);
+        console.log("This user res: " + res.data.firstname +' ' +res.data.lastname[0] + '.');
+      });
+    }
 
     $scope.sendMessage = function(msg) {
       if(msg != null && msg != '' && msg.length <= 150) {
@@ -27,6 +32,13 @@ angular.module('classApp')
       $scope.msg = '';
     }
 
+    if($cookies.get('currentUser')){
+      console.log($cookies.get('currentUser'));
+      Socket.emit('add-user', {username: $rootScope.currentUser});
+    } else {
+      alert('You need to sign in to chat');
+    }
+
     // Socket.emit('request-users', {});
 
     // Socket.on('users', function(data){
@@ -34,16 +46,14 @@ angular.module('classApp')
     // });
 
     Socket.on('message', function(data) {
-      console.log(data);
-      console.log($scope.messages);
       $scope.messages.push(data);
       console.log($scope.messages);
     });
 
-    // Socket.on('add-user', function(data) {
-    //   $scope.users.push(data.username);
-    //   $scope.messages.push({username: data.username, message: 'has arrived'});
-    // });
+    Socket.on('add-user', function(data) {
+      $scope.users.push(data.username);
+      $scope.messages.push({username: data.username, message: 'has arrived'});
+    });
 
     // Socket.on('remove-user', function(data){
     //   $scope.users.splice($scope.users.indexOf(data.username),1);
