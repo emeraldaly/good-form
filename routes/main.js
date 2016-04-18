@@ -43,7 +43,7 @@ module.exports = function (app) {
       // function(req, res){
       //   console.log("passp auth hit");
       // res.send(req.user.firstname);
-
+ app.get('/adminStatus', usrCtrl.adminStatus);
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
@@ -145,7 +145,6 @@ function(req, username, password, done) {
       );
   }));
 
-exports.socketUser = usernameExport;
 
 var isValidPassword = function(user, password){
   return bcrypt.compareSync(password, user.password);
