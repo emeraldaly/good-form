@@ -18,7 +18,6 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 
 $rootScope.infos=[];
 $scope.viewInfo = function() {
-		prompt("got it")
 			$http({
 				method: 'GET',
 				url: '/viewInfo',
