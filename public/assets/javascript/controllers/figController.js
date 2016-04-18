@@ -12,7 +12,9 @@ $scope.metrics = function(){
 	$scope.myLecture = function(){
 		$state.go('myLecture');
 	};
-
+$scope.myClass = function(){
+		$state.go('myClass');
+	};
 	$scope.chatter = function(){
 		$state.go('chat');
 	};
