@@ -39,6 +39,13 @@ exports.viewAssignments = function(req, res){
   })
 }
 
+exports.currentUser = function(req, res){
+  User.find({"_id":req.session.user._id})
+  .exec(function (err, user){
+    res.send(user)
+  })
+  
+}
 exports.addUser = function(req, res) {
 
   var userx = new User({
