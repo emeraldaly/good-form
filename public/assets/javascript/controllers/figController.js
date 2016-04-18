@@ -9,6 +9,10 @@ $scope.viewAssignments = function(){
 $scope.metrics = function(){
 		$state.go('metrics');
 	};
+	$scope.myLecture = function(){
+		$state.go('myLecture');
+	};
+
 	$scope.chatter = function(){
 		$state.go('chat');
 	};
