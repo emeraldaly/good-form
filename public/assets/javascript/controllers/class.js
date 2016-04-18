@@ -161,8 +161,18 @@ $scope.viewThisClass = function() {
   });
 }
 
+$scope.deleteClassButton = function(){
+  if ($rootScope.classEdit == undefined) {
+    $scope.message = "Please select a class to continue";
+  }
+  else {
+    $scope.deleteChoice = "true";
+    $scope.message="";
+  }
+}
 $scope.editThisClass = function() {
   if ($rootScope.classEdit == undefined) {
+    $scope.message = "Please select a class to continue"
     $scope.allFields = "false"
     return
   } else {
