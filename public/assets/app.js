@@ -207,25 +207,6 @@ classApp.controller('loginController',['$scope', '$http', '$state','$rootScope',
   }
 }]);
 
-// classApp.controller('cookieController', function($scope, $cookies, $http) {
-// $scope.setCookie = function(){
-//   $http({
-// method: 'GET',
-// url: '/adminStatus'
-// }).then(function(result){
-//   console.log(result);
-// $cookies.remove('34839');
-//    $cookies.put('34839', result.data);
-// console.log("cooked");
-// })
-// }
-// })
-
-
-    
- 
-
-
 
 // angular.module('classApp').run(function($rootScope, $cookies){
 //   if($cookies.get('token') && $cookies.get('currentUser')){
