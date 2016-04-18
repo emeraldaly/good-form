@@ -61,14 +61,16 @@ exports.addUser = function(req, res) {
     username: req.body.username
   }, function(err, user) {
     if (user) {
-      res.redirect("/?msg=Your email is already registered, please login.");
-      console.log("found one")}
-      else { console.log("didn't find one")
-        userx.save(function(err, user) {console.log("saved")});
-
-      // res.redirect("/?msg=Thank you for registering, please login.");
-
-    };
+      res.send("taken");
+      console.log("found one")
+      }
+      else { 
+        console.log("didn't find one")
+        userx.save(function(err, user) { 
+          console.log("saved")
+          res.send("saved")
+        });
+      };
 
 
 

@@ -134,7 +134,7 @@ classApp.run(['$state', function ($state) {
    $state.transitionTo('info');
 }])
 
-classApp.controller('newUser', function($scope, $http, $state) {
+classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
   $scope.addUser = function(){
     console.log($scope.userFirstName)
     $http({
@@ -147,6 +147,14 @@ classApp.controller('newUser', function($scope, $http, $state) {
         userLastName:$scope.userLastName,
       }
     }).then(function(result) {
+      if (result.data == "taken"){
+       $scope.userTaken="This Email was already used, please try another";
+      }
+      else{
+        $state.go($state.current, {}, {reload: true});
+        $rootScope.message = "New User Created!";
+        
+      }
       $state.go('login');
     });
   };
