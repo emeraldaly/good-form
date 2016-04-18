@@ -163,3 +163,6 @@ a.linklogo {
 .navbar-fixed-bottom{
   background-color: white;
 }
+.warning {
+  color:red;
+}
