@@ -44,7 +44,7 @@ url: '/adminStatus'
   console.log(result.data);
 $cookies.remove('34839');
 $cookies.put('34839', result.data);
-$scope.slkjdd = $cookies.get('myFavorite');
+$scope.slkjdd = $cookies.get('34839');
 console.log("cooked");
 })
 }	
