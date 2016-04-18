@@ -45,10 +45,10 @@ $scope.setCookie = function(){
 method: 'GET',
 url: '/adminStatus'
 }).then(function(result){
-  console.log(result.data);
-$cookies.remove('34839');
-$cookies.put('34839', result.data);
-$scope.slkjdd = $cookies.get('myFavorite');
+  console.log("results" + result.data);
+$cookies.put('d34839d', result.data);
+$scope.slkjdd = $cookies.get('d34839d');
+console.log($scope.slkjdd);
 console.log("cooked");
 })
 }	
