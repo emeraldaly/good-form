@@ -11,6 +11,7 @@ var bcrypt = require('bcryptjs');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var User = require('../app_server/models/user');
+var usernameExport;
 
 module.exports = function (app) {
 
@@ -42,7 +43,7 @@ module.exports = function (app) {
       // function(req, res){
       //   console.log("passp auth hit");
       // res.send(req.user.firstname);
-
+ app.get('/adminStatus', usrCtrl.adminStatus);
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
@@ -135,6 +136,7 @@ function(req, username, password, done) {
         // done method which will be treated like success
         // debugger
         req.session.user = user;
+       usernameExport = user;
         req.session.organization = user._doc._organization
         console.log("This is returned to login", user);
         console.log(req.session.user)
@@ -142,6 +144,7 @@ function(req, username, password, done) {
       }
       );
   }));
+
 
 var isValidPassword = function(user, password){
   return bcrypt.compareSync(password, user.password);

@@ -20,6 +20,13 @@ var mongoose = require("mongoose");
 
 
 // }
+
+exports.adminStatus = function(req, res){
+ res.send(req.session.user.admin) 
+
+}
+
+
 exports.auth = function(req, res, next){
   console.log("auth hit");
   if (!req.isAuthenticated())

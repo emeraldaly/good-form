@@ -186,7 +186,6 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
 classApp.controller('loginController',['$scope', '$http', '$state','$rootScope', '$cookies',  function($scope, $http, $state, $rootScope, $cookies) {
 
   $scope.login = function(){
-    debugger
     $http({
       method: 'POST',
       url: '/login',
@@ -208,10 +207,29 @@ classApp.controller('loginController',['$scope', '$http', '$state','$rootScope',
   }
 }]);
 
-angular.module('classApp').run(function($rootScope, $cookies){
-  debugger
-  if($cookies.get('token') && $cookies.get('currentUser')){
-    $rootScope.token = $cookies.get('token');
-    $rootScope.currentUser = $cookies.get('currentUser');
-  }
-});
+// classApp.controller('cookieController', function($scope, $cookies, $http) {
+// $scope.setCookie = function(){
+//   $http({
+// method: 'GET',
+// url: '/adminStatus'
+// }).then(function(result){
+//   console.log(result);
+// $cookies.remove('34839');
+//    $cookies.put('34839', result.data);
+// console.log("cooked");
+// })
+// }
+// })
+
+
+    
+ 
+
+
+
+// angular.module('classApp').run(function($rootScope, $cookies){
+//   if($cookies.get('token') && $cookies.get('currentUser')){
+//     $rootScope.token = $cookies.get('token');
+//     $rootScope.currentUser = $cookies.get('currentUser');
+//   }
+// });
