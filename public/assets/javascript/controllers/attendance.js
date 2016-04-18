@@ -18,7 +18,9 @@ $scope.viewOlderAttend = function(){
   }
 }
 
-
+$scope.repeatStyle ={'height': '35px',
+                      'border-bottom': "1px lightGray solid",
+                      'margin-top': '10px'};
 
 
 $scope.viewAttendDates = function(){
@@ -66,7 +68,8 @@ $scope.editAttend =function(editId){
 
 }
 
-$scope.thisAttend = function(id){
+$scope.thisAttend = function(id, date){
+  $rootScope.dateAttend = date;
   $rootScope.thisAttendId = id;
    $http({
         method: 'POST',
@@ -114,14 +117,14 @@ $scope.test = function(){
 ("workin")
 }
 
-$scope.students = []
+$scope.date = '';
+$scope.students = [];
 $scope.getAttend = function(){
 		 $http({
         method: 'GET',
         url: '/getAttend'
       }).then(function(result) {
-    
-        
+        $scope.date = new Date();
         angular.forEach(result.data[0].student, function (eachOne){
           $scope.students.push(eachOne);
         });

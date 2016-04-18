@@ -1,15 +1,17 @@
-<div ng-controller ="attendance" ng-init="getAttend()">
 
-	<h3> Not here </h3>
-	<div ng-repeat="student in students | filter:{here: false}">
-	
-	{{student._user.firstname}} {{student._user.firstname}} 
+<div class="form-box col-md-12" ng-controller="attendance" ng-init="getAttend()">
+	<h2> Attendance for: {{dateAttend | date:"shortDate"}} </h2>
+	<h3 class="text-center"> Not Here </h3>
+	<div ng-style="repeatStyle" ng-repeat="student in students | filter:{here: false}">
+		{{student._user.firstname}} {{student._user.firstname}}
 	</div>
 
-	<h3>here</h3>
-<div ng-repeat="student in students | filter:{here: true}">
+	<h3 class="text-center">Here</h3>
+	<div ng-style="repeatStyle" ng-repeat="student in students | filter:{here: true}">
 
-{{student._user.firstname}} {{student._user.firstname}} 
-	</div>	 
-	<a ui-sref="editAttend"><button>edit</button></a>
+		{{student._user.firstname}} {{student._user.firstname}}
+
+	</div>
+
 </div>
+<a ui-sref="editAttend"><button class="btn btn-warning btn-block">edit</button></a>

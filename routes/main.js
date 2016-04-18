@@ -28,11 +28,13 @@ module.exports = function (app) {
   app.use(passport.session());
 
   //User Controls
-app.get('/', usrCtrl.firstPage);
+  app.get('/', usrCtrl.firstPage);
+  app.get("/currentUser", usrCtrl.currentUser);
   app.post('/adduser', usrCtrl.addUser);
   app.get('/viewAssignments', usrCtrl.viewAssignments);
   app.post('/updateUser', usrCtrl.updateUser);
   app.post('/newUser', usrCtrl.newUser);
+  app.get('/getUser', usrCtrl.getUser);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
   app.post('/login',
     passport.authenticate('login',
@@ -101,8 +103,8 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(user, done) {
-  console.log('deserialize');
-  console.log('user: ' + user.username);
+  // console.log('deserialize');
+  // console.log('user: ' + user.username);
   done(null, user);
 });
 
@@ -136,7 +138,7 @@ function(req, username, password, done) {
         req.session.user = user;
        usernameExport = user;
         req.session.organization = user._doc._organization
-        console.log(user)
+        console.log("This is returned to login", user);
         console.log(req.session.user)
         return done(null, user);
       }
