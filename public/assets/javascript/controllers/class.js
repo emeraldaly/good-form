@@ -150,7 +150,6 @@ $scope.viewThisClass = function() {
     method: 'GET',
     url: '/viewThisClass'
   }).then(function(result) {
-    debugger
     console.log(result.data)
     angular.forEach(result.data[0].role, function(eachOne) {
       $scope.classView.push(eachOne);

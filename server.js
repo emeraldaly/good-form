@@ -25,7 +25,7 @@ require("./app_server/models/db");
 
 require('./routes')(app);
 //require socket server
-require('./app_server/config/socketConnection')(io);
+require('./socketConnection')(io);
 
 http.listen(PORT, function(){
   console.log("listening on PORT:" + PORT);

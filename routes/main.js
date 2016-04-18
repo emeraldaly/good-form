@@ -11,6 +11,7 @@ var bcrypt = require('bcryptjs');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 var User = require('../app_server/models/user');
+var usernameExport;
 
 module.exports = function (app) {
 
@@ -133,6 +134,7 @@ function(req, username, password, done) {
         // done method which will be treated like success
         // debugger
         req.session.user = user;
+       usernameExport = user;
         req.session.organization = user._doc._organization
         console.log(user)
         console.log(req.session.user)
@@ -140,6 +142,8 @@ function(req, username, password, done) {
       }
       );
   }));
+
+exports.socketUser = usernameExport;
 
 var isValidPassword = function(user, password){
   return bcrypt.compareSync(password, user.password);

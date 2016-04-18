@@ -1,3 +1,4 @@
+var user = require('/routes/main');
 
 //socket connection
 
