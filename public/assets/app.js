@@ -207,7 +207,27 @@ classApp.controller('loginController',['$scope', '$http', '$state','$rootScope',
   }
 }]);
 
-
+classApp.controller('fEventCalendar', function($scope, $http){
+  //$scope.clicked = function () {
+   // console.log('this has been clicked-hurrah!')
+  //}
+  $scope.addEvent = function() {
+    // console.log('where are all the turkeys?')
+    //console.log("where does the grass grow best?")
+     $http({
+      method: 'POST',
+      url: '/addEvent',
+      data: {
+        title: $scope.title,
+        start: $scope.start
+        }
+      }).then(function(result) {
+        console.log(result.data)
+      });
+     
+   }
+ });
+//});
 // angular.module('classApp').run(function($rootScope, $cookies){
 //   if($cookies.get('token') && $cookies.get('currentUser')){
 //     $rootScope.token = $cookies.get('token');
