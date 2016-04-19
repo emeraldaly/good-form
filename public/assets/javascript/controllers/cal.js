@@ -45,7 +45,7 @@ $( "#thisbutton" ).click(function() {
 });
 
 
-}); 
+
 
     //   alert("thisbutton clicked");
     //   var eventTitles = [];
