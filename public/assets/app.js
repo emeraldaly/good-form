@@ -229,9 +229,10 @@ classApp.controller('fEventCalendar', function($scope, $http){
  });
 
 
-classApp.controller('navbarController', function($scope, $http){
+classApp.controller('navbarController', function($scope, $window, $http){
   
   $scope.logout = function() {
+    $window.location.href='/'
     // console.log('where are all the turkeys?')
     //console.log("where does the grass grow best?")
      $http({
