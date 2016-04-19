@@ -99,7 +99,7 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
   })
   .state('metrics', {
     url: '/metrics',
-    templateUrl: '/views/highcharts.html'
+    templateUrl: '/views/metrics.html'
   })
   .state('createHomework', {
     url: '/createHomework',
@@ -242,6 +242,28 @@ classApp.controller('navbarController', function($scope, $window, $http){
      
    }
  });
+
+classApp.controller('gitCall', function($scope, $http) {
+  $scope.caller = function() {
+    $http.get('https://api.github.com/users/evanbates/repos')
+    .then(function(response) {
+      console.log(response);
+      // $scope.repos = response.data;
+    });
+  };
+
+  // $scope.$watch("selectedRepo",function(){
+  //   $scope.getCommits();
+  // });
+
+  // $scope.getCommits = function() {
+  //   $http.get('https://api.github.com/repos/' + $scope.selectedRepo + '/commits')
+  //   .then(function(response) {
+  //     $scope.commits = response.data;
+  //   });
+  });
+
+
 //});
 // angular.module('classApp').run(function($rootScope, $cookies){
 //   if($cookies.get('token') && $cookies.get('currentUser')){
