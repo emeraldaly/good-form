@@ -21,6 +21,9 @@ var mongoose = require("mongoose");
 
 // }
 
+
+
+
 exports.adminStatus = function(req, res){
  res.send(req.session.user.admin)
 
