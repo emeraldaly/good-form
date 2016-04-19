@@ -194,19 +194,7 @@ classApp.controller('loginController',['$scope', '$http', '$state','$rootScope',
         password:$scope.userPassword,
       }
     })
-    // .then(function(res) {
-    //   console.log("Login response is", res.data);
-    //   $cookies.put('token', res.data.token);
-    //   $cookies.put('currentUser', res.firstname);
-    //   console.log("See this? ", res.data);
-    //   console.log("Current user is ", $cookies.get('currentUser'));
-    //   $rootScope.currentUser = res.firstname;
-
-      .then(function(result){
-        console.log("results from then function");
-
-        // })
-
+    .then(function(result){
       $state.go('home');
     }, function(err){
       console.log("Login error ", err);
@@ -235,9 +223,9 @@ classApp.controller('fEventCalendar', function($scope, $http){
    }
  });
 //});
-// angular.module('classApp').run(function($rootScope, $cookies){
-//   if($cookies.get('token') && $cookies.get('currentUser')){
-//     $rootScope.token = $cookies.get('token');
-//     $rootScope.currentUser = $cookies.get('currentUser');
-//   }
-// });
+angular.module('classApp').run(function($rootScope, $cookies){
+  if($cookies.get('token') && $cookies.get('currentUser')){
+    $rootScope.token = $cookies.get('token');
+    $rootScope.currentUser = $cookies.get('currentUser');
+  }
+});

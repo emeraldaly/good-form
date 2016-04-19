@@ -6,17 +6,19 @@ module.exports = function(io){
   io.on('connection', function(socket){
     //change this to logged in user's name
     var username = " ";
-    // function(req, res){
-    //   debugger
-    //   console.log(req.session.user.firstname);
-    // };
 
-    // username();
     console.log('a user has connected at:' + socket.id);
 
   // //   socket.on('request-users', function(){
   // //     socket.emit('users', {users: users});
   //   // });
+  socket.on('add-user', function(data){
+    io.emit('add-user', {
+      username: data.username
+    });
+    username = data.username;
+    users.push(data.username);
+  });
 
   //   // socket.on('add-user', function(data){
   // //     if(users.indexOf(data.username) == -1){
@@ -38,13 +40,8 @@ module.exports = function(io){
   //   // });
 
     socket.on('message', function(data){
+      console.log(data);
       //change this to logged in user's name
-      username = function(req, res){
-        console.log(req.session.user.username);
-      };
-      username();
-
-
       io.emit('message', {
         username: username,
         message: data.message
@@ -59,6 +56,3 @@ module.exports = function(io){
     });
   });
 }
-
-// var username = req.session.user.username;
-// console.log(username);
