@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 var eventSchema = new Schema({
   title: String,
-  start: String
+  start: Date
 });
 
 var Event = mongoose.model('Event', eventSchema);
