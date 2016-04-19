@@ -14,7 +14,9 @@ $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
 
+    
     $('#calendar').fullCalendar({
+
       events: function(start, end, timezone, callback) {
         $.ajax({
           method: 'GET',
@@ -26,14 +28,22 @@ $(document).ready(function() {
                 title: result[i].title,
                         start: result[i].start // will be parsed
                       });
-             };
-        callback(events);
-         }
-    });
-  }
-})
+            };
+            callback(events);
+          }
+        });
+      }
+    })
+  // });
 
-    // $( "#thisbutton" ).click(function() {
+$( "#thisbutton" ).click(function() {
+
+  $('#calendar').fullCalendar("refetchEvents");
+
+});
+
+
+}); 
     //   alert("thisbutton clicked");
     //   var eventTitles = [];
     //   var eventStarts = [];
@@ -81,4 +91,4 @@ $(document).ready(function() {
  // });
 
 
-});
+
