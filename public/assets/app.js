@@ -153,7 +153,7 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
       else{
         $state.go($state.current, {}, {reload: true});
         $rootScope.message = "New User Created!";
-        
+
       }
       $state.go('login');
     });
@@ -193,12 +193,19 @@ classApp.controller('loginController',['$scope', '$http', '$state','$rootScope',
         username:$scope.userEmail,
         password:$scope.userPassword,
       }
-    }).then(function(res) {
-      console.log("Login response is", res);
-      $cookies.put('token', res.data.token);
-      $cookies.put('currentUser', res.firstname);
-      console.log(res.data);
-      $rootScope.currentUser = res.firstname;
+    })
+    // .then(function(res) {
+    //   console.log("Login response is", res.data);
+    //   $cookies.put('token', res.data.token);
+    //   $cookies.put('currentUser', res.firstname);
+    //   console.log("See this? ", res.data);
+    //   console.log("Current user is ", $cookies.get('currentUser'));
+    //   $rootScope.currentUser = res.firstname;
+
+      .then(function(result){
+        console.log("results from then function");
+
+        // })
 
       $state.go('home');
     }, function(err){
@@ -224,7 +231,7 @@ classApp.controller('fEventCalendar', function($scope, $http){
       }).then(function(result) {
         console.log(result.data)
       });
-     
+
    }
  });
 //});

@@ -39,7 +39,7 @@ module.exports = function(io){
 
     socket.on('message', function(data){
       //change this to logged in user's name
-      var username = function(req, res){
+      username = function(req, res){
         console.log(req.session.user.username);
       };
       username();

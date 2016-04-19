@@ -2,7 +2,7 @@ angular.module('classApp')
   .factory('Socket', ['socketFactory', function(socketFactory){
     return socketFactory();
   }])
-  .controller('chatControl', ['$scope','Socket','$cookies','$rootScope', function($scope, Socket, $cookies, $rootScope){
+  .controller('chatControl', ['$scope','Socket','$cookies','$rootScope', '$http', function($scope, Socket, $cookies, $rootScope, $http){
     Socket.connect();
 
     // $scope.users = [];
@@ -15,7 +15,18 @@ angular.module('classApp')
     // }
 
     console.log($rootScope);
-    console.log($cookies);
+    console.log($cookies.getAll());
+
+    $scope.getUser = function() {
+      $http({
+        method: 'GET',
+        url: '/getUser'
+      })
+      .then(function(res){
+        $cookies.put('currentUser', res.data.firstname +' ' + res.data.lastname[0] + '.');
+        console.log("Current user is", $cookies.get('currentUser'));
+      });
+    }
 
     $scope.sendMessage = function(msg) {
       if(msg != null && msg != '' && msg.length <= 150) {
