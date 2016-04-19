@@ -1,46 +1,26 @@
-
 //socket connection
-
-
 module.exports = function(io){
   io.on('connection', function(socket){
+    var users = [];
     //change this to logged in user's name
     var username = " ";
 
     console.log('a user has connected at:' + socket.id);
 
-  // //   socket.on('request-users', function(){
-  // //     socket.emit('users', {users: users});
-  //   // });
-  socket.on('add-user', function(data){
-    io.emit('add-user', {
-      username: data.username
-    });
-    username = data.username;
-    users.push(data.username);
-  });
+    // socket.on('request-users', function(){
+    //   socket.emit('users', {users: users});
+    //   console.log(users);
+    // });
 
-  //   // socket.on('add-user', function(data){
-  // //     if(users.indexOf(data.username) == -1){
-  // //       io.emit('add-user', {
-  // //         username: data.username
-  // //       });
-  // //       username = data.username;
-  // //       users.push(data.username);
-  //       // users.push(username);
-  // //       User.save(function(err){
-  // //         if (err) throw err;
-  // //         console.log('user saved to db');
-  // //       });
-  // //     } else {
-  // //       socket.emit('prompt-username', {
-  // //         message : "User already exists"
-  // //       })
-  // //     }
-  //   // });
+    socket.on('add-user', function(data){
+      io.emit('add-user', {
+        username: data.username
+      });
+      username = data.username;
+      users.push(data.username);
+    });
 
     socket.on('message', function(data){
-      console.log(data);
       //change this to logged in user's name
       io.emit('message', {
         username: username,

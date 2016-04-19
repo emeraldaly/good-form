@@ -74,6 +74,10 @@ html,body
 ul.msgList.pre-scrollable {
   max-height: 175px;
 }
+
+span.username {
+  font-weight: bold;
+}
 /*JEDBOARD*/
 .classH4 {
   font-style: italic;
