@@ -153,6 +153,7 @@ $scope.viewThisClass = function() {
     method: 'GET',
     url: '/viewThisClass'
   }).then(function(result) {
+    $scope.className = result.data[0].name
     console.log(result.data)
     angular.forEach(result.data[0].role, function(eachOne) {
       $scope.classView.push(eachOne);
@@ -160,8 +161,18 @@ $scope.viewThisClass = function() {
   });
 }
 
+$scope.deleteClassButton = function(){
+  if ($rootScope.classEdit == undefined) {
+    $scope.message = "Please select a class to continue";
+  }
+  else {
+    $scope.deleteChoice = "true";
+    $scope.message="";
+  }
+}
 $scope.editThisClass = function() {
   if ($rootScope.classEdit == undefined) {
+    $scope.message = "Please select a class to continue"
     $scope.allFields = "false"
     return
   } else {
