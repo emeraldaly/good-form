@@ -3,7 +3,6 @@
 <div class="form-box col-xs-12">
 <h2> Pick a Class </h2>
 <div ng-controller="class" ng-init="getClasses()">
-
 	<table ng-table="classesTable" class="table" show-filter="true">
     <tr ng-repeat="class in $data">
       <td title="'Name'"  sortable="'name'" filter="{name: 'text'}">
@@ -20,8 +19,9 @@
   </table>
  </div>
  <div ng-controller="attendance">
+  <p class="warning">{{message}}</p>
     <button class="btn btn-warning btn-block" ng-click="newAttendance()"> New Attendance </button>
     <button class="btn btn-warning btn-block" ng-click="viewOlderAttend()"> View Older Attendance </button>
-<p ng-show="allFields == 'false'"> please enter all fields to continue </p>
+
 </div>
   </div>
