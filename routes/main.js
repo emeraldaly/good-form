@@ -97,6 +97,15 @@ module.exports = function (app) {
   app.get('/getEvent', event.showEvent);
   app.get('/home', usrCtrl.defRoute);
 
+app.get('/logout', function (req, res){
+  // req.logOut();
+  req.session.destroy(function (err) {
+    res.sendFile(process.cwd() + '/public/splash.html');
+  });
+});
+
+
+
 //passport
 passport.serializeUser(function(user, done) {
   console.log('serialize', user);
