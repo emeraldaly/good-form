@@ -57,7 +57,6 @@ exports.currentUser = function(req, res){
   
 }
 exports.addUser = function(req, res) {
-
   var userx = new User({
     firstname: req.body.userFirstName,
     lastname: req.body.userLastName,
@@ -110,8 +109,6 @@ exports.addUser = function(req, res) {
 
 
 exports.newUser = function(req, res) {
-  console.log("This other one was just hit");
-  console.log(req.body)
   User.findOne({
     username: req.body.username
   }, function(err, user) {

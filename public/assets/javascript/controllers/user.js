@@ -1,7 +1,7 @@
 angular.module('classApp').controller('user', function($scope,  $state,$http, $filter, NgTableParams) {
 
 $scope.updateUser = function(){
-   $state.go($state.current, {}, {reload: true});
+  $state.go($state.current, {}, {reload: true});
 	$http({
         method: 'POST',
         url: '/updateUser',

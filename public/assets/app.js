@@ -148,7 +148,7 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
       }
     }).then(function(result) {
       if (result.data == "taken"){
-       $scope.userTaken="This Email was already used, please try another";
+       $scope.userTaken="This email was already used, please try another";
       }
       else{
         $state.go($state.current, {}, {reload: true});
@@ -160,6 +160,7 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
   };
 
   $scope.register = function(){
+    debugger
     $http({
       method: 'POST',
       url: '/newUser',
@@ -172,12 +173,9 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
         userFirstName:$scope.userFirstName,
         userLastName:$scope.userLastName,
       }
-    }).then(
-      function successCallback(result) {
-        console.log(result)
-        $state.go('login');
-      }, function errorCallback(result){
-        console.log(result);
+    }).then(function(result) {
+      debugger
+      console.log(result)
       }
     );
   }
