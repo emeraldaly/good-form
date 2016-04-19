@@ -4,13 +4,15 @@
   </div>
   <div class="form-bottom">
     <div ng-controller="homework">
-    	<h4>Heroku Link</h4>
-    	<input class="form-control" ng-model="heroku">
-      <span class="help-block"></span>
-      <h4>Github Repo Link</h4>
-    	<input class="form-control" ng-model="github">
-      <span class="help-block"></span>
-    	<button class="btn btn-warning btn-block" ng-click="submitHw()"> Submit</button>
+        <form ng-submit="submitHw()">
+      	<h4>Heroku Link</h4>
+      	<input  class="form-control" ng-model="heroku">
+        <span class="help-block"></span>
+        <h4>Github Repo Link</h4>
+      	<input required class="form-control" ng-model="github">
+        <span class="help-block"></span>
+      	<button type="submit" class="btn btn-warning btn-block"> Submit</button>
+      </form>
     </div>
   </div>
 </div>

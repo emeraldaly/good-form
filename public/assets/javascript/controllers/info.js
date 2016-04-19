@@ -1,6 +1,10 @@
 
 angular.module('classApp').controller('info', function($scope, $state, $http, $filter, $rootScope, NgTableParams) {
 		$scope.createInfo = function() {
+			if (($scope.information == undefined)  || ($scope.title == undefined) ){
+				$scope.message = "Please enter all fields to continue";
+			}
+			else{
 			console.log($scope.userUpdate)
 			 $state.go($state.current, {}, {reload: true});
 			$http({
@@ -13,6 +17,7 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 			}).then(function(result) {
 				$scope.viewInfo()
 			});
+			}
 		}
 
 
