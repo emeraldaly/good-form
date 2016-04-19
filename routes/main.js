@@ -5,6 +5,7 @@ var orgCtrl = require("../app_server/controllers/orgController");
 var attendance = require("../app_server/controllers/attendanceController");
 var usrCtrl = require("../app_server/controllers/usrController");
 var lecture = require("../app_server/controllers/lectureController");
+var event = require("../app_server/controllers/bEventController");
 var passport = require('passport');
 var LocalStrategy   = require('passport-local').Strategy;
 var bcrypt = require('bcryptjs');
@@ -92,7 +93,8 @@ module.exports = function (app) {
   app.post('/updateClass', classCtrl.updateClass);
   app.post("/deleteClass", classCtrl.deleteClass);
 
-
+  app.post('/addEvent', event.createEvent);
+  app.get('/getEvent', event.showEvent);
   app.get('/home', usrCtrl.defRoute);
 
 //passport
