@@ -28,12 +28,14 @@ $(document).ready(function() {
                 title: result[i].title,
                         start: result[i].start, // will be parsed
                       });
-            };
-            callback(events);
-          }
-        });
-      }
-    })
+             };
+        callback(events);
+         }
+    });
+  }
+});
+  });
+
   // });
 
 $( "#thisbutton" ).click(function() {
@@ -43,7 +45,8 @@ $( "#thisbutton" ).click(function() {
 });
 
 
-}); 
+
+
     //   alert("thisbutton clicked");
     //   var eventTitles = [];
     //   var eventStarts = [];
