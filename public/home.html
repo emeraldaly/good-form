@@ -71,7 +71,7 @@
     </div>
 
 
-    <div class="col-xs-12 col-sm-8 col-md-4 pull-right">
+    <div class="col-xs-12 col-sm-8 col-md-4 scrollIt pull-right">
       <div class="form-box">
        <div id='calendar'></div>
 
@@ -86,7 +86,7 @@
             <input type="text" class="form-control" ng-model="title" placeholder="Enter Event Title">
             <span class="help-block"></span>
             <label for="start">Start</label>
-            <input type="text" class="form-control" ng-model="start" placeholder="YYYY-MM-DD">
+            <input type="datetime-local" class="form-control" ng-model="start" placeholder="YYYY-MM-DD">
             <span class="help-block"></span>
           </div>
           <button type="submit" class="btn btn-warning btn-block">Add Event</button>
