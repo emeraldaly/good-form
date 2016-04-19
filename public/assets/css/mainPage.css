@@ -71,7 +71,7 @@ html,body
         overflow-y: scroll;
 }
 /*CHAT*/
-ul.msgList.pre-scrollable {
+ul.msgList.pre-scrollable, ul.userList.pre-scrollable {
   max-height: 175px;
 }
 
