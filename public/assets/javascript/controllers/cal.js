@@ -13,7 +13,7 @@
 $(document).ready(function() {
 
     // page is now ready, initialize the calendar...
-
+ $( "#thisbutton" ).click(function() {
     $('#calendar').fullCalendar({
       events: function(start, end, timezone, callback) {
         $.ajax({
@@ -31,9 +31,10 @@ $(document).ready(function() {
          }
     });
   }
-})
+});
+  });
 
-    // $( "#thisbutton" ).click(function() {
+   
     //   alert("thisbutton clicked");
     //   var eventTitles = [];
     //   var eventStarts = [];
