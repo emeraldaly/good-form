@@ -19,13 +19,14 @@ angular.module('classApp')
       });
     }
 
-    if($cookies.get('token') && $cookies.get('currentUser')){
+    if($cookies.get('currentUser')){
+      console.log($cookies.get('currentUser') + "is the currentUser");
       Socket.emit('add-user', {username: $rootScope.currentUser});
     } else {
-      alert('Chat is down for the moment');
+      alert('Make sure your cookies are enabled to use chat');
     }
 
-    if($cookies.get('token')){
+
       $scope.sendMessage = function(msg) {
         console.log(msg);
         if(msg != null && msg != '' && msg.length <= 150) {
@@ -35,7 +36,7 @@ angular.module('classApp')
         }
         $scope.msg = '';
       }
-    }
+
 
      // Socket.emit('request-users', {});
 

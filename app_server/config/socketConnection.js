@@ -1,7 +1,7 @@
 //socket connection
 module.exports = function(io){
   io.on('connection', function(socket){
-    var users = [];
+    // var users = [];
     //change this to logged in user's name
     var username = " ";
 
@@ -12,13 +12,13 @@ module.exports = function(io){
     //   console.log(users);
     // });
 
-    socket.on('add-user', function(data){
-      io.emit('add-user', {
-        username: data.username
-      });
-      username = data.username;
-      users.push(data.username);
-    });
+    // socket.on('add-user', function(data){
+    //   io.emit('add-user', {
+    //     username: data.username
+    //   });
+    //   username = data.username;
+    //   users.push(data.username);
+    // });
 
     socket.on('message', function(data){
       //change this to logged in user's name
