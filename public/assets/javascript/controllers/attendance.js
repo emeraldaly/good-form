@@ -9,12 +9,12 @@ angular.module('classApp').controller('attendance', function($scope, $stateParam
 //       })
 // }
 
-$scope.viewOlderAttend = function(){
+$scope.viewOlderAttend = function() {
   if ($rootScope.classEdit == undefined) {
-    $scope.allFields = "false"
-    return
-  } else{
-  $state.go("viewAttendDates")
+    $scope.message = "Please select a class to continue"
+  } else {
+    $rootScope.classEdit = undefined;
+    $state.go("viewAttendDates")
   }
 }
 
@@ -23,8 +23,8 @@ $scope.repeatStyle ={'height': '35px',
                       'margin-top': '10px'};
 
 
-$scope.viewAttendDates = function(){
-    $scope.attendDates = new NgTableParams({}, {
+$scope.viewAttendDates = function() {
+  $scope.attendDates = new NgTableParams({}, {
     getData: function($defer, params) {
       return $http.get('/viewAttendDates')
         .then(function(response) {
@@ -39,6 +39,7 @@ $scope.viewAttendDates = function(){
     }
   });
 }
+
 $scope.deleteAttend = function() {
 if ($rootScope.thisAttendId == undefined) {
     $scope.allFields = "false"
@@ -57,15 +58,14 @@ if ($rootScope.thisAttendId == undefined) {
   }
 }
 
-$scope.editAttend =function(editId){
-  if ($rootScope.thisAttendId == undefined){
-    $scope.allFields = "false";    
-  }
-  else{
+
+$scope.editAttend = function(editId) {
+  if ($rootScope.thisAttendId == undefined) {
+    $scope.allFields = "false";
+  } else {
     $rootScope.thisAttendId = undefined
     $state.go("viewAttend")
   }
-
 }
 
 $scope.thisAttend = function(id, date){
@@ -80,19 +80,19 @@ $scope.thisAttend = function(id, date){
 }
 
 $scope.newAttendance = function(){
-    if ($rootScope.classEdit == undefined) {
-    $scope.allFields = "false"
-    return
-  } else{
-  
+  if ($rootScope.classEdit == undefined) {
+    // $scope.allFields = "false"
+    $scope.message = "Please select a class to continue"
+  } 
+  else{
+   $rootScope.classEdit = undefined;
 	 $http({
-        method: 'POST',
-        url: '/newAttendance'
-      }).then(function(result) {
-        
-      });
-      $state.go("editAttendance")
-    }
+    method: 'POST',
+    url: '/newAttendance'
+    }).then(function(result) {   
+    });
+    $state.go("editAttendance")
+  }
 }
 
 $scope.updateAttend= function(id, here){
