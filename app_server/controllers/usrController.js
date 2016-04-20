@@ -185,7 +185,6 @@ exports.getUser = function(req, res) {
       console.log(err);
       res.send(err);
     } else {
-      debugger
       console.log(docs);
       res.send(docs);
     }
