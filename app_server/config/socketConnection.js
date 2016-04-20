@@ -17,6 +17,7 @@ module.exports = function(io){
         username: data.username
       });
       username = data.username;
+      debugger
       users.push(data.username);
     });
 

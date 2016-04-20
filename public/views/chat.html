@@ -5,7 +5,7 @@
       <h3>Messages</h3>
       <ul class="msgList pre-scrollable">
         <li ng-repeat="message in messages track by $index">
-          <span class="username">{{message.username}}</span>
+          <span class="username">{{message.username}}:</span>
           <span class="message">{{message.message}}</span>
         </li>
       </ul>
@@ -13,7 +13,7 @@
     <div class="col-xs-12 col-md-4 user-window">
       <h3>Users</h3>
       <ul class="userList pre-scrollable">
-        <li ng-repeat="user in users track by $index">{{user}}</li>
+        <li ng-repeat="user in users track by $index ">{{user}}</li>
       </ul>
     </div>
   </div>

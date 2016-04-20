@@ -16,14 +16,14 @@ angular.module('classApp')
       })
       .then(function(res){
         $cookies.put('token', res.data._id);
-        $cookies.put('currentUser', res.data.firstname +' ' + res.data.lastname[0] + '.');
+        $cookies.put('currentUser', res.data.firstname +' ' + res.data.lastname[0]);
       });
     }
 
     console.log("All cookie data" + $cookies.get('currentUser') + $cookies.get('token'));
 
     if($cookies.get('token') && $cookies.get('currentUser')){
-      console.log($cookies.get('currentUser') + "is the currentUser");
+      console.log($cookies.get('currentUser') + " is the currentUser");
       Socket.emit('add-user', {username: $rootScope.currentUser});
     } else {
       alert('Make sure your cookies are enabled to use chat');
@@ -53,6 +53,7 @@ angular.module('classApp')
      });
 
      Socket.on('add-user', function(data) {
+      debugger
        $scope.users.push(data.username);
        $scope.messages.push({username: data.username, message: 'has arrived'});
      });
