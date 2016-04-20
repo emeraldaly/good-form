@@ -264,10 +264,10 @@ classApp.controller('gitCall', function($scope, $http) {
   });
 
 
-//});
-// angular.module('classApp').run(function($rootScope, $cookies){
-//   if($cookies.get('token') && $cookies.get('currentUser')){
-//     $rootScope.token = $cookies.get('token');
-//     $rootScope.currentUser = $cookies.get('currentUser');
-//   }
 // });
+angular.module('classApp').run(function($rootScope, $cookies){
+  if($cookies.get('token') && $cookies.get('currentUser')){
+    $rootScope.token = $cookies.get('token');
+    $rootScope.currentUser = $cookies.get('currentUser');
+  }
+});
