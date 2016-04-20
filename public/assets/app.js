@@ -153,7 +153,7 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
       else{
         $state.go($state.current, {}, {reload: true});
         $rootScope.message = "New User Created!";
-        
+
       }
       $state.go('login');
     });
@@ -191,13 +191,8 @@ classApp.controller('loginController',['$scope', '$http', '$state','$rootScope',
         username:$scope.userEmail,
         password:$scope.userPassword,
       }
-    }).then(function(res) {
-      console.log("Login response is", res);
-      $cookies.put('token', res.data.token);
-      $cookies.put('currentUser', res.firstname);
-      console.log(res.data);
-      $rootScope.currentUser = res.firstname;
-
+    })
+    .then(function(result){
       $state.go('home');
     }, function(err){
       console.log("Login error ", err);
@@ -222,7 +217,7 @@ classApp.controller('fEventCalendar', function($scope, $http){
       }).then(function(result) {
         console.log(result.data)
       });
-     
+
    }
  });
 
@@ -243,9 +238,9 @@ classApp.controller('navbarController', function($scope, $window, $http){
    }
  });
 //});
-// angular.module('classApp').run(function($rootScope, $cookies){
-//   if($cookies.get('token') && $cookies.get('currentUser')){
-//     $rootScope.token = $cookies.get('token');
-//     $rootScope.currentUser = $cookies.get('currentUser');
-//   }
-// });
+angular.module('classApp').run(function($rootScope, $cookies){
+  if($cookies.get('token') && $cookies.get('currentUser')){
+    $rootScope.token = $cookies.get('token');
+    $rootScope.currentUser = $cookies.get('currentUser');
+  }
+});
