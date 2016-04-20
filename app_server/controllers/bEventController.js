@@ -9,7 +9,7 @@ exports.createEvent = function(req, res){
   // console.log('what do you mean?')
   var newEvent = new Event({
     title: req.body.title,
-   start: req.body.start
+   start: String(req.body.start)
   });
   newEvent.save(function(err){
     if (err) {
