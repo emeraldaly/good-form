@@ -25,7 +25,7 @@ var mongoose = require("mongoose");
 
 
 exports.adminStatus = function(req, res){
- res.send(req.session.user.admin) 
+ res.send(req.session.user.admin)
 
 }
 
@@ -54,7 +54,7 @@ exports.currentUser = function(req, res){
   .exec(function (err, user){
     res.send(user)
   })
-  
+
 }
 exports.addUser = function(req, res) {
   var userx = new User({
@@ -73,9 +73,9 @@ exports.addUser = function(req, res) {
       res.send("taken");
       console.log("found one")
       }
-      else { 
+      else {
         console.log("didn't find one")
-        userx.save(function(err, user) { 
+        userx.save(function(err, user) {
           console.log("saved")
           res.send("saved")
         });
@@ -172,7 +172,6 @@ exports.firstPage = function(req, res) {
 }
 
 exports.defRoute = function(req, res) {
-  console.log("This req.session: " + req.session.user.firstname +' ' +req.session.user.lastname[0] + '.');
   res.sendFile(process.cwd() + '/public/home.html');
 }
 
@@ -186,7 +185,6 @@ exports.getUser = function(req, res) {
       console.log(err);
       res.send(err);
     } else {
-      debugger
       console.log(docs);
       res.send(docs);
     }

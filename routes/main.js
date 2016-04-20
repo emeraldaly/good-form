@@ -40,10 +40,9 @@ module.exports = function (app) {
   app.post('/login',
     passport.authenticate('login',
      { successRedirect: '/home',
-      failureRedirect: '/?msg=failure' }));
-      // function(req, res){
-      //   console.log("passp auth hit");
-      // res.send(req.user.firstname);
+      failureRedirect: '/?msg=failure'
+    })
+  );
  app.get('/adminStatus', usrCtrl.adminStatus);
 
   //Org Controls
@@ -149,7 +148,6 @@ function(req, username, password, done) {
         req.session.user = user;
        usernameExport = user;
         req.session.organization = user._doc._organization
-        console.log("This is returned to login", user);
         console.log(req.session.user)
         return done(null, user);
       }
