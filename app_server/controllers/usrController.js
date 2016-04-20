@@ -194,7 +194,7 @@ exports.getUser = function(req, res) {
 //Show all users in the class
 exports.getAllUsers = function(req, res) {
   User.find({
-    _organization: req.session.organization
+    _organization: "5712505bbcf8c01100bf6876"
   })
   .exec(function(err, docs){
     if(err){
