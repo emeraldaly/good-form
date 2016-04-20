@@ -15,9 +15,9 @@
 
 
 
-var data = d3.range(10);
-d3.select('section.sec').selectAll('.bar').data(data)
- .enter().append('div')
- .style('width', function(d){ return d + '%'; })
- .attr('class', 'bar');
+// var data = d3.range(10);
+// d3.select('section.sec').selectAll('.bar').data(data)
+//  .enter().append('div')
+//  .style('width', function(d){ return d + '%'; })
+//  .attr('class', 'bar');
                         
