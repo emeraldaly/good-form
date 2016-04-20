@@ -3,16 +3,16 @@
     <tr ng-repeat="homework in $data">
     	<td title="'Name'"  sortable="'name'" filter="{name: 'text'}"> 
         <!-- <div class="radio"> -->
-          <label>
-          	<input type="radio" name="allClasses" ng-click="thisHomework(homework._id)"> {{homework.name}}</label>
-        <!-- </div> -->
-      </td>
-      <td title="'due date'" sortable="'date'">
-      {{homework.duedate | date:"MM/dd/yyyy"}}
+        <label>
+         <input type="radio" name="allClasses" ng-click="thisHomework(homework._id)"> {{homework.name}}</label>
+         <!-- </div> -->
+       </td>
+       <td title="'due date'" sortable="'date'">
+        {{homework.duedate | date:"MM/dd/yyyy"}}
       </td>
     </tr>
   </table>
-	<button class="btn btn-warning btn-block" ng-click="submissionsPage()"> View submission for this class </button>
+  <button class="btn btn-warning btn-block" ng-click="submissionsPage()"> View submission for this class </button>
 </div>
 
 

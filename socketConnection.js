@@ -31,7 +31,7 @@ module.exports = function(io){
   // //     }
   //   // });
 
-    socket.on('message', function(data){
+  socket.on('message', function(data){
       //change this to logged in user's name
       var username = function(req, res){
         console.log(req.session.user.username);
@@ -58,11 +58,11 @@ module.exports = function(io){
   //     //   });
   //     // });
 
-    socket.on('disconnect', function(data){
+  socket.on('disconnect', function(data){
   //     // console.log(username + ' has disconnected');
-      console.log('User has disconnected from ', socket.id);
+  console.log('User has disconnected from ', socket.id);
   //   //   users.splice(users.indexOf(username), 1);
   //     // io.emit('remove-user', {username: username});
-    });
-  });
+});
+});
 }

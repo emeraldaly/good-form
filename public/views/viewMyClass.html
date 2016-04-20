@@ -1,16 +1,16 @@
 	<div class="col-md-12">
-			<h4> Current class </h4>
-			<div data-ng-init="viewThisClass()">
+		<h4> Current class </h4>
+		<div data-ng-init="viewThisClass()">
 			<h3> Teacher </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+				{{class._user.firstname}} {{class._user.lastname}}
 			</div>
 			<h3> Ta </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+				{{class._user.firstname}} {{class._user.lastname}}
 			</div>
 			<h3> Student </h3>
 			<div ng-repeat = "class in classView | filter:{roleType: 'student' }" >
-			{{class._user.firstname}} {{class._user.lastname}}
+				{{class._user.firstname}} {{class._user.lastname}}
+			</div>
 		</div>
-	</div>

@@ -2,11 +2,11 @@ angular.module('classApp').controller('figController', function($scope, $state, 
 	$scope.classer = function(){
 		$state.go('class');
 	};
-$scope.viewAssignments = function(){
+	$scope.viewAssignments = function(){
 		$state.go('createHomework');
 	};
 
-$scope.metrics = function(){
+	$scope.metrics = function(){
 		$state.go('metrics');
 	};
 	$scope.myLecture = function(){
@@ -15,7 +15,7 @@ $scope.metrics = function(){
 	$scope.myHomework = function(){
 		$state.go('myHomework');
 	};
-$scope.myClass = function(){
+	$scope.myClass = function(){
 		$state.go('myClass');
 	};
 	$scope.chatter = function(){
@@ -24,16 +24,16 @@ $scope.myClass = function(){
 	$scope.showClasses = function(){
 		$state.go('showClasses');
 	};
-$scope.info = function(){
+	$scope.info = function(){
 		$state.go('info');
 	};
-$scope.lectureLinks = function(){
+	$scope.lectureLinks = function(){
 		$state.go('lectureLinks');
 	};
-$scope.attend = function(){
+	$scope.attend = function(){
 		$state.go('attendance');
 	};
-$scope.updateUser = function(){
+	$scope.updateUser = function(){
 		$state.go('updateUser');
 	};
 	$scope.allUser = function(){
@@ -42,20 +42,20 @@ $scope.updateUser = function(){
 	$scope.addUser = function(){
 		$state.go('addUser');
 	};
-$scope.lecture = function(){
+	$scope.lecture = function(){
 		$state.go('lectures');
 	};	
-$scope.setCookie = function(){
-  $http({
-method: 'GET',
-url: '/adminStatus'
-}).then(function(result){
-  console.log("results" + result.data);
-$cookies.put('d34839d', result.data);
-$scope.slkjdd = $cookies.get('d34839d');
-console.log($scope.slkjdd);
-console.log("cooked");
-})
-}	
+	$scope.setCookie = function(){
+		$http({
+			method: 'GET',
+			url: '/adminStatus'
+		}).then(function(result){
+			console.log("results" + result.data);
+			$cookies.put('d34839d', result.data);
+			$scope.slkjdd = $cookies.get('d34839d');
+			console.log($scope.slkjdd);
+			console.log("cooked");
+		})
+	}	
 })
 

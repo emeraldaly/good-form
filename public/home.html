@@ -17,62 +17,59 @@
 <body ng-app="classApp">
 
 
+  <nav class="navbar navbar-default navbarTop">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-
-
-<nav class="navbar navbar-default navbarTop">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navbarController">
-      <ul class="nav navbar-nav">
-        <!-- <li class="active"><a href="#">Register Your Organization<span class="sr-only">(current)</span></a></li> -->
-        <li><a href="#">Good Form<span class="sr-only">(current)</span></a></li>
-
-      </ul>
-      <a class="linklogo imgbrand" href="#">A.B.C. Coding Bootcamp<img
-        class="imgbrandimg"></a>
-        <ul class="nav navbar-nav navbar-right">
-         <li> <a ui-sref="updateUser">Account </a></li>
-         <li>
-          <a ng-click="logout()">Logout</a>
-        </li>
-        
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-
-
-
-
-<div class="container-fluid"> 
-  <div class="row">
-    <div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-12 col-sm-6 col-md-3">
-      <h2>Infoboard</h2>
-      <div class="pre-scrollable">
-        <div class="infoBack" ng-repeat="info in infos | orderBy:'$index':true">
-          <h4 class="infoTitle">{{info.title}}</h4>
-          <p>{{info.information}}</p>
-        </div>
       </div>
-    </div> 
-    <div class="col-md-5 scrollIt bar" ui-view autoscroll="false">
-    </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navbarController">
+        <ul class="nav navbar-nav">
+          <!-- <li class="active"><a href="#">Register Your Organization<span class="sr-only">(current)</span></a></li> -->
+          <li><a href="#">Good Form<span class="sr-only">(current)</span></a></li>
+
+        </ul>
+        <a class="linklogo imgbrand" href="#">A.B.C. Coding Bootcamp<img
+          class="imgbrandimg"></a>
+          <ul class="nav navbar-nav navbar-right">
+           <li> <a ui-sref="updateUser">Account </a></li>
+           <li>
+            <a ng-click="logout()">Logout</a>
+          </li>
+          
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
 
-    <div class="col-xs-12 col-sm-8 col-md-4 scrollIt pull-right">
-<!--       <div class="form-box"> -->
-       <div id='calendar'></div>
+
+
+  <div class="container-fluid"> 
+    <div class="row">
+      <div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-12 col-sm-6 col-md-3">
+        <h2>Infoboard</h2>
+        <div class="pre-scrollable">
+          <div class="infoBack" ng-repeat="info in infos | orderBy:'$index':true">
+            <h4 class="infoTitle">{{info.title}}</h4>
+            <p>{{info.information}}</p>
+          </div>
+        </div>
+      </div> 
+      <div class="col-md-5 scrollIt bar" ui-view autoscroll="false">
+      </div>
+
+
+      <div class="col-xs-12 col-sm-8 col-md-4 scrollIt pull-right">
+        <div class="form-box">
+         <div id='calendar'></div>
 
       <!--<div class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
          <div class="form-top">
@@ -90,99 +87,99 @@
           </div>
           <button type="submit" class="btn btn-warning btn-block">Add Event</button>
         </form> 
-       <button type="submit" id="thisbutton" class="btn btn-warning btn-block">Refresh Calendar</button> 
+        <button type="submit" id="thisbutton" class="btn btn-warning btn-block">Refresh Calendar</button> 
       </div> 
 
     </div>
- 
+    
   </div>
 
 
 
 
-<div ng-controller="figController" ng-init="setCookie()">
-  <nav class="navbar navbar-default  navbar-fixed-bottom">
+  <div ng-controller="figController" ng-init="setCookie()">
+    <nav class="navbar navbar-default  navbar-fixed-bottom">
 
-    <div class="container-fluid" >
+      <div class="container-fluid" >
 
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse customDiv" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+          <ul class="nav navbar-nav customUl">
+
+
+           <li ng-if="slkjdd == 'true'"><img ng-mouseenter="classer()" src="/assets/img/classes.png" width="75px" height="75px"></a>
+            <div class="text-center">
+              <caption>Classes</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>Infoboard</caption>
+            </div>
+          </li>
+          <li><img class="icon" ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>Chat</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="allUser()" class="icon" src="/assets/img/users.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>User List</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'true'"> <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>Metrics</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="addUser()" src="/assets/img/user.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>User</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'true'"> <img ng-mouseenter="attend()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>Attendance</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>Lectures</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'true'"><img ng-mouseenter="viewAssignments()" src="/assets/img/assignments.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>Assignments</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myClass()" src="/assets/img/classes.png" width="75px" height="75px"></a>
+            <div class="text-center">
+              <caption>My Class</caption>
+            </div>
+          </li>
+          <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myHomework()" src="/assets/img/jedBoard.png" width="75px" height="75px">
+            <div class="text-center">
+              <caption>My Homework</caption>
+            </div>
+          </li>
+
+          <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myLecture()" class="icon" src="/assets/img/lectureLinks.png" width="75px" height="75px"> </a>
+            <div class="text-center">
+              <caption>My Lectures</caption>
+            </div>
+          </li>
+
+        </ul>
       </div>
-      <div class="collapse navbar-collapse customDiv" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
-        <ul class="nav navbar-nav customUl">
-
-
-         <li ng-if="slkjdd == 'true'"><img ng-mouseenter="classer()" src="/assets/img/classes.png" width="75px" height="75px"></a>
-          <div class="text-center">
-            <caption>Classes</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'true'"><img ng-mouseenter="info()" src="/assets/img/jedBoard.png" width="75px" height="75px">
-          <div class="text-center">
-            <caption>Infoboard</caption>
-          </div>
-        </li>
-        <li><img class="icon" ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
-          <div class="text-center">
-            <caption>Chat</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'true'"><img ng-mouseenter="info()" class="icon" src="/assets/img/users.png" width="75px" height="75px"> </a>
-          <div class="text-center">
-            <caption>User List</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'true'"> <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
-          <div class="text-center">
-            <caption>Metrics</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'true'"><img ng-mouseenter="addUser()" src="/assets/img/user.png" width="75px" height="75px">
-          <div class="text-center">
-            <caption>User</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'true'"> <img ng-mouseenter="attend()" src="/assets/img/addUser.png" width="75px" height="75px"> </a>
-          <div class="text-center">
-            <caption>Attendance</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'true'"><img ng-mouseenter="lecture()" src="/assets/img/lectureLinks.png" width="75px" height="75px">
-          <div class="text-center">
-            <caption>Lectures</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'true'"><img ng-mouseenter="viewAssignments()" src="/assets/img/assignments.png" width="75px" height="75px"> </a>
-          <div class="text-center">
-            <caption>Assignments</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myClass()" src="/assets/img/classes.png" width="75px" height="75px"></a>
-          <div class="text-center">
-            <caption>My Class</caption>
-          </div>
-        </li>
-        <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myHomework()" src="/assets/img/jedBoard.png" width="75px" height="75px">
-          <div class="text-center">
-            <caption>My Homework</caption>
-          </div>
-        </li>
-
-        <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myLecture()" class="icon" src="/assets/img/lectureLinks.png" width="75px" height="75px"> </a>
-          <div class="text-center">
-            <caption>My Lectures</caption>
-          </div>
-        </li>
-
-      </ul>
     </div>
-  </div>
-</nav>
+  </nav>
 </div>
 
 <!-- <nav class="navbar navbar-default  navbar-fixed-bottom" ng-show="slkjdd == 'false'"> -->
@@ -223,24 +220,24 @@
     </div>
   </nav> -->
 
-    <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
-    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
-    <script src='/views/moment.js'></script>
-    <script src='/views/fullcalendar.js'></script>
-    <script src="/assets/app.js"></script>
-    <script src="/assets/javascript/controllers/user.js"></script>
-    <script src="/assets/javascript/controllers/figController.js"></script>
-    <script src="/assets/javascript/controllers/class.js"></script>
-    <script src="/assets/javascript/controllers/attendance.js"></script>
-    <script src="/assets/javascript/controllers/homework.js"></script>
-    <script src="/assets/javascript/controllers/info.js"></script>
-    <script src="/assets/javascript/controllers/lecture.js"></script>
-<script src="/assets/javascript/controllers/metrics.js"></script>
-    <script type="text/javascript" src="/assets/javascript/controllers/chatController.js"></script>
-    <script src="/assets/javascript/controllers/cal.js"></script>
-    <script type="text/javascript" src ="/assets/javascript/controllers/highchartsController.js"</script>
-    </body>
+  <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+  <script src='/views/moment.js'></script>
+  <script src='/views/fullcalendar.js'></script>
+  <script src="/assets/app.js"></script>
+  <script src="/assets/javascript/controllers/user.js"></script>
+  <script src="/assets/javascript/controllers/figController.js"></script>
+  <script src="/assets/javascript/controllers/class.js"></script>
+  <script src="/assets/javascript/controllers/attendance.js"></script>
+  <script src="/assets/javascript/controllers/homework.js"></script>
+  <script src="/assets/javascript/controllers/info.js"></script>
+  <script src="/assets/javascript/controllers/lecture.js"></script>
+  <script src="/assets/javascript/controllers/metrics.js"></script>
+  <script type="text/javascript" src="/assets/javascript/controllers/chatController.js"></script>
+  <script src="/assets/javascript/controllers/cal.js"></script>
+  <script type="text/javascript" src ="/assets/javascript/controllers/highchartsController.js"</script>
+  </body>
 
-    </html>
+  </html>
 
 

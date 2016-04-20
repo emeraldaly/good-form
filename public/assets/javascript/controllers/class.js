@@ -1,5 +1,5 @@
 angular.module('classApp').controller('class', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
-$scope.listOfUsers= []
+  $scope.listOfUsers= []
 
 
 // use the edit class Id on every class
@@ -10,8 +10,8 @@ $scope.listOfUsers= []
 // click on a user to see thier userinfopage
 
 $scope.repeatStyle ={'height': '35px',
-                      'border-bottom': "1px lightGray solid",
-                      'margin-top': '10px'};
+'border-bottom': "1px lightGray solid",
+'margin-top': '10px'};
 
 $scope.myClasses = []
 $scope.myClass = function() {
@@ -55,14 +55,14 @@ $scope.getAllUsers = function() {
   $scope.allUsers = new NgTableParams({}, {
     getData: function($defer, params) {
       return $http.get('/getAllUsers')
-        .then(function(response) {
+      .then(function(response) {
           // get class
           // get unassigned users
           console.log(response)
           var classes = response.data
             //  console.log(classes)
-          var filteredData = $filter('filter')(classes, params.filter())
-          var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+            var filteredData = $filter('filter')(classes, params.filter())
+            var sortedData = $filter('orderBy')(filteredData, params.orderBy());
           // console.log(sortedData)
           return sortedData;
         });
@@ -75,14 +75,14 @@ $scope.getClasses = function() {
   $scope.classesTable = new NgTableParams({}, {
     getData: function($defer, params) {
       return $http.get('/showClasses')
-        .then(function(response) {
-          console.log(response)
-          var classes = response.data
+      .then(function(response) {
+        console.log(response)
+        var classes = response.data
             //  console.log(classes)
-          var filteredData = $filter('filter')(classes, params.filter())
-          var sortedData = $filter('orderBy')(filteredData, params.orderBy());
-          return sortedData;
-        });
+            var filteredData = $filter('filter')(classes, params.filter())
+            var sortedData = $filter('orderBy')(filteredData, params.orderBy());
+            return sortedData;
+          });
     }
   });
 }
@@ -90,13 +90,13 @@ $scope.userId = function(id) {
   $rootScope.userUpdate = id;
 }
 $scope.deleteClass = function() {
-if ($rootScope.classEdit == undefined) {
+  if ($rootScope.classEdit == undefined) {
     $scope.allFields = "false"
     return
   } else{
     $state.go($state.current, {}, {
-        reload: true,
-      })
+      reload: true,
+    })
     $http({
       method: 'POST',
       url: '/deleteClass',
@@ -108,7 +108,6 @@ if ($rootScope.classEdit == undefined) {
 }
 
 $scope.updateClass = function() {
-  debugger
   if (($scope.userRole == undefined) || ($rootScope.userUpdate === undefined)) {
     $scope.allFields = "false"
     console.log($rootScope.userUpdate)
@@ -117,68 +116,68 @@ $scope.updateClass = function() {
       // $state.transitionTo($state.current, $stateParams, { 
       //       reload: true, inherit: true, notify: true
       //     });
-    $state.go($state.current, {}, {
-      reload: true,
-    })
+      $state.go($state.current, {}, {
+        reload: true,
+      })
+      $http({
+        method: 'POST',
+        url: '/updateClass',
+        data: {
+          userRole: $scope.userRole,
+          userId: $rootScope.userUpdate,
+          Id: $rootScope.classFilter
+        }
+      }).then(function(result) {
+        $rootScope.userUpdate = undefined;
+      });
+    }
+  }
+  $scope.thisClass = function(classId, className) {
+    $rootScope.classEdit = classId;
     $http({
       method: 'POST',
-      url: '/updateClass',
+      url: '/editClassId',
       data: {
-        userRole: $scope.userRole,
-        userId: $rootScope.userUpdate,
-        Id: $rootScope.classFilter
+        classId: classId,
+        className: className
       }
     }).then(function(result) {
-      $rootScope.userUpdate = undefined;
+      console.log(result)
     });
   }
-}
-$scope.thisClass = function(classId, className) {
-  $rootScope.classEdit = classId;
-  $http({
-    method: 'POST',
-    url: '/editClassId',
-    data: {
-      classId: classId,
-      className: className
-    }
-  }).then(function(result) {
-    console.log(result)
-  });
-}
-$scope.userUpdate = undefined;
-$scope.classView = [];
-$scope.viewThisClass = function() {
-  $http({
-    method: 'GET',
-    url: '/viewThisClass'
-  }).then(function(result) {
-    $scope.className = result.data[0].name
-    console.log(result.data)
-    angular.forEach(result.data[0].role, function(eachOne) {
-      $scope.classView.push(eachOne);
-    })
-  });
-}
+  $scope.userUpdate = undefined;
+  $scope.classView = [];
+  $scope.viewThisClass = function() {
+    $http({
+      method: 'GET',
+      url: '/viewThisClass'
+    }).then(function(result) {
+      $scope.className = result.data[0].name
+      console.log(result.data)
+      angular.forEach(result.data[0].role, function(eachOne) {
+        $scope.classView.push(eachOne);
+      })
+    });
+  }
 
-$scope.deleteClassButton = function(){
-  if ($rootScope.classEdit == undefined) {
-    $scope.message = "Please select a class to continue";
+  $scope.deleteClassButton = function(){
+    if ($rootScope.classEdit == undefined) {
+      $scope.message = "Please select a class to continue";
+    }
+    else {
+      $scope.deleteChoice = "true";
+      $scope.message="";
+    }
   }
-  else {
-    $scope.deleteChoice = "true";
-    $scope.message="";
+  $scope.editThisClass = function() {
+    if ($rootScope.classEdit == undefined) {
+      $scope.message = "Please select a class to continue"
+      $scope.allFields = "false"
+      return
+    } else {
+      $rootScope.classFilter = $rootScope.classEdit;
+      $rootScope.classEdit = undefined;
+      $state.go('editClass')
+    }
   }
-}
-$scope.editThisClass = function() {
-  if ($rootScope.classEdit == undefined) {
-    $scope.message = "Please select a class to continue"
-    $scope.allFields = "false"
-    return
-  } else {
-  $rootScope.classFilter = $rootScope.classEdit;
-  $rootScope.classEdit = undefined;
-  $state.go('editClass')
-  }
-}
 });

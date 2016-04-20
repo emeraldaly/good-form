@@ -160,7 +160,6 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
   };
 
   $scope.register = function(){
-    debugger
     $http({
       method: 'POST',
       url: '/newUser',
@@ -174,7 +173,6 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
         userLastName:$scope.userLastName,
       }
     }).then(function(result) {
-      debugger
       console.log(result)
       }
     );

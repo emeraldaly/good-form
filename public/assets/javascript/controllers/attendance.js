@@ -28,7 +28,6 @@ $scope.viewAttendDates = function() {
     getData: function($defer, params) {
       return $http.get('/viewAttendDates')
         .then(function(response) {
-          debugger
           console.log(response)
           var classes = response.data
             //  console.log(classes)
