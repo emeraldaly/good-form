@@ -1,5 +1,5 @@
 <div class="form-box col-xs-12">
-  <h2> Show Classes </h2>
+  <h2> Show classes </h2>
   <div ng-controller="class" ng-init="getClasses()">
   	<table ng-table="classesTable" class="table" show-filter="true">
       <tr ng-repeat="class in $data">
@@ -10,7 +10,7 @@
             <button class="pull-right btn btn-default btn-sm"ng-click="showDetails = ! showDetails"> More details
             </button>
             <div ng-show="showDetails">
-              <p>datetime: {{class.datetime}} </p>
+              <p>Datetime: {{class.datetime}} </p>
 				    </div>
         </td>
       </tr>
@@ -21,8 +21,8 @@
       <div ng-show="deleteChoice == 'true'">
         <h4 > Are you sure you want to delete this class?
         </h4>
-        <button class="col-md-6 btn btn-default btn-lg pull-left" ng-click="deleteClass()"> yes </button>
-        <button class="col-md-6 btn btn-default btn-lg pull-right" ng-click="more = ! more"> no </button>
+        <button class="col-md-6 btn btn-default btn-lg pull-left" ng-click="deleteClass()"> Yes </button>
+        <button class="col-md-6 btn btn-default btn-lg pull-right" ng-click="more = ! more"> No </button>
       </div>
     </div>
   </div>

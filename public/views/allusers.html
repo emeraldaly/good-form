@@ -1,6 +1,6 @@
 <!-- all users for admin go on this page.  make it a ng table.   -->
 <div class="form-box col-md-12">
-<h2> Complete User List </h2>
+<h2> Complete user list </h2>
 <div ng-controller="class" data-ng-init="getAllUsers()">
 	<!-- <div class="col-md-12"> -->
 		<table ng-table="allUsers" class="table" show-filter="true">
@@ -11,7 +11,7 @@
 				<td title="'Last'"  sortable="'lastname'" filter="{lastname: 'text'}">
 					 {{user.lastname}}
 				</td>
-				<td title="'More User Details'" class='col-md-5'>
+				<td title="'More user details'" class='col-md-5'>
 					<button class="btn btn-default btn-sm pull-right btn-block" ng-click="showDetails = ! showDetails"> More details</button> 
 					<div ng-show="showDetails">
 						<p>Email: {{user.username}} </p>
@@ -22,4 +22,5 @@
 			</tr>
 		</table>
 	<!-- </div> -->
+	</div>
 	</div>

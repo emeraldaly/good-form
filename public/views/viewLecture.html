@@ -11,16 +11,16 @@
   		</td>
     </tr>
   </table>
- 	<button class="btn btn-warning btn-block" ng-click="editLecture()"> edit </button>
- 	<button class="btn btn-warning btn-block" ng-click="more = ! more"> Delete Attend
+ 	<button class="btn btn-warning btn-block" ng-click="editLecture()">Edit </button>
+ 	<button class="btn btn-warning btn-block" ng-click="more = ! more">Delete attend
  	</button>
   <div ng-show="more">
-    <h4> are you sure you want to deletet this class?
+    <h4>Are you sure you want to deletet this class?
     </h4>
-    <button class="col-md-6 btn btn-lg btn-default pull-left" ng-click="deleteLecture()"> yes </button>
-    <button class="col-md-6 btn btn-lg btn-default pull-right" ng-click="more = ! more"> no </button>
+    <button class="col-md-6 btn btn-lg btn-default pull-left" ng-click="deleteLecture()">Yes </button>
+    <button class="col-md-6 btn btn-lg btn-default pull-right" ng-click="more = ! more">No </button>
   </div>
- 	<p ng-show="allFields == 'false'"> please enter all fields to continue </p>
+ 	<p ng-show="allFields == 'false'"> Please enter all fields to continue </p>
 </div>
 
 <!-- on this page, you can view all the lecture, adn choose to either edit or delete it

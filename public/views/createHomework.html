@@ -23,17 +23,17 @@
 
   <div ng-controller="homework">
     <form ng-submit="createHomework()">
-      <button class="btn btn-warning btn-block" ng-click="homeworkByClass()"> View All Homework by Class </button>
-      <h3 class="btn btn-warning btn-block" ng-click="more = ! more"> Create Homework </h3>
-      <p ng-show="allFields == 'false'"> please enter all fields to continue </p>
+      <button class="btn btn-warning btn-block" ng-click="homeworkByClass()"> View all homework by class </button>
+      <h3 class="btn btn-warning btn-block" ng-click="more = ! more"> Create homework </h3>
+      <p ng-show="allFields == 'false'"> Please enter all fields to continue </p>
       <div ng-show="more">
-        <input required class="form-control" ng-model="name" placeholder="Homework Name">
+        <input required class="form-control" ng-model="name" placeholder="Homework name">
         <span class="help-block"></span>
-        <textarea class="form-control" ng-model="description" placeholder="Homework Description"> </textarea>
+        <textarea class="form-control" ng-model="description" placeholder="Homework description"> </textarea>
         <span class="help-block"></span>
-        <input required class="form-control" type="date" ng-model="duedate" placeholder="Due Date">
+        <input required class="form-control" type="date" ng-model="duedate" placeholder="Due date">
         <span class="help-block"></span>
-        <input required class="form-control" type="time"ng-model="duetime" placeholder="Due Time">
+        <input required class="form-control" type="time"ng-model="duetime" placeholder="Due time">
         <span class="help-block"></span>
         <button class="btn btn-warning btn-block" type="submit"> Create </button>
       </div>

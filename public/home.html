@@ -83,15 +83,15 @@
           <form ng-submit="addEvent()" >
            <div class="panel-body">
             <label for="title">Title</label>
-            <input type="text" class="form-control" ng-model="title" placeholder="Enter Event Title">
+            <input type="text" class="form-control" ng-model="title" placeholder="Enter event title">
             <span class="help-block"></span>
             <label for="start">Start</label>
             <input type="datetime-local" class="form-control" ng-model="start">
             <span class="help-block"></span>
           </div>
-          <button type="submit" class="btn btn-warning btn-block">Add Event</button>
+          <button type="submit" class="btn btn-warning btn-block">Add event</button>
         </form> 
-       <button type="submit" id="thisbutton" class="btn btn-warning btn-block">Refresh Calendar</button> 
+       <button type="submit" id="thisbutton" class="btn btn-warning btn-block">Refresh calendar</button> 
       </div> 
 
     </div>
@@ -135,7 +135,7 @@
         </li>
         <li ng-if="slkjdd == 'true'"><img ng-mouseenter="allUser()" class="icon" src="/assets/img/users.png" width="75px" height="75px"> </a>
           <div class="text-center">
-            <caption>User List</caption>
+            <caption>User list</caption>
           </div>
         </li>
         <li ng-if="slkjdd == 'true'"> <img ng-mouseenter="metrics()" src="/assets/img/charts.png" width="75px" height="75px"> </a>
@@ -165,18 +165,18 @@
         </li>
         <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myClass()" src="/assets/img/classes.png" width="75px" height="75px"></a>
           <div class="text-center">
-            <caption>My Class</caption>
+            <caption>My class</caption>
           </div>
         </li>
         <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myHomework()" src="/assets/img/jedBoard.png" width="75px" height="75px">
           <div class="text-center">
-            <caption>My Homework</caption>
+            <caption>My homework</caption>
           </div>
         </li>
 
-        <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myLecture()" class="icon" src="/assets/img/lectureLinks.png" width="75px" height="75px"> </a>
+        <li ng-if="slkjdd == 'false'"><img ng-mouseenter="myLecture()" class="icon" src="/assets/img/lectureLinks.png" width="75px" height="75px"> </li>
           <div class="text-center">
-            <caption>My Lectures</caption>
+            <caption>My lectures</caption>
           </div>
         </li>
 
@@ -223,7 +223,8 @@
       </div>
     </div>
   </nav> -->
-  <div>
+  </div>
+
 
     <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
     <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
