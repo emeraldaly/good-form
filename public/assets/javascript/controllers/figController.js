@@ -37,7 +37,7 @@ angular.module('classApp').controller('figController', function($scope, $state, 
 		$state.go('updateUser');
 	};
 	$scope.allUser = function(){
-		$state.go('allUsers');
+		$state.go('allUsersView');
 	};
 	$scope.addUser = function(){
 		$state.go('addUser');

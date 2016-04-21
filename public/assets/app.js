@@ -8,9 +8,9 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/home',
     templateUrl: '/views/home.html'
   })
-  .state('allUsers', {
-    url: '/allUsers',
-    templateUrl: '/views/allUsers.html'
+  .state('allUsersView', {
+    url: '/allUsersView',
+    templateUrl: '/views/allUsersView.html'
   })
   .state('myLecture', {
     url: '/myLecture',
