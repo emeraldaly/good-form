@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script src="http://code.angularjs.org/1.4.5/angular-cookies.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
@@ -58,7 +61,7 @@
 
 <div class="container-fluid"> 
   <div class="row">
-    <div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-12 col-sm-6 col-md-3">
+    <div ng-controller="info" ng-init="viewInfo()" class="form-box col-xs-12 col-sm-6 col-lg-3 col-md-6">
       <h2>Infoboard</h2>
       <div class="pre-scrollable">
         <div class="infoBack" ng-repeat="info in infos | orderBy:'$index':true">
@@ -67,11 +70,11 @@
         </div>
       </div>
     </div> 
-    <div class="col-md-5 scrollIt" ui-view autoscroll="false">
+    <div class="col-lg-5 col-md-6 scrollIt" ui-view autoscroll="false">
     </div>
 
 
-    <div class="col-xs-12 col-sm-8 col-md-4 scrollIt pull-right">
+    <div class="col-xs-12 col-sm-8 col-md-4 scrollIt visible-lg pull-right visible">
 <!--       <div class="form-box"> -->
        <div id='calendar'></div>
 
