@@ -1,6 +1,6 @@
 <div class="col-md-12 form-box" ng-controller="lecture" data-ng-init="myLecture(); getThisLecture()">
 
-	<h2>My lectures </h2>
+	<h2>My Lectures </h2>
 		<div ng-show="appState == 'show'" ng-repeat= "data in thisLecture | filter: { _id: lectureFilter}">
 				<h3 id="className">Class name: {{data.className}}</h3>
 				<a target="_blank" href="//{{data.videoLink}}"><btn class="btn col-md-6 btn-md btn-default"> Video link </btn> </a>
