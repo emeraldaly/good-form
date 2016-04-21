@@ -1,30 +1,34 @@
 <div class="form-box col-xs-12">
-	<div class="form-top">
-		<h2>User Registration</h2>
-	</div>
+
+  <div class="form-top">
+  	<h2>User registration</h2>
+  </div>
 	<form ng-controller="newUser" ng-submit="addUser()" >
 		<div class="panel-body>">
 			<h4 class="text-center col-md-12"> {{message}} </h4>
-			<label for="userFirstName">First Name</label>
-			<input required type="text" class="form-control" name="userFirstName" ng-model="userFirstName" placeholder="Evan">
-			<span class="help-block"></span>
-			<label for="username">Last Name</label>
-			<input required type="text" class="form-control"name="userLastName" ng-model="userLastName" placeholder="Bates">
-			<span class="help-block"></span>
-			<label for="username">Email</label>
-			<input required type="email" class="form-control" name="userEmail" ng-model="userEmail" placeholder="elie@wohl.com">
-			<p class="warning">{{userTaken}}</p>
-			<span class="help-block"></span>
-			<label required for="username">Password</label>
-			<input type="password" class="form-control" name="userPassword" ng-model="userPassword"  placeholder="*****">
-			<h4>Account Type</h4>
-			<div class="radio">
-				<label><input required type="radio" name="userRole" ng-model="userRole" value="false">Student</label>
+			<label for="userFirstName">First name</label>
+	    <input required type="text" class="form-control" name="userFirstName" ng-model="userFirstName" placeholder="Evan">
+	    <span class="help-block"></span>
+	    <label for="username">Last name</label>
+	    <input required type="text" class="form-control"name="userLastName" ng-model="userLastName" placeholder="Bates">
+	    <span class="help-block"></span>
+	    <label for="username">Email</label>
+	    <input required type="email" class="form-control" name="userEmail" ng-model="userEmail" placeholder="elie@wohl.com">
+	    <p class="warning">{{userTaken}}</p>
+	    <span class="help-block"></span>
+	    <label required for="username">Password</label>
+	    <input type="password" class="form-control" name="userPassword" ng-model="userPassword"  placeholder="*****">
+	    <h4>Account type</h4>
+	    <div class="radio">
+			  <label><input required type="radio" name="userRole" ng-model="userRole" value="false">Student</label>
 			</div>
 			<div class="radio">
 				<label><input required type="radio" name="userRole" ng-model="userRole" value="true">Admin</label>
 			</div>
-			<button type="submit" class="btn btn-warning btn-block">Register</a>
-			</div>
-		</form>
-	</div>
+			
+
+		  <button type="submit" class="btn btn-warning btn-block">Register</button>
+		</div>
+	</form>
+</div>
+

@@ -1,22 +1,23 @@
 <div class="col-md-12 form-box" ng-controller="lecture" data-ng-init="myLecture(); getThisLecture()">
-	<h2>My Lectures </h2>
-	<div ng-show="appState == 'show'" ng-repeat= "data in thisLecture | filter: { _id: lectureFilter}">
-		<h3 id="className">Class Name: {{data.className}}</h3>
-		<a target="_blank" href="//{{data.videoLink}}"><btn class="btn col-md-6 btn-md btn-default"> Video Link </btn> </a>
-		<a target="_blank" href="//{{data.github}}"><btn class="btn col-md-6 btn-md btn-default"> Github </btn> </a>
-		<h4 class="moreInfo">More Info:  {{data.info}}   </h4>
-	</div>
-	<table ng-table="myLectureTable" class="table" show-filter="true">
-		<tr ng-repeat="user in $data">
-			<td title="'Class name'"  sortable="'className'" filter="{'className': 'text'}">
-				{{user.className}}
-			</td>
-			<td title="'date '" sortable="'date'">
-				{{user.date | date:'shortDate'}}
-			</td>
-			<td title="'More User Details'">
-				<button class="btn btn-sm btn-block btn-default" ng-click="customFilter(user._id)" name="name"> show </button> 
-			</td>
-		</tr>
-	</table>
+
+	<h2>My lectures </h2>
+		<div ng-show="appState == 'show'" ng-repeat= "data in thisLecture | filter: { _id: lectureFilter}">
+				<h3 id="className">Class name: {{data.className}}</h3>
+				<a target="_blank" href="//{{data.videoLink}}"><btn class="btn col-md-6 btn-md btn-default"> Video link </btn> </a>
+				<a target="_blank" href="//{{data.github}}"><btn class="btn col-md-6 btn-md btn-default"> Github </btn> </a>
+					<h4 class="moreInfo">More info:  {{data.info}}   </h4>
+			</div>
+		<table ng-table="myLectureTable" class="table" show-filter="true">
+			<tr ng-repeat="user in $data">
+				<td title="'Class name'"  sortable="'className'" filter="{'className': 'text'}">
+					{{user.className}}
+				</td>
+				<td title="'date '" sortable="'date'">
+					 {{user.date | date:'shortDate'}}
+				</td>
+				<td title="'More User Details'">
+					<button class="btn btn-sm btn-block btn-default" ng-click="customFilter(user._id)" name="name">Show </button> 
+				</td>
+			</tr>
+		</table>
 </div>

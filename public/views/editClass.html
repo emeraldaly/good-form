@@ -1,16 +1,17 @@
 <div ng-controller="class" class="form-box col-xs-12">
-	<div class="form-top">
-		<h2>Edit Class</h2>
-	</div>
+
+  <div class="form-top">
+  	<h2>Edit class</h2>
+  </div>
 	<div data-ng-init="getAllUsers()">
 		<div class="col-md-9">
-			this is where all the users go
+			This is where all the users go:
 			<table ng-table="allUsers" class="table">
 				<tr ng-repeat="user in $data |filter: { _class: '!' + classFilter	 }">
 					<td class="col-md-12">
 						<div class="radio">
 							<label><input type="radio" name="userN" ng-model"studentSelect" ng-click="userId(user._id)">{{user.firstname}} {{user.lastname}}  </label>
-							<button class="btn btn-default btn-sm pull-right" ng-click="showDetails = ! showDetails" class="pull-right"> More Details</button>
+							<button class="btn btn-default btn-sm pull-right" ng-click="showDetails = ! showDetails" class="pull-right"> More details</button>
 						</div>
 
 						<div ng-show="showDetails">
@@ -22,7 +23,7 @@
 		</div>
 	</div>
 	<div class="col-md-3">
-		<p>Account Type</p>
+		<p>Account type</p>
 		<div class="radio">
 			<label><input type="radio" name="userRole" ng-model="userRole" value="teacher">Teacher</label>
 		</div>
@@ -33,10 +34,10 @@
 			<label><input type="radio" name="userRole" ng-model="userRole" value="student">Student</label>
 		</div>
 		<button ng-click="updateClass()" class="btn btn-warning btn-block">Add </button>
-		<p ng-show="allFields == 'false'"> Please Enter All Fields To Continue </p>
+		<p ng-show="allFields == 'false'"> Please enter all fields to continue </p>
 	</div>
 	<div class="col-md-12">
-		<h2> Current Class: {{className}}</h2>
+		<h2> Current class: {{className}}</h2>
 		<div data-ng-init="viewThisClass()">
 			<h3> Teacher: </h3>
 			<div ng-style="repeatStyle"  ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >

@@ -1,6 +1,7 @@
 <div class="form-box col-md-12" ng-controller="class" ng-init="myClass()">
-  <h2> My Clases </h2>
-  <table ng-table="classesTable" class="table">
+
+<h2> My classes </h2>
+	<table ng-table="classesTable" class="table">
     <tr ng-repeat="class in myClasses">
       <td title="'Name'"  sortable="'name'" filter="{name: 'text'}"> 
         <h4>{{class.name}}
@@ -12,7 +13,8 @@
           <button class="btn btn-default pull-right" ng-click="showDetails = ! showDetails"> More details
           </button> 
           <div ng-show="showDetails"> 
-            <p>datetime: {{class.datetime}} </p> 
+
+          <p>Datetime: {{class.datetime}} </p> 
           </div></h4>
         </td>
       </tr>

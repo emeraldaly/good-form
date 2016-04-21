@@ -1,16 +1,18 @@
 
 <div ng-controller="lecture" ng-init="updateLectureInfo()" class="form-box col-md-12">
   <form ng-submit="updateLecture()">
-    <h2>Update Lecture </h2>
-    <label for="className">Github</label>
+
+    <h2>Update lecture </h2>
+  	<label for="className">Github</label>
+
     <input required class="form-control" type="text" ng-model="github" placeholder="">
     <span class="help-block"></span>
-    <label for="className">Video Link</label>
+    <label for="className">Video link</label>
     <input required class="form-control" type="text" ng-model="videoLink" placeholder="">
     <span class="help-block"></span>
-    <label for="className">Additional Notes</label>
+    <label for="className">Additional notes</label>
     <input required class="form-control" type="text" ng-model="info" placeholder="">
     <span class="help-block"></span>
-    <button type="submit" class="btn btn-warning btn-block"> Update Lecture </button>
+    <button type="submit" class="btn btn-warning btn-block"> Update lecture </button>
   </form>
 </div>

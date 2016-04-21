@@ -1,27 +1,29 @@
 
 
 <div class="form-box col-xs-12">
-  <h2> Pick a Class </h2>
-  <div ng-controller="class" ng-init="getClasses()">
-   <table ng-table="classesTable" class="table" show-filter="true">
+
+<h2> Pick a class </h2>
+<div ng-controller="class" ng-init="getClasses()">
+	<table ng-table="classesTable" class="table" show-filter="true">
     <tr ng-repeat="class in $data">
       <td title="'Name'"  sortable="'name'" filter="{name: 'text'}">
         <div class="radio">
           <label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
           <!-- </div> -->
-          <button class="pull-right btn btn-sm btn-default"ng-click="showDetails = ! showDetails"> More details
-          </button>
-          <div ng-show="showDetails">
-            <p>datetime: {{class.datetime}} </p>
-          </div>
+   <button class="pull-right btn btn-sm btn-default"ng-click="showDetails = ! showDetails"> More details
+            </button>
+            <div ng-show="showDetails">
+              <p>Datetime: {{class.datetime}} </p>
+            </div>
         </td>
-      </tr>
-    </table>
-  </div>
-  <div ng-controller="attendance">
-    <p class="warning">{{message}}</p>
-    <button class="btn btn-warning btn-block" ng-click="newAttendance()"> New Attendance </button>
-    <button class="btn btn-warning btn-block" ng-click="viewOlderAttend()"> View Older Attendance </button>
+    </tr>
+  </table>
+ </div>
+ <div ng-controller="attendance">
+  <p class="warning">{{message}}</p>
+    <button class="btn btn-warning btn-block" ng-click="newAttendance()"> New attendance </button>
+    <button class="btn btn-warning btn-block" ng-click="viewOlderAttend()"> View older attendance </button>
 
+    </div>
   </div>
 </div>

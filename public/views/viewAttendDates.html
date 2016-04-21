@@ -12,17 +12,18 @@
            <td title="'Class'" sortable="'class'" filter="{className: 'text'}" >
              {{class.className}}
 
-           </td>
-         </tr>
-       </table>
-       <button class="btn btn-warning btn-block" ng-click="editAttend()"> View Attend </button>
-       <button class="btn btn-warning btn-block" ng-click="more = ! more"> Delete Attend
-       </button>
-       <div ng-show="more">
-        <h4> are you sure you want to deletet this class? 
-        </h4>
-        <button class="col-md-6 btn btn-sm btn-default pull-left"ng-click="deleteAttend()"> yes </button>
-        <button class="col-md-6 btn btn-sm btn-default pull-right"ng-click="more = ! more"> no </button>
+
+  			</td>
+      </tr>
+   	</table>
+   	<button class="btn btn-warning btn-block" ng-click="editAttend()"> View attend </button>
+   	<button class="btn btn-warning btn-block" ng-click="more = ! more"> Delete attend
+   	</button>
+      <div ng-show="more">
+		    <h4> Are you sure you want to delete this class? 
+		    </h4>
+		    <button class="col-md-6 btn btn-sm btn-default pull-left"ng-click="deleteAttend()"> Yes </button>
+		    <button class="col-md-6 btn btn-sm btn-default pull-right"ng-click="more = ! more"> No </button>
       </div>
-      <p ng-show="allFields == 'false'"> please enter all fields to continue </p>
-    </div>
+   	<p ng-show="allFields == 'false'"> Please enter all fields to continue </p>
+</div>
