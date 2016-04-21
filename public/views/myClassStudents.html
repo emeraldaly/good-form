@@ -5,14 +5,14 @@
 
 <div  ng-controller="class">
 	<div class="col-md-12 form-box">
-			<h2> Current Class: {{className}}</h2>
+			<h2> Current class: {{className}}</h2>
 		<div data-ng-init="viewThisClass()">
 			<h3> Teacher: </h3>
 			<table class="table">
 				<tr ng-style="repeatStyle" ng-repeat="class in classView | filter:{roleType: 'teacher' }">
 					<td>
 					{{class._user.firstname}} {{class._user.lastname}}
-					<button ng-click="showDetails = ! showDetails" class="pull-right"> More Info 
+					<button ng-click="showDetails = ! showDetails" class="pull-right"> More info 
 					</button>
 						<div ng-show="showDetails">
 							<p>Github:{{class._user.github}}</p>
@@ -27,7 +27,7 @@
 				<tr ng-style="repeatStyle" ng-repeat="class in classView | filter:{roleType: 'ta' }">
 					<td>
 					{{class._user.firstname}} {{class._user.lastname}}
-					<button ng-click="showDetails = ! showDetails" class="pull-right"> More Info 
+					<button ng-click="showDetails = ! showDetails" class="pull-right"> More info 
 					</button>
 						<div ng-show="showDetails">
 							<p>Github:{{class._user.github}}</p>
@@ -42,7 +42,7 @@
 				<tr ng-style="repeatStyle" ng-repeat="class in classView | filter:{roleType: 'student' }">
 					<td>
 					{{class._user.firstname}} {{class._user.lastname}}
-					<button ng-click="showDetails = ! showDetails" class="pull-right"> More Info 
+					<button ng-click="showDetails = ! showDetails" class="pull-right"> More info 
 					</button>
 						<div ng-show="showDetails">
 							<p>Github:{{class._user.github}}</p>

@@ -1,7 +1,7 @@
 
 
 <div class="form-box col-xs-12">
-<h2> Pick a Class </h2>
+<h2> Pick a class </h2>
 <div ng-controller="class" ng-init="getClasses()">
 	<table ng-table="classesTable" class="table" show-filter="true">
     <tr ng-repeat="class in $data">
@@ -12,7 +12,7 @@
             <button class="pull-right btn btn-sm btn-default"ng-click="showDetails = ! showDetails"> More details
             </button>
             <div ng-show="showDetails">
-              <p>datetime: {{class.datetime}} </p>
+              <p>Datetime: {{class.datetime}} </p>
             </div>
         </td>
     </tr>
@@ -20,8 +20,9 @@
  </div>
  <div ng-controller="attendance">
   <p class="warning">{{message}}</p>
-    <button class="btn btn-warning btn-block" ng-click="newAttendance()"> New Attendance </button>
-    <button class="btn btn-warning btn-block" ng-click="viewOlderAttend()"> View Older Attendance </button>
+    <button class="btn btn-warning btn-block" ng-click="newAttendance()"> New attendance </button>
+    <button class="btn btn-warning btn-block" ng-click="viewOlderAttend()"> View older attendance </button>
 
-</div>
+    </div>
   </div>
+</div>
