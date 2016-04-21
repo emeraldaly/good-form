@@ -95,6 +95,7 @@ module.exports = function (app) {
   app.post('/addEvent', event.createEvent);
   app.get('/getEvent', event.showEvent);
   app.get('/home', usrCtrl.defRoute);
+  app.get("/orgName", orgCtrl.orgName)
 
   app.get('/logout', function (req, res){
   // req.logOut();

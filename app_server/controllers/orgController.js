@@ -8,6 +8,14 @@ console.log("showreg hit");
 };
 
 //Add an organization
+
+exports.orgName = function(req, res){
+  Org.find({"_id":req.session.user._organization})
+  .exec(function(err, docs) {
+    res.send(docs)
+  })
+
+}
 exports.addOrg = function(req, res){
   var newOrg = new Org ({
     name: req.body.organizationName,

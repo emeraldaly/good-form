@@ -23,7 +23,6 @@ exports.createInfo = function (req, res){
       res.send(doc);
     }
   });
-
 }
 
 exports.viewInfo = function (req, res){
