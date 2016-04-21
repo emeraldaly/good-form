@@ -5,23 +5,23 @@
       <tr ng-repeat="class in $data">
         <td title="'Name'"  sortable="'name'" filter="{name: 'text'}">
         	<div class="radio">
-  					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id, class.name)">{{class.name}}</label>
-          <!-- </div> -->
-            <button class="pull-right btn-sm btn-default btn"ng-click="showDetails = ! showDetails"> More details
-            </button>
-            <div ng-show="showDetails">
-              <p>Datetime: {{class.datetime}} </p>
-				    </div>
+           <label><input type="radio" name="allClasses" ng-click="thisClass(class._id, class.name)">{{class.name}}</label>
+           <!-- </div> -->
+           <button class="pull-right btn-sm btn-default btn"ng-click="showDetails = ! showDetails"> More details
+           </button>
+           <div ng-show="showDetails">
+            <p>Datetime: {{class.datetime}} </p>
           </div>
-        </td>
-      </tr>
-   	</table>
-  </div>
-  <div ng-controller="lecture">
-  	<button class="btn btn-warning btn-block" ng-click="showAllLectures()"> show all lectures
-  	</button>
-    <button class="btn btn-warning btn-block" ng-click="newLecture()"> create new lectures
-    </button>
-    <p ng-show="allFields == 'false'"> please enter all fields to continue </p>
- </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<div ng-controller="lecture">
+ <button class="btn btn-warning btn-block" ng-click="showAllLectures()"> show all lectures
+ </button>
+ <button class="btn btn-warning btn-block" ng-click="newLecture()"> create new lectures
+ </button>
+ <p ng-show="allFields == 'false'"> please enter all fields to continue </p>
+</div>
 </div>

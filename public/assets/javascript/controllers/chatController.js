@@ -53,7 +53,6 @@ angular.module('classApp')
      });
 
      Socket.on('add-user', function(data) {
-      debugger
        $scope.users.push(data.username);
        $scope.messages.push({username: data.username, message: 'has arrived'});
      });

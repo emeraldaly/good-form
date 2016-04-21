@@ -8,9 +8,9 @@ classApp.config(function($stateProvider, $urlRouterProvider) {
     url: '/home',
     templateUrl: '/views/home.html'
   })
-  .state('allUsers', {
-    url: '/allUsers',
-    templateUrl: '/views/allUsers.html'
+  .state('allUsersView', {
+    url: '/allUsersView',
+    templateUrl: '/views/allUsersView.html'
   })
   .state('myLecture', {
     url: '/myLecture',
@@ -160,7 +160,6 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
   };
 
   $scope.register = function(){
-    debugger
     $http({
       method: 'POST',
       url: '/newUser',
@@ -174,7 +173,6 @@ classApp.controller('newUser', function($scope, $http, $state, $rootScope) {
         userLastName:$scope.userLastName,
       }
     }).then(function(result) {
-      debugger
       console.log(result)
       }
     );
@@ -259,6 +257,7 @@ classApp.controller('gitCall', function($scope, $http) {
   });
 
 
+// });
 //});
 angular.module('classApp').run(function($rootScope, $cookies){
   if($cookies.get('token') && $cookies.get('currentUser')){

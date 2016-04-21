@@ -8,10 +8,10 @@
      type: Schema.Types.ObjectId,
      ref: 'Class'
    }],
-   _organization: [{
+   _organization: {
      type: Schema.Types.ObjectId,
      ref: 'organization'
-   }],
+   },
    linkedin: String,
    github: String,
    portfolio:String,
