@@ -1,7 +1,7 @@
 
-angular.module('classApp').controller('info', function($scope, $state, $http, $filter, $rootScope, NgTableParams) {
+angular.module('classApp').controller('infoCreate', function($scope, $state, $http, $filter, $rootScope, NgTableParams) {
 	$scope.createInfo = function() {
-		if (($scope.information == undefined)  || ($scope.title == undefined) ){
+		if (($scope.information == undefined) || ($rootScope.classEdit == undefined) || ($scope.title == undefined) ){
 			$scope.message = "Please enter all fields to continue";
 		}
 		else{
@@ -15,12 +15,13 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 					information: $scope.information,
 				}
 			}).then(function(result) {
-				$scope.viewInfo()
+				$rootScope.classEdit = undefined;
+				$rootScope.infos.push(result.data)
 			});
 		}
 	}
-
-
+})
+angular.module('classApp').controller('info', function($scope, $state, $http, $filter, $rootScope, NgTableParams) {
 	$rootScope.infos=[];
 	$scope.viewInfo = function() {
 		$http({
