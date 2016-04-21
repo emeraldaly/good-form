@@ -45,7 +45,6 @@ exports.removeFromClass = function(req, res){
     }
     }, 
     function(err, model) {
-      debugger
       console.log("push to user")
     })
     Class.findByIdAndUpdate(classId, {
@@ -56,7 +55,6 @@ exports.removeFromClass = function(req, res){
       }
     }, 
     function(err, model) {
-      debugger
       res.send("res dot cend")
     })
   
@@ -64,15 +62,15 @@ exports.removeFromClass = function(req, res){
 }
 
 exports.deleteClass = function(req, res){
-  debugger
+  
   console.log(req.body.classId)
   Class.remove({_id:req.body.classId}, function(err, data){
     if (err){
-      debugger
+      
       console.log(err)
     }
     else{
-      debugger
+      
       res.send(data)
     }
   })
@@ -118,7 +116,6 @@ exports.createClass = function(req, res) {
     _organization: req.session.organization
   });
   newClass.save(function(err, doc) {
-    debugger
     if (err) {
       console.log(err);
     } else {
