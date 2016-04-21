@@ -7,13 +7,13 @@
       <tr ng-repeat="class in $data">
         <td>
           <div class="radio">
-            <label><input type="radio" name="selectClass" ng-model="selectClass" ng-click="thisClass(class._id)">{{class.name}}</label>
-          </div>
+            <label><input type="radio" name="selectClass"  ng-click="thisClass(class._id)">{{class.name}}</label>
+       <!--    </div> -->
         </td>
       </tr>
     </table>
   </div>
-  <div ng-controller="info">
+  <div ng-controller="infoCreate">
     <input required ng-model="title" class="form-control" placeholder="Title">
     <span class="help-block"></span>
     <textarea class="form-control" ng-model="information" placeholder="Information"> </textarea>
