@@ -16,7 +16,7 @@ app.use(logger('dev'));
 app.use(express.static('public'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
- 	extended: false
+	extended: false
 }));
 
 app.use(bodyParser.json());
@@ -61,5 +61,5 @@ require('./app_server/config/socketConnection')(io);
 // });
 
 http.listen(PORT, function(){
-  console.log("listening on PORT:" + PORT);
+	console.log("listening on PORT:" + PORT);
 });

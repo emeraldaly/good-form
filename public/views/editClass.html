@@ -1,4 +1,5 @@
 <div ng-controller="class" class="form-box col-xs-12">
+
   <div class="form-top">
   	<h2>Edit class</h2>
   </div>
@@ -13,9 +14,9 @@
 							<button class="btn btn-default btn-sm pull-right" ng-click="showDetails = ! showDetails" class="pull-right"> More details</button>
 						</div>
 
-							<div ng-show="showDetails">
-								<p>Email: {{user.username}} </p>
-							</div>
+						<div ng-show="showDetails">
+							<p>Email: {{user.username}} </p>
+						</div>
 					</td>
 				</tr>
 			</table>
@@ -40,18 +41,18 @@
 		<div data-ng-init="viewThisClass()">
 			<h3> Teacher: </h3>
 			<div ng-style="repeatStyle"  ng-repeat = "class in classView | filter:{roleType: 'teacher' }" >
-			  {{class._user.firstname}} {{class._user.lastname}}
-			  <button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
+				{{class._user.firstname}} {{class._user.lastname}}
+				<button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 			<h3> Ta: </h3>
 			<div ng-style="repeatStyle" ng-repeat = "class in classView | filter:{roleType: 'ta' }" >
-			  {{class._user.firstname}} {{class._user.lastname}}  <button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
+				{{class._user.firstname}} {{class._user.lastname}}  <button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 			<h3> Student: </h3>
 			
 			<div ng-style="repeatStyle" ng-repeat = "class in classView | filter:{roleType: 'student' }" >
-			  {{class._user.firstname}} {{class._user.lastname}}
-			  <button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
+				{{class._user.firstname}} {{class._user.lastname}}
+				<button class="pull-right" ng-click="removeFromClass(class._user._id)"> X </button>
 			</div>
 		</div>
 	</div>

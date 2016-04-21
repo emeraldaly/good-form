@@ -2,15 +2,16 @@
 	<!-- <div class="radio">
 					<label><input type="radio" name="allDates" ng-click="editAttend(attend._id)">{{attend.date | date:'medium'}}</label>
 				</div> -->
-		<table ng-table="attendDates" class="table" show-filter="true"> 
-      <tr ng-repeat="class in $data">
-        <td title="'Date'"  sortable="'date'"> 
-        	<!-- <div class="radio"> -->
-  					<label><input ng-click="thisAttend(class._id, class.date)" type="radio" name="allClasses" ng-click=""> {{class.date | date:"shortDate"}}</label>
-  			<!-- 	</div> -->
-  			</td>
-  			<td title="'Class'" sortable="'class'" filter="{className: 'text'}" >
-  			{{class.className}}
+        <table ng-table="attendDates" class="table" show-filter="true"> 
+          <tr ng-repeat="class in $data">
+            <td title="'Date'"  sortable="'date'"> 
+             <!-- <div class="radio"> -->
+             <label><input ng-click="thisAttend(class._id, class.date)" type="radio" name="allClasses" ng-click=""> {{class.date | date:"shortDate"}}</label>
+             <!-- 	</div> -->
+           </td>
+           <td title="'Class'" sortable="'class'" filter="{className: 'text'}" >
+             {{class.className}}
+
 
   			</td>
       </tr>
@@ -19,7 +20,7 @@
    	<button class="btn btn-warning btn-block" ng-click="more = ! more"> Delete attend
    	</button>
       <div ng-show="more">
-		    <h4> Are you sure you want to deletet this class? 
+		    <h4> Are you sure you want to delete this class? 
 		    </h4>
 		    <button class="col-md-6 btn btn-sm btn-default pull-left"ng-click="deleteAttend()"> Yes </button>
 		    <button class="col-md-6 btn btn-sm btn-default pull-right"ng-click="more = ! more"> No </button>

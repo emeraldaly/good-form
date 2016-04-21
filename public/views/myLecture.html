@@ -1,4 +1,5 @@
 <div class="col-md-12 form-box" ng-controller="lecture" data-ng-init="myLecture(); getThisLecture()">
+
 	<h2>My lectures </h2>
 		<div ng-show="appState == 'show'" ng-repeat= "data in thisLecture | filter: { _id: lectureFilter}">
 				<h3 id="className">Class name: {{data.className}}</h3>

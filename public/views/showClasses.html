@@ -5,19 +5,22 @@
       <tr ng-repeat="class in $data">
         <td title="'Name'"  sortable="'name'" filter="{name: 'text'}">
         	<div class="radio">
-  					<label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
+
+  		<label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
           <!-- </div> -->
             <button class="pull-right btn btn-default btn-sm"ng-click="showDetails = ! showDetails"> More details
             </button>
             <div ng-show="showDetails">
               <p>Datetime: {{class.datetime}} </p>
 				    </div>
+
         </td>
       </tr>
-   	</table>
+    </table>
     <p class="warning">{{message}}</p>
     <button class="btn btn-warning btn-block" ng-click="editThisClass()"> Edit this class </button>
     <button class="btn btn-warning btn-block" ng-click="deleteClassButton()"> Delete this class </button>
+
       <div ng-show="deleteChoice == 'true'">
         <h4 > Are you sure you want to delete this class?
         </h4>
@@ -26,4 +29,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

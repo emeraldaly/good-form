@@ -1,4 +1,4 @@
-var User = require("../models/user");
+    var User = require("../models/user");
 var bodyParser = require('body-parser');
 var bcrypt = require("bcryptjs");
 var Organization = require("../models/organization");
@@ -194,9 +194,9 @@ exports.getUser = function(req, res) {
 //Show all users in the class
 exports.getAllUsers = function(req, res) {
   User.find({
-    _organization:req.session.organization
+    _organization: req.session.organization
   })
-  .exec(function(err, docs){
+    .exec(function(err, docs){
     if(err){
       console.log(err);
       res.send(err);

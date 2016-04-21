@@ -40,10 +40,10 @@ module.exports = function (app) {
   app.post('/login',
     passport.authenticate('login',
      { successRedirect: '/home',
-      failureRedirect: '/?msg=failure'
-    })
-  );
- app.get('/adminStatus', usrCtrl.adminStatus);
+     failureRedirect: '/?msg=failure'
+   })
+    );
+  app.get('/adminStatus', usrCtrl.adminStatus);
 
   //Org Controls
   app.get('/allOrgs', orgCtrl.showAllOrgs);
@@ -96,7 +96,7 @@ module.exports = function (app) {
   app.get('/getEvent', event.showEvent);
   app.get('/home', usrCtrl.defRoute);
 
-app.get('/logout', function (req, res){
+  app.get('/logout', function (req, res){
   // req.logOut();
   req.session.destroy(function (err) {
     res.sendFile(process.cwd() + '/public/splash.html');
@@ -146,7 +146,7 @@ function(req, username, password, done) {
         // done method which will be treated like success
         // debugger
         req.session.user = user;
-       usernameExport = user;
+        usernameExport = user;
         req.session.organization = user._doc._organization
         console.log(req.session.user)
         return done(null, user);

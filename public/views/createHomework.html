@@ -5,21 +5,22 @@
   <div ng-controller="class" ng-init="getClasses()">
     <h3 class="classH4">Class</h3>
     <!-- 		<button ng-click="showClasses()"> button? </button> -->
-  	<table ng-table="classesTable" class="table">
+    <table ng-table="classesTable" class="table">
       <tr ng-repeat="class in $data">
       	<td title="'Name'"  sortable="'name'" filter="{name: 'text'}"> 
           <div class="radio">
             <label><input type="radio" name="allClasses" ng-click="thisClass(class._id)">{{class.name}}</label>
-          <!-- </div> -->
+            <!-- </div> -->
             <button class="pull-right btn-sm btn btn-default" ng-click="showDetails = ! showDetails"> More details
             </button> 
             <div ng-show="showDetails">
               <p>datetime: {{class.datetime}} </p>
             </div>
-        </td>
-      </tr>
-    </table>
-  </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
 
   <div ng-controller="homework">
     <form ng-submit="createHomework()">
@@ -47,7 +48,7 @@
     <span class="help-block"></span>
     <input class="form-control" ng-model="duetime" placeholder="Due Time">
     <span class="help-block"></span> -->
-   <!--  <button class="btn btn-warning btn-block" ng-click="createHomework()"> Create Homework </button> -->
+    <!--  <button class="btn btn-warning btn-block" ng-click="createHomework()"> Create Homework </button> -->
   </div>
 </div>
 
