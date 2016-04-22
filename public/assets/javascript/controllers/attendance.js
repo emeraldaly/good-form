@@ -1,14 +1,5 @@
 angular.module('classApp').controller('attendance', function($scope, $stateParams,$rootScope, $state,$http, $filter, NgTableParams) {
 
-// $scope.deleteAttend = function(){
-//    $http({
-//         method: 'POST',
-//         url: '/deleteAttend'
-//       }).then(function(result) {
-//         $state.go("viewAttendDates")
-//       })
-// }
-
 $scope.viewOlderAttend = function() {
   if ($rootScope.classEdit == undefined) {
     $scope.attendMessage = "Please select a class to continue"
@@ -80,7 +71,6 @@ $scope.thisAttend = function(id, date){
 
 $scope.newAttendance = function(){
   if ($rootScope.classEdit == undefined) {
-    // $scope.allFields = "false"
     $scope.attendMessage = "Please select a class to continue"
   } 
   else{
