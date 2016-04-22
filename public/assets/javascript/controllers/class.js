@@ -39,6 +39,11 @@ $scope.removeFromClass = function(id){
   });
 }
 
+
+$scope.noDelete = function(){
+  $scope.deleteChoice = 'false'
+}
+
 $scope.createClass = function() {
   $state.go('class')
   $http({
