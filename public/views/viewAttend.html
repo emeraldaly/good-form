@@ -3,13 +3,13 @@
 	<h2> Attendance for: {{dateAttend | date:"shortDate"}} </h2>
 	<h3 class="text-center"> Not here </h3>
 	<div ng-style="repeatStyle" ng-repeat="student in students | filter:{here: false}">
-		{{student._user.firstname}} {{student._user.firstname}}
+		{{student._user.firstname}} {{student._user.lastname}}
 	</div>
 
 	<h3 class="text-center">Here</h3>
 	<div ng-style="repeatStyle" ng-repeat="student in students | filter:{here: true}">
 
-		{{student._user.firstname}} {{student._user.firstname}}
+		{{student._user.firstname}} {{student._user.lastname}}
 
 	</div>
 
