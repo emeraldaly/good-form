@@ -30,7 +30,6 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
       method: 'GET',
       url: '/orgName'
     }).then(function(result) {
-    	debugger
       $rootScope.organizationName = result.data[0].name
     });  
 	}

@@ -54,8 +54,9 @@ exports.viewAttendDates = function (req,res){
 	})
 }
 
+
 exports.getAttend = function(req,res){
-	Attendance.find({_id:req.session.editAttend})
+	Attendance.find({_class:req.session.editAttend})
 	.populate('student._user')
 	.exec(function(err, docs) {
 		if (err) {
