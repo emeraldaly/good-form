@@ -208,6 +208,23 @@ exports.getAllUsers = function(req, res) {
 
 }
 
+exports.getAllUsersGithub = function(req, res) {
+  User.find({
+    _organization: req.session.organization
+  })
+    .exec(function(err, docs){
+    if(err){
+      console.log(err);
+      res.send(err);
+    } else {
+
+      res.send(docs);
+    }
+  });
+
+}
+
+
 //Update a user's info
 exports.updateUser = function(req, res) {
 

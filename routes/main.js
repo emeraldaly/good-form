@@ -37,6 +37,7 @@ module.exports = function (app) {
   app.post('/newUser', usrCtrl.newUser);
   app.get('/getUser', usrCtrl.getUser);
   app.get('/getAllUsers', usrCtrl.getAllUsers);
+  app.get('/getAllUsersGithub', usrCtrl.getAllUsersGithub);
   app.post('/login',
     passport.authenticate('login',
      { successRedirect: '/home',

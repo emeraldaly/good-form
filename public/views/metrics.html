@@ -1,16 +1,20 @@
-<h3>Metrics: Attendance</h3>
-
-<div ng-controller="metricsController">
-<button class="btn btn-primary btn-sm" ng-click="metrics()">Attendance</button>
-<!--<button class="btn btn-primary btn-sm" ng-click="nested()">Homework</button>-->
-
-<div class="testdiv" ng-controller="metricsController" ng-init="charts=[[8, 3, 7], [2, 5, 9], [6, 2, 3], [10, 2, 3], [10, 2, 3], [10, 2, 3], [10, 2, 3], [10, 2, 3] ]">
-
-
-<attendance-chart  data="chart" ng-repeat="chart in charts"></></attendance-chart>
-
+<h3>Metrics: Repos and Commits by Student</h3>
+<style>
+.donut  {padding-left: 40px;
+        padding-bottom: 60px}
+</style>
+<div class="donut" ng-controller="metricsController" ng-init="getAllUsersGithub()">
+<form  ng-submit="githubLookup()">
+ <select name="repeatSelect" id="repeatSelect" ng-model="repeatSelect">
+          <option value={{github.github}} name="tester" ng-repeat="github in githubs">{{github.fname}} {{github.lname}}</option>
+        </select>
+  <br><br>
+  <button class="btn btn-primary btn-sm" type="submit">Get Git</button>
+</form>
   
   
+  
+  <donut-chart data="data"></donut-chart>
+  
 
-</div>
 </div>
