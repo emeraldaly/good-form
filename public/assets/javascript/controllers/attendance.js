@@ -11,7 +11,7 @@ angular.module('classApp').controller('attendance', function($scope, $stateParam
 
 $scope.viewOlderAttend = function() {
   if ($rootScope.classEdit == undefined) {
-    $scope.message = "Please select a class to continue"
+    $scope.attendMessage = "Please select a class to continue"
   } else {
     $rootScope.classEdit = undefined;
     $state.go("viewAttendDates")
@@ -81,7 +81,7 @@ $scope.thisAttend = function(id, date){
 $scope.newAttendance = function(){
   if ($rootScope.classEdit == undefined) {
     // $scope.allFields = "false"
-    $scope.message = "Please select a class to continue"
+    $scope.attendMessage = "Please select a class to continue"
   } 
   else{
    $rootScope.classEdit = undefined;
