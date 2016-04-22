@@ -20,7 +20,8 @@
 </head>
 
 <body ng-app="classApp" ng-cloak>
-  <nav class="navbar navbar-default navbarTop">
+
+  <nav class="visible-lg visible-md navbar navbar-default navbarTop">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -32,10 +33,10 @@
 
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
+  
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="navbarController">
         <ul class="nav navbar-nav">
-          <!-- <li class="active"><a href="#">Register Your Organization<span class="sr-only">(current)</span></a></li> -->
+
           <li><a href="#">Good Form<span class="sr-only">(current)</span></a></li>
 
         </ul>
@@ -49,9 +50,9 @@
 
         </ul>
       </div>
-      <!-- /.navbar-collapse -->
+
     </div>
-    <!-- /.container-fluid -->
+
   </nav>
 
 
@@ -205,8 +206,9 @@
          <!--   <a class="navbar-brand" ui-sref="home">EliezerWohl.com</a> -->
       </div>
        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
-    
         <ul class="nav navbar-nav navbar-left">
+          <li class="visible-sm visible-xs"><button class="btn btn-block btn-default" ui-sref="updateUser"><a>Account</a></button></li>
+          <li class="visible-sm visible-xs" ><button class="btn btn-block btn-default" ng-click="logout()"><a>Logout</a></button></li>
           <li ng-if="slkjdd == 'true'"><button class="btn btn-block btn-default" ui-sref="class"><a>Classes</a></button></li>
           <li ng-if="slkjdd == 'true'"><button class="btn btn-block btn-default"><a ui-sref="chat">chat</a></button></li>
           <li ng-if="slkjdd == 'true'"><button class="btn btn-block btn-default"><a ui-sref="allUsersView">User List</a></button></li>
@@ -224,12 +226,7 @@
       </div>
     </div> 
   </nav>
-      </div>
-
-
- 
-
- 
+  </div>
 
       <script type="text/javascript" src="./assets/extLibraries/socket.js"></script>
       <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
