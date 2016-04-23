@@ -56,19 +56,25 @@ exports.viewAttendDates = function (req,res){
 
 
 exports.getAttend = function(req,res){
-	Attendance.find({_class:req.session.editAttend})
+	 
+
+	console.log(req.session.editAttend)
+	Attendance.find({_id:req.session.editAttend})
 	.populate('student._user')
 	.exec(function(err, docs) {
+		
 		if (err) {
 			console.log(err);
 			res.send(err);
 		} else {
+			
 			console.log(docs)
 			res.send(docs);
 		}
 	})
 }
 exports.newAttendance = function(req,res){
+	
 	Class.find({
 		_id: req.session.editClassId
 	})
@@ -76,20 +82,17 @@ exports.newAttendance = function(req,res){
 		var className = docs[0]._doc.name;
 		console.log(docs)
 		if (err) {
-			console.log(err);
 			
+			console.log(err);
 		} else {
 			
 			var array = docs[0]._doc.role
 			var studentArray = []
-
 			for (var i = 0; i < array.length; i++) {
 				if (array[i]._doc.roleType == "student"){
 					studentArray.push(array[i])
 				}
 			}
-			
-
 			var newAttend = new Attendance({
 				_class: req.session.editClassId,
 				className:className
@@ -101,7 +104,6 @@ exports.newAttendance = function(req,res){
 				if (err) {
 					console.log(err);
 				} else {
-					
 					console.log(studentArray)
 					res.send("starting loop")
 					for (var i = 0; i < studentArray.length; i++) {
@@ -122,7 +124,6 @@ exports.newAttendance = function(req,res){
 						});
 					}
 				}
-
 			});
 		}
 	});
