@@ -11,7 +11,7 @@
             <button class="pull-right btn btn-default btn-sm"ng-click="showDetails = ! showDetails"> More details
             </button>
             <div ng-show="showDetails">
-              <p>Datetime: {{class.datetime}} </p>
+              <p>Datetime: {{class.datetime | date:"shortDate"}} </p>
 				    </div>
 
         </td>
