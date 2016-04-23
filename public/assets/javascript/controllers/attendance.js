@@ -113,6 +113,8 @@ $scope.getAttend = function(){
         method: 'GET',
         url: '/getAttend'
       }).then(function(result) {
+        debugger 
+        console.log(result)
         $scope.date = new Date();
         angular.forEach(result.data[0].student, function (eachOne){
           $scope.students.push(eachOne);
