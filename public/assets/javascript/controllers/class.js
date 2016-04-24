@@ -65,10 +65,8 @@ $scope.getAllUsers = function() {
           // get unassigned users
           console.log(response)
           var classes = response.data
-            //  console.log(classes)
             var filteredData = $filter('filter')(classes, params.filter())
             var sortedData = $filter('orderBy')(filteredData, params.orderBy());
-          // console.log(sortedData)
           return sortedData;
         });
 
@@ -118,9 +116,6 @@ $scope.updateClass = function() {
     console.log($rootScope.userUpdate)
   } else {
     console.log($rootScope.userUpdate)
-      // $state.transitionTo($state.current, $stateParams, { 
-      //       reload: true, inherit: true, notify: true
-      //     });
       $state.go($state.current, {}, {
         reload: true,
       })

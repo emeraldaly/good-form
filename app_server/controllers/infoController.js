@@ -4,7 +4,6 @@ var User = require("../models/user");
 var Info = require("../models/info");
 var webhookUri = "https://hooks.slack.com/services/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";
 
-
 exports.createInfo = function (req, res){
 	var newInfo = new Info({title: req.body.title, information:req.body.information,  class:req.session.editClassId, poster:req.session.user._id});
   newInfo.save(function (err, doc) {

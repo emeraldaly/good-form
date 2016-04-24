@@ -6,7 +6,6 @@ var User = require("../models/user");
 var Submission = require("../models/submission");
 //Post a HW submission
 exports.thisHomework = function(req, res) {
-  // 
   req.session.thisHomeworkId = req.body.homeworkId;
   res.send("got it");
 }
@@ -157,6 +156,3 @@ exports.createHw = function(req, res) {
         }
       });
 }
-  //Get all hw submissions for a specific week
-
-//Get all hw from a specific user

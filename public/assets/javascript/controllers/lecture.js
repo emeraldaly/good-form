@@ -47,7 +47,6 @@ angular.module('classApp').controller('lecture', function($scope, $stateParams,$
 				"date": $scope.date,
 			}
 		}).then(function(result) {
-		// $state.go("viewAttendDates")
 	})
 	}
 
@@ -83,7 +82,6 @@ angular.module('classApp').controller('lecture', function($scope, $stateParams,$
 				"id": $rootScope.thisLectureId
 			}
 		}).then(function(result) {
-		// $state.go("viewAttendDates")
 	})
 	}
 
@@ -137,7 +135,6 @@ angular.module('classApp').controller('lecture', function($scope, $stateParams,$
 				method: 'POST',
 				url: '/deleteLecture'
 			}).then(function(result) {
-			// $state.go("viewAttendDates")
 		})
 		}
 	}

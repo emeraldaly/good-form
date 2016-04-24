@@ -7,7 +7,6 @@ html,body
   overflow-x: hidden;
 }
 
-
 #createClass, #editClass{
   margin-top: 20px;
   margin-bottom:20px;
@@ -33,11 +32,6 @@ html,body
     border-color: black;
 }
 
-/*.navbar-collapse {
-  padding-left: 0;
-  padding-right: 0;
-}
-*/
 /*FORM HEADERS*/
 
 .form-box h2 {
@@ -144,10 +138,7 @@ color: black;
   padding-bottom: 10px;
   margin-bottom: 5%;
 }
-/*.divpadd{
-  padding: 5px;
-  margin: 0px;
-}*/
+
 a.linklogo {
   color: white;
 }

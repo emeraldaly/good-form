@@ -18,9 +18,6 @@ angular.module('classApp').controller('figController', function($scope, $state, 
 	$scope.myClass = function(){
 		$state.go('myClass');
 	};
-	$scope.chatter = function(){
-		$state.go('chat');
-	};
 	$scope.showClasses = function(){
 		$state.go('showClasses');
 	};
@@ -50,11 +47,9 @@ angular.module('classApp').controller('figController', function($scope, $state, 
 			method: 'GET',
 			url: '/adminStatus'
 		}).then(function(result){
-			console.log("results" + result.data);
 			$cookies.put('d34839d', result.data);
 			$scope.slkjdd = $cookies.get('d34839d');
-			console.log($scope.slkjdd);
-			console.log("cooked");
+		
 		})
 	}	
 })

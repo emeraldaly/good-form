@@ -1,4 +1,4 @@
-var classApp = angular.module('classApp', ['ui.bootstrap', 'ui.router', 'btford.socket-io', 'ngTable', 'ngCookies']);
+var classApp = angular.module('classApp', ['ui.bootstrap', 'ui.router', 'ngTable', 'ngCookies']);
 
 classApp.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/views/info.html')
@@ -125,10 +125,6 @@ classApp.config(function ($stateProvider, $urlRouterProvider) {
       url: '/lectureLinks',
       templateUrl: '/views/lectureLinks.html'
     })
-    // .state('login', {
-    //   url: '/splash',
-    //   templateUrl: '/splash.html'
-    // })
 });
 classApp.run(['$state', function ($state) {
   $state.transitionTo('info');
@@ -201,12 +197,7 @@ classApp.controller('loginController', ['$scope', '$http', '$state', '$rootScope
 }]);
 
 classApp.controller('fEventCalendar', function ($scope, $http) {
-  //$scope.clicked = function () {
-  // console.log('this has been clicked-hurrah!')
-  //}
   $scope.addEvent = function () {
-    // console.log('where are all the turkeys?')
-    //console.log("where does the grass grow best?")
     $http({
       method: 'POST',
       url: '/addEvent',
@@ -226,15 +217,12 @@ classApp.controller('navbarController', function ($scope, $window, $http) {
 
   $scope.logout = function () {
     $window.location.href = '/'
-      // console.log('where are all the turkeys?')
-      //console.log("where does the grass grow best?")
     $http({
       method: 'GET',
       url: '/logout',
     }).then(function (result) {
       console.log("logout hit");
     });
-
   }
 });
 
@@ -287,7 +275,7 @@ $scope.githubLookup = function () {
 });
 
 classApp.directive('donutChart', function(){
-  function link(scope, el, attr){
+  function linkster(scope, el, attr){
     var color = d3.scale.category10();
     var width = 425;
     var height = 425;
@@ -319,15 +307,9 @@ classApp.directive('donutChart', function(){
     }, true);
   }
   return {
-    link: link,
+    link: linkster,
     restrict: 'E',
     scope: { data: '=' }
   };
 });
 
-//angular.module('classApp').run(function ($rootScope, $cookies) {
-//  if ($cookies.get('token') && $cookies.get('currentUser')) {
-//    $rootScope.token = $cookies.get('token');
-//    $rootScope.currentUser = $cookies.get('currentUser');
-//  }
-//});

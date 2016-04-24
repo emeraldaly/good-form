@@ -50,10 +50,7 @@ angular.module('classApp').controller('info', function($scope, $state, $http, $f
 			.then(function(response) {
 				console.log(response)
 				var classes = response.data
-							//  console.log(classes)
-							// var filteredData = $filter('filter')(classes, params.filter())
-							// var sortedData = $filter('orderBy')(filteredData, params.orderBy());
-							// console.log(sortedData)
+						
 							return classes;
 						});
 		}
