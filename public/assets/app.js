@@ -125,10 +125,6 @@ classApp.config(function ($stateProvider, $urlRouterProvider) {
       url: '/lectureLinks',
       templateUrl: '/views/lectureLinks.html'
     })
-    // .state('login', {
-    //   url: '/splash',
-    //   templateUrl: '/splash.html'
-    // })
 });
 classApp.run(['$state', function ($state) {
   $state.transitionTo('info');
@@ -201,12 +197,7 @@ classApp.controller('loginController', ['$scope', '$http', '$state', '$rootScope
 }]);
 
 classApp.controller('fEventCalendar', function ($scope, $http) {
-  //$scope.clicked = function () {
-  // console.log('this has been clicked-hurrah!')
-  //}
   $scope.addEvent = function () {
-    // console.log('where are all the turkeys?')
-    //console.log("where does the grass grow best?")
     $http({
       method: 'POST',
       url: '/addEvent',
@@ -226,15 +217,12 @@ classApp.controller('navbarController', function ($scope, $window, $http) {
 
   $scope.logout = function () {
     $window.location.href = '/'
-      // console.log('where are all the turkeys?')
-      //console.log("where does the grass grow best?")
     $http({
       method: 'GET',
       url: '/logout',
     }).then(function (result) {
       console.log("logout hit");
     });
-
   }
 });
 
@@ -325,9 +313,3 @@ classApp.directive('donutChart', function(){
   };
 });
 
-//angular.module('classApp').run(function ($rootScope, $cookies) {
-//  if ($cookies.get('token') && $cookies.get('currentUser')) {
-//    $rootScope.token = $cookies.get('token');
-//    $rootScope.currentUser = $cookies.get('currentUser');
-//  }
-//});

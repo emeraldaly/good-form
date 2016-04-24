@@ -33,7 +33,6 @@
    var user = this;
   
 // // only hash the password if it has been modified (or is new)
-// if (!user.isModified('password')) return next();
 
 // // generate a salt
 bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
@@ -49,10 +48,6 @@ bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt) {
       });
   });
 });
-
-  // UserSchema.methods.generateHash = function(password) {
-  //   return bcrypt.hashSync(password, bcrypt.genSaltSync(8), null);
-  // };
 
 // checking if password is valid
 UserSchema.methods.validPassword = function(password) {

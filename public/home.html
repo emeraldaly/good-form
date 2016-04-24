@@ -15,7 +15,6 @@
  
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="/assets/css/mainPage.css">
-  <!--   <link rel="stylesheet" href="https://cdn.rawgit.com/esvit/ng-table/v1.0.0/dist/ng-table.min.css"> -->
   <link rel='stylesheet' href='/views/fullcalendar.css' />
 </head>
 
@@ -77,10 +76,6 @@
         <div class="form-box">
           <div id="calendar"></div>
 
-          <!--<div class="form-box col-xs-12 col-sm-10 col-sm-offset-2 col-md-5 col-md-offset-1">
-         <div class="form-top">
-          <h2>Add Event</h2>
-        </div> -->
         <div ng-controller="fEventCalendar">
           <form ng-submit="addEvent()" >
            <div class="panel-body">
@@ -100,9 +95,6 @@
     </div>
     
   </div>
-
-
-
 
 
         </div>
@@ -137,11 +129,7 @@
                     <caption>Infoboard</caption>
                   </div>
                 </li>
-              <!--   <li><img class="icon" ng-mouseenter="chatter()" src="/assets/img/chat.png" width="75px" height="75px">
-                  <div class="text-center">
-                    <caption>Chat</caption>
-                  </div>
-                </li> -->
+         
                 <li ng-if="slkjdd == 'true'"><img ng-mouseenter="allUser()" class="icon" src="/assets/img/users.png" width="75px" height="75px"> </a>
                   <div class="text-center">
                     <caption>User List</caption>
@@ -203,14 +191,12 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-         <!--   <a class="navbar-brand" ui-sref="home">EliezerWohl.com</a> -->
       </div>
        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
         <ul class="nav navbar-nav navbar-left">
           <li class="visible-sm visible-xs"><button class="btn btn-block btn-default" ui-sref="updateUser"><a>Account</a></button></li>
           <li class="visible-sm visible-xs" ><button class="btn btn-block btn-default" ng-click="logout()"><a>Logout</a></button></li>
           <li ng-if="slkjdd == 'true'"><button class="btn btn-block btn-default" ui-sref="class"><a>Classes</a></button></li>
-     <!--      <li ng-if="slkjdd == 'true'"><button class="btn btn-block btn-default" ui-sref="chat">Chat</button></li> -->
           <li ng-if="slkjdd == 'true'"><button class="btn btn-block btn-default" ui-sref="allUsersView">User List</button></li>
           <li ng-if="slkjdd == 'true'"><button class="btn btn-block btn-default" ui-sref="metrics">Metrics</button></li>
           <li ng-if="slkjdd == 'true'"><button class="btn btn-block btn-default" ui-sref="addUser">User</button></li>
@@ -221,7 +207,6 @@
           <li ng-if="slkjdd == 'false'"><button class="btn btn-block btn-default" ui-sref="myClass">My Class</button></li>
           <li ng-if="slkjdd == 'false'"><button class="btn btn-block btn-default" ui-sref="myHomework">My Homework</button></li>
           <li ng-if="slkjdd == 'false'"><button class="btn btn-block btn-default" ui-sref="myLecture">My Lectures</button></li>
-        <!-- <li><a ui-sref="music">Music</li> -->
         </ul>
       </div>
     </div> 

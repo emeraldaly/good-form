@@ -6,7 +6,6 @@ var Organization = require("../models/organization");
 
 exports.myClass = function(req, res){
   Class.find({"role._user":req.session.user._id})
-  // Class.find({"_id":{ $in:req.session.user._class}})
   .exec(function(err, doc){
     if (err){
       console.log(error)
@@ -155,7 +154,6 @@ exports.showClasses = function(req, res) {
 
 
 exports.updateThisClass = function(req, res) {
-  // 
   console.log(req.session.editClassId)
   Class.findOne({
       _id: req.session.editClassId
@@ -174,7 +172,6 @@ exports.updateThisClass = function(req, res) {
 }
 
 exports.editClassId = function(req, res) {
-    // 
     req.session.editClassId = req.body.classId
     console.log(req.body.className)
     req.session.editClassName = req.body.className

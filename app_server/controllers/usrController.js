@@ -1,27 +1,10 @@
-    var User = require("../models/user");
+var User = require("../models/user");
 var bodyParser = require('body-parser');
 var bcrypt = require("bcryptjs");
 var Organization = require("../models/organization");
 var Homework = require("../models/homework");
 var Class = require("../models/class");
 var mongoose = require("mongoose");
-// app.use(bodyParser.urlencoded({
-//   extended: false
-// }));
-
-// exports.newUser = function(req, res) {
-// console.log(req.body);
-//   passport.authenticate('local', { successRedirect: '/successRedirect',
-//                                    failureRedirect: '/login' });
-// console.log(passport.authenticate);
-// }
-
-// export.viewHomework = function(req, res){
-
-
-// }
-
-
 
 
 exports.adminStatus = function(req, res){
@@ -86,26 +69,6 @@ exports.addUser = function(req, res) {
   })
 
 }
-
-
-// 		} else {
-
-// 			console.log("saved")
-// 		}
-// 		// need req.session.organizationId
-// 		var id = "56fd84b7b49810d615bb1e21";
-// 		Organization.findByIdAndUpdate(id, {
-// 			$push: {
-// 				"user": user
-// 			}
-// 		}, {
-// 			safe: true,
-// 			upsert: true
-// 		}, function(err, model) {
-// 			console.log("it worked?")
-// 		})
-// 	})
-// }
 
 
 exports.newUser = function(req, res) {

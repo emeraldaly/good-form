@@ -3,7 +3,6 @@
 
 <h2> Complete User List </h2>
 <div ng-controller="class" data-ng-init="getAllUsers()">
-	<!-- <div class="col-md-12"> -->
 		<table ng-table="allUsers" class="table" show-filter="true">
 			<tr ng-repeat="user in $data">
 				<td title="'First'"  sortable="'firstname'" filter="{firstname: 'text'}">

@@ -18,7 +18,6 @@ var newLec = new Lecture({"github": req.body.github, "videoLink":req.body.videoL
 }
 
 exports.updateLecture=function(req, res){
-  debugger
   var id = req.session.editLecture;
   Lecture.findByIdAndUpdate(id, {$set: {
     "github": req.body.github, 
@@ -29,7 +28,6 @@ exports.updateLecture=function(req, res){
   safe: true,
   upsert: true
   }, function(err, model) {
-  debugger
   res.send("updated")
   });
 }
@@ -50,7 +48,6 @@ exports.thisLecture = function(req, res){
   res.send("gotit")
 }
 exports.deleteLecture = function(req, res){
-  debugger
   console.log(req.body.id)
   Lecture.remove({_id:req.session.editLecture}, function(err, data){
     if (err){
@@ -73,35 +70,16 @@ exports.viewLecture = function(req,res){
         res.send(docs)
       }
     })
-  // Organization.find({"_id":req.session.organization})
-  // .exec(function(err, doc){
-  //   if (err){
-  //     console.log(error)
-  //   }
-  //   else{
-  //     var orgClass = doc[0]._doc.class;
-  //     Lecture.find({"_class":{
-  //       $in:orgClass
-  //     }
-  //   }).exec(function(err,doc){
-  //     debugger
-  //     console.log(doc)
-  //   })
-
-  //   }
-  // });
-
+  
 }
 
 exports.myLecture = function (req, res){
-  debugger
   console.log(req.session.user._class)
   Lecture.find({
   _class:{ $in:req.session.user._class}
   })
   .populate("_class.")
   .exec(function(err, docs){
-    debugger
       if(err){
         console.log(err);
         res.send(err);

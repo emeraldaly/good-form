@@ -27,6 +27,4 @@ angular.module('classApp').controller('user', function($scope,  $state,$http, $f
   }
 
 
-  
-
 }) //end of controller

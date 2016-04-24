@@ -1,7 +1,5 @@
 <div ng-controller="attendance" class="form-box col-md-12" ng-init="viewAttendDates()"> 
-	<!-- <div class="radio">
-					<label><input type="radio" name="allDates" ng-click="editAttend(attend._id)">{{attend.date | date:'medium'}}</label>
-				</div> -->
+
         <table ng-table="attendDates" class="table" show-filter="true"> 
           <tr ng-repeat="class in $data">
             <td title="'Date'"  sortable="'date'"> 
