@@ -60,6 +60,6 @@ require('./routes')(app);
 //   });
 // });
 
-http.listen(PORT, function(){
+app.listen(PORT, function(){
 	console.log("listening on PORT:" + PORT);
 });
