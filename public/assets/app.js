@@ -1,4 +1,4 @@
-var classApp = angular.module('classApp', ['ui.bootstrap', 'ui.router', 'btford.socket-io', 'ngTable', 'ngCookies']);
+var classApp = angular.module('classApp', ['ui.bootstrap', 'ui.router', 'ngTable', 'ngCookies']);
 
 classApp.config(function ($stateProvider, $urlRouterProvider) {
   $urlRouterProvider.otherwise('/views/info.html')
