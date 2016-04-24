@@ -212,7 +212,6 @@ classApp.controller('fEventCalendar', function ($scope, $http) {
   }
 });
 
-
 classApp.controller('navbarController', function ($scope, $window, $http) {
 
   $scope.logout = function () {
@@ -277,8 +276,8 @@ $scope.githubLookup = function () {
 classApp.directive('donutChart', function(){
   function linkster(scope, el, attr){
     var color = d3.scale.category10();
-    var width = 425;
-    var height = 425;
+    var width = 400;
+    var height = 400;
     var min = Math.min(width, height);
     var svg = d3.select(el[0]).append('svg');
     var pie = d3.layout.pie().sort(null);
