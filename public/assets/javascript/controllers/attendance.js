@@ -85,8 +85,6 @@ $scope.newAttendance = function(){
 }
 
 $scope.updateAttend= function(id, here){
-// $state.transitionTo($state.current, angular.copy($stateParams), { reload: true, inherit: true, notify: true });
-	// $state.go("editAten")
 
 	$http({
         method: 'POST',
