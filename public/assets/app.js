@@ -287,7 +287,7 @@ $scope.githubLookup = function () {
 });
 
 classApp.directive('donutChart', function(){
-  function link(scope, el, attr){
+  function linkster(scope, el, attr){
     var color = d3.scale.category10();
     var width = 425;
     var height = 425;
@@ -319,7 +319,7 @@ classApp.directive('donutChart', function(){
     }, true);
   }
   return {
-    link: link,
+    link: linkster,
     restrict: 'E',
     scope: { data: '=' }
   };
