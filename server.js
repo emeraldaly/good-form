@@ -7,8 +7,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 
 // //Socket.io requires http to run correctly
-var http = require("http").Server(app);
-var io = require('socket.io')(http);
+//var http = require("http").Server(app);
+//var io = require('socket.io')(http);
 
 var method = require("method-override");
 
@@ -25,7 +25,7 @@ require("./app_server/models/db");
 
 require('./routes')(app);
 //require socket server
-require('./app_server/config/socketConnection')(io);
+//require('./app_server/config/socketConnection')(io);
 // io.on('connection', function(socket){
 //   //change this to logged in user's name
 //   var users = [];
