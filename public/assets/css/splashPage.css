@@ -32,7 +32,7 @@ body{
   margin-right: 5%;
 }
 button.primary{
-  background-color: 1f8c8f !important;
+  background-color: #1f8c8f !important;
 }
 
 .clear{
@@ -45,5 +45,6 @@ button.primary{
 #goodFormDesc.dropdown-menu {
   min-width: 600px;
   padding: 15px 15px;
+  border: 1px dotted;
 
 }
