@@ -40,19 +40,22 @@
 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-7 login form-box">
   <form method="POST" action="/login">
     <label for="username">Username</label>
-    <input type="text" class="form-control" name="username" ng-model="userEmail" placeholder="Enter username">
+    <input id="username" type="text" class="form-control" name="username" ng-model="userEmail" placeholder="Enter username">
     <span class="help-block"></span>
     <label for="password">Password</label>
-    <input type="password" class="form-control" name="password" ng-model="userPassword" placeholder="Enter password">
+    <input id="password" type="password" class="form-control" name="password" ng-model="userPassword" placeholder="Enter password">
     <span class="help-block"></span>
     <button type="submit" class="logbutbg btn btn-info btn-lg pull-right">Log in</button>
   </form>
+  <button class="btn btn-primary btn-lg " id="adminDemo"> Admin demo </button>
+  <button class="btn btn-primary btn-lg" id="studentDemo"> Student demo </button>
 </div>
 
   <!-- jQuery -->
   <script src="views/jquery.min.js"></script>
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script src="/assets/javascript/controllers/demoButton.js"></script>
 
 </body>
 
