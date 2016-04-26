@@ -50,6 +50,13 @@ html,body
   margin-bottom: 5%;
 }
 
+.form-boxcal{
+   background-color: #ececec;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 5%;
+}
+
 .register-span {
   text-align: center;
 }
@@ -63,10 +70,6 @@ html,body
 .scrollIt{
     height: 498px;
         overflow-y: scroll;
-}
-/*CHAT*/
-ul.msgList.pre-scrollable, ul.userList.pre-scrollable {
-  max-height: 175px;
 }
 
 span.username {
@@ -156,7 +159,7 @@ a.linklogo {
   width: 100%;
   position: absolute;
   text-align: center;
-  padding-right: 190px;
+  padding-right: 270px;
 }
 .imgbrandimg {
   height: 55px;

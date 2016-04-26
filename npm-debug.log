@@ -2,7 +2,7 @@
 1 verbose cli [ '/usr/local/bin/node',
 1 verbose cli   '/usr/local/bin/npm',
 1 verbose cli   'uninstall',
-1 verbose cli   'socket-io',
+1 verbose cli   'serve-favicon',
 1 verbose cli   '--save' ]
 2 info using npm@3.6.0
 3 info using node@v5.6.0
@@ -34,7 +34,7 @@
 19 verbose stack     at LOOP (/usr/local/lib/node_modules/npm/node_modules/slide/lib/chain.js:15:14)
 20 verbose cwd /Users/evanbates/RCB_Classwork/good-form
 21 error Darwin 15.2.0
-22 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "uninstall" "socket-io" "--save"
+22 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "uninstall" "serve-favicon" "--save"
 23 error node v5.6.0
 24 error npm  v3.6.0
 25 error code EMISSINGARG

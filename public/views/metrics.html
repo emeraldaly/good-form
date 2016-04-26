@@ -3,9 +3,12 @@
 <style>
 .donut  {padding-left: 40px;
         padding-bottom: 60px}
+  .donutform {
+    padding-left: 0px;
+  }
 </style>
-<div class="donut" ng-controller="metricsController" ng-init="getAllUsersGithub()">
-<form  ng-submit="githubLookup()">
+<div class="donutform" ng-controller="metricsController" ng-init="getAllUsersGithub()">
+<form  ng-submit="githubLookup()" class="donutform">
  <select name="repeatSelect" id="repeatSelect" ng-model="repeatSelect">
           <option value={{github.github}} name="tester" ng-repeat="github in githubs">{{github.fname}} {{github.lname}}</option>
         </select>
@@ -15,7 +18,7 @@
   
   
   
-  <donut-chart data="data"></donut-chart>
+  <donut-chart class="donut" data="data"></donut-chart>
   
 
 </div>
