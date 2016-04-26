@@ -1,4 +1,5 @@
 var express  = require('express');
+var favicon = require('serve-favicon');
 var app      = require('express')();
 var PORT     = process.env.PORT || 8080;
 var mongoose = require('mongoose');
@@ -9,6 +10,7 @@ var method = require("method-override");
 
 app.use(logger('dev'));
 app.use(express.static('public'));
+app.use(favicon(__dirname + '/public/assets/img/favicon.ico'));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({
 	extended: false
