@@ -25,7 +25,7 @@
   <div ng-controller="homework">
     <form ng-submit="createHomework()">
       <button class="btn btn-warning btn-block" ng-click="homeworkByClass()"> View all homework by class </button>
-      <h3 class="btn btn-warning btn-block" ng-click="more = ! more"> Create Homework </h3>
+      <h3 class="btn btn-warning btn-block" ng-click="more = ! more"> Create homework </h3>
       <p ng-show="allFields == 'false'"> Please enter all fields to continue </p>
       <div ng-show="more">
         <input required class="form-control" ng-model="name" placeholder="Homework name">
