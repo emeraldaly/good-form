@@ -17,6 +17,16 @@ body{
     border-color: black;
 }
 
+.logbutbg{
+  background-color: #1f8c8f; 
+  
+}
+
+button.logbutbg:hover{
+  background-color: transparent;
+  border: 1px dotted;
+}
+
 /* REGISTRATION */
 .form-box {
   background-color: rgba(255,255,255,.65);
@@ -30,9 +40,11 @@ body{
   margin-top: 34%;
   margin-right: 5%;
 }
+/*
 button.primary{
   background-color: #1f8c8f !important;
 }
+*/
 
 .clear{
   padding-bottom: 25px;
