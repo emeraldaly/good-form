@@ -11,7 +11,6 @@ body{
   border-color: transparent;
 
 }
-
 .navbar-default .navbar-nav > li > a {
     color: #1f8c8f;
     background-color: white;
@@ -44,7 +43,7 @@ button.primary{
 
 #goodFormDesc.dropdown-menu {
   min-width: 600px;
-  padding: 15px 15px;
+  padding: 15px 15px 1px 15px;
   border: 1px dotted;
 
 }
